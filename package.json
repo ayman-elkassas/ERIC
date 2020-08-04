@@ -26,6 +26,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "arch-admin": "^1.0.0"
+        "admin-control": "^1.0.0"
     }
 }

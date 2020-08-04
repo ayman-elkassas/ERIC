@@ -12,7 +12,7 @@ try {
 
     require('bootstrap');
     //include namespaces
-    require('arch-admin')
+    require('admin-control')
 } catch (e) {}
 
 /**
