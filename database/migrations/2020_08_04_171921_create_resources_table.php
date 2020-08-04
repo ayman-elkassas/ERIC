@@ -16,6 +16,7 @@ class CreateResourcesTable extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->increments('id');
             $table->string('file_name',200);
+            $table->string('file_path',200);
             $table->string('field_name',200);
             $table->integer('size');
             $table->integer('user_id')->unsigned();//fk

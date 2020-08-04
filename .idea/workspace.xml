@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/CourseFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/FieldFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/PUserFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/ResourceFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/assets/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/assets/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_04_164406_create_p_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_04_164406_create_p_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_04_171921_create_resources_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_04_171921_create_resources_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,111 +59,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="uml://DATABASE/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.SCHEMA:eric">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>DATABASE</ID>
-              <OriginalElement>b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.SCHEMA:eric</OriginalElement>
-              <nodes>
-                <node x="259.75" y="657.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.likes</node>
-                <node x="0.0" y="832.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.users</node>
-                <node x="425.25" y="0.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.p_users</node>
-                <node x="0.0" y="345.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.courses</node>
-                <node x="797.75" y="400.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.prefers</node>
-                <node x="242.0" y="832.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.failed_jobs</node>
-                <node x="632.0" y="832.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.password_resets</node>
-                <node x="438.75" y="389.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.posts</node>
-                <node x="46.75" y="646.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.subscribe_courses</node>
-                <node x="617.75" y="367.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.resources</node>
-                <node x="735.75" y="77.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.fields</node>
-                <node x="434.0" y="832.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.migrations</node>
-                <node x="438.75" y="646.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.comments</node>
-                <node x="617.75" y="657.0">b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.shares</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.posts" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.p_users">
-                  <point x="0.0" y="-81.5" />
-                  <point x="0.0" y="147.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.resources" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.fields">
-                  <point x="40.0" y="-103.5" />
-                  <point x="737.75" y="325.0" />
-                  <point x="781.75" y="325.0" />
-                  <point x="-46.0" y="70.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.prefers" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.p_users">
-                  <point x="-40.0" y="-70.5" />
-                  <point x="837.75" y="315.0" />
-                  <point x="592.65" y="315.0" />
-                  <point x="74.39999999999998" y="147.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.shares" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.posts">
-                  <point x="0.0" y="-59.5" />
-                  <point x="697.25" y="621.0" />
-                  <point x="571.25" y="621.0" />
-                  <point x="53.0" y="81.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.subscribe_courses" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.p_users">
-                  <point x="48.25" y="-70.5" />
-                  <point x="191.5" y="621.0" />
-                  <point x="194.5" y="621.0" />
-                  <point x="194.5" y="325.0" />
-                  <point x="481.05" y="325.0" />
-                  <point x="-37.19999999999999" y="147.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.comments" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.posts">
-                  <point x="0.0" y="-70.5" />
-                  <point x="0.0" y="81.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.prefers" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.fields">
-                  <point x="40.0" y="-70.5" />
-                  <point x="917.75" y="325.0" />
-                  <point x="873.75" y="325.0" />
-                  <point x="46.0" y="70.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.subscribe_courses" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.courses">
-                  <point x="-48.25" y="-70.5" />
-                  <point x="95.0" y="621.0" />
-                  <point x="92.0" y="621.0" />
-                  <point x="0.0" y="125.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.resources" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.p_users">
-                  <point x="-40.0" y="-103.5" />
-                  <point x="657.75" y="325.0" />
-                  <point x="555.45" y="325.0" />
-                  <point x="37.19999999999999" y="147.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.likes" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.posts">
-                  <point x="0.0" y="-59.5" />
-                  <point x="339.25" y="621.0" />
-                  <point x="465.25" y="621.0" />
-                  <point x="-53.0" y="81.5" />
-                </edge>
-                <edge source="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.courses" target="b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.p_users">
-                  <point x="0.0" y="-125.5" />
-                  <point x="92.0" y="315.0" />
-                  <point x="443.84999999999997" y="315.0" />
-                  <point x="-74.40000000000003" y="147.5" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="0.5904109589041099" x="-40.6906291895844" y="311.4965197215775" />
-              <SelectedNodes>
-                <node>b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.TABLE:eric.failed_jobs</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Key columns</Category>
-                <Category>Columns</Category>
-              </Categories>
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_171921_create_resources_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="18" column="37" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+        <entry file="file://$PROJECT_DIR$/database/factories/PUserFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+            <state relative-caret-position="423">
+              <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+              <folding>
+                <element signature="e#67#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/factories/PostFactory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <folding>
+                <element signature="e#67#80#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -171,80 +95,70 @@
         <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_172854_create_posts_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
-              <caret line="25" column="38" selection-start-line="22" selection-start-column="12" selection-end-line="25" selection-end-column="38" />
+              <caret line="19" column="55" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="19" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-master.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/factories/CourseFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="649">
-              <caret line="405" column="64" selection-start-line="405" selection-start-column="64" selection-end-line="405" selection-end-column="64" />
+            <state relative-caret-position="199">
+              <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
               <folding>
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#nav#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#0;n#ul#0;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#0;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#2;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#3;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#4;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#ul#5;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#67#80#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/lang/en/admin.php">
+        <entry file="file://$PROJECT_DIR$/database/factories/FieldFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+            <state relative-caret-position="251">
+              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+              <folding>
+                <element signature="e#67#83#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/lang/ar/auth.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/lang/ar/admin.php">
+        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+            <state relative-caret-position="339">
+              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_173452_create_comments_table.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_165736_create_courses_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="23" column="55" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="23" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_171651_create_fields_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="245">
-              <caret line="24" column="38" selection-start-line="21" selection-start-column="12" selection-end-line="24" selection-end-column="38" />
+              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="18" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_173706_create_shares_table.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/factories/ResourceFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="23" column="38" selection-start-line="16" selection-start-column="12" selection-end-line="23" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_173814_create_likes_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+            <state relative-caret-position="143">
+              <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+              <folding>
+                <element signature="e#67#85#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -306,8 +220,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_08_04_165736_create_courses_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_08_04_171651_create_fields_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_08_04_164406_create_p_users_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_08_04_171921_create_resources_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_08_04_173326_create_subscribe_courses_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_08_04_172854_create_posts_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_08_04_172735_create_prefers_table.php" />
@@ -315,8 +227,17 @@
         <option value="$PROJECT_DIR$/database/migrations/2020_08_04_173706_create_shares_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_08_04_173814_create_likes_table.php" />
         <option value="$PROJECT_DIR$/resources/lang/ar/admin.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/admin.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_08_04_164406_create_p_users_table.php" />
+        <option value="$PROJECT_DIR$/database/factories/PUserFactory.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_08_04_171921_create_resources_table.php" />
+        <option value="$PROJECT_DIR$/database/factories/PostFactory.php" />
+        <option value="$PROJECT_DIR$/database/factories/FieldFactory.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/database/factories/CourseFactory.php" />
+        <option value="$PROJECT_DIR$/database/factories/ResourceFactory.php" />
       </list>
     </option>
   </component>
@@ -453,33 +374,19 @@
             <path>
               <item name="ERIC" type="b2602c69:ProjectViewProjectNode" />
               <item name="ERIC" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ERIC" type="b2602c69:ProjectViewProjectNode" />
               <item name="ERIC" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="factories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ERIC" type="b2602c69:ProjectViewProjectNode" />
               <item name="ERIC" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ERIC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ERIC" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ERIC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ERIC" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -493,7 +400,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/factories" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -505,6 +412,7 @@
       <recent name="E:\Server\htdocs\ERIC\public\admin" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\database\factories" />
       <recent name="E:\Server\htdocs\ERIC\resources\lang" />
       <recent name="E:\Server\htdocs\ERIC\resources\views" />
     </key>
@@ -565,18 +473,17 @@
       <updated>1596463825500</updated>
       <workItem from="1596463849876" duration="10051000" />
       <workItem from="1596495022212" duration="3560000" />
-      <workItem from="1596537867082" duration="29831000" />
+      <workItem from="1596537867082" duration="35303000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43442000" />
+    <option name="totallyTimeSpent" value="48914000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49295774" visible="true" weight="0.28160486" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49295774" visible="true" weight="0.28160486" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5070422" side_tool="true" weight="0.18697956" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -592,7 +499,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32922536" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.63380283" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.63380283" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -723,44 +630,12 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="das://b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba/schema/eric/table/p_users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="b3eb1fb0-10ac-4243-8f9f-311690e1f9c2">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba/schema/eric/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="b3eb1fb0-10ac-4243-8f9f-311690e1f9c2">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba/schema/eric/table/courses">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="b3eb1fb0-10ac-4243-8f9f-311690e1f9c2">
           <filtering>
             <filter text="" />
           </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_164406_create_p_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_165736_create_courses_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -775,27 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_171921_create_resources_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="31" column="38" selection-start-line="24" selection-start-column="12" selection-end-line="31" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_171651_create_fields_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_172854_create_posts_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="25" column="38" selection-start-line="22" selection-start-column="12" selection-end-line="25" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -919,13 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/ar/auth.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -945,21 +792,146 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="405" column="64" selection-start-line="405" selection-start-column="64" selection-end-line="405" selection-end-column="64" />
+        <state relative-caret-position="217">
+          <caret line="406" column="60" selection-start-line="406" selection-start-column="60" selection-end-line="406" selection-end-column="60" />
           <folding>
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#nav#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#0;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#0;n#ul#0;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#0;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#2;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#3;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#ul#4;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#5;n#div#0;n#nav#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="22" selection-start-line="22" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba/schema/eric/table/p_users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="b3eb1fb0-10ac-4243-8f9f-311690e1f9c2">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba/schema/eric/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="b3eb1fb0-10ac-4243-8f9f-311690e1f9c2">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="e#67#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_164406_create_p_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_171921_create_resources_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_172854_create_posts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="19" column="55" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="19" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_165736_create_courses_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="23" column="55" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="23" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_04_171651_create_fields_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="18" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/CourseFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+          <folding>
+            <element signature="e#67#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/FieldFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding>
+            <element signature="e#67#83#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/PostFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <element signature="e#67#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/PUserFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding>
+            <element signature="e#67#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/ResourceFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+          <folding>
+            <element signature="e#67#85#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

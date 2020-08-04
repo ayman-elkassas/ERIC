@@ -23,8 +23,9 @@ class CreatePUsersTable extends Migration
             $table->string('password');
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();
-            $table->json('skills')->nullable();
-            $table->json('fields_follow')->nullable();
+            $table->string('skills')->nullable();
+            $table->string('fields_follow')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
