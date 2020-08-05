@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Posts;
+use App\Models\Posts;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -22,6 +22,5 @@ $factory->define(Posts::class, function (Faker $faker) {
         'title' => $faker->sentence,
         'desc' => $faker->paragraph,
         'user_id' => rand(1,20),
-
     ];
 });

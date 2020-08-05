@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//basic route
 Route::get('/', function () {
     return view('welcome');
 });
 
+//Admin Routes
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/post','Admin\PostController@all_post');
