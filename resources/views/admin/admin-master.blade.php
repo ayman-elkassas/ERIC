@@ -25,11 +25,14 @@
 {{--    <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/assets/css/style.css">--}}
 {{--    <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/assets/css/jquery.mCustomScrollbar.css">--}}
     <link rel="stylesheet" href="https://colorlib.com//polygon/adminty/files/assets/scss/partials/menu/_pcmenu.scss">
+
+{{--    meta--}}
+    <meta name="csrf-token" content="{{csrf_token()}}">
 </head>
 <body>
 
 {{--Page Loader--}}
-<div class="theme-loader">
+<div  class="theme-loader">
     <div class="ball-scale">
         <div class='contain'>
             <div class="ring">
@@ -420,6 +423,7 @@
                     <div class="pcoded-inner-content">
 
                         <div class="main-body">
+                            <example-component></example-component>
                             <div class="page-wrapper">
 
                                 <div class="page-header">
