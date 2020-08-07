@@ -27,20 +27,23 @@ window.Vue = require('vue');
 
 //TODO:vue-router
 //todo:first step in vue-router
-import vueRouter from 'vue-router';
+import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-//todo:Example Component
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//todo:import routes.js
+import {routes} from './routes';
 
-const routes=[
-    {path:'/foo',component:Foo},
-    {path:'/bar',component:Bar},
-];
+
+//todo:Example Component
+//  note name of component should be (name-name) as example
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('admin-main', require('./components/admin/AdminMaster').default);
 
 const router=new VueRouter({
-    routes //short for 'routes:routes'
+    routes, //short for 'routes:routes'
+    mode:'history',
 });
 const app = new Vue({
     el: '#pcoded',
+    router
 });
