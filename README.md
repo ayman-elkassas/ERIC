@@ -1,0 +1,2 @@
+# ERIC
+Laravel Template Project
