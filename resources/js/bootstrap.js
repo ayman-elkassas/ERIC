@@ -10,7 +10,9 @@ try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
 
-    require('bootstrap')
+    // require('admin-panel')
+    require('bootstrap/dist/js/bootstrap.min')
+    require('jquery/dist/jquery.min')
 
     // require('jquery/dist/jquery.min')
     // require('bootstrap/dist/js/bootstrap.min');
@@ -29,7 +31,6 @@ try {
     // require('admin-panel/files/assets/js/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min');
     // require('admin-panel/files/assets/js/rocket-loader/rocket-loader.min');
     //include namespaces
-    require('admin-panel')
 } catch (e) {}
 
 /**

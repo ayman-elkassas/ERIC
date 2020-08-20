@@ -12,22 +12,17 @@
     <meta name="keywords" content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
 
-    <link rel="icon" href="{{asset('admin/assets/images/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('admin/assets/images/favicon.png')}}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
 
     {{--Main Style--}}
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/bower_components/bootstrap/css/bootstrap.min.css">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/assets/icon/themify-icons/themify-icons.css">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/assets/icon/icofont/css/icofont.css">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/assets/icon/feather/css/feather.css">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/assets/css/style.css">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('admin')}}/assets/css/jquery.mCustomScrollbar.css">--}}
     <link rel="stylesheet" href="https://colorlib.com//polygon/adminty/files/assets/scss/partials/menu/_pcmenu.scss">
 
-{{--    meta--}}
+{{--meta--}}
     <meta name="csrf-token" content="{{csrf_token()}}">
+
 </head>
 <body>
 
@@ -430,33 +425,13 @@
 </div>
 
 {{--Scripts--}}
-<script src="{{asset('js/app.js')}}" type="9e8b5592bad3a80efa739fb4-text/javascript" ></script>
+<script src="{{asset('js/app.js')}}" type="9e8b5592bad3a80efa739fb4-text/javascript" defer></script>
 
 {{--Main js--}}
-{{--<script  src="{{asset('js/jquery.js')}}"></script>--}}
-{{--<script  src="{{asset('js/boot.js')}}"></script>--}}
-{{--<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('js/main.js')}}"></script>--}}
-{{--<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('js/scroll.js')}}"></script>--}}
-{{--<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('js/script.js')}}"></script>--}}
-
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/jquery/js/jquery.min.js"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/popper.js/js/popper.min.js"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/bootstrap/js/bootstrap.min.js"></script>
-
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/modernizr/js/modernizr.js"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/modernizr/js/css-scrollbars.js"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/i18next/js/i18next.min.js"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
-<script src="{{asset('admin')}}/assets/js/pcoded.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/assets/js/vartical-layout.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/assets/js/jquery.mCustomScrollbar.concat.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
+<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/modernizr.js"></script>
+<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/css-scrollbars.js"></script>
 
 {{--datatable--}}
-
 <script src="{{asset('admin')}}/bower_components/datatables.net/js/jquery.dataTables.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
 <script src="{{asset('admin')}}/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
 <script src="{{asset('admin')}}/assets/pages/data-table/js/jszip.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
@@ -475,16 +450,15 @@
 <script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/extension-btns-custom.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
 
 {{--public files--}}
-
-<script src="{{asset('admin')}}/bower_components/rocket-loader/rocket-loader.min.js" data-cf-settings="9e8b5592bad3a80efa739fb4-|49" defer=""></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/assets/js/script.js"></script>
+<script src="{{asset('admin')}}/rocket-loader.min.js" data-cf-settings="9e8b5592bad3a80efa739fb4-|49" defer=""></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
+
 <script type="9e8b5592bad3a80efa739fb4-text/javascript">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-23581568-13');
 </script>
+
 </body>
 </html>
