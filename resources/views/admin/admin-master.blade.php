@@ -418,36 +418,37 @@
                 </nav>
 {{--            todo:replace any component related to
                     router-link called as content of <admin-main>--}}
-                <admin-main></admin-main>
+                    <admin-main></admin-main>
             </div>
         </div>
     </div>
 </div>
 
 {{--Scripts--}}
-<script src="{{asset('js/app.js')}}" type="9e8b5592bad3a80efa739fb4-text/javascript" defer></script>
+<script src="{{mix('js/app.js')}}" type="9e8b5592bad3a80efa739fb4-text/javascript" defer></script>
 
 {{--Main js--}}
 <script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/modernizr.js"></script>
 <script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/css-scrollbars.js"></script>
 
 {{--datatable--}}
-<script src="{{asset('admin')}}/bower_components/datatables.net/js/jquery.dataTables.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/assets/pages/data-table/js/jszip.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script type="9e8b5592bad3a80efa739fb4-text/javascript" src="{{asset('admin')}}/assets/pages/data-table/js/pdfmake.min.js"></script>
-<script src="{{asset('admin')}}/assets/pages/data-table/js/vfs_fonts.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/dataTables.buttons.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/buttons.flash.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/jszip.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/vfs_fonts.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/buttons.colVis.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/bower_components/datatables.net-buttons/js/buttons.print.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/bower_components/datatables.net-buttons/js/buttons.html5.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
-<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/extension-btns-custom.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>
+{{--<script src="{{asset('admin/bower_components/jquery/js/jquery.min.js')}}"></script>--}}
+{{--<script src="{{asset('admin')}}/bower_components/datatables.net/js/jquery.dataTables.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/assets/pages/data-table/js/jszip.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/assets/pages/data-table/js/pdfmake.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript" ></script>--}}
+{{--<script src="{{asset('admin')}}/assets/pages/data-table/js/vfs_fonts.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/dataTables.buttons.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/buttons.flash.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/jszip.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/vfs_fonts.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/buttons.colVis.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/bower_components/datatables.net-buttons/js/buttons.print.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/bower_components/datatables.net-buttons/js/buttons.html5.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
+{{--<script src="{{asset('admin')}}/assets/pages/data-table/extensions/buttons/js/extension-btns-custom.js" type="9e8b5592bad3a80efa739fb4-text/javascript"></script>--}}
 
 {{--public files--}}
 <script src="{{asset('admin')}}/rocket-loader.min.js" data-cf-settings="9e8b5592bad3a80efa739fb4-|49" defer=""></script>

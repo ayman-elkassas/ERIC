@@ -8,9 +8,10 @@
 </template>
 
 <script>
-    export default {
-        name: "AdminMaster"
-    }
+
+export default {
+    name: "AdminMaster",
+}
 </script>
 
 <style scoped>

@@ -1,0 +1,16 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 12 Jun 2020 02:17:10 at https://demo.dashboardpack.com/architectui-html-pro/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://demo.dashboardpack.com/architectui-html-pro/ -O1 "E:\ArchitectUI HTML\ArchitectUI HTML" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+02:17:49	Warning: 	Retry after error -4 (No data (connection closed)) at link https://demo.dashboardpack.com/architectui-html-pro/main.d810cf0ae7f39f28f336.css (from https://demo.dashboardpack.com/architectui-html-pro/)
+02:17:49	Warning: 	Retry after error -4 (No data (connection closed)) at link https://demo.dashboardpack.com/architectui-html-pro/assets/images/dropdown-header/abstract2.jpg (from https://demo.dashboardpack.com/architectui-html-pro/)
+02:21:36	Error: 	"Not Found" (404) at link https://demo.dashboardpack.com/architectui-html-pro/content (from https://demo.dashboardpack.com/architectui-html-pro/forms-wysiwyg-editor.html)
+02:21:38	Warning: 	Retry after error -4 (No data (connection closed)) at link https://demo.dashboardpack.com/architectui-html-pro/assets/fonts/NU.svg (from https://demo.dashboardpack.com/architectui-html-pro/main.d810cf0ae7f39f28f336.css)
+02:21:38	Warning: 	Retry after error -4 (No data (connection closed)) at link https://demo.dashboardpack.com/architectui-html-pro/assets/fonts/NZ.svg (from https://demo.dashboardpack.com/architectui-html-pro/main.d810cf0ae7f39f28f336.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 4 minutes 29 seconds : 399 links scanned, 393 files written (31115180 bytes overall) [8584163 bytes received at 31911 bytes/sec], 26337383 bytes transferred using HTTP compression in 337 files, ratio 13%, 28.5 requests per connection
+(1 errors, 4 warnings, 0 messages)
