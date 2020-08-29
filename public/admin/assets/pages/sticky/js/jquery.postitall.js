@@ -210,7 +210,7 @@ var delay = (function(){
                     }
                     if(data === undefined || typeof data !== 'object') data = { };
 
-                    //Position defined by the user
+                    //Position defined by the User
                     if(!paso) {
                         if(data.posX !== undefined) {
                             posX = data.posX;
@@ -276,7 +276,7 @@ var delay = (function(){
         showMeta        : true,         //Show info icon (meta tab)
         pasteHtml       : true,         //Allow paste html in contenteditor
         htmlEditor      : true,         //Html editor (trumbowyg)
-        autoPosition    : true,         //Automatic reposition of the notes when user resize screen
+        autoPosition    : true,         //Automatic reposition of the notes when User resize screen
         addArrow        : 'back',       //Add arrow to notes : none, front, back, all
         askOnHide       : true,         //Show configuration hideUntil back-panel (getBackPanelHideUntil)
         hideUntil       : null,         //Note will be hidden since that datetime
@@ -1323,7 +1323,7 @@ var delay = (function(){
             }
         },
 
-        //When user change arrow
+        //When User change arrow
         arrowChangeOption : function(value) {
             var index = this.options.id;
             var options = this.options;
@@ -1427,7 +1427,7 @@ var delay = (function(){
             if(contentHeight > divHeight - 30) {
                 divHeight = contentHeight + htmlEditorBarHeight;
             } else if(contentHeight > options.minHeight) {
-                //Comment this line if we want to preserve user height
+                //Comment this line if we want to preserve User height
                 divHeight = contentHeight + htmlEditorBarHeight;
             }
             //console.log('newHeight',divHeight);
@@ -1499,7 +1499,7 @@ var delay = (function(){
             }
         },
 
-        // Get user selection text on page
+        // Get User selection text on page
         getSelectedText : function() {
             var text = "";
             if (window.getSelection) {
@@ -1510,7 +1510,7 @@ var delay = (function(){
             return text;
         },
 
-        // Get user selection html on page
+        // Get User selection html on page
         getSelectedHtml : function() {
             var html = "";
             if (typeof window.getSelection != "undefined") {
@@ -2552,7 +2552,7 @@ var delay = (function(){
                 }
                 //Copy note icon
                 if($.fn.postitall.globals.addNew && options.features.addNew) {
-                   
+
                     var newNote = $('<a />', {
                         'href': '#',
                         'id': 'pia_new_' + index,

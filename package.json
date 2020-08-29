@@ -28,6 +28,7 @@
     "dependencies": {
         "@popperjs/core": "^2.4.4",
         "admin-panel": "^1.0.0",
+        "admin-panel-cuba": "^1.0.0",
         "datatables.net": "^1.10.21",
         "datatables.net-bs4": "^1.10.21",
         "datatables.net-buttons": "^1.6.3",

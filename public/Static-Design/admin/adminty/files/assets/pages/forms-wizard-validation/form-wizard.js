@@ -46,11 +46,11 @@
               if (currentIndex > newIndex) {
                   return true;
               }
-              // Forbid next action on "Warning" step if the user is to young
+              // Forbid next action on "Warning" step if the User is to young
               if (newIndex === 3 && Number($("#age-2").val()) < 18) {
                   return false;
               }
-              // Needed in some cases if the user went back (clean up)
+              // Needed in some cases if the User went back (clean up)
               if (currentIndex < newIndex) {
                   // To remove error styles
                   form.find(".body:eq(" + newIndex + ") label.error").remove();
@@ -61,11 +61,11 @@
           },
           onStepChanged: function(event, currentIndex, priorIndex) {
 
-              // Used to skip the "Warning" step if the user is old enough.
+              // Used to skip the "Warning" step if the User is old enough.
               if (currentIndex === 2 && Number($("#age-2").val()) >= 18) {
                   form.steps("next");
               }
-              // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+              // Used to skip the "Warning" step if the User is old enough and wants to the previous step.
               if (currentIndex === 2 && priorIndex === 3) {
                   form.steps("previous");
               }

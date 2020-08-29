@@ -86,7 +86,7 @@
           showInfo: false, //Show info icon
           pasteHtml: false, //Allow paste html in contenteditor
           htmlEditor: false, //Html editor (trumbowyg)
-          autoPosition: true, //Automatic reposition of the notes when user resizes the screen
+          autoPosition: true, //Automatic reposition of the notes when User resizes the screen
           export: false,
           addArrow: 'back' //Add an arrow to notes : none, front, back, all
       };
@@ -171,7 +171,7 @@
           showInfo: false, //Show info icon
           pasteHtml: false, //Allow paste html in contenteditor
           htmlEditor: false, //Html editor (trumbowyg)
-          autoPosition: true, //Automatic reposition of the notes when user resizes the screen
+          autoPosition: true, //Automatic reposition of the notes when User resizes the screen
           export: false,
           addArrow: 'back' //Add an arrow to notes : none, front, back, all
       };

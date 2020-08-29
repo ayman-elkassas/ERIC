@@ -71,7 +71,7 @@ $(document).ready(function(){
 						required: "Add your city"
 					},
 					post_code: {
-						required: "Add your post code"
+						required: "Add your Post code"
 					},
 					address: {
 						required: "Add your address"

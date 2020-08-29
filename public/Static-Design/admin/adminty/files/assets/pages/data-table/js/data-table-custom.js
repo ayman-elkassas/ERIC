@@ -150,7 +150,7 @@ $(document).ready(function() {
         ]
     });
 
-    $('#dt-post').DataTable({
+    $('#dt-Post').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {

@@ -335,9 +335,9 @@ Prism.languages.sql = { comment: { pattern: /(^|[^\\])(?:\/\*[\w\W]*?\*\/|(?:--|
                     s = t.getAttribute("data-prompt") || "";
                 if ("" !== s) n = n.join('<span data-prompt="' + s + '"></span>');
                 else {
-                    var r = t.getAttribute("data-user") || "user",
+                    var r = t.getAttribute("data-User") || "user",
                         l = t.getAttribute("data-host") || "localhost";
-                    n = n.join('<span data-user="' + r + '" data-host="' + l + '"></span>') }
+                    n = n.join('<span data-User="' + r + '" data-host="' + l + '"></span>') }
                 var m = document.createElement("span");
                 m.className = "command-line-prompt", m.innerHTML = n;
                 var o = t.getAttribute("data-output") || "";
@@ -349,7 +349,7 @@ Prism.languages.sql = { comment: { pattern: /(^|[^\\])(?:\/\*[\w\W]*?\*\/|(?:--|
                     if (2 === d.length && (c = parseInt(d[1])), !isNaN(p) && !isNaN(c))
                         for (var u = p; c >= u && u <= m.children.length; u++) {
                             var N = m.children[u - 1];
-                            N.removeAttribute("data-user"), N.removeAttribute("data-host"), N.removeAttribute("data-prompt") } }
+                            N.removeAttribute("data-User"), N.removeAttribute("data-host"), N.removeAttribute("data-prompt") } }
                 e.element.innerHTML = m.outerHTML + e.element.innerHTML } } }) }();
 ! function() {
     function e(e) { this.defaults = r({}, e) }

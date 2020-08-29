@@ -26,7 +26,7 @@ function boxMinimizedUserAdd() {
 
     if (!hasItem) {
 
-        var dataUserName = _boxHidden.find('.user-info a').text();
+        var dataUserName = _boxHidden.find('.User-info a').text();
         $('#main-chat .chat-single-box.minimized .chat-dropdown').append(box_minimized_dropdownLi.format(dataId, dataUserName));
     }
 }
@@ -93,11 +93,11 @@ $(window).on('resize',function () {
 });
 $(function () {
 
-    var waveEffect = $('.user-box').attr('wave-effect');
-    var waveColor = $('.user-box').attr('wave-color');
+    var waveEffect = $('.User-box').attr('wave-effect');
+    var waveColor = $('.User-box').attr('wave-color');
     if (waveEffect == 'true') {
 
-        $('#sidebar .user-box .userlist-box').each(function (index) {
+        $('#sidebar .User-box .userlist-box').each(function (index) {
             $(this).addClass('waves-effect ' + waveColor);
         });
     }
@@ -120,7 +120,7 @@ $(document).on('click', '#main-chat .chat-single-box', function () {
     ActiveChatBox(this);
 });
 
-$(document).on('click', '#main-chat .chat-header .user-info', function () {
+$(document).on('click', '#main-chat .chat-header .User-info', function () {
 
     removeBoxCollapseClass($(this).parents('.chat-single-box'));
 
@@ -164,7 +164,7 @@ $(document).on('click', '#main-chat .chat-single-box .close', function () {
 });
 
 /*Click on username*/
-$(document).on('click', '#main-chat #sidebar .user-box .userlist-box', function () {
+$(document).on('click', '#main-chat #sidebar .User-box .userlist-box', function () {
 
     var dataId = $(this).attr('data-id');
     var dataStatus = $(this).data('status');
@@ -188,11 +188,11 @@ $(document).on('click', '#main-chat #sidebar .user-box .userlist-box', function 
     }
     if(dataStatus == "online"){
 
-    var newBox = '<li class="chat-single-box card-shadow bg-white active" data-id="{0}"><div class="had-container"><div class="chat-header p-10 bg-gray"><div class="user-info d-inline-block f-left"><div class="box-live-status bg-danger  d-inline-block m-r-10"></div><a href="#">{1}</a></div><div class="box-tools d-inline-block"><a href="#" class="mini"><i class="icofont icofont-minus f-20 m-r-10"></i></a><a class="close" href="#"><i class="icofont icofont-close f-20"></i></a></div></div><div class="chat-body p-10"><div class="message-scrooler"><div class="messages"></div></div></div><div class="chat-footer b-t-muted"><div class="input-group write-msg"><input type="text" class="form-control input-value" placeholder="Type a Message"><span class="input-group-btn"><button  id="paper-btn" class="btn btn-primary "  type="button"><i class="icofont icofont-paper-plane"></i></button></span></div></div></div></li>';
+    var newBox = '<li class="chat-single-box card-shadow bg-white active" data-id="{0}"><div class="had-container"><div class="chat-header p-10 bg-gray"><div class="User-info d-inline-block f-left"><div class="box-live-status bg-danger  d-inline-block m-r-10"></div><a href="#">{1}</a></div><div class="box-tools d-inline-block"><a href="#" class="mini"><i class="icofont icofont-minus f-20 m-r-10"></i></a><a class="close" href="#"><i class="icofont icofont-close f-20"></i></a></div></div><div class="chat-body p-10"><div class="message-scrooler"><div class="messages"></div></div></div><div class="chat-footer b-t-muted"><div class="input-group write-msg"><input type="text" class="form-control input-value" placeholder="Type a Message"><span class="input-group-btn"><button  id="paper-btn" class="btn btn-primary "  type="button"><i class="icofont icofont-paper-plane"></i></button></span></div></div></div></li>';
     }
     else{
 
-        var newBox = '<li class="chat-single-box card-shadow bg-white active" data-id="{0}"><div class="had-container"><div class="chat-header p-10 bg-gray"><div class="user-info d-inline-block f-left"><div class="box-live-status bg-danger  d-inline-block m-r-10"></div><a href="#">{1}</a></div><div class="box-tools d-inline-block"><a href="#" class="mini"><i class="icofont icofont-minus f-20 m-r-10"></i></a><a class="close" href="#"><i class="icofont icofont-close f-20"></i></a></div></div><div class="chat-body p-10"><div class="message-scrooler"><div class="messages"></div></div></div><div class="chat-footer b-t-muted"><div class="input-group write-msg"><input type="text" class="form-control input-value" placeholder="Type a Message"><span class="input-group-btn"><button  id="paper-btn" class="btn btn-primary "  type="button"><i class="icofont icofont-paper-plane"></i></button></span></div></div></div></li>';
+        var newBox = '<li class="chat-single-box card-shadow bg-white active" data-id="{0}"><div class="had-container"><div class="chat-header p-10 bg-gray"><div class="User-info d-inline-block f-left"><div class="box-live-status bg-danger  d-inline-block m-r-10"></div><a href="#">{1}</a></div><div class="box-tools d-inline-block"><a href="#" class="mini"><i class="icofont icofont-minus f-20 m-r-10"></i></a><a class="close" href="#"><i class="icofont icofont-close f-20"></i></a></div></div><div class="chat-body p-10"><div class="message-scrooler"><div class="messages"></div></div></div><div class="chat-footer b-t-muted"><div class="input-group write-msg"><input type="text" class="form-control input-value" placeholder="Type a Message"><span class="input-group-btn"><button  id="paper-btn" class="btn btn-primary "  type="button"><i class="icofont icofont-paper-plane"></i></button></span></div></div></div></li>';
     }
 
     $('#main-chat .chat-single-box').removeClass('active');

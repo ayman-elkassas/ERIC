@@ -39,7 +39,7 @@
 		this.opts = $.extend(true, {}, this.defaults, options);
 		this.maskset = undefined;
 		this.noMasksCache = options && options.definitions !== undefined;
-		this.userOptions = options || {}; //user passed options
+		this.userOptions = options || {}; //User passed options
 		this.events = {};
 		this.dataAttribute = "data-inputmask"; //data attribute prefix used for attribute binding
 		this.isRTL = this.opts.numericInput;
@@ -125,7 +125,7 @@
 			postValidation: null, //hook to postValidate the result from isValid.	Usefull for validating the entry as a whole.	args => buffer, currentResult, opts => return true/false
 			staticDefinitionSymbol: undefined, //specify a definitionSymbol for static content, used to make matches for alternators
 			jitMasking: false, //just in time masking ~ only mask while typing, can n (number), true or false
-			nullable: true, //return nothing instead of the buffertemplate when the user hasn't entered anything.
+			nullable: true, //return nothing instead of the buffertemplate when the User hasn't entered anything.
 			inputEventOnly: false, //dev option - testing inputfallback behavior
 			noValuePatching: false, //dev option - disable value property patching
 			positionCaretOnClick: "lvp", //none, lvp (based on the last valid position (default), radixFocus (position caret to radixpoint on initial click)
@@ -224,7 +224,7 @@
 			if (typeof options === "string") {
 				return this.opts[options];
 			} else if (typeof options === "object") {
-				$.extend(this.userOptions, options); //user passed options
+				$.extend(this.userOptions, options); //User passed options
 				//remask
 				if (this.el && noremask !== true) {
 					this.mask(this.el);

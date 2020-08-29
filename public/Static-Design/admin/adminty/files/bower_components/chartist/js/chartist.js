@@ -1040,7 +1040,7 @@ var Chartist = {
    * Provides options handling functionality with callback for options changes triggered by responsive options and media query matches
    *
    * @memberof Chartist.Core
-   * @param {Object} options Options set by user
+   * @param {Object} options Options set by User
    * @param {Array} responsiveOptions Optional functions to add responsive behavior to chart
    * @param {Object} eventEmitter The event emitter that will be used to emit the options changed events
    * @return {Object} The consolidated options object from the defaults, base and matching responsive options
@@ -1121,7 +1121,7 @@ var Chartist = {
    * @memberof Chartist.Core
    * @param {Array} pathCoordinates List of point coordinates to be split in the form [x1, y1, x2, y2 ... xn, yn]
    * @param {Array} values List of associated point values in the form [v1, v2 .. vn]
-   * @param {Object} options Options set by user
+   * @param {Object} options Options set by User
    * @return {Array} List of segments, each containing a pathCoordinates and valueData property.
    */
   Chartist.splitIntoSegments = function(pathCoordinates, valueData, options) {

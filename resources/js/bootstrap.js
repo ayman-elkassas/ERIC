@@ -14,23 +14,6 @@ try {
     require('bootstrap/dist/js/bootstrap.min')
     require('jquery/dist/jquery.min')
 
-    // require('jquery/dist/jquery.min')
-    // require('bootstrap/dist/js/bootstrap.min');
-    // require('admin-panel/files/assets/js/jquery-ui/js/jquery-ui.min');
-    // require('admin-panel/files/assets/js/popper.js/js/popper.min');
-    // require('admin-panel/files/assets/js/jquery-slimscroll/js/jquery.slimscroll');
-    // require('admin-panel/files/assets/js/modernizr/js/modernizr');
-    // require('admin-panel/files/assets/js/modernizr/js/css-scrollbars');
-    // require('admin-panel/files/assets/js/i18next/js/i18next.min');
-    // require('admin-panel/files/assets/js/i18next-xhr-backend/js/i18nextXHRBackend.min');
-    // require('admin-panel/files/assets/js/jquery-i18next/js/jquery-i18next.min');
-    // require('admin-panel/files/assets/js/pcoded.min');
-    // require('admin-panel/files/assets/js/vartical-layout.min');
-    // require('admin-panel/files/assets/js/jquery.mCustomScrollbar.concat.min');
-    // require('admin-panel/files/assets/js/script');
-    // require('admin-panel/files/assets/js/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min');
-    // require('admin-panel/files/assets/js/rocket-loader/rocket-loader.min');
-    //include namespaces
 } catch (e) {}
 
 /**

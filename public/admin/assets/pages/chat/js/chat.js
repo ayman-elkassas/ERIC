@@ -3,7 +3,7 @@ $(document).ready(function() {
     var chatbg = $(window).height()-57;
     $('.chat-bg').css('min-height', chatbg);
     var a = $(window).height() - 70;
-    $(".user-box").slimScroll({
+    $(".User-box").slimScroll({
         height: a,
         allowPageScroll: false,
         color: '#000'

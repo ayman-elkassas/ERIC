@@ -1101,7 +1101,7 @@
         "^" +
         // protocol identifier
         "(?:(?:" + schemes.join("|") + ")://)" +
-        // user:pass authentication
+        // User:pass authentication
         "(?:\\S+(?::\\S*)?@)?" +
         "(?:";
 

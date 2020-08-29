@@ -410,7 +410,7 @@
 				_on(ownerDocument, 'touchcancel', _this._onDrop);
 
 				if (options.delay) {
-					// If the user moves the pointer or let go the click or touch
+					// If the User moves the pointer or let go the click or touch
 					// before the delay has been reached:
 					// disable the delayed drag
 					_on(ownerDocument, 'mouseup', _this._disableDelayedDrag);
@@ -457,11 +457,11 @@
 			}
 
 			try {
-				if (document.selection) {					
-					// Timeout neccessary for IE9					
+				if (document.selection) {
+					// Timeout neccessary for IE9
 					setTimeout(function () {
 						document.selection.empty();
-					});					
+					});
 				} else {
 					window.getSelection().removeAllRanges();
 				}

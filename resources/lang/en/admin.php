@@ -4,7 +4,7 @@ return [
     'mem'=>[
         'member'=>'Members',
         'admin'=>'Admins',
-        'user'=>'Users'
+        'User'=>'Users'
     ],
     'eric_sys'=>[
         'res'=>[
@@ -21,8 +21,8 @@ return [
         'field'=>[
             'field'=>'Fields'
         ],
-        'post'=>[
-            'post'=>'Posts'
+        'Post'=>[
+            'Post'=>'Posts'
         ],
         'subscribe'=>[
             'subscribe'=>'Subscribe Course'

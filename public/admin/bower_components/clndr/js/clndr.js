@@ -143,7 +143,7 @@
 
         this.element = element;
 
-        // Merge the default options with user-provided options
+        // Merge the default options with User-provided options
         this.options = $.extend(true, {}, defaults, options);
 
         // Check if moment was passed in as a dependency
@@ -865,7 +865,7 @@
             }
 
             // Today? We could put this in init(), but we want to support the
-            // user changing the constraints on a living instance.
+            // User changing the constraints on a living instance.
             if ( (start && start.isAfter( moment(), 'month' ))
                 || (end && end.isBefore( moment(), 'month' )) )
             {
@@ -976,7 +976,7 @@
     };
 
     /**
-     * If the user provided a click callback we'd like to give them something
+     * If the User provided a click callback we'd like to give them something
      * nice to work with. buildTargetObject takes the DOM element that was
      * clicked and returns an object with the DOM element, events, and the date
      * (if the latter two exist). Currently it is based on the id, however it'd

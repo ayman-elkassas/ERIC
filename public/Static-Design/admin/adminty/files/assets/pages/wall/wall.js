@@ -18,12 +18,12 @@
 
 
 
-      $('#post-new').hide();
-      $('#post-message').keyup(function() {
+      $('#Post-new').hide();
+      $('#Post-message').keyup(function() {
           if (($(this).val() != "")) {
-              $('#post-new').show();
+              $('#Post-new').show();
           } else
-              $('#post-new').hide();
+              $('#Post-new').hide();
       });
 
   });

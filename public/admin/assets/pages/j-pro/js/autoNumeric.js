@@ -110,7 +110,7 @@
     }
 
     /**
-     * Preparing user defined options for further usage
+     * Preparing User defined options for further usage
      * merge them with defaults appropriately
      */
     function autoCode($this, settings) {
@@ -120,7 +120,7 @@
             vmin = (!settings.vMin && settings.vMin !== 0) ? [] : settings.vMin.toString().split('.');
         convertKeyToNumber(settings, 'vMax');
         convertKeyToNumber(settings, 'vMin');
-        convertKeyToNumber(settings, 'mDec'); /** set mDec if not defined by user */
+        convertKeyToNumber(settings, 'mDec'); /** set mDec if not defined by User */
         settings.mDec = (settings.mRound === 'CHF') ? '2' : settings.mDec;
         settings.allowLeading = true;
         settings.aNeg = settings.vMin < 0 ? '-' : '';
@@ -942,7 +942,7 @@
                             setValue = false;
                         }
                          /** checks for page reload from back button
-                          * also checks for ASP.net form post back
+                          * also checks for ASP.net form Post back
                           * the following HTML data attribute is REQUIRED (data-an-default="same value as the value attribute")
                           * example: <asp:TextBox runat="server" id="someID" value="1234.56" data-an-default="1234.56">
                           */

@@ -53,7 +53,7 @@ body .fc { /* extra precedence to overcome jqui */
 	background: #fcf8e3;
 }
 
-.fc-highlight { /* when user is selecting cells */
+.fc-highlight { /* when User is selecting cells */
 	background: #bce8f1;
 	opacity: .3;
 }
@@ -184,7 +184,7 @@ NOTE: use percentage font sizes or else old IE chokes
 
 /* Firefox has an annoying inner border */
 .fc button::-moz-focus-inner { margin: 0; padding: 0; }
-	
+
 .fc-state-default { /* non-theme */
 	border: 1px solid;
 }
@@ -207,7 +207,7 @@ NOTE: use percentage font sizes or else old IE chokes
 	margin: 0 .2em;
 	vertical-align: middle;
 }
-	
+
 /*
   button states
   borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
@@ -428,7 +428,7 @@ a[data-goto]:hover {
 	border-right: 0 hidden transparent;
 
 	/* no bottom borders on rows */
-	border-bottom: 0 hidden transparent; 
+	border-bottom: 0 hidden transparent;
 }
 
 .fc-row:first-child table {
@@ -592,7 +592,7 @@ temporary rendered events).
 	/* 40x40 touch area */
 	content: "";
 	position: absolute;
-	z-index: 9999; /* user of this util can scope within a lower z-index */
+	z-index: 9999; /* User of this util can scope within a lower z-index */
 	top: 50%;
 	left: 50%;
 	width: 40px;
@@ -852,7 +852,7 @@ a.fc-more:hover {
 .fc .fc-toolbar > * > :first-child { /* extra precedence to override button border margins */
 	margin-left: 0;
 }
-	
+
 /* title text */
 
 .fc-toolbar h2 {
@@ -869,7 +869,7 @@ a.fc-more:hover {
 .fc-toolbar .ui-state-hover {
 	z-index: 2;
 }
-	
+
 .fc-toolbar .fc-state-down {
 	z-index: 3;
 }
@@ -913,7 +913,7 @@ a.fc-more:hover {
 .fc-basicWeek-view .fc-content-skeleton,
 .fc-basicDay-view .fc-content-skeleton {
 	/* there may be week numbers in these views, so no padding-top */
-	padding-bottom: 1em; /* ensure a space at bottom of cell for user selecting/clicking */
+	padding-bottom: 1em; /* ensure a space at bottom of cell for User selecting/clicking */
 }
 
 .fc-basic-view .fc-body .fc-row {

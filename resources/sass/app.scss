@@ -1,23 +1,22 @@
+//todo:without internet connection all fonts like empty square
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+//@import "font.css";
 
 // Variables
 @import 'variables';
 
 // Bootstrap
-//@import '~bootstrap/scss/bootstrap';
-
-//include Styles
-@import '~admin-panel/files/assets/js/bootstrap/css/bootstrap.min.css';
-@import '~admin-panel/files/assets/icon/themify-icons/themify-icons.css';
-@import '~admin-panel/files/assets/icon/icofont/css/icofont.css';
-@import '~admin-panel/files/assets/icon/feather/css/feather.css';
-//for datatables
-@import "~admin-panel/files/assets/js/datatables.net-bs4/css/dataTables.bootstrap4.min.css";
-@import "~admin-panel/files/assets/pages/data-table/css/buttons.dataTables.min.css";
-@import "~admin-panel/files/assets/js/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css";
-@import "~admin-panel/files/assets/pages/data-table/extensions/buttons/css/buttons.dataTables.min.css";
-@import '~admin-panel/files/assets/css/style.css';
-@import '~admin-panel/files/assets/css/jquery.mCustomScrollbar.css';
-
-
+@import '~bootstrap/scss/bootstrap';
+@import "~admin-panel-cuba/assets/css/all.css";
+@import "~admin-panel-cuba/assets/css/icofont.css";
+@import "~admin-panel-cuba/assets/css/themify.css";
+@import "~admin-panel-cuba/assets/css/flag-icon.css";
+@import "~admin-panel-cuba/assets/css/feather-icon.css";
+@import "~admin-panel-cuba/assets/css/bootstrap.css";
+@import "~admin-panel-cuba/assets/css/style.css";
+@import "~admin-panel-cuba/assets/css/color-1.css";
+@import "~admin-panel-cuba/assets/css/responsive.css";
+@import "~admin-panel-cuba/assets/css/animate.css";
+@import "~admin-panel-cuba/assets/css/chartist.css";
+@import "~admin-panel-cuba/assets/css/date-picker.css";

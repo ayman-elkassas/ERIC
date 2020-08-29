@@ -211,7 +211,7 @@
 
         /**
          * Search note in DB and render search result
-         * @param  {string} term Search term given by user
+         * @param  {string} term Search term given by User
          * @return {void}
          */
         search: function(term) {

@@ -108,13 +108,13 @@
       });
 
 
-      $('#post-new').hide();
+      $('#Post-new').hide();
 
-      $('#post-message').keyup(function() {
+      $('#Post-message').keyup(function() {
           if (($(this).val() != "")) {
-              $('#post-new').show();
+              $('#Post-new').show();
           } else
-              $('#post-new').hide();
+              $('#Post-new').hide();
       });
 
           // Minimum setup

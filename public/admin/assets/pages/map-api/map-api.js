@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
             var el = document.getElementById('map-1'),
                 doc_height =
                 $(document).height() - 10 -
-                $(".main-content > .user-info-navbar").outerHeight() -
+                $(".main-content > .User-info-navbar").outerHeight() -
                 $(".main-content > .page-title").outerHeight() -
                 $(".google-map-env .map-toolbar").outerHeight();
 

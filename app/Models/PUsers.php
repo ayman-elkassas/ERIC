@@ -3,11 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class PUsers extends Model
+
+class PUsers extends Authenticatable
 {
+
     //Many relation
-    //Make Relationships as Eloquent (1-M) user,post (each user has many posts)
+    //Make Relationships as Eloquent (1-M) User,Post (each User has many posts)
     public function posts():object {
         return $this->hasMany(Posts::class);
     }

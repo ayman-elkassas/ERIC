@@ -22,7 +22,11 @@ Route::get('/', function () {
 //Admin Routes
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/post','Admin\PostController@all_post');
+Route::get('/Post','Admin\PostController@all_post');
 //todo:any path forward to index adminPanel page
-Route::get('/{anypath}','HomeController@index')
-    ->where('path','.*');
+
+Route::get('/{any}', function () {
+    return view('admin.admin-master');
+})->where('any', '.*');
+
+

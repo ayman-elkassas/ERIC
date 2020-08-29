@@ -2,7 +2,7 @@
      /***************************************/
      /* Popup menu forms */
      /***************************************/
-     // If user clicks on the 'subscribe' item
+     // If User clicks on the 'subscribe' item
      // Open popup-menu subscribe form
      $('#sub-popup-menu').on('click', function() {
          if ($('#sub-popup-menu .popup-list-wrapper').css('display') == 'none') {
@@ -14,7 +14,7 @@
              });
          }
      });
-     // If user clicks on the 'login' item
+     // If User clicks on the 'login' item
      // Open popup-menu login form
      $('#log-popup-menu').on('click', function() {
          if ($('#log-popup-menu .popup-list-wrapper').css('display') == 'none') {
@@ -26,7 +26,7 @@
              });
          }
      });
-     // If user clicks on the 'registration' item
+     // If User clicks on the 'registration' item
      // Open popup-menu registration form
      $('#reg-popup-menu').on('click', function() {
          if ($('#reg-popup-menu .popup-list-wrapper').css('display') == 'none') {
@@ -40,7 +40,7 @@
      });
 
      // Add an event listener
-     // If user clicks outside a form
+     // If User clicks outside a form
      // The form will disappear
      $(document).on('click touchstart', function(event) {
          // Close popup-menu 'subscribe' form

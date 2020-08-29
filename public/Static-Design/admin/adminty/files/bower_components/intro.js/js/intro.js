@@ -54,7 +54,7 @@
       exitOnOverlayClick: true,
       /* Show step numbers in introduction? */
       showStepNumbers: true,
-      /* Let user use keyboard to navigate the tour? */
+      /* Let User use keyboard to navigate the tour? */
       keyboardNavigation: true,
       /* Show tour control buttons? */
       showButtons: true,
@@ -253,10 +253,10 @@
           //srcElement === ie
           var target = e.target || e.srcElement;
           if (target && target.className.indexOf('introjs-prevbutton') > 0) {
-            //user hit enter while focusing on previous button
+            //User hit enter while focusing on previous button
             _previousStep.call(self);
           } else if (target && target.className.indexOf('introjs-skipbutton') > 0) {
-            //user hit enter while focusing on skip button
+            //User hit enter while focusing on skip button
             if (self._introItems.length - 1 == self._currentStep && typeof (self._introCompleteCallback) === 'function') {
                 self._introCompleteCallback.call(self);
             }
@@ -376,7 +376,7 @@
     if (continueStep === false) {
       --this._currentStep;
       return false;
-    } 
+    }
 
     if ((this._introItems.length) <= this._currentStep) {
       //end of the intro
@@ -456,7 +456,7 @@
     var continueExit = true;
 
     // calling onbeforeexit callback
-    // 
+    //
     // If this callback return `false`, it would halt the process
     if (this._introBeforeExitCallback != undefined) {
       continueExit = this._introBeforeExitCallback.call(self);
@@ -1698,7 +1698,7 @@
       _setAnchorAsButton(hint);
 
       (function (hint, item, i) {
-        // when user clicks on the hint element
+        // when User clicks on the hint element
         hint.onclick = function(e) {
           var evt = e ? e : window.event;
           if (evt.stopPropagation)    evt.stopPropagation();
@@ -1806,7 +1806,7 @@
   }
 
   /**
-   * Triggers when user clicks on the hint element
+   * Triggers when User clicks on the hint element
    *
    * @api private
    * @method _showHintDialog

@@ -134,7 +134,7 @@
                     // read-only state
                     readOnly: self.options.readonly,
 
-                    // did the user already select a rating?
+                    // did the User already select a rating?
                     ratingMade: false
                 });
             };

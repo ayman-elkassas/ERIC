@@ -1909,7 +1909,7 @@ c3_chart_internal_fn.bindResize = function () {
             wrapper = $$.generateResize();
             wrapper.add(window.onresize);
         }
-        // add this graph to the wrapper, we will be removed if the user calls destroy
+        // add this graph to the wrapper, we will be removed if the User calls destroy
         wrapper.add($$.resizeFunction);
         window.onresize = wrapper;
     }

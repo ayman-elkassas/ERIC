@@ -1218,7 +1218,7 @@ function formatNumber(value,format,roundingFunction,sep){var negP=false,signed=f
     };
 
     /**
-     * This function allow the user to set a new language with a fallback if
+     * This function allow the User to set a new language with a fallback if
      * the language does not exist. If no fallback language is provided,
      * it fallbacks to english.
      *
@@ -1242,7 +1242,7 @@ function formatNumber(value,format,roundingFunction,sep){var negP=false,signed=f
     };
 
     /**
-     * This function allow the user to set a new culture with a fallback if
+     * This function allow the User to set a new culture with a fallback if
      * the culture does not exist. If no fallback culture is provided,
      * it falls back to "en-US".
      */
@@ -1977,7 +1977,7 @@ module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
         while(index--)$instance[ADDER](index, index);
         return !$instance.has(-0);
       });
-    if(!ACCEPT_ITERABLES){ 
+    if(!ACCEPT_ITERABLES){
       C = wrapper(function(target, iterable){
         anInstance(target, C, NAME);
         var that = inheritIfRequired(new Base, target, C);
@@ -2362,7 +2362,7 @@ function Core(rootElement, userSettings) {
       eventManager = new _eventManager2.default(instance);
 
   (0, _object.extend)(GridSettings.prototype, _defaultSettings2.default.prototype); // create grid settings as a copy of default settings
-  (0, _object.extend)(GridSettings.prototype, userSettings); // overwrite defaults with user settings
+  (0, _object.extend)(GridSettings.prototype, userSettings); // overwrite defaults with User settings
   (0, _object.extend)(GridSettings.prototype, expandType(userSettings));
 
   this.rootElement = rootElement;
@@ -3910,7 +3910,7 @@ function Core(rootElement, userSettings) {
    * Use it if you need to change configuration after initialization. The `settings` parameter is an object containing the new
    * settings, declared the same way as in the initial settings object.
    * Note, that although the `updateSettings` method doesn't overwrite the previously declared settings, it might reset
-   * the settings made post-initialization. (for example - ignore changes made using the columnResize feature).
+   * the settings made Post-initialization. (for example - ignore changes made using the columnResize feature).
    *
    * @memberof Core#
    * @function updateSettings
@@ -3994,7 +3994,7 @@ function Core(rootElement, userSettings) {
         // shortcut for prototype
         proto = priv.columnSettings[j].prototype;
 
-        // Use settings provided by user
+        // Use settings provided by User
         if (columnSetting) {
           if (columnsAsFunc) {
             column = columnSetting(i);
@@ -4727,7 +4727,7 @@ function Core(rootElement, userSettings) {
   };
 
   /**
-   * Checks if the data format and config allows user to modify the column structure.
+   * Checks if the data format and config allows User to modify the column structure.
    * @returns {boolean}
    */
   this.isColumnModificationAllowed = function () {
@@ -5459,7 +5459,7 @@ function Core(rootElement, userSettings) {
 
     for (var i in instance) {
       if ((0, _object.hasOwnProperty)(instance, i)) {
-        // replace instance methods with post mortem
+        // replace instance methods with Post mortem
         if ((0, _function.isFunction)(instance[i])) {
           instance[i] = postMortem;
         } else if (i !== 'guid') {
@@ -8209,7 +8209,7 @@ DefaultSettings.prototype = {
    * Defines the cursor movement after <kbd>ENTER</kbd> was pressed (<kbd>SHIFT</kbd> + <kbd>ENTER</kbd> uses a negative vector).
    * Can be an object or a function that returns an object. The event argument passed to the function
    * is a DOM Event object received after the <kbd>ENTER</kbd> key has been pressed. This event object can be used to check
-   * whether user pressed <kbd>ENTER</kbd> or <kbd>SHIFT</kbd> + <kbd>ENTER</kbd>.
+   * whether User pressed <kbd>ENTER</kbd> or <kbd>SHIFT</kbd> + <kbd>ENTER</kbd>.
    *
    * @type {Object|Function}
    * @default {row: 1, col: 0}
@@ -8220,7 +8220,7 @@ DefaultSettings.prototype = {
    * Defines the cursor movement after <kbd>TAB</kbd> is pressed (<kbd>SHIFT</kbd> + <kbd>TAB</kbd> uses a negative vector).
    * Can be an object or a function that returns an object. The event argument passed to the function
    * is a DOM Event object received after the <kbd>TAB</kbd> key has been pressed. This event object can be used to check
-   * whether user pressed <kbd>TAB</kbd> or <kbd>SHIFT</kbd> + <kbd>TAB</kbd>.
+   * whether User pressed <kbd>TAB</kbd> or <kbd>SHIFT</kbd> + <kbd>TAB</kbd>.
    *
    * @type {Object}
    * @default {row: 0, col: 1}
@@ -8403,7 +8403,7 @@ DefaultSettings.prototype = {
   /**
    * If set to `true`, Handsontable will accept values that were marked as invalid by the cell `validator`.
    * It will result with *invalid* cells being treated as *valid* (will save the *invalid* value into the Handsontable data source).
-   * If set to `false`, Handsontable will *not* accept the invalid values and won't allow the user to close the editor.
+   * If set to `false`, Handsontable will *not* accept the invalid values and won't allow the User to close the editor.
    * This option will be particularly useful when used with the Autocomplete's `strict` mode.
    *
    * @type {Boolean}
@@ -9652,7 +9652,7 @@ DefaultSettings.prototype = {
   sortByRelevance: true,
 
   /**
-   * If defined as 'true', when the user types into the input area the Autocomplete's suggestion list is updated to only
+   * If defined as 'true', when the User types into the input area the Autocomplete's suggestion list is updated to only
    * include those choices starting with what has been typed; if defined as 'false' all suggestions remain shown, with
    * those matching what has been typed marked in bold.
    *
@@ -14462,7 +14462,7 @@ var Overlays = function () {
   }
 
   /**
-   * Prepare overlays based on user settings.
+   * Prepare overlays based on User settings.
    *
    * @returns {Boolean} Returns `true` if changes applied to overlay needs scroll synchronization.
    */
@@ -16414,7 +16414,7 @@ var Table = function () {
     }
 
     /**
-     * Modify row header widths provided by user in class contructor.
+     * Modify row header widths provided by User in class contructor.
      *
      * @private
      */
@@ -16558,7 +16558,7 @@ var TableRenderer = function () {
         this.adjustAvailableNodes();
         adjusted = true;
 
-        // adjust column widths according to user widths settings
+        // adjust column widths according to User widths settings
         this.renderColumnHeaders();
 
         // Render table rows
@@ -22571,7 +22571,7 @@ DataMap.prototype.set = function (row, prop, value, source) {
 };
 
 /**
- * This ridiculous piece of code maps rows Id that are present in table data to those displayed for user.
+ * This ridiculous piece of code maps rows Id that are present in table data to those displayed for User.
  * The trick is, the physical row id (stored in settings.data) is not necessary the same
  * as the visual (displayed) row id (e.g. when sorting is applied).
  *
@@ -26014,7 +26014,7 @@ var AutoRowSize = function (_BasePlugin) {
       }
 
       (0, _number.rangeEach)(rowRange.from, rowRange.to, function (row) {
-        // For rows we must calculate row height even when user had set height value manually.
+        // For rows we must calculate row height even when User had set height value manually.
         // We can shrink column but cannot shrink rows!
         if (force || _this3.heights[row] === void 0) {
           var _samples = _this3.samplesGenerator.generateRowSamples(row, colRange);
@@ -29733,7 +29733,7 @@ var ContextMenu = function (_BasePlugin) {
           return _this2.executeCommand.apply(_this2, params);
         });
 
-        // Register all commands. Predefined and added by user or by plugins
+        // Register all commands. Predefined and added by User or by plugins
         (0, _array.arrayEach)(menuItems, function (command) {
           return _this2.commandExecutor.registerCommand(command.key, command);
         });
@@ -36166,7 +36166,7 @@ var ManualRowMove = function (_BasePlugin) {
     }
 
     /**
-     * `beforeColumnSort` hook callback. If user uses the sorting, manual row moving is disabled.
+     * `beforeColumnSort` hook callback. If User uses the sorting, manual row moving is disabled.
      *
      * @private
      * @param {Number} column Column index where soring is present
@@ -38369,7 +38369,7 @@ var MultipleSelectionHandles = function (_BasePlugin) {
     }
 
     /**
-     * Check if user is currently dragging the handle.
+     * Check if User is currently dragging the handle.
      *
      * @returns {boolean} Dragging state
      */
@@ -44163,9 +44163,9 @@ webpackContext.id = 418;
             if (typeof this._o.onDraw === 'function') {
                 this._o.onDraw(this);
             }
-            
+
             if (opts.bound) {
-                // let the screen reader user know to use arrow keys
+                // let the screen reader User know to use arrow keys
                 opts.field.setAttribute('aria-label', 'Use the arrow keys to pick a date');
             }
         },
