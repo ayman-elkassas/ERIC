@@ -26,43 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
-      <change afterPath="$PROJECT_DIR$/Templates/permissions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/InitTable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PermissionTable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TableData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/enso/tables.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eric.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin-cuba/assets/js/dropzone/dropzone.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/vendor/admin-panel-cuba/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/vendor/admin-panel-cuba/sort_asc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/vendor/admin-panel-cuba/sort_asc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/vendor/admin-panel-cuba/sort_both.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/vendor/admin-panel-cuba/sort_desc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/vendor/admin-panel-cuba/sort_desc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ERIC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ERIC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin-cuba/assets/js/theme-customizer/customizer.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin-cuba/assets/js/theme-customizer/customizer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/New.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/New.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/template/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/template/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/example/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/example/ExampleComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/old/app-before.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/old/font.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin-master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +208,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -387,7 +358,7 @@
       <workItem from="1599300219951" duration="27789000" />
       <workItem from="1599338421196" duration="6815000" />
       <workItem from="1599347150628" duration="9501000" />
-      <workItem from="1599741007904" duration="14657000" />
+      <workItem from="1599741007904" duration="22414000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -456,22 +427,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1597406623916" />
-    <state width="1322" height="267" key="GridCell.Tab.0.bottom" timestamp="1599762239881">
+    <state width="1322" height="267" key="GridCell.Tab.0.bottom" timestamp="1599771346603">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="267" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1599762239881" />
-    <state width="1322" height="267" key="GridCell.Tab.0.center" timestamp="1599762239881">
+    <state width="1322" height="267" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1599771346603" />
+    <state width="1322" height="267" key="GridCell.Tab.0.center" timestamp="1599771346603">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="267" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1599762239881" />
-    <state width="1322" height="267" key="GridCell.Tab.0.left" timestamp="1599762239881">
+    <state width="1322" height="267" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1599771346603" />
+    <state width="1322" height="267" key="GridCell.Tab.0.left" timestamp="1599771346603">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="267" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1599762239881" />
-    <state width="1322" height="267" key="GridCell.Tab.0.right" timestamp="1599762239881">
+    <state width="1322" height="267" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1599771346603" />
+    <state width="1322" height="267" key="GridCell.Tab.0.right" timestamp="1599771346603">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="267" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1599762239881" />
+    <state width="1322" height="267" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1599771346603" />
     <state x="129" y="55" key="MergeDialog" timestamp="1597542580005">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -492,10 +463,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1597408336172" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1598740309763">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1599762727993">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1598740309763" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1599762727993" />
     <state x="413" y="173" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1598616864493">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

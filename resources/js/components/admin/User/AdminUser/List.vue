@@ -10,34 +10,46 @@
                 <button class="btn btn-pill btn-primary btn-air-primary" type="button" data-original-title="btn btn-pill btn-secondary btn-air-secondary btn-air-secondary" title=""><router-link style="color: white" to="/admin-add" data-turbolinks="true"><i class="fa fa-plus"></i> Add Admin</router-link></button>
             </div>
 
-<!--            <vue-table class="box is-paddingless raises-on-hover is-rounded"-->
-<!--                       path="route('initTable')"-->
-<!--                       :error-handler="myErrorHandler"-->
-<!--                       :intervals="intervals"-->
-<!--                       :i18n="myI18n"-->
-<!--                       id="example"/>-->
+<!--            table-->
+            <div>
+                <code>query: {{ query }}</code>
+                <v-datatable v-bind="$data" />
+            </div>
+
 
         </div>
     </div>
 </template>
 
 <script>
+//continue https://github.com/OneWayTech/vue2-datatable/blob/master/examples/src/Advanced/index.vue
 
 export default {
     name: "List",
-    data() {
-        return {
-            // intervals: {
-            //     menus: {
-            //         updated_at: {
-            //             min: null,
-            //             max: null,
-            //             dateFormat: 'Y-m-d H-i-s',
-            //         },
-            //     },
-            // },
-        };
-    },
+    data: () => ({
+        columns: [
+            { title: 'User ID', field: 'uid', sortable: true },
+            { title: 'Username', field: 'name' },
+            { title: 'Age', field: 'age', sortable: true },
+            { title: 'Email', field: 'email' },
+            { title: 'Country', field: 'country' }
+        ],
+        data: [],
+        total: 1,
+        query: {}
+    }),
+    watch: {
+        query: {
+            handler (query) {
+                this.data = [{'uid':"1","name":"a","age":"5","email":"a","country":"asd"}]
+                this.total = 1
+                // mockData(query).then(({ rows, total }) => {
+                //
+                // })
+            },
+            deep: true
+        }
+    }
 }
 </script>
 
