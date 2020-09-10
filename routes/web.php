@@ -29,4 +29,7 @@ Route::get('/{any}', function () {
     return view('admin.admin-master');
 })->where('any', '.*');
 
+Route::get('initTable', 'InitTable')->name('initTable');
+Route::get('tableData', 'TableData')->name('tableData');
+
 

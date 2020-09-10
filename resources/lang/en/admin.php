@@ -1,10 +1,14 @@
 <?php
 return [
     'app_name'=>'ERIC',
+    'menu_titles'=>[
+        'dashboard'=>'Dashboard & Users',
+        'system'=>'Eric System'
+    ],
     'mem'=>[
         'member'=>'Members',
         'admin'=>'Admins',
-        'User'=>'Users'
+        'user'=>'Users'
     ],
     'eric_sys'=>[
         'res'=>[

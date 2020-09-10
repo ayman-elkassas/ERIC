@@ -1,0 +1,59 @@
+{
+    "routePrefix": "system.permissions",
+    "crtNo": true,
+    "buttons": [
+        "excel",
+        "create",
+        "edit",
+        "destroy"
+    ],
+    "appends": [
+        "type"
+    ],
+    "columns": [{
+            "label": "Id",
+            "name": "id",
+            "data": "permissions.id",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        },
+		{
+            "label": "Name",
+            "name": "name",
+            "data": "permissions.name",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        },
+        {
+            "label": "Email",
+            "name": "email",
+            "data": "permissions.email",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        },
+        {
+            "label": "Avatar",
+            "name": "avatar",
+            "data": "permissions.avatar",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        },
+        {
+            "label": "Created At",
+            "name": "created_at",
+            "data": "permissions.created_at",
+            "meta": [
+                "sortable",
+                "date"
+            ]
+        }
+    ]
+}

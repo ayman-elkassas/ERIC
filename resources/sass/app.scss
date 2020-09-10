@@ -1,6 +1,6 @@
 //todo:without internet connection all fonts like empty square
 // Fonts
-//@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 //@import "font.css";
 
 // Variables
@@ -20,3 +20,33 @@
 @import "~admin-panel-cuba/assets/css/animate.css";
 @import "~admin-panel-cuba/assets/css/chartist.css";
 @import "~admin-panel-cuba/assets/css/date-picker.css";
+@import "~admin-panel-cuba/assets/css/datatables.css";
+@import "~admin-panel-cuba/assets/css/dropzone.css";
+@import "~admin-panel-cuba/assets/css/select2.css";
+//@import "~vue2-dropzone/dist/vue2Dropzone.min.css";
+@import "~vue-select/dist/vue-select.css";
+
+body.dark-sidebar .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon header.main-nav .nav-menu .dropdown ul.nav-submenu li a:hover{
+    text-decoration: none;
+    color: #7366ff;
+}
+
+body.dark-sidebar .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon header.main-nav .nav-menu .dropdown ul.nav-submenu li a {
+    color: #ffffff;
+}
+
+ol, ul, dl {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.btn .btn-pill:hover{
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+
