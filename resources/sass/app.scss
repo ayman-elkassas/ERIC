@@ -25,7 +25,18 @@
 @import "~admin-panel-cuba/assets/css/select2.css";
 //@import "~vue2-dropzone/dist/vue2Dropzone.min.css";
 @import "~vue-select/dist/vue-select.css";
-@import "~vue2-datatable-component/dist/min.css";
+@import "~primevue/resources/themes/saga-blue/theme.css";
+@import "~primeicons/primeicons.css";
+@import "~primeflex/primeflex.css";
+@import "~primevue/resources/primevue.min.css";
+@import '~primeflex/src/_variables.scss';
+@import '~primeflex/src/_grid.scss';
+@import '~primeflex/src/_formlayout.scss';
+@import '~primeflex/src/_display.scss';
+@import '~primeflex/src/_text.scss';
+@import '~primeflex/src/flexbox/_flexbox.scss';
+@import '~primeflex/src/_spacing.scss';
+@import '~primeflex/src/_elevation.scss';
 
 body.dark-sidebar .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon header.main-nav .nav-menu .dropdown ul.nav-submenu li a:hover{
     text-decoration: none;
@@ -47,6 +58,32 @@ ol, ul, dl {
 
 a:hover {
     text-decoration: none;
+}
+
+.p-inputtext{
+    width:100%;
+    font-size: 1em;
+}
+
+.p-column-title{
+    font-size: 12px;
+}
+
+.p-datatable{
+    font-size: 12px;
+}
+
+.p-menubar
+{
+    font-size: .8em;
+}
+
+.p-paginator-bottom{
+    font-size:1em;
+}
+
+.p-inputwrapper-filled{
+    font-size:1em;
 }
 
 
