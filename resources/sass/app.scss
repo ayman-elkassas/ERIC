@@ -23,7 +23,10 @@
 @import "~admin-panel-cuba/assets/css/datatables.css";
 @import "~admin-panel-cuba/assets/css/dropzone.css";
 @import "~admin-panel-cuba/assets/css/select2.css";
-//@import "~vue2-dropzone/dist/vue2Dropzone.min.css";
+@import "~admin-panel-cuba/assets/css/owlcarousel.css";
+@import "~admin-panel-cuba/assets/css/owlcarousel.css";
+@import "~admin-panel-cuba/assets/css/rating.css";
+
 @import "~vue-select/dist/vue-select.css";
 @import "~primevue/resources/themes/saga-blue/theme.css";
 @import "~primeicons/primeicons.css";
@@ -37,6 +40,8 @@
 @import '~primeflex/src/flexbox/_flexbox.scss';
 @import '~primeflex/src/_spacing.scss';
 @import '~primeflex/src/_elevation.scss';
+@import "~vuesax/dist/vuesax.css";
+@import "~boxicons/css/boxicons.min.css";
 
 body.dark-sidebar .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon header.main-nav .nav-menu .dropdown ul.nav-submenu li a:hover{
     text-decoration: none;
@@ -84,6 +89,16 @@ a:hover {
 
 .p-inputwrapper-filled{
     font-size:1em;
+}
+
+.datatable-ops{
+    margin:0;
+    padding: 0;
+    border-radius: 0;
+}
+
+.vs-input{
+    width: 100%;
 }
 
 

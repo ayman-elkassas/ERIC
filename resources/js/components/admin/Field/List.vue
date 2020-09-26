@@ -1,136 +1,289 @@
 <template>
-
-    <div id="pcoded">
-        <div class="pcoded-content">
-            <div class="pcoded-inner-content">
-                <div class="main-body">
-                    <div class="page-wrapper">
-
-                        <div class="page-header">
-                            <div class="row align-items-end">
-                                <div class="col-lg-8">
-                                    <div class="page-header-title">
-                                        <div class="d-inline">
-                                            <h4>Field Created</h4>
-                                            <span>Field CRUD Page, Can Edit And Display</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="page-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-
-                                    <div class="card">
-                                        <div class="card-header table-card-header">
-                                            <h5>Export Buttons</h5>
-                                            <div class="btn-group btn-group-sm" style="float: right;">
-                                                <button type="button" class="footable-add btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;"><router-link style="color: white" to="/field-add"><i class="icofont icofont-plus"></i> Add Field</router-link></button>
-                                            </div>
-                                        </div>
-                                        <div class="card-block">
-                                            <div class="dt-responsive table-responsive">
-                                                <div id="basic-btn_wrapper" class="dataTables_wrapper dt-bootstrap4">
-
-                                                    <table id="basic-btn" class="table table-striped table-bordered nowrap dataTable" role="grid" aria-describedby="basic-btn_primary">
-                                                        <thead>
-                                                        <tr role="row">
-                                                            <th class="sorting_asc" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-sort="ascending" aria-label="index: activate to sort column descending" style="width: 10%;">#</th>
-                                                            <th class="sorting_asc" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-sort="ascending" aria-label="title: activate to sort column descending" style="width: 30%;">Title</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-label="desc: activate to sort column ascending" style="width: 50%;">Description</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-label="user: activate to sort column ascending" style="width: 10%;">User Created</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-label="avatar: activate to sort column ascending" style="width: 10%;">Avatar</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-label="field: activate to sort column ascending" style="width: 10%;">Field</th>
-                                                            <th aria-label="Edit: activate to sort column ascending" style="width: 5%;">Edit</th>
-                                                            <th aria-label="Delete: activate to sort column ascending" style="width: 5%;">Delete</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr role="row" class="even">
-                                                            <td class="sorting_1">1</td>
-                                                            <td class="sorting_1">Airi Satou</td>
-                                                            <td>Accountant</td>
-                                                            <td>Tokyo</td>
-                                                            <td>Tokyo</td>
-                                                            <td>Tokyo</td>
-                                                            <td style="white-space: nowrap; width: 1%;text-align:center;vertical-align:middle">
-                                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                    <div class="btn-group btn-group-sm" style="float: none;">
-                                                                        <button type="button" class="tabledit-edit-button btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;"><span class="icofont icofont-ui-edit"></span></button>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td style="white-space: nowrap; width: 1%;text-align:center;vertical-align:middle">
-                                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                    <div class="btn-group btn-group-sm" style="float: none;">
-                                                                        <button type="button" class="tabledit-delete-button btn btn-danger waves-effect waves-light" style="float: none;margin: 5px;"><span class="icofont icofont-ui-delete"></span></button>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr role="row" class="even">
-                                                            <td class="sorting_1">2</td>
-                                                            <td class="sorting_1">Ashton Cox</td>
-                                                            <td>Junior Technical Author</td>
-                                                            <td>San Francisco</td>
-                                                            <td>San Francisco</td>
-                                                            <td>San Francisco</td>
-                                                            <td style="white-space: nowrap; width: 1%;text-align:center;vertical-align:middle">
-                                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                    <div class="btn-group btn-group-sm" style="float: none;">
-                                                                        <button type="button" class="tabledit-edit-button btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;"><span class="icofont icofont-ui-edit"></span></button>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td style="white-space: nowrap; width: 1%;text-align:center;vertical-align:middle">
-                                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                    <div class="btn-group btn-group-sm" style="float: none;">
-                                                                        <button type="button" class="tabledit-delete-button btn btn-danger waves-effect waves-light" style="float: none;margin: 5px;"><span class="icofont icofont-ui-delete"></span></button>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-
-                                                        </tbody>
-                                                        <tfoot>
-                                                        <tr>
-                                                            <th rowspan="1" colspan="1">#</th>
-                                                            <th rowspan="1" colspan="1">Title</th>
-                                                            <th rowspan="1" colspan="1">Description</th>
-                                                            <th rowspan="1" colspan="1">User Created</th>
-                                                            <th rowspan="1" colspan="1">Avatar</th>
-                                                            <th rowspan="1" colspan="1">Field</th>
-                                                            <th rowspan="1" colspan="1">Edit</th>
-                                                            <th rowspan="1" colspan="1">Delete</th></tr>
-                                                        </tfoot>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+    <div class="card">
+        <div class="card-header">
+            <template>
+                <div class="center">
+                    <vs-alert :hidden-content.sync="hidden">
+                        <template #icon>
+                            <i class='bx bxs-info-circle'></i>
+                        </template>
+                        <template #title>
+                            Custom Fields
+                        </template>
+                        Using Admin Panel Can Edit And Add Every Component
+                    </vs-alert>
                 </div>
+            </template>
+        </div>
 
-                <div id="styleSelector">
-                </div>
+        <div class="card-body">
 
-            </div>
+            <Menubar style="margin-bottom: 10px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px">
+                <template #start>
+                    <img alt="logo" src="./../images/user.png" height="40px" class="p-mr-2">
+                </template>
+                <template #end>
+                    <span class="p-input-icon-left">
+                        <router-link style="color: white" to="/field-add">
+                            <vs-button
+                                icon
+                                floating
+                                success
+                            >
+                                <i class='bx bx-plus' ></i> Add New Field
+                            </vs-button>
+                        </router-link>
+                    </span>
+                </template>
+            </Menubar>
 
+            <vs-table
+                striped
+                v-model="selected">
+
+                <!--            todo:header-->
+                <template #header>
+                    <vs-input v-model="search" border placeholder="Search" />
+                </template>
+
+                <template #thead>
+                    <vs-tr>
+                        <!--                        todo:base-->
+                        <vs-th>
+                            <vs-checkbox
+                                :indeterminate="selected.length === users.length" v-model="allCheck"
+                                @change="selected = $vs.checkAll(selected, users)"
+                            />
+                        </vs-th>
+
+                        <!--                        todo:base-->
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'id')">
+                            Id
+                        </vs-th>
+
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'name')">
+                            Name
+                        </vs-th>
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'email')">
+                            Category Name
+                        </vs-th>
+
+                        <vs-th>
+                            Field Type
+                        </vs-th>
+
+                        <!--                        todo:base-->
+                        <vs-th>
+                            Created At
+                        </vs-th>
+
+                        <!--                        todo:base-->
+                        <vs-th>
+                            Edit
+                        </vs-th>
+
+                        <!--                        todo:base-->
+                        <vs-th>
+                            Delete
+                        </vs-th>
+
+                    </vs-tr>
+                </template>
+
+                <template #tbody>
+
+                    <vs-tr
+                        :key="i"
+                        v-for="(tr, i) in $vs.getPage($vs.getSearch(users, search), page, max)"
+                        :data="tr"
+                        :is-selected="!!selected.includes(tr)"
+                    >
+
+                        <!--                        todo:base-->
+                        <vs-td checkbox>
+                            <vs-checkbox :val="tr" v-model="selected" />
+                        </vs-td>
+
+                        <!--                        todo:base-->
+                        <vs-td>
+                            {{ tr.id }}
+                        </vs-td>
+
+                        <vs-td>
+                            {{ tr.name }}
+                        </vs-td>
+                        <vs-td>
+                            {{ tr.username }}
+                        </vs-td>
+
+                        <vs-td>
+                            Custom Type
+                        </vs-td>
+
+                        <vs-td>
+                            12-9-2020 15:00
+                        </vs-td>
+
+                        <vs-td>
+                            <vs-button
+                                circle
+                                icon
+                                floating
+                                size="small"
+                                primary
+                            >
+                                <i class='bx bx-edit' ></i>
+                            </vs-button>
+                        </vs-td>
+
+                        <vs-td>
+                            <vs-button
+                                circle
+                                icon
+                                floating
+                                size="small"
+                                danger
+                            >
+                                <i class='bx bx-trash' ></i>
+                            </vs-button>
+                        </vs-td>
+
+                    </vs-tr>
+                </template>
+            </vs-table>
+            <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(users, max)" />
+            <!--            todo:base-->
+            <span class="data">
+                <pre hidden>
+                    {{ selected.length > 0 ? selected : 'Select an item in the table' }}
+                </pre>
+            </span>
         </div>
     </div>
-
 </template>
 
 <script>
-
 export default {
     name: "List",
+    data() {
+        return {
+            hidden:false,
+            search: '',
+            allCheck: false,
+            page: 1,
+            max: 10,
+            selected: [],
+            users: [
+                {
+                    "id": 1,
+                    "name": "Leanne Graham",
+                    "username": "Bret",
+                    "email": "Sincere@april.biz",
+                    "website": "hildegard.org",
+                },
+                {
+                    "id": 2,
+                    "name": "Ervin Howell",
+                    "username": "Antonette",
+                    "email": "Shanna@melissa.tv",
+                    "website": "anastasia.net",
+                },
+                {
+                    "id": 3,
+                    "name": "Clementine Bauch",
+                    "username": "Samantha",
+                    "email": "Nathan@yesenia.net",
+                    "website": "ramiro.info",
+                },
+                {
+                    "id": 4,
+                    "name": "Patricia Lebsack",
+                    "username": "Karianne",
+                    "email": "Julianne.OConner@kory.org",
+                    "website": "kale.biz",
+                },
+                {
+                    "id": 5,
+                    "name": "Chelsey Dietrich",
+                    "username": "Kamren",
+                    "email": "Lucio_Hettinger@annie.ca",
+                    "website": "demarco.info",
+                },
+                {
+                    "id": 6,
+                    "name": "Mrs. Dennis Schulist",
+                    "username": "Leopoldo_Corkery",
+                    "email": "Karley_Dach@jasper.info",
+                    "website": "ola.org",
+                },
+                {
+                    "id": 7,
+                    "name": "Kurtis Weissnat",
+                    "username": "Elwyn.Skiles",
+                    "email": "Telly.Hoeger@billy.biz",
+                    "website": "elvis.io",
+                },
+                {
+                    "id": 8,
+                    "name": "Nicholas Runolfsdottir V",
+                    "username": "Maxime_Nienow",
+                    "email": "Sherwood@rosamond.me",
+                    "website": "jacynthe.com",
+                },
+                {
+                    "id": 9,
+                    "name": "Glenna Reichert",
+                    "username": "Delphine",
+                    "email": "Chaim_McDermott@dana.io",
+                    "website": "conrad.com",
+                },
+                {
+                    "id": 10,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 11,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 12,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 13,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 14,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                }
+            ]
+        }
+    },
+    created() {
+    },
+    mounted() {
+    },
+    methods: {
+    }
 }
 </script>
 

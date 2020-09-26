@@ -1,192 +1,367 @@
 <template>
-    <div class="pcoded-content">
-        <div class="pcoded-inner-content">
 
-            <div class="main-body">
-                <div class="page-wrapper">
+    <div class="card">
+        <div class="card-header">
+            <template>
+                <div class="center">
+                    <vs-alert color="warn">
+                        <template #title>
+                            Add New Course
+                        </template>
+                        Admin can control between all users can share any information
+                    </vs-alert>
+                </div>
+            </template>
+        </div>
+        <div class="card-body">
 
-                    <div class="page-header">
-                        <div class="row align-items-end">
-                            <div class="col-lg-8">
-                                <div class="page-header-title">
-                                    <div class="d-inline">
-                                        <h4>Add New Admin</h4>
-                                        <span>Admin can control between all users can share any information</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="page-header-breadcrumb">
-                                    <ul class="breadcrumb-title">
-                                        <li class="breadcrumb-item">
-                                            <router-link to="/home"><i class="feather icon-home"></i></router-link>
-                                        </li>
-                                        <li class="breadcrumb-item">Home</li>
-                                    </ul>
-                                </div>
-                            </div>
+            <form>
+                <div class="row product-page-main">
+                    <div class="col-xl-6">
+                        <div class="center content-inputs">
+                            <vs-input
+                                v-model="value1"
+                                label="Course Title"
+                            >
+                                <template #icon>
+                                    <i class='bx bxl-blogger'></i>
+                                </template>
+                            </vs-input>
                         </div>
                     </div>
-
-                    <div class="page-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5>Create your admin</h5>
-                                        <span>Admin can create any post in any user timeline...</span>
-                                        <div class="card-header-right">
-                                            <ul class="list-unstyled card-option">
-                                                <li><i class="feather icon-maximize full-card"></i></li>
-                                                <li><i class="feather icon-minus minimize-card"></i></li>
-                                                <li><i class="feather icon-trash-2 close-card"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-block">
-                                        <form>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Select User</label>
-                                                <div class="col-sm-10">
-                                                    <select class="js-example-placeholder-multiple col-sm-12 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true">
-                                                        <option value="AL">Video</option>
-                                                        <option value="WY">Audio</option>
-                                                        <option value="WY">Text</option>
-                                                        <option value="WY">Image</option>
-                                                        <option value="WY">Pdf</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Course Title</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" placeholder="Course Title in placeholder">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Course Description</label>
-                                                <div class="col-sm-10">
-                                                    <textarea rows="5" cols="5" class="form-control" placeholder="Type your description in placeholder"></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Field Name</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" placeholder="Field Name in placeholder">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Select Category Name</label>
-                                                <div class="col-sm-10">
-                                                    <select class="js-example-placeholder-multiple col-sm-12 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true">
-                                                        <option value="AL">Video</option>
-                                                        <option value="WY">Audio</option>
-                                                        <option value="WY">Text</option>
-                                                        <option value="WY">Image</option>
-                                                        <option value="WY">Pdf</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Price</label>
-                                                <div class="col-sm-10">
-                                                    <input type="number" class="form-control" placeholder="Course Price in placeholder">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Select Type Media</label>
-                                                <div class="col-sm-10">
-                                                    <select class="js-example-placeholder-multiple col-sm-12 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true">
-                                                        <option value="AL">Video</option>
-                                                        <option value="WY">Audio</option>
-                                                        <option value="WY">Text</option>
-                                                        <option value="WY">Image</option>
-                                                        <option value="WY">Pdf</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row has-error">
-                                                <label class="col-sm-2 col-form-label">Upload Course Banner</label>
-                                                <div class="col-sm-10">
-                                                    <input type="file" name="files[]" id="filer_input" multiple="multiple">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row has-error">
-                                                <label class="col-sm-2 col-form-label">Upload Course Content</label>
-                                                <div class="col-sm-10">
-                                                    <input type="file" name="files[]" id="filer_input1" multiple="multiple">
-                                                    <br>
-                                                    <div class="btn-group dropdown-split-success">
-                                                        <button type="button" class="btn btn-success"><i class="icofont icofont-check-circled"></i>Save</button>
-                                                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span class="sr-only">Toggle primary</span>
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item waves-effect waves-light" href="#">Public</a>
-                                                            <a class="dropdown-item waves-effect waves-light" href="#">Only me</a>
-                                                            <a class="dropdown-item waves-effect waves-light" href="#">Specific users</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item waves-effect waves-light" href="#">Timeline</a>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col-xl-6">
+                        <div class="center content-inputs">
+                            <vs-input
+                                v-model="value1"
+                                label="Course Description"
+                            >
+                                <template #icon>
+                                    <i class='bx bx-message-alt'></i>
+                                </template>
+                            </vs-input>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="row product-page-main">
+                    <div class="col-xl-6">
+                        <div class="center content-inputs">
+                            <vs-input
+                                type="number"
+                                v-model="value1"
+                                label="Course Price"
+                            >
+                                <template #icon>
+                                    <i class='bx bx-money'></i>
+                                </template>
+                            </vs-input>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="center content-inputs">
+                            <vs-select
+                                label="Category Name"
+                                filter
+                                multiple
+                                v-model="value6"
+                            >
+                                <vs-option-group>
+                                    <div slot="title">
+                                        Vuejs
+                                    </div>
+                                    <vs-option label="Vuesax" value="1">
+                                        Vuesax
+                                    </vs-option>
+                                    <vs-option label="Vue" value="2">
+                                        Vue
+                                    </vs-option>
+                                    <vs-option label="Javascript" value="3">
+                                        Javascript
+                                    </vs-option>
+                                </vs-option-group>
+                                <vs-option-group>
+                                    <div slot="title">
+                                        Others
+                                    </div>
+                                    <vs-option label="Sass" value="4">
+                                        Sass
+                                    </vs-option>
+                                    <vs-option label="Typescript" value="5">
+                                        Typescript
+                                    </vs-option>
+                                    <vs-option label="Webpack" value="6">
+                                        Webpack
+                                    </vs-option>
+                                    <vs-option label="Nodejs" value="7">
+                                        Nodejs
+                                    </vs-option>
+                                </vs-option-group>
+                            </vs-select>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row product-page-main">
+                    <div class="col-xl-6">
+                        <div class="center content-inputs">
+                            <vs-select
+                                label="Type Media"
+                                filter
+                                multiple
+                                v-model="value6"
+                            >
+                                <vs-option-group>
+                                    <div slot="title">
+                                        Vuejs
+                                    </div>
+                                    <vs-option label="Vuesax" value="1">
+                                        Vuesax
+                                    </vs-option>
+                                    <vs-option label="Vue" value="2">
+                                        Vue
+                                    </vs-option>
+                                    <vs-option label="Javascript" value="3">
+                                        Javascript
+                                    </vs-option>
+                                </vs-option-group>
+                                <vs-option-group>
+                                    <div slot="title">
+                                        Others
+                                    </div>
+                                    <vs-option label="Sass" value="4">
+                                        Sass
+                                    </vs-option>
+                                    <vs-option label="Typescript" value="5">
+                                        Typescript
+                                    </vs-option>
+                                    <vs-option label="Webpack" value="6">
+                                        Webpack
+                                    </vs-option>
+                                    <vs-option label="Nodejs" value="7">
+                                        Nodejs
+                                    </vs-option>
+                                </vs-option-group>
+                            </vs-select>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="center content-inputs">
+                            <vs-select
+                                label="Course Owner"
+                                filter
+                                multiple
+                                v-model="value6"
+                            >
+                                <vs-option-group>
+                                    <div slot="title">
+                                        Vuejs
+                                    </div>
+                                    <vs-option label="Vuesax" value="1">
+                                        Vuesax
+                                    </vs-option>
+                                    <vs-option label="Vue" value="2">
+                                        Vue
+                                    </vs-option>
+                                    <vs-option label="Javascript" value="3">
+                                        Javascript
+                                    </vs-option>
+                                </vs-option-group>
+                                <vs-option-group>
+                                    <div slot="title">
+                                        Others
+                                    </div>
+                                    <vs-option label="Sass" value="4">
+                                        Sass
+                                    </vs-option>
+                                    <vs-option label="Typescript" value="5">
+                                        Typescript
+                                    </vs-option>
+                                    <vs-option label="Webpack" value="6">
+                                        Webpack
+                                    </vs-option>
+                                    <vs-option label="Nodejs" value="7">
+                                        Nodejs
+                                    </vs-option>
+                                </vs-option-group>
+                            </vs-select>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group row has-error">
+                    <label class="col-sm-2 col-form-label">Upload Avatar</label>
+                    <div class="col-sm-10">
+
+                        <vueDropzone ref="dropzone" :useCustomSlot=true class="dropzone digits dz-clickable" id="drop1" :options="dropOptions" :include-styling="false">
+                            <div class="dz-message needsclick"><i class="fa fa-upload"></i>
+                                <h6>Drop file here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+                            </div>
+                        </vueDropzone>
+
+                        <div class="card-body megaoptions-border-space-sm">
+                            <form class="mega-inline">
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="media p-20">
+                                                <div class="radio radio-primary mr-3">
+                                                    <input id="radio14" type="radio" name="radio1" value="option1" data-original-title="" title="">
+                                                    <label for="radio14"></label>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="mt-0 mega-title-badge">Private<span class="badge badge-primary pull-right digits">50 INR</span></h6>
+                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="media p-20">
+                                                <div class="radio radio-success mr-3">
+                                                    <input id="radio13" type="radio" name="radio1" value="option1" data-original-title="" title="">
+                                                    <label for="radio13"></label>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="mt-0 mega-title-badge">Public<span class="badge badge-success pull-right digits">100 INR</span></h6>
+                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <br>
+                            <form class="mega-inline">
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="media p-20">
+                                                <div class="radio radio-danger mr-3">
+                                                    <input id="radio12" type="radio" name="radio1" value="option1" data-original-title="" title="">
+                                                    <label for="radio12"></label>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="mt-0 mega-title-badge">Read only<span class="badge badge-danger pull-right digits">100 INR</span></h6>
+                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="media p-20">
+                                                <div class="radio radio-secondary mr-3">
+                                                    <input id="radio11" type="radio" name="radio1" value="option1" data-original-title="" title="">
+                                                    <label for="radio11"></label>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="mt-0 mega-title-badge">Share Now<span class="badge badge-secondary pull-right digits">100 INR</span></h6>
+                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <vs-button
+                            size="large"
+                            color="success"
+                            circle
+                        >
+                            Save
+                        </vs-button>
+
+                    </div>
+                </div>
+
+            </form>
         </div>
     </div>
 
 </template>
 
 <script>
-
-//todo: include component script
-import 'jquery/src/jquery'
-// import slide from '../../../admin-js/slide-div';
-
-//todo:Input avatar
-import jf from 'admin-panel/files/assets/pages/jquery.filer/js/jquery.filer.min'
-import cf from 'admin-panel/files/assets/pages/filer/custom-filer'
-import fu from 'admin-panel/files/assets/pages/filer/jquery.fileuploads.init'
-
-//todo:select
-import sf from 'admin-panel/files/assets/js/select2/js/select2.full.min'
-import bm from  'admin-panel/files/assets/js/bootstrap-multiselect/js/bootstrap-multiselect'
-import jms from  'admin-panel/files/assets/js/multiselect/js/jquery.multi-select'
-import jq from  'admin-panel/files/assets/js/jquery.quicksearch'
-import sc from  'admin-panel/files/assets/pages/advance-elements/select2-custom'
-
 export default {
     name: "New",
+    data: () => ({
+        dropOptions: {
+            url: "https://httpbin.org/post",
+            maxFilesize: 2, // MB
+            maxFiles: 4,
+            chunking: true,
+            chunkSize: 500, // Bytes
+            thumbnailWidth: 70, // px
+            thumbnailHeight: 70,
+            addRemoveLinks: true,
+        },
+        value1:"",
+        value2:"",
+        value3:"",
+        value4:"",
+        value5:"",
+        value6:[""],
+        hasVisiblePassword: false,
+        textarea: '',
+        counterDanger: false
+    }),
+    methods: {
+        removeAllFiles() {
+            this.$refs.dropzone.removeAllFiles();
+        }
+    },
     mounted() {
-        slide.slide_call();
+        //todo:run any js can mounted
+    },
+    computed:{
+        validEmail() {
+            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.value3)
+        },
+        getProgress() {
+            let progress = 0
 
-        jf.input_call();
-        cf.input_call();
-        fu.input_call();
+            // at least one number
 
-        sf.select_ops();
-        bm.select_ops();
-        jms.select_ops();
-        jq.select_ops();
-        sc.select_ops();
+            if (/\d/.test(this.value)) {
+                progress += 20
+            }
+
+            // at least one capital letter
+
+            if (/(.*[A-Z].*)/.test(this.value)) {
+                progress += 20
+            }
+
+            // at menons a lowercase
+
+            if (/(.*[a-z].*)/.test(this.value)) {
+                progress += 20
+            }
+
+            // more than 5 digits
+
+            if (this.value.length >= 6) {
+                progress += 20
+            }
+
+            // at least one special character
+
+            if (/[^A-Za-z0-9]/.test(this.value)) {
+                progress += 20
+            }
+
+            return progress
+        }
     }
 }
 

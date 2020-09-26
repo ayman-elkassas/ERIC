@@ -1,117 +1,167 @@
 <template>
     <div class="card">
         <div class="card-header">
-            <h5>Admin Accounts</h5>
-            <span>Using Admin Panel Can Edit And Add Every Component</span>
+            <template>
+                <div class="center">
+                    <vs-alert style="z-index: 0" :hidden-content.sync="hidden">
+                        <template #icon>
+                            <i class='bx bxs-info-circle'></i>
+                        </template>
+                        <template #title>
+                            Admin Accounts
+                        </template>
+                        Using Admin Panel Can Edit And Add Every Component
+                    </vs-alert>
+                </div>
+            </template>
         </div>
+
         <div class="card-body">
 
-            <Menubar :model="items">
+            <Menubar style="margin-bottom: 10px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px">
                 <template #start>
-                    <img alt="logo" src="./user.png" height="40px" class="p-mr-2">
+                    <img alt="logo" src="./../../images/user.png" height="40px" class="p-mr-2">
                 </template>
                 <template #end>
                     <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
-                        <InputText v-model="filters['global']" placeholder="Global Search" />
+                        <router-link style="color: white" to="/admin-add">
+                            <vs-button
+                                icon
+                                floating
+                                success
+                            >
+                                <i class='bx bx-plus' ></i> Add New Admin
+                            </vs-button>
+                        </router-link>
                     </span>
                 </template>
             </Menubar>
-            <br>
 
-            <DataTable :value="cars"
-                       class="p-datatable-striped p-datatable-gridlines"
-                       :filters="filters"
-                       :paginator="true" :rows="10"
-                       paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-                       :rowsPerPageOptions="[10,20,50]"
-                       currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
-                       sortMode="multiple">
+            <vs-table
+                striped
+                v-model="selected">
 
-                <template #empty>
-                    No customers found.
-                </template>
-                <template #loading>
-                    Loading customers data. Please wait.
+<!--            todo:header-->
+                <template #header>
+                    <vs-input v-model="search" border placeholder="Search" />
                 </template>
 
-                <Column field="vin" header="Vin" sortable>
+                <template #thead>
+                    <vs-tr>
+<!--                        todo:base-->
+                        <vs-th>
+                            <vs-checkbox
+                                :indeterminate="selected.length === users.length" v-model="allCheck"
+                                @change="selected = $vs.checkAll(selected, users)"
+                            />
+                        </vs-th>
 
-                    <template #body="slotProps">
-                        <span class="p-column-title">Vin</span>
-                        {{slotProps.data.vin}}
-                    </template>
-                    <template #filter>
-                        <InputText type="text" v-model="filters['vin']" class="p-column-filter" placeholder="Search by vin"/>
-                    </template>
+<!--                        todo:base-->
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'id')">
+                            Id
+                        </vs-th>
 
-                </Column>
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'name')">
+                            Name
+                        </vs-th>
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'email')">
+                            Email
+                        </vs-th>
 
-                <Column field="year" header="Year" sortable>
+                        <vs-th>
+                            Avatar
+                        </vs-th>
 
-                    <template #body="slotProps">
-                        <span class="p-column-title">Year</span>
-                        {{slotProps.data.year}}
-                    </template>
-                    <template #filter>
-                        <InputText type="text" v-model="filters['year']" class="p-column-filter" placeholder="Search by year"/>
-                    </template>
+<!--                        todo:base-->
+                        <vs-th>
+                            Created At
+                        </vs-th>
 
-                </Column>
-                <Column field="brand" header="Brand" sortable>
+<!--                        todo:base-->
+                        <vs-th>
+                            Edit
+                        </vs-th>
 
-                    <template #body="slotProps">
-                        <span class="p-column-title">Vin</span>
-                        {{slotProps.data.vin}}
-                    </template>
-                    <template #filter>
-                        <InputText type="text" v-model="filters['brand']" class="p-column-filter" placeholder="Search by brand"/>
-                    </template>
+<!--                        todo:base-->
+                        <vs-th>
+                            Delete
+                        </vs-th>
 
-                    <template #body="slotProps">
-                        <img src="./user.png" :alt="slotProps.data.brand" style="margin-right: 3px"  width="30px"/>
-                        Ayman
-                    </template>
-
-                </Column>
-
-                <Column field="color" header="Color">
-
-                    <template #body="slotProps">
-                        <span class="p-column-title">Color</span>
-                        {{slotProps.data.color}}
-                    </template>
-                    <template #filter>
-                        <InputText type="text" v-model="filters['color']" class="p-column-filter" placeholder="Search by color"/>
-                    </template>
-
-                </Column>
-
-                <Column headerStyle="width: 8em" bodyStyle="text-align: center">
-                    <template #header>
-                        Actions
-                    </template>
-                    <template #body="slotProps">
-                        <div class="btn-group btn-group-sm">
-                            <button style="margin-right: 10px" class="btn btn-pill btn-primary btn-air-primary" type="button" data-original-title="btn btn-fall btn-secondary btn-air-secondary btn-air-secondary" title=""><router-link style="color: white" to="/admin-add" data-turbolinks="true"><i class="fa fa-edit"></i></router-link></button>
-                            <button class="btn btn-pill btn-danger btn-air-danger" type="button" data-original-title="btn btn-fall btn-secondary btn-air-secondary btn-air-secondary" title=""><router-link style="color: white" to="/admin-add" data-turbolinks="true"><i class="fa fa-trash"></i></router-link></button>
-                        </div>
-                    </template>
-                </Column>
-
-                <template #paginatorLeft>
-                    <button class="btn btn-pill btn-primary btn-air-primary" type="button" data-original-title="btn btn-fall btn-secondary btn-air-secondary btn-air-secondary" title=""><router-link style="color: white" to="/admin-add" data-turbolinks="true"><i class="fa fa-inbox"></i></router-link></button>
-                </template>
-                <template #paginatorRight>
-                    <button class="btn btn-pill btn-primary btn-air-primary" type="button" data-original-title="btn btn-fall btn-secondary btn-air-secondary btn-air-secondary" title=""><router-link style="color: white" to="/admin-add" data-turbolinks="true"><i class="fa fa-cloud"></i></router-link></button>
+                    </vs-tr>
                 </template>
 
-                <template #footer>
-                    In total there are {{cars ? cars.length : 0 }} cars.
+                <template #tbody>
+
+                    <vs-tr
+                        :key="i"
+                        v-for="(tr, i) in $vs.getPage($vs.getSearch(users, search), page, max)"
+                        :data="tr"
+                        :is-selected="!!selected.includes(tr)"
+                    >
+
+<!--                        todo:base-->
+                        <vs-td checkbox>
+                            <vs-checkbox :val="tr" v-model="selected" />
+                        </vs-td>
+
+<!--                        todo:base-->
+                        <vs-td>
+                            {{ tr.id }}
+                        </vs-td>
+
+                        <vs-td>
+                            {{ tr.name }}
+                        </vs-td>
+                        <vs-td>
+                            {{ tr.email }}
+                        </vs-td>
+
+                        <vs-td>
+                            <img src="../../images/user.png" alt="" style="margin-right: 3px"  width="30px"/>
+                            Ayman
+                        </vs-td>
+
+                        <vs-td>
+                            12-9-2020 15:00
+                        </vs-td>
+
+                        <vs-td>
+                            <vs-button
+                                circle
+                                icon
+                                floating
+                                size="small"
+                                primary
+                            >
+                                <i class='bx bx-edit' ></i>
+                            </vs-button>
+                        </vs-td>
+
+                        <vs-td>
+                            <vs-button
+                                circle
+                                icon
+                                floating
+                                size="small"
+                                danger
+                            >
+                                <i class='bx bx-trash' ></i>
+                            </vs-button>
+                        </vs-td>
+
+                    </vs-tr>
                 </template>
-
-            </DataTable>
-
+            </vs-table>
+            <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(users, max)" />
+<!--            todo:base-->
+            <span class="data">
+                <pre hidden>
+                    {{ selected.length > 0 ? selected : 'Select an item in the table' }}
+                </pre>
+            </span>
         </div>
     </div>
 </template>
@@ -121,202 +171,119 @@ export default {
     name: "List",
     data() {
         return {
-            cars: null,
-            filters: {},
-            loading: false,
-            selectedProduct1: null,
-            totalRecords: 0,
-            items: [
+            hidden:false,
+            search: '',
+            allCheck: false,
+            page: 1,
+            max: 10,
+            selected: [],
+            users: [
                 {
-                    label:'File',
-                    icon:'pi pi-fw pi-file',
-                    items:[
-                        {
-                            label:'New',
-                            icon:'pi pi-fw pi-plus',
-                            items:[
-                                {
-                                    label:'Bookmark',
-                                    icon:'pi pi-fw pi-bookmark'
-                                },
-                                {
-                                    label:'Video',
-                                    icon:'pi pi-fw pi-video'
-                                },
-
-                            ]
-                        },
-                        {
-                            label:'Delete',
-                            icon:'pi pi-fw pi-trash'
-                        },
-                        {
-                            separator:true
-                        },
-                        {
-                            label:'Export',
-                            icon:'pi pi-fw pi-external-link'
-                        }
-                    ]
+                    "id": 1,
+                    "name": "Leanne Graham",
+                    "username": "Bret",
+                    "email": "Sincere@april.biz",
+                    "website": "hildegard.org",
                 },
                 {
-                    label:'Edit',
-                    icon:'pi pi-fw pi-pencil',
-                    items:[
-                        {
-                            label:'Left',
-                            icon:'pi pi-fw pi-align-left'
-                        },
-                        {
-                            label:'Right',
-                            icon:'pi pi-fw pi-align-right'
-                        },
-                        {
-                            label:'Center',
-                            icon:'pi pi-fw pi-align-center'
-                        },
-                        {
-                            label:'Justify',
-                            icon:'pi pi-fw pi-align-justify'
-                        },
-
-                    ]
+                    "id": 2,
+                    "name": "Ervin Howell",
+                    "username": "Antonette",
+                    "email": "Shanna@melissa.tv",
+                    "website": "anastasia.net",
                 },
                 {
-                    label:'Users',
-                    icon:'pi pi-fw pi-user',
-                    items:[
-                        {
-                            label:'New',
-                            icon:'pi pi-fw pi-user-plus',
-
-                        },
-                        {
-                            label:'Delete',
-                            icon:'pi pi-fw pi-user-minus',
-
-                        },
-                        {
-                            label:'Search',
-                            icon:'pi pi-fw pi-users',
-                            items:[
-                                {
-                                    label:'Filter',
-                                    icon:'pi pi-fw pi-filter',
-                                    items:[
-                                        {
-                                            label:'Print',
-                                            icon:'pi pi-fw pi-print'
-                                        }
-                                    ]
-                                },
-                                {
-                                    icon:'pi pi-fw pi-bars',
-                                    label:'List'
-                                }
-                            ]
-                        }
-                    ]
+                    "id": 3,
+                    "name": "Clementine Bauch",
+                    "username": "Samantha",
+                    "email": "Nathan@yesenia.net",
+                    "website": "ramiro.info",
                 },
                 {
-                    label:'Events',
-                    icon:'pi pi-fw pi-calendar',
-                    items:[
-                        {
-                            label:'Edit',
-                            icon:'pi pi-fw pi-pencil',
-                            items:[
-                                {
-                                    label:'Save',
-                                    icon:'pi pi-fw pi-calendar-plus'
-                                },
-                                {
-                                    label:'Delete',
-                                    icon:'pi pi-fw pi-calendar-minus'
-                                },
-
-                            ]
-                        },
-                        {
-                            label:'Archieve',
-                            icon:'pi pi-fw pi-calendar-times',
-                            items:[
-                                {
-                                    label:'Remove',
-                                    icon:'pi pi-fw pi-calendar-minus'
-                                }
-                            ]
-                        }
-                    ]
+                    "id": 4,
+                    "name": "Patricia Lebsack",
+                    "username": "Karianne",
+                    "email": "Julianne.OConner@kory.org",
+                    "website": "kale.biz",
                 },
                 {
-                    label:'Quit',
-                    icon:'pi pi-fw pi-power-off'
+                    "id": 5,
+                    "name": "Chelsey Dietrich",
+                    "username": "Kamren",
+                    "email": "Lucio_Hettinger@annie.ca",
+                    "website": "demarco.info",
+                },
+                {
+                    "id": 6,
+                    "name": "Mrs. Dennis Schulist",
+                    "username": "Leopoldo_Corkery",
+                    "email": "Karley_Dach@jasper.info",
+                    "website": "ola.org",
+                },
+                {
+                    "id": 7,
+                    "name": "Kurtis Weissnat",
+                    "username": "Elwyn.Skiles",
+                    "email": "Telly.Hoeger@billy.biz",
+                    "website": "elvis.io",
+                },
+                {
+                    "id": 8,
+                    "name": "Nicholas Runolfsdottir V",
+                    "username": "Maxime_Nienow",
+                    "email": "Sherwood@rosamond.me",
+                    "website": "jacynthe.com",
+                },
+                {
+                    "id": 9,
+                    "name": "Glenna Reichert",
+                    "username": "Delphine",
+                    "email": "Chaim_McDermott@dana.io",
+                    "website": "conrad.com",
+                },
+                {
+                    "id": 10,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 11,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 12,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 13,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 14,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
                 }
             ]
         }
     },
     created() {
-        // this.carService = new CarService();
     },
     mounted() {
-        this.loading = true;
-        setTimeout(() => {
-
-            //todo:after get data from axios request in response make loading false to fade
-
-            this.cars=[
-                {"brand": "Volkswagen", "year": 2012, "color": "Orange", "vin": "dsad231ff"},
-                {"brand": "Audi", "year": 2011, "color": "Black", "vin": "gwregre345"},
-                {"brand": "Renault", "year": 2005, "color": "Gray", "vin": "h354htr"},
-                {"brand": "BMW", "year": 2003, "color": "Blue", "vin": "j6w54qgh"},
-                {"brand": "Mercedes", "year": 1995, "color": "Orange", "vin": "hrtwy34"},
-                {"brand": "Volvo", "year": 2005, "color": "Black", "vin": "jejtyj"},
-                {"brand": "Honda", "year": 2012, "color": "Yellow", "vin": "g43gr"},
-                {"brand": "Jaguar", "year": 2013, "color": "Orange", "vin": "greg34"},
-                {"brand": "Ford", "year": 2000, "color": "Black", "vin": "h54hw5"},
-                {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s"}
-            ];
-
-            this.loading = false;
-
-        }, 500);
-
     },
     methods: {
-        filterDate(value, filter) {
-            if (filter === undefined || filter === null || (typeof filter === 'string' && filter.trim() === '')) {
-                return true;
-            }
-
-            if (value === undefined || value === null) {
-                return false;
-            }
-
-            return value === this.formatDate(filter);
-        },
-        formatDate(date) {
-            let month = date.getMonth() + 1;
-            let day = date.getDate();
-
-            if (month < 10) {
-                month = '0' + month;
-            }
-
-            if (day < 10) {
-                day = '0' + day;
-            }
-
-            return date.getFullYear() + '-' + month + '-' + day;
-        },
-        onPage(event) {
-            this.loading = true;
-
-            setTimeout(() => {
-                this.cars = this.cars.slice(event.first, event.first + event.rows);
-                this.loading = false;
-            }, 500);
-        }
     }
 }
 </script>

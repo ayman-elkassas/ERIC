@@ -1,106 +1,300 @@
 <template>
     <div class="card">
         <div class="card-header">
-            <h5>Home Card</h5>
-            <span>Home Page Admin Panel...</span>
+            <template>
+                <div class="center">
+                    <vs-alert :hidden-content.sync="hidden">
+                        <template #icon>
+                            <i class='bx bxs-info-circle'></i>
+                        </template>
+                        <template #title>
+                            User Accounts
+                        </template>
+                        Using Admin Panel Can Edit And Add Every Component
+                    </vs-alert>
+                </div>
+            </template>
         </div>
+
         <div class="card-body">
-            <!--            add button-->
-            <div class="btn-group btn-group-sm" style="float: right;margin: 0 0 16px 0">
-                <button class="btn btn-pill btn-primary btn-air-primary" type="button" data-original-title="btn btn-pill btn-secondary btn-air-secondary btn-air-secondary" title=""><router-link style="color: white" to="/user-add"><i class="fa fa-plus"></i> Add User</router-link></button>
-            </div>
-            <div class="table-responsive">
-                <!--Add new Post-->
-                <div id="advance-1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="advance-1_length"><label>Show <select name="advance-1_length" aria-controls="advance-1" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="advance-1_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="advance-1"></label></div><table class="display dataTable" id="advance-1" role="grid" aria-describedby="advance-1_info">
-                    <thead>
-                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="advance-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 137px;">Name</th><th class="sorting" tabindex="0" aria-controls="advance-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 228px;">Position</th><th class="sorting" tabindex="0" aria-controls="advance-1" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">Office</th><th class="sorting" tabindex="0" aria-controls="advance-1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 41px;">Age</th><th class="sorting" tabindex="0" aria-controls="advance-1" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 91px;">Start date</th><th class="sorting" tabindex="0" aria-controls="advance-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 78px;">Salary</th></tr>
-                    </thead>
-                    <tbody>
-                    <tr role="row" class="odd">
-                        <td class="sorting_1">Airi Satou</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>33</td>
-                        <td>2008/11/28</td>
-                        <td>$162,700</td>
-                    </tr><tr role="row" class="even">
-                        <td class="sorting_1">Angelica Ramos</td>
-                        <td>Chief Executive Officer (CEO)</td>
-                        <td>London</td>
-                        <td>47</td>
-                        <td>2009/10/09</td>
-                        <td>$1,200,000</td>
-                    </tr><tr role="row" class="odd">
-                        <td class="sorting_1">Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>$86,000</td>
-                    </tr><tr role="row" class="even">
-                        <td class="sorting_1">Bradley Greer</td>
-                        <td>Software Engineer</td>
-                        <td>London</td>
-                        <td>41</td>
-                        <td>2012/10/13</td>
-                        <td>$132,000</td>
-                    </tr><tr role="row" class="odd">
-                        <td class="sorting_1">Brenden Wagner</td>
-                        <td>Software Engineer</td>
-                        <td>San Francisco</td>
-                        <td>28</td>
-                        <td>2011/06/07</td>
-                        <td>$206,850</td>
-                    </tr><tr role="row" class="even">
-                        <td class="sorting_1">Brielle Williamson</td>
-                        <td>Integration Specialist</td>
-                        <td>New York</td>
-                        <td>61</td>
-                        <td>2012/12/02</td>
-                        <td>$372,000</td>
-                    </tr><tr role="row" class="odd">
-                        <td class="sorting_1">Bruno Nash</td>
-                        <td>Software Engineer</td>
-                        <td>London</td>
-                        <td>38</td>
-                        <td>2011/05/03</td>
-                        <td>$163,500</td>
-                    </tr><tr role="row" class="even">
-                        <td class="sorting_1">Caesar Vance</td>
-                        <td>Pre-Sales Support</td>
-                        <td>New York</td>
-                        <td>21</td>
-                        <td>2011/12/12</td>
-                        <td>$106,450</td>
-                    </tr><tr role="row" class="odd">
-                        <td class="sorting_1">Cara Stevens</td>
-                        <td>Sales Assistant</td>
-                        <td>New York</td>
-                        <td>46</td>
-                        <td>2011/12/06</td>
-                        <td>$145,600</td>
-                    </tr><tr role="row" class="even">
-                        <td class="sorting_1">Cedric Kelly</td>
-                        <td>Senior Javascript Developer</td>
-                        <td>Edinburgh</td>
-                        <td>22</td>
-                        <td>2012/03/29</td>
-                        <td>$433,060</td>
-                    </tr></tbody>
-                    <tfoot>
-                    <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th rowspan="1" colspan="1">Salary</th></tr>
-                    </tfoot>
-                </table><div class="dataTables_info" id="advance-1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div><div class="dataTables_paginate paging_simple_numbers" id="advance-1_paginate"><a class="paginate_button previous disabled" aria-controls="advance-1" data-dt-idx="0" tabindex="0" id="advance-1_previous">Previous</a><span><a class="paginate_button current" aria-controls="advance-1" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="advance-1" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="advance-1" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="advance-1" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="advance-1" data-dt-idx="5" tabindex="0">5</a><a class="paginate_button " aria-controls="advance-1" data-dt-idx="6" tabindex="0">6</a></span><a class="paginate_button next" aria-controls="advance-1" data-dt-idx="7" tabindex="0" id="advance-1_next">Next</a></div></div>
-            </div>
+
+            <Menubar style="margin-bottom: 10px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px">
+                <template #start>
+                    <img alt="logo" src="./../../images/user.png" height="40px" class="p-mr-2">
+                </template>
+                <template #end>
+                    <span class="p-input-icon-left">
+                        <router-link style="color: white" to="/user-add">
+                            <vs-button
+                                icon
+                                floating
+                                success
+                            >
+                                <i class='bx bx-plus' ></i> Add New User
+                            </vs-button>
+                        </router-link>
+                    </span>
+                </template>
+            </Menubar>
+
+            <vs-table
+                striped
+                v-model="selected">
+
+                <!--            todo:header-->
+                <template #header>
+                    <vs-input v-model="search" border placeholder="Search" />
+                </template>
+
+                <template #thead>
+                    <vs-tr>
+                        <!--                        todo:base-->
+                        <vs-th>
+                            <vs-checkbox
+                                :indeterminate="selected.length === users.length" v-model="allCheck"
+                                @change="selected = $vs.checkAll(selected, users)"
+                            />
+                        </vs-th>
+
+                        <!--                        todo:base-->
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'id')">
+                            Id
+                        </vs-th>
+
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'name')">
+                            Name
+                        </vs-th>
+
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'email')">
+                            Email
+                        </vs-th>
+
+                        <vs-th>
+                            Avatar
+                        </vs-th>
+
+                        <vs-th
+                            sort @click="users = $vs.sortData($event ,users, 'phone')">
+                            Phone
+                        </vs-th>
+
+<!--                        todo:base-->
+                        <vs-th>
+                            Created At
+                        </vs-th>
+
+                <!--        todo:base-->
+                        <vs-th>
+                            Edit
+                        </vs-th>
+
+<!--                        todo:base-->
+                        <vs-th>
+                            Delete
+                        </vs-th>
+
+                    </vs-tr>
+                </template>
+
+                <template #tbody>
+
+                    <vs-tr
+                        :key="i"
+                        v-for="(tr, i) in $vs.getPage($vs.getSearch(users, search), page, max)"
+                        :data="tr"
+                        :is-selected="!!selected.includes(tr)"
+                    >
+
+                        <!--                        todo:base-->
+                        <vs-td checkbox>
+                            <vs-checkbox :val="tr" v-model="selected" />
+                        </vs-td>
+
+                        <!--                        todo:base-->
+                        <vs-td>
+                            {{ tr.id }}
+                        </vs-td>
+
+                        <vs-td>
+                            {{ tr.name }}
+                        </vs-td>
+                        <vs-td>
+                            {{ tr.email }}
+                        </vs-td>
+
+                        <vs-td>
+                            <img src="../../images/user.png" alt="" style="margin-right: 3px"  width="30px"/>
+                            Ayman
+                        </vs-td>
+
+                        <vs-td>
+                            01062495243
+                        </vs-td>
+
+                        <vs-td>
+                            22-9-2020 15:00
+                        </vs-td>
+
+                        <vs-td>
+                            <vs-button
+                                circle
+                                icon
+                                floating
+                                size="small"
+                                primary
+                            >
+                                <i class='bx bx-edit' ></i>
+                            </vs-button>
+                        </vs-td>
+
+                        <vs-td>
+                            <vs-button
+                                circle
+                                icon
+                                floating
+                                size="small"
+                                danger
+                            >
+                                <i class='bx bx-trash' ></i>
+                            </vs-button>
+                        </vs-td>
+
+                    </vs-tr>
+                </template>
+            </vs-table>
+            <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(users, max)" />
+            <!--            todo:base-->
+            <span class="data">
+                <pre hidden>
+                    {{ selected.length > 0 ? selected : 'Select an item in the table' }}
+                </pre>
+            </span>
         </div>
     </div>
 </template>
 
-
 <script>
-
 export default {
     name: "List",
+    data() {
+        return {
+            hidden:false,
+            search: '',
+            allCheck: false,
+            page: 1,
+            max: 10,
+            selected: [],
+            users: [
+                {
+                    "id": 1,
+                    "name": "Leanne Graham",
+                    "username": "Bret",
+                    "email": "Sincere@april.biz",
+                    "website": "hildegard.org",
+                },
+                {
+                    "id": 2,
+                    "name": "Ervin Howell",
+                    "username": "Antonette",
+                    "email": "Shanna@melissa.tv",
+                    "website": "anastasia.net",
+                },
+                {
+                    "id": 3,
+                    "name": "Clementine Bauch",
+                    "username": "Samantha",
+                    "email": "Nathan@yesenia.net",
+                    "website": "ramiro.info",
+                },
+                {
+                    "id": 4,
+                    "name": "Patricia Lebsack",
+                    "username": "Karianne",
+                    "email": "Julianne.OConner@kory.org",
+                    "website": "kale.biz",
+                },
+                {
+                    "id": 5,
+                    "name": "Chelsey Dietrich",
+                    "username": "Kamren",
+                    "email": "Lucio_Hettinger@annie.ca",
+                    "website": "demarco.info",
+                },
+                {
+                    "id": 6,
+                    "name": "Mrs. Dennis Schulist",
+                    "username": "Leopoldo_Corkery",
+                    "email": "Karley_Dach@jasper.info",
+                    "website": "ola.org",
+                },
+                {
+                    "id": 7,
+                    "name": "Kurtis Weissnat",
+                    "username": "Elwyn.Skiles",
+                    "email": "Telly.Hoeger@billy.biz",
+                    "website": "elvis.io",
+                },
+                {
+                    "id": 8,
+                    "name": "Nicholas Runolfsdottir V",
+                    "username": "Maxime_Nienow",
+                    "email": "Sherwood@rosamond.me",
+                    "website": "jacynthe.com",
+                },
+                {
+                    "id": 9,
+                    "name": "Glenna Reichert",
+                    "username": "Delphine",
+                    "email": "Chaim_McDermott@dana.io",
+                    "website": "conrad.com",
+                },
+                {
+                    "id": 10,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 11,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 12,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 13,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                },
+                {
+                    "id": 14,
+                    "name": "Clementina DuBuque",
+                    "username": "Moriah.Stanton",
+                    "email": "Rey.Padberg@karina.biz",
+                    "website": "ambrose.net",
+                }
+            ]
+        }
+    },
+    created() {
+    },
+    mounted() {
+    },
+    methods: {
+    }
 }
 </script>
 
