@@ -21,7 +21,7 @@ class CreatePrefersTable extends Migration
 
             //Relationships
             $table->foreign('user_id')
-                ->references('id')->on('p_users')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
 
             $table->foreign('field_id')

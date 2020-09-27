@@ -1,0 +1,48 @@
+GET http://localhost:90/o
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-09-27T014230.404.html
+
+###
+
+GET http://localhost:90/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-09-27T014154.200.html
+
+###
+
+GET http://localhost:8000/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-09-27T014133.500.html
+
+###
+
+GET http://localhost:8080/
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://localhost:8080/User
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/User
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/
+Accept: */*
+Cache-Control: no-cache
+
+###
+

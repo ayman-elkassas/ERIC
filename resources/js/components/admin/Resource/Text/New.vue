@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-xl-6">
                         <div class="center content-inputs">
-                            <vueDropzone ref="dropzone" :useCustomSlot=true class="dropzone digits dz-clickable" id="drop1" :options="dropOptions" :include-styling="false">
+                            <vueDropzone ref="dropzone" :useCustomSlot=true class="dropzone digits dz-clickable" id="drop2" :options="dropOptions" :include-styling="false">
                                 <div class="dz-message needsclick"><i class="fa fa-upload"></i>
                                     <h6>Drop file here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
                                 </div>

@@ -20,7 +20,9 @@ import CourseDetails from './components/admin/Course/Details'
 //todo:Resource - text
 import ResourceTextList from './components/admin/Resource/Text/List'
 import ResourceTextNew from './components/admin/Resource/Text/New'
-
+//todo:Audio
+import ResourceAudioList from './components/admin/Resource/Audio/List'
+import ResourceAudioNew from './components/admin/Resource/Audio/New'
 
 export const routes=[
     //todo:Home
@@ -44,5 +46,8 @@ export const routes=[
     //todo:Resource-text
     {path:'/resource-text-list/',name:'Resource Text List',component:ResourceTextList },
     {path:'/resource-text-add/',name:'Resource Text Add',component:ResourceTextNew },
+    //todo:Resource-audio
+    {path:'/resource-voice-list/',name:'Resource Audio List',component:ResourceAudioList },
+    {path:'/resource-voice-add/',name:'Resource Audio Add',component:ResourceAudioNew},
 
 ];

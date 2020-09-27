@@ -73,14 +73,15 @@ return [
     */
 
     'providers' => [
+        //todo:default provider guard to web
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
-        //todo:user define eloquent provider
+        //todo:user define eloquent provider (Admin Table)
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\Admins::class,
         ],
 
         // 'users' => [
@@ -107,6 +108,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

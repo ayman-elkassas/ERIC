@@ -112,22 +112,9 @@
 <script>
 
 //todo: include component script
-import 'jquery/src/jquery'
-// import slide from '../../../../admin-js/slide-div';
-
-//todo:Input avatar
-import jf from 'admin-panel/files/assets/pages/jquery.filer/js/jquery.filer.min'
-import cf from 'admin-panel/files/assets/pages/filer/custom-filer'
-import fu from 'admin-panel/files/assets/pages/filer/jquery.fileuploads.init'
-
 export default {
     name: "New",
     mounted() {
-        slide.slide_call();
-
-        jf.input_call();
-        cf.input_call();
-        fu.input_call();
     }
 }
 

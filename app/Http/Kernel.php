@@ -21,6 +21,10 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+//        \App\Http\Middleware\Admin::class,
+//        \App\Http\Middleware\AdminAuth::class,
+    //todo:to enable start session in laravel 7 and later
+        \Illuminate\Session\Middleware\StartSession::class,
     ];
 
     /**
@@ -66,5 +70,6 @@ class Kernel extends HttpKernel
 
         //todo:user define middlewares
         'admin'=> \App\Http\Middleware\Admin::class,
+        'adminAuth'=> \App\Http\Middleware\AdminAuth::class,
     ];
 }

@@ -18,18 +18,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-//Admin Routes
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/Post','Admin\PostController@all_post');
-//todo:any path forward to index adminPanel page
-
-Route::get('/{any}', function () {
-    return view('admin.admin-master');
-})->where('any', '.*');
-
-Route::get('initTable', 'InitTable')->name('initTable');
-Route::get('tableData', 'TableData')->name('tableData');
-
-

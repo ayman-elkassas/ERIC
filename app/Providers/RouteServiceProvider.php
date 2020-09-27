@@ -48,6 +48,7 @@ class RouteServiceProvider extends ServiceProvider
 
         //todo:user define RouteServiceProvider
         $this->mapAdminRoutes();
+        $this->mapAdminAuthRoutes();
     }
 
     /**
@@ -62,6 +63,21 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
+    }
+
+    //todo:user define RouteServiceProvider
+    /**
+     * Define the "admin" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAdminAuthRoutes()
+    {
+        Route::middleware('adminAuth')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/adminAuth.php'));
     }
 
     //todo:user define RouteServiceProvider

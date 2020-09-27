@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
 
             //Relationships
             $table->foreign('user_id')
-                ->references('id')->on('p_users')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
         });
     }

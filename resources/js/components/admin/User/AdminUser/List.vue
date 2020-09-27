@@ -3,7 +3,7 @@
         <div class="card-header">
             <template>
                 <div class="center">
-                    <vs-alert style="z-index: 0" :hidden-content.sync="hidden">
+                    <vs-alert :hidden-content.sync="hidden">
                         <template #icon>
                             <i class='bx bxs-info-circle'></i>
                         </template>

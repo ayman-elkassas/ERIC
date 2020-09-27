@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Posts extends Model
 {
     //
     public function p_user():object {
-        return $this->belongsTo(PUsers::class,'user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
 }

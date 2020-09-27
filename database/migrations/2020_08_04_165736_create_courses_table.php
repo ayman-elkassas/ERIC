@@ -26,7 +26,7 @@ class CreateCoursesTable extends Migration
 
             //Relationship (1-M)
             $table->foreign('user_id')
-                ->references('id')->on('p_users')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
         });
     }
