@@ -14,7 +14,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function ()
 
     Route::group(['middleware' => 'admin:adminAuthGuard'], function () {
         //todo:make your internal routes inside this group
-        Route::get('/', 'Home@index');
+        Route::get('/', 'HomeController@index');
 
         //todo:any path forward to index Dashboard Admin Panel page
         Route::get('/{any}', function () {

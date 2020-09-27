@@ -77,7 +77,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('adminAuth')
             ->namespace($this->namespace)
-            ->group(base_path('routes/adminAuth.php'));
+            ->group(base_path('routes/Admin/adminAuth.php'));
     }
 
     //todo:user define RouteServiceProvider
@@ -92,7 +92,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('admin')
             ->namespace($this->namespace)
-            ->group(base_path('routes/admin.php'));
+            ->group(base_path('routes/Admin/admin.php'));
     }
 
     /**

@@ -193,7 +193,7 @@
     <property name="editor.config.ad.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/image" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/admin-cuba/assets/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -203,19 +203,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\public\admin-cuba\assets\images" />
+      <recent name="E:\Server\htdocs\ERIC\public\admin-panel-nextro\image\auth" />
+      <recent name="E:\Server\htdocs\ERIC\resources\views\Admin\Home\image" />
+      <recent name="E:\Server\htdocs\ERIC\resources\views\admin\image" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\template" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\routes\Admin" />
+      <recent name="E:\Server\htdocs\ERIC\resources\views\admin\Home" />
       <recent name="E:\Server\htdocs\ERIC\app\Models" />
       <recent name="E:\Server\htdocs\ERIC\app\Http\Controllers\Admin\Dashboard" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\User\AdminUser" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\User\PublicUser" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Server\htdocs\ERIC\resources\views\admin\image" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\template" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Course\images" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Course" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\images" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -526,7 +526,7 @@
       <workItem from="1601183708753" duration="53000" />
       <workItem from="1601183806277" duration="60000" />
       <workItem from="1601183901654" duration="24487000" />
-      <workItem from="1601220339674" duration="261000" />
+      <workItem from="1601220339674" duration="15010000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -587,6 +587,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="412" y="158" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.738@0.0.1366.738" timestamp="1599326405134" />
+    <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601222101704">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1601222101704" />
     <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601205325673">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -627,10 +631,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="469" y="75" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1599326408950" />
-    <state x="517" y="288" key="NewPhpFileDialog" timestamp="1601191822274">
+    <state x="517" y="288" key="NewPhpFileDialog" timestamp="1601228212851">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1601191822274" />
+    <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1601228212851" />
     <state x="214" y="19" key="SettingsEditor" timestamp="1601113810730">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -667,10 +671,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="dock-window-2/0.0.1366.738@0.0.1366.738" timestamp="1598124580202" />
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1601141605357">
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1601233521958">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1601141605357" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1601233521958" />
     <state x="475" y="226" key="scopes" timestamp="1597177503372">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
