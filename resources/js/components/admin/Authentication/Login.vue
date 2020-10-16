@@ -33,7 +33,7 @@
 
                 <vs-button
                     block
-                    @click="loginAdmin"
+                    @click="openLoading"
                 >
                     Sign in
                 </vs-button>
@@ -87,6 +87,7 @@ export default {
                 password:"",
                 remember_me:false,
             },
+            progress: 0,
         }
     },
     created(){
@@ -109,10 +110,36 @@ export default {
                     alert("Error");
                 });
         },
-        checkIfLogin(){
-            if(localStorage.getItem('token')!=null){
-                window.location="/admin/";
-            }
+        openLoading() {
+
+            const loading = this.$vs.loading({
+                progress: 0
+            })
+            const interval = setInterval(() => {
+                if (this.progress <= 100) {
+                    loading.changeProgress(this.progress++)
+                }
+            }, 40)
+
+            axios.post('/auth/login',this.request)
+                .then((response)=>{
+                    let token=response.data.token;
+                    let user=response.data.user;
+                    let provider=response.data.provider;
+                    if(token){
+                        localStorage.setItem('token',token);
+                        localStorage.setItem('provider',provider);
+
+                        window.location="/admin?token="+token+"&provider="+provider;
+
+                        loading.close()
+                        clearInterval(interval)
+                        this.progress = 0
+                    }
+                })
+                .catch((error)=>{
+                    alert("Error");
+                });
         }
     }
 }

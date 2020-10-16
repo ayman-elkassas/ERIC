@@ -12,8 +12,16 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class LoginController extends Controller
 {
-    public function __construct()
+
+    /**
+     * @var \Tymon\JWTAuth\JWTAuth
+     */
+    protected $jwt;
+
+    public function __construct(JWTAuth $jwt)
     {
+        $this->jwt = $jwt;
+
         //todo:should change provider and then implement JWTSubject
         Config::set('jwt.user', Admins::class);
         Config::set('auth.providers', ['users' => [
@@ -43,29 +51,18 @@ class LoginController extends Controller
 
     public final function Logout(Request $request):object {
 
-        return response()->json(FAdminAuthGuard()->user());
-        FAdminAuthGuard()->user()->tokens->each(function ($token, $key) {
-            $token->delete();
-        });
+        $user=\auth()->user();
+        try {
+            \auth()->logout();
+            return response()->json([
+                'message' => $user->name
+            ], 200);
 
-        //todo:for clear session
-        FAdminAuthGuard()->logout();
+        }catch (\Exception $ex){
+            return response()->json([
+                'message' => 'Failed to logout user. Try again.'
+            ], 500);
+        }
 
-        return response()->json('Logged out successfully',200);
     }
 }
-
-//todo:Methwada
-// How to call any api from backend
-// $http=new \GuzzleHttp\Client;
-// $response=$http->post(config('services.passport.login_endpoint'),[
-//                'form_params'=>[
-//                    'grant_type'=>config('services.passport.grant_type'),
-//                    'client_id'=>config('services.passport.client_id'),
-//                    'client_secret'=>config('services.passport.client_secret'),
-//                    'username'=>$request->username,
-//                    'password'=>$request->password,
-//                    'provider'=>$request->provider,
-//                ]
-//            ]);
-// return $response->getBody();

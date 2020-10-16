@@ -1,6 +1,6 @@
 <template>
 
-        <div class="auth-wrapper align-items-stretch aut-bg-img">
+        <div ref="target" id="target" class="center auth-wrapper align-items-stretch aut-bg-img">
 
             <div  class="flex-grow-1">
 

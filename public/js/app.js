@@ -1995,7 +1995,8 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         password: "",
         remember_me: false
-      }
+      },
+      progress: 0
     };
   },
   created: function created() {// this.checkIfLogin();
@@ -2016,10 +2017,37 @@ __webpack_require__.r(__webpack_exports__);
         alert("Error");
       });
     },
-    checkIfLogin: function checkIfLogin() {
-      if (localStorage.getItem('token') != null) {
-        window.location = "/admin/";
-      }
+    openLoading: function openLoading() {
+      var _this = this;
+
+      var loading = this.$vs.loading({
+        progress: 0
+      });
+      var interval = setInterval(function () {
+        if (_this.progress <= 100) {
+          loading.changeProgress(_this.progress++);
+        }
+      }, 40);
+      axios.post('/auth/login', this.request).then(function (response) {
+        var token = response.data.token;
+        var user = response.data.user;
+        var provider = response.data.provider;
+
+        if (token) {
+          localStorage.setItem('token', token);
+          localStorage.setItem('provider', provider);
+          window.location = "/admin?token=" + token + "&provider=" + provider;
+          loading.close();
+          clearInterval(interval);
+          _this.progress = 0;
+        }
+      })["catch"](function (error) {
+        alert("Error");
+      }); // setTimeout(() => {
+      //
+      //
+      //
+      // }, 4100)
     }
   }
 });
@@ -4011,106 +4039,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
+  data: function data() {
+    return {
+      request: {
+        token: "",
+        provider: ""
+      }
+    };
+  },
   mounted: function mounted() {},
   methods: {
     logout: function logout() {
-      alert("enter");
+      // alert("enter");
+      if (localStorage.hasOwnProperty('token') && localStorage.hasOwnProperty('provider')) {
+        this.request.token = localStorage.getItem('token');
+        this.request.provider = localStorage.getItem('provider');
+        axios.post('/auth/logout?token=' + this.request.token + '&provider=' + this.request.provider, this.request).then(function (response) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('provider');
+          window.location = "/auth/login";
+        })["catch"](function (error) {
+          alert("Token has ");
+        });
+      } else {
+        window.location = "/auth/login";
+      }
     }
   }
 });
@@ -41341,7 +41296,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "vs-button",
-            { attrs: { block: "" }, on: { click: _vm.loginAdmin } },
+            { attrs: { block: "" }, on: { click: _vm.openLoading } },
             [_vm._v("\n                Sign in\n            ")]
           )
         ],
@@ -41455,7 +41410,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "auth-wrapper align-items-stretch aut-bg-img" },
+    {
+      ref: "target",
+      staticClass: "center auth-wrapper align-items-stretch aut-bg-img",
+      attrs: { id: "target" }
+    },
     [
       _c("div", { staticClass: "flex-grow-1" }, [
         _vm._m(0),
@@ -45243,15 +45202,13 @@ var render = function() {
       _vm._m(1)
     ]),
     _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
     _c("div", { staticClass: "nav-right col-8 pull-right right-menu" }, [
       _c("ul", { staticClass: "nav-menus" }, [
+        _vm._m(2),
+        _vm._v(" "),
         _vm._m(3),
         _vm._v(" "),
         _vm._m(4),
-        _vm._v(" "),
-        _vm._m(5),
         _vm._v(" "),
         _c("li", [
           _c("div", { staticClass: "mode" }, [
@@ -45293,23 +45250,23 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
         _vm._m(6),
         _vm._v(" "),
         _vm._m(7),
         _vm._v(" "),
-        _vm._m(8),
-        _vm._v(" "),
         _c("li", { staticClass: "profile-nav onhover-dropdown p-0" }, [
-          _vm._m(9),
+          _vm._m(8),
           _vm._v(" "),
           _c("ul", { staticClass: "profile-dropdown onhover-show-div" }, [
+            _vm._m(9),
+            _vm._v(" "),
             _vm._m(10),
             _vm._v(" "),
             _vm._m(11),
             _vm._v(" "),
             _vm._m(12),
-            _vm._v(" "),
-            _vm._m(13),
             _vm._v(" "),
             _c("li", [
               _c("i", { attrs: { "data-feather": "log-out" } }),
@@ -45335,7 +45292,7 @@ var render = function() {
       { attrs: { id: "result-template", type: "text/x-handlebars-template" } },
       [
         _vm._v(
-          '\n            <div class="ProfileCard u-cf">\n                <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>\n                <div class="ProfileCard-details">\n                    <div class="ProfileCard-realName">Ayman</div>\n                </div>\n            </div>\n        '
+          '\n        <div class="ProfileCard u-cf">\n            <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>\n            <div class="ProfileCard-details">\n                <div class="ProfileCard-realName">Ayman</div>\n            </div>\n        </div>\n    '
         )
       ]
     ),
@@ -45404,29 +45361,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "toggle-sidebar" }, [
       _c("i", {
-        staticClass: "status_toggle middle",
+        staticClass: "fa fc-day-grid-container",
         attrs: { "data-feather": "grid", id: "sidebar-toggle" }
       })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "left-menu-header col horizontal-wrapper pl-0" },
-      [
-        _c("ul", { staticClass: "horizontal-menu" }, [
-          _c("li", { staticClass: "mega-menu" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _c("i", { attrs: { "data-feather": "layers" } }),
-              _c("span", [_vm._v("Bonus Ui")])
-            ])
-          ])
-        ])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -45501,7 +45439,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("li", [
       _c("span", { staticClass: "header-search" }, [
-        _c("i", { attrs: { "data-feather": "search" } })
+        _c("i", { staticClass: "fa fa-search" })
       ])
     ])
   },
@@ -45512,9 +45450,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "onhover-dropdown" }, [
       _c("div", { staticClass: "notification-box" }, [
         _c("i", { attrs: { "data-feather": "bell" } }),
-        _c("span", { staticClass: "badge badge-pill badge-secondary" }, [
-          _vm._v("4")
-        ])
+        _c("span", { staticClass: "fa fa-money-bill" }, [_vm._v("4")])
       ]),
       _vm._v(" "),
       _c("ul", { staticClass: "notification-dropdown onhover-show-div" }, [
