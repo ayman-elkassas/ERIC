@@ -12,14 +12,20 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function ()
     //todo:your middleware name is "admin" declare in kernel
     // and "adminAuthGuard" your guard passed to middleware "admin"
 
-    Route::group(['middleware' => 'admin:adminAuthGuard'], function () {
+    Route::group(['middleware' => 'jwt.check'], function () {
         //todo:make your internal routes inside this group
         Route::get('/', 'HomeController@index');
 
-        //todo:any path forward to index Dashboard Admin Panel page
-        Route::get('/{any}', function () {
-            return redirect('/admin/');
-        })->where('any', '.*');
+    });
+
+    Route::group(['middleware' => 'jwt.auth'], function () {
+
+        //todo:any route should auth
 
     });
+
+    //todo:any path forward to index Dashboard Admin Panel page
+    Route::get('/{any}', function () {
+        return redirect('/admin/');
+    })->where('any', '.*');
 });

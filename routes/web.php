@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 //basic route
-//Route::get('/', function () {
-//    return view('welcome');
+//Route::get('/login', function () {
+//    return view('Admin.Home.Dashboard');
 //});
+
+//Route::get('/{any}', function () {
+//    return redirect('/admin/');
+//})->where('any', '.*');

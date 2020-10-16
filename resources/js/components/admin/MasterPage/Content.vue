@@ -11,6 +11,9 @@
 
 export default {
     name: "content",
+    mounted() {
+        this.$router.push('/home');
+    }
 }
 </script>
 

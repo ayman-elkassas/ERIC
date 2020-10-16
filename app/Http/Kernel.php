@@ -60,16 +60,23 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-
-        //todo:user define middlewares
+        //todo:user define middlewares (routes)
         'admin'=> \App\Http\Middleware\Admin::class,
-        'adminAuth'=> \App\Http\Middleware\AdminAuth::class,
+        'admin.auth'=> \App\Http\Middleware\AdminAuth::class,
+        //todo:user define middlewares (apis)
+        'admin.auth.api'=> \App\Http\Middleware\AdminAuthApi::class,
+
+        //todo: jwt auth middlewares
+        'jwt.auth' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
+        'jwt.check' => \Tymon\JWTAuth\Http\Middleware\Check::class,
+        'jwt.refresh' => \Tymon\JWTAuth\Http\Middleware\RefreshToken::class,
+
     ];
 }

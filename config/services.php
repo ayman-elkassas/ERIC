@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    //todo:Add JWT Config
+    'passport'=>[
+        'login_endpoint'=>env('PASSPORT_LOGIN_ENDPOINT'),
+        'grant_type'=>env('PASSPORT_GRANT_TYPE'),
+        'client_id'=>env('PASSPORT_CLIENT_ID'),
+        'client_secret'=>env('PASSPORT_CLIENT_SECRET'),
+    ],
 ];

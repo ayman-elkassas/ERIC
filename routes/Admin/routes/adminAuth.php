@@ -18,11 +18,16 @@ Route::group(['prefix'=>'auth','namespace'=>'Admin\Authentication'],function (){
     Route::post('/register', 'RegisterController@DoRegister');
 
     //todo:logout
-    Route::get('/logout', 'LoginController@Logout');
+    Route::group(['middleware' => 'jwt.auth'], function () {
 
-    //todo:any path forward to index Dashboard Admin Panel page
-    Route::get('/{any}', function () {
-        return redirect(FAdminAuthUrl('login'));
-    })->where('any', '.*');
+        //todo:any route should auth
+        Route::get('/logout', 'LoginController@Logout');
+
+    });
+
+//    //todo:any path forward to index Dashboard Admin Panel page
+//    Route::get('/{any}', function () {
+//        return redirect(FAdminAuthUrl('login'));
+//    })->where('any', '.*');
 
 });

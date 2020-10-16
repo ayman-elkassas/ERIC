@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/User', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+//Route::get('/login', function () {
+//    return view('Admin.Home.Dashboard');
+//});
+

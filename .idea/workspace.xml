@@ -25,7 +25,73 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project" />
+    <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
+      <change afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/CheckIfAuth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/AdminAuthApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/jwt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/auth/auth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/auth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nex/boxicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nex/boxicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nex/boxicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nex/boxicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nex/boxicons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nextro/boxicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nextro/boxicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nextro/boxicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nextro/boxicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-panel-nextro/boxicons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/login-back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/Authentication/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/Authentication/MasterSeen.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/Authentication/Register.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/Authentication/login-back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/Authentication/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/MasterPage/Header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/auth.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/Authentication/AdminAuth.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/Admin/apis/adminAuthApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ERIC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ERIC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Admins.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admins.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/MasterPage/Content.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/MasterPage/Content.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Authentication/ForgetPassword.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Authentication/Layout/Content.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Authentication/Layout/Footer.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Authentication/Layout/Header.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Authentication/Layout/Master.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Authentication/Login.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Authentication/Register.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/Admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Admin/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/Admin/adminAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Admin/routes/adminAuth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,16 +99,19 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="SCSS File" />
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Sass File" />
+        <option value="SCSS File" />
         <option value="CSS File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -165,11 +234,23 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
-      <path value="$PROJECT_DIR$/vendor/laravel-enso/enums" />
-      <path value="$PROJECT_DIR$/vendor/laravel-enso/helpers" />
-      <path value="$PROJECT_DIR$/vendor/laravel-enso/filters" />
-      <path value="$PROJECT_DIR$/vendor/laravel-enso/tables" />
-      <path value="$PROJECT_DIR$/vendor/box/spout" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/defuse/php-encryption" />
+      <path value="$PROJECT_DIR$/vendor/league/event" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-server" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-diactoros" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
+      <path value="$PROJECT_DIR$/vendor/laravel/passport" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/vendor/nyholm/psr7" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
     </include_path>
   </component>
   <component name="ProjectId" id="1fxUpFATMDdC1Uej0TMbtTL5Y11" />
@@ -193,29 +274,30 @@
     <property name="editor.config.ad.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/admin-cuba/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/admin/Authentication" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\app\Http\Controllers\Admin\Authentication" />
+      <recent name="E:\Server\htdocs\ERIC\routes\Admin\apis" />
+      <recent name="E:\Server\htdocs\ERIC\routes\Admin\routes" />
+      <recent name="E:\Server\htdocs\ERIC\routes\Admin" />
+      <recent name="E:\Server\htdocs\ERIC\resources\views\admin\Home" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Authentication" />
       <recent name="E:\Server\htdocs\ERIC\public\admin-cuba\assets\images" />
       <recent name="E:\Server\htdocs\ERIC\public\admin-panel-nextro\image\auth" />
       <recent name="E:\Server\htdocs\ERIC\resources\views\Admin\Home\image" />
       <recent name="E:\Server\htdocs\ERIC\resources\views\admin\image" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\template" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Server\htdocs\ERIC\routes\Admin" />
-      <recent name="E:\Server\htdocs\ERIC\resources\views\admin\Home" />
-      <recent name="E:\Server\htdocs\ERIC\app\Models" />
-      <recent name="E:\Server\htdocs\ERIC\app\Http\Controllers\Admin\Dashboard" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\User\AdminUser" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -526,7 +608,19 @@
       <workItem from="1601183708753" duration="53000" />
       <workItem from="1601183806277" duration="60000" />
       <workItem from="1601183901654" duration="24487000" />
-      <workItem from="1601220339674" duration="15010000" />
+      <workItem from="1601220339674" duration="15305000" />
+      <workItem from="1601810795003" duration="5280000" />
+      <workItem from="1601920367555" duration="6319000" />
+      <workItem from="1602008523906" duration="13579000" />
+      <workItem from="1602080158847" duration="12359000" />
+      <workItem from="1602148590287" duration="44825000" />
+      <workItem from="1602230974532" duration="20889000" />
+      <workItem from="1602273856912" duration="14938000" />
+      <workItem from="1602351497826" duration="14938000" />
+      <workItem from="1602434939596" duration="13187000" />
+      <workItem from="1602458798085" duration="2021000" />
+      <workItem from="1602530714424" duration="13222000" />
+      <workItem from="1602841223584" duration="359000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -583,42 +677,50 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="439" y="188" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1597945970890" />
+    <state x="487" y="37" key="#com.intellij.ide.util.MemberChooser" timestamp="1602254783782">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="487" y="37" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1602254783782" />
     <state x="412" y="158" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1599326405134">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="412" y="158" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.738@0.0.1366.738" timestamp="1599326405134" />
-    <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601222101704">
+    <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602179979761">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1601222101704" />
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601205325673">
+    <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1602179979761" />
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602255094897">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1601205325673" />
-    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1601120342526">
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1602255094897" />
+    <state x="446" y="279" key="ComposerInitDialogKey" timestamp="1602096412589">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1601120342526" />
+    <state x="446" y="279" key="ComposerInitDialogKey/0.0.1366.738@0.0.1366.738" timestamp="1602096412589" />
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1602179462345">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1602179462345" />
     <state x="463" y="91" key="FileChooserDialogImpl" timestamp="1597406623916">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1597406623916" />
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1601150783621">
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1602544509104">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1601150783621" />
-    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1601150783621">
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1602544509104" />
+    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1602544509103">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1601150783621" />
-    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1601150783621">
+    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1602544509103" />
+    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1602544509103">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1601150783620" />
-    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1601150783621">
+    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1602544509103" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1602544509103">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1601150783621" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1602544509103" />
     <state x="129" y="55" key="MergeDialog" timestamp="1597542580005">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -631,10 +733,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="469" y="75" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1599326408950" />
-    <state x="517" y="288" key="NewPhpFileDialog" timestamp="1601228212851">
+    <state x="517" y="288" key="NewPhpFileDialog" timestamp="1602351829242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1601228212851" />
+    <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1602351829242" />
     <state x="214" y="19" key="SettingsEditor" timestamp="1601113810730">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -643,10 +745,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1599857873906" />
-    <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1601147143209">
+    <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602241436521">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.738@0.0.1366.738" timestamp="1601147143209" />
+    <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.738@0.0.1366.738" timestamp="1602241436521" />
+    <state x="263" y="23" key="com.intellij.database.dbimport.ImportDialog" timestamp="1602101436007">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="263" y="23" key="com.intellij.database.dbimport.ImportDialog/0.0.1366.738@0.0.1366.738" timestamp="1602101436007" />
     <state x="413" y="173" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1598616864493">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -671,10 +777,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="dock-window-2/0.0.1366.738@0.0.1366.738" timestamp="1598124580202" />
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1601233521958">
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1602532939728">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1601233521958" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1602532939728" />
     <state x="475" y="226" key="scopes" timestamp="1597177503372">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

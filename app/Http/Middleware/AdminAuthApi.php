@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 
-class Admin
+class AdminAuthApi
 {
     /**
      * Handle an incoming request.
@@ -14,8 +14,9 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next=null,$guard=null)
+    public function handle($request, Closure $next)
     {
+        //todo:check token here
         return $next($request);
     }
 }

@@ -23,6 +23,10 @@ import ResourceTextNew from './components/admin/Resource/Text/New'
 //todo:Audio
 import ResourceAudioList from './components/admin/Resource/Audio/List'
 import ResourceAudioNew from './components/admin/Resource/Audio/New'
+//todo:Auth
+import Login from './components/admin/Authentication/Login'
+import Register from './components/admin/Authentication/Register'
+import MasterSeen from './components/admin/Authentication/MasterSeen'
 
 export const routes=[
     //todo:Home
@@ -49,5 +53,15 @@ export const routes=[
     //todo:Resource-audio
     {path:'/resource-voice-list/',name:'Resource Audio List',component:ResourceAudioList },
     {path:'/resource-voice-add/',name:'Resource Audio Add',component:ResourceAudioNew},
+    //todo:Auth
+    {path:'/auth-login',name:'auth-login',components:{
+            default: Login,
+            login:Login
+    }},
+    {path:'/auth-register/',name:'auth-register',component:Register},
+    {path:'/master-seen/',name:'master-seen',components:{
+            default:MasterSeen,
+            master:MasterSeen
+    }},
 
 ];

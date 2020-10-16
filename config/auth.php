@@ -49,9 +49,12 @@ return [
 
         //todo:Api
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
-            'hash' => false,
+        ],
+        'jwt' => [
+            'driver' => 'jwt',
+            'provider' => 'admins',
         ],
     ],
 

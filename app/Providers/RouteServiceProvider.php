@@ -47,8 +47,12 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         //todo:user define RouteServiceProvider
+        //todo:web routes
         $this->mapAdminRoutes();
         $this->mapAdminAuthRoutes();
+
+        //todo:api routes
+        $this->mapAdminApiRoutes();
     }
 
     /**
@@ -75,9 +79,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapAdminAuthRoutes()
     {
-        Route::middleware('adminAuth')
+        Route::middleware('admin.auth')
             ->namespace($this->namespace)
-            ->group(base_path('routes/Admin/adminAuth.php'));
+            ->group(base_path('routes/Admin/routes/adminAuth.php'));
     }
 
     //todo:user define RouteServiceProvider
@@ -92,7 +96,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('admin')
             ->namespace($this->namespace)
-            ->group(base_path('routes/Admin/admin.php'));
+            ->group(base_path('routes/Admin/routes/admin.php'));
     }
 
     /**
@@ -108,5 +112,20 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapAdminApiRoutes()
+    {
+        Route::prefix('api.admin')
+            ->middleware('admin.auth.api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/Admin/apis/adminAuthApi.php'));
     }
 }

@@ -1116,7 +1116,7 @@
     </table>
     <column id="355" parent="341" name="id">
       <Position>1</Position>
-      <DataType>bigint(20) unsigned|0s</DataType>
+      <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
