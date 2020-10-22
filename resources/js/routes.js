@@ -1,6 +1,9 @@
 //todo:make routes refer to components
 //todo:Home
 import AdminHome from './components/admin/HomePage/AdminHome.vue'
+//todo:Roles
+import RoleList from './components/admin/Role/Roles/List.vue'
+import PermissionList from './components/admin/Role/Permissions/List.vue'
 //todo:Admin
 import AdminList from './components/admin/User/AdminUser/List.vue'
 import AdminNew from './components/admin/User/AdminUser/New.vue'
@@ -31,6 +34,9 @@ import MasterSeen from './components/admin/Authentication/MasterSeen'
 export const routes=[
     //todo:Home
     {path:'/home/',name:'Home',component:AdminHome},
+    //todo:Roles
+    {path:'/admin-role/',name:'Admin List',component:RoleList},
+    {path:'/admin-permission/',name:'Admin Add',component:PermissionList},
     //todo:Admin
     {path:'/admin-list/',name:'Admin List',component:AdminList},
     {path:'/admin-add/',name:'Admin Add',component:AdminNew},

@@ -1,7 +1,6 @@
-
 <template>
     <div class="center">
-        <vs-dialog not-close blur v-model="active">
+        <vs-dialog prevent-close not-close blur v-model="active">
             <template #header>
                 <h4 class="not-margin">
                     Unauthorized <b>401</b>

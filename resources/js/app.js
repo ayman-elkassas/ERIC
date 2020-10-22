@@ -103,6 +103,13 @@ const content = new Vue({
 const user = new Vue({
     el:"#user",
     router,
+    store
+});
+
+const roles = new Vue({
+    el:"#roles",
+    router,
+    store
 });
 
 const post = new Vue({
@@ -130,3 +137,4 @@ const adminheader = new Vue({
     router,
     store
 });
+

@@ -10,14 +10,28 @@
                 </vs-avatar>
             </vs-col>
             <vs-col vs-justify="center" vs-align="center" w="10">
-                <p class="username">Ayman Elkassas</p>
+
+                <p style="color:#1f60ff;font-weight: bold" v-for="role in currentUser.role" class="username">
+                    <span v-if="role === 'super_admin'">
+                            Super Administrator
+                    </span>
+                    <span v-else-if="role==='admin'" class="mb-0 font-roboto">
+                            Local Administrator
+                    </span>
+                    <span v-else-if="role==='user'" class="mb-0 font-roboto">
+                            Local User
+                    </span>
+                    <span v-else class="mb-0 font-roboto">
+                            Admin
+                    </span>
+                </p>
             </vs-col>
         </vs-row>
         <br>
 
         <vs-row>
-            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-                Welcome Admin
+            <vs-col style="color:#46c93a" vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                Welcome {{ currentUser.name }}
             </vs-col>
         </vs-row>
 
@@ -32,7 +46,37 @@
 
 <script>
 export default {
-name: "userWelcome"
+    name: "userWelcome",
+    data(){
+      return{
+          currentUser:[],
+      }
+    },
+    mounted(){
+        this.getCurrentUser();
+    },
+    methods:{
+        getCurrentUser(){
+            let request={token:"",provider:""};
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+                request.token=localStorage.getItem("token");
+                request.provider=localStorage.getItem("provider");
+                axios.post('/admin/user?token='+request.token+
+                    '&provider='+request.provider,request)
+                    .then((response)=>{
+                        this.currentUser=response.data.user;
+                    })
+                    .catch((error)=>{
+                        alert("Token has Invalid");
+                    });
+            }
+        },
+    }
 }
 </script>
 

@@ -7,7 +7,8 @@ use App\Models\Admins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
-use Tymon\JWTAuth\JWTAuth;
+use Spatie\Permission\Models\Role;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class HomeController extends Controller
 {
@@ -20,9 +21,10 @@ class HomeController extends Controller
             'driver' => 'eloquent',
             'model' => Admins::class,
         ]]);
+
     }
 
-    public final function index():object
+    public final function index(Request $request):object
     {
         return view('Admin.Home.Dashboard');
     }
@@ -30,6 +32,7 @@ class HomeController extends Controller
     public final function getUser(Request $request):object
     {
         $user = auth()->user();
+        $user['role']=$user->getRoleNames();
 
         return response()->json([
             'user' => $user

@@ -29,7 +29,6 @@ class Check extends BaseMiddleware
         if ($this->auth->parser()->setRequest($request)->hasToken()) {
             try {
                 $this->auth->parseToken()->authenticate();
-
             } catch (Exception $e) {
                 //
             }

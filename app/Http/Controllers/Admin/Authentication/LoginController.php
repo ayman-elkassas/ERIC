@@ -39,15 +39,13 @@ class LoginController extends Controller
 
         $credential=$request->only('email','password');
 
-        if(!$token=JWTAuth::attempt($credential)){
+        if(!$token=JWTAuth::attempt($credential,$request->remember_me)){
             return ['error'=>'invalid_credentials'];
         }
         else
         {
             $user = JWTAuth::user();
             $provider="admins";
-
-            Admins::find($user->id)->remember_token="Token";
 
             return ['token'=>$token,'user'=>$user,"provider"=>$provider];
         }

@@ -3,23 +3,26 @@
     <div class="auth-side-form" >
         <div class="auth-content" style="padding: 30px 40px">
             <h3 class="mb-4 f-w-400">Sign In</h3><br>
-            <div>
+            <div class="center content-inputs">
                 <vs-row>
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-                        <vs-input
-                            required autofocus
-                            v-model="request.email"
-                            label="Email address"
-                            placeholder="eric@eric.com">
-                            <template v-if="validEmail" #message-success>
-                                Email Valid
-                            </template>
-                            <template v-if="!validEmail && request.email !== ''" #message-danger>
-                                Email Invalid
-                            </template>
-                        </vs-input>
+                        <div class="center content-inputs">
+                            <vs-input
+                                required autofocus
+                                v-model="request.email"
+                                label="Email address"
+                                placeholder="eric@eric.com">
+                                <template v-if="validEmail" #message-success>
+                                    Email Valid
+                                </template>
+                                <template v-if="!validEmail && request.email !== ''" #message-danger>
+                                    Email Invalid
+                                </template>
+                            </vs-input>
+                        </div>
                     </vs-col>
                 </vs-row>
+                <br>
                 <br>
                 <vs-row>
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">

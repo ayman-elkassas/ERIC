@@ -2,8 +2,7 @@
     <div class="auth-side-form">
         <div class="auth-content">
             <h3 class="mb-4 f-w-400">Sign Up</h3>
-            <div>
-
+            <div class="center content-inputs">
                 <vs-row>
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
                         <vs-input v-model="request.name" placeholder="Username">
@@ -13,6 +12,7 @@
                         </vs-input>
                     </vs-col>
                 </vs-row>
+                <br>
                 <br>
                 <vs-row>
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
@@ -30,6 +30,7 @@
                         </vs-input>
                     </vs-col>
                 </vs-row>
+                <br>
                 <br>
                 <vs-row>
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
@@ -94,10 +95,73 @@
 
         </div>
 
+        <div class="center">
+            <vs-dialog prevent-close not-close blur v-model="active">
+                <template #header>
+                    <h4 class="not-margin">
+                        Upload Avatar <b>#</b>
+                    </h4>
+                </template>
+                <div class="con-form">
+
+                    <vs-row style="margin-bottom: 20px">
+                        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+
+                            <file-pond
+                                name="test"
+                                ref="pond"
+                                class-name="my-pond"
+                                label-idle="Add Avatar..."
+                                v-bind:allow-multiple="true"
+                                allowDrop="true"
+                                allowPaste="true"
+                                allowReplace="true"
+                                allowRevert="true"
+                                allowRemove="true"
+                                maxFiles="1"
+                                accepted-file-types="image/jpeg, image/png, image/jpg"
+                                allowFileEncode="true"
+                                v-on:init="handleFilePondInit"
+                                v-on:addfile="fileAdd"
+                                v-on:removefile="fileRemove"
+                            />
+                        </vs-col>
+                    </vs-row>
+                    <vs-row>
+                        <vs-col offset="2" w="8">
+                            <vs-button
+                                block
+                                :active-disabled="disable"
+                                @click="addAvatar()"
+                            >
+                                Add Avatar
+                            </vs-button>
+                        </vs-col>
+                    </vs-row>
+
+                </div>
+
+                <template #footer>
+
+                </template>
+            </vs-dialog>
+        </div>
+
     </div>
 </template>
 
 <script>
+//todo:file upload (filePond)
+// Import Vue FilePond
+import vueFilePond from 'vue-filepond';
+// Import image preview and file type validation plugins
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
+
+// Create component
+const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview,FilePondPluginFileEncode);
+
 export default {
     name: "Register",
     data(){
@@ -106,6 +170,7 @@ export default {
                 name:"",
                 email:"",
                 password:"",
+                avatar:""
             },
             emailValid:false,
             passwordValid:0,
@@ -113,9 +178,15 @@ export default {
             interval:null,
             loading:null,
             color: '#7a76cb',
+            active: false,
+            disable:true
         }
     },
+    beforeCreate() {
+        this.disable=true;
+    },
     created() {
+
         if(localStorage.hasOwnProperty('token')
             && localStorage.hasOwnProperty('provider')) {
             this.token=localStorage.getItem("token");
@@ -131,6 +202,8 @@ export default {
             }, 40)
             window.location="/admin?token="+this.token+"&provider="+this.provider;
         }
+    },
+    mounted() {
     },
     computed:{
         validEmail() {
@@ -177,52 +250,16 @@ export default {
     methods:{
         openLoading() {
 
-            if(this.emailValid && this.passwordValid >60) {
-                this.loading = this.$vs.loading({
-                    percent: this.percent,
-                    background: this.color,
-                    color: '#fff'
-                })
+            if(this.emailValid && this.passwordValid >60 && this.name!=="") {
 
-                this.interval= setInterval(() => {
-                    if (this.percent <= 100) {
-                        this.loading.changePercent(`${this.percent++}%`)
-                    }
-                }, 40)
+                this.disable=true;
+                this.active=true;
 
-                axios.post('/auth/register',this.request)
-                    .then((response)=>{
-
-                        this.openNotification('top-left', 'success',
-                            `<i class='bx bx-select-multiple' ></i>`,
-                            'Add New Admin Account Successfully',
-                            'New Admin added with rules and permissions');
-
-                        this.loading.close()
-                        clearInterval(this.interval)
-                        this.percent = 0
-
-                        this.$router.push('/auth-login');
-
-                    })
-                    .catch((error)=>{
-                        this.openNotification('top-left', 'danger',
-                            `<i class='bx bxs-bug' ></i>`,
-                            'Make Sure From Credentials',
-                            'Username or password not matched with account credentials,' +
-                            'make sure and try again...');
-
-                        this.loading.close()
-                        clearInterval(this.interval)
-                        this.percent = 0
-                    });
             }
             else {
                 this.openNotification('top-left', 'danger', `<i class='bx bxs-bug' ></i>`
                 ,'Make Sure From Credentials','Username or password not matched with account credentials, make sure and try again...');
             }
-
-
         },
         openNotification(position = null, border,icon,title,text) {
             const noti = this.$vs.notification({
@@ -233,8 +270,83 @@ export default {
                 title:title ,
                 text:text
             })
+        },
+        handleFilePondInit: function() {
+            console.log('FilePond has initialized');
+
+            // FilePond instance methods are available on `this.$refs.pond`
+            // alert(this.$refs.pond.getFile());
+        },
+        uploadRequest(){
+            this.loading = this.$vs.loading({
+                percent: this.percent,
+                background: this.color,
+                color: '#fff'
+            })
+
+            this.interval= setInterval(() => {
+                if (this.percent <= 100) {
+                    this.loading.changePercent(`${this.percent++}%`)
+                }
+            }, 40)
+
+            axios.post('/auth/register',this.request)
+                .then((response)=>{
+
+                    this.openNotification('top-left', 'success',
+                        `<i class='bx bx-select-multiple' ></i>`,
+                        'Add New Admin Account Successfully',
+                        'New Admin added with rules and permissions');
+
+                    this.loading.close()
+                    clearInterval(this.interval)
+                    this.percent = 0
+
+                    this.$router.push('/auth-login');
+
+                })
+                .catch((error)=>{
+                    this.openNotification('top-left', 'danger',
+                        `<i class='bx bxs-bug' ></i>`,
+                        'Make Sure From Credentials',
+                        'Username or password not matched with account credentials,' +
+                        'make sure and try again...');
+
+                    this.loading.close()
+                    clearInterval(this.interval)
+                    this.percent = 0
+                });
+        },
+        fileAdd:function (error,file){
+            if (error) {
+                console.log('Oh no');
+                return;
+            }
+
+            if(file.fileSize <5000000){
+                this.request.avatar=file.getFileEncodeDataURL();
+                this.disable=false;
+            }
+            else{
+                this.openNotification('top-left', 'danger',
+                    `<i class='bx bxs-bug' ></i>`,
+                    'Avatar size is large',
+                    'Upload image with minimal of 6 MB...');
+            }
+        },
+        addAvatar(){
+            if(this.request.avatar!==''){
+                this.active=false;
+                this.uploadRequest();
+            }
+        },
+        fileRemove:function () {
+            this.disable=true;
         }
-    }
+    },
+    components:{
+        FilePond
+    },
 }
 </script>
 

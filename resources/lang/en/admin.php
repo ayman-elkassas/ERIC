@@ -34,7 +34,12 @@ return [
     'mem'=>[
         'member'=>'Members',
         'admin'=>'Admins',
-        'user'=>'Users'
+        'user'=>'Users',
+    ],
+    'roles'=>[
+        'title'=>'User Role',
+        'sub1'=>'Roles',
+        'sub2'=>'Permissions',
     ],
     'eric_sys'=>[
         'res'=>[

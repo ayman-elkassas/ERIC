@@ -36,7 +36,8 @@ class RoleAuthorization
             return $this->unauthorized('Please, attach a Bearer Token to your request');
         }
         //If user was authenticated successfully and user is in one of the acceptable roles, send to next request.
-        if ($user) {
+//        $user->syncRoles(['super_admin']);
+        if ($user && ($user->hasRole('super_admin') || $user->hasRole('admin'))) {
             return $next($request);
         }
 

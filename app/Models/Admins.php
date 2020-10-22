@@ -4,15 +4,18 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class Admins extends Authenticatable implements JWTSubject
 {
     //
-    use Notifiable;
+    use Notifiable,HasRoles;
 
     protected $table='admins';
     protected $primaryKey = 'id';
+    //todo:should assign guard_name for spatie package
+    Protected $guard_name ='adminAuthGuard';
 
 //    /**
 //     * The attributes that are mass assignable.
@@ -23,6 +26,7 @@ class Admins extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+        'avatar'
     ];
 
 

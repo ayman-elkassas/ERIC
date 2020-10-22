@@ -248,7 +248,23 @@
                             </template>
                         </vs-avatar>
                         <div class="media-body"><span>{{getCurrentUser.name}}</span>
-                            <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
+                            <p class="mb-0 font-roboto">
+                                <span v-for="role in getCurrentUser.role">
+                                    <span v-if="role === 'super_admin'">
+                                        Super Administrator
+                                        <i class="middle fa fa-angle-down"></i>
+                                    </span>
+                                    <span v-else-if="role==='admin'" class="mb-0 font-roboto">
+                                        Administrator
+                                        <i class="middle fa fa-angle-down"></i>
+                                    </span>
+                                    <span v-else-if="role==='user'" class="mb-0 font-roboto">
+                                        Local User
+                                        <i class="middle fa fa-angle-down"></i>
+                                    </span>
+                                </span>
+                            </p>
+
                         </div>
                     </div>
                     <ul class="profile-dropdown onhover-show-div">
@@ -305,8 +321,6 @@ export default {
     },
     methods:{
         logout(){
-            // alert("enter");
-
             this.openLoading();
 
             if(localStorage.hasOwnProperty('token')
