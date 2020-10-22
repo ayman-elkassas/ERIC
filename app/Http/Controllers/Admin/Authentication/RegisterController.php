@@ -28,6 +28,7 @@ class RegisterController extends Controller
             ]);
 
         } catch (ValidationException $e) {
+            return response(['error'=>"Credentials invalid"],400);
         }
 
         $data['password']=bcrypt($request->get('password'));

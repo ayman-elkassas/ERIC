@@ -39,7 +39,7 @@
 </head>
 <body>
 <!-- Page Sidebar Ends-->
-<div id="content">
+<div id="content" style="overflow: hidden">
 {{--    <router-view name="master"></router-view>--}}
     <master-seen></master-seen>
 </div>
@@ -71,7 +71,6 @@
 <!-- Plugins JS Ends-->
 <!-- Theme js-->
 <script src="{{asset('admin-cuba')}}/assets/js/script.js"></script>
-<script src="{{asset('admin-cuba')}}/assets/js/theme-customizer/customizer.js"></script>
 
 <script>
     // header option

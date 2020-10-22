@@ -17,6 +17,12 @@ Vue.use(VueRouter);
 //todo:import routes.js
 import {routes} from './routes';
 
+//todo:Vuex
+import Vuex from 'vuex';
+Vue.use(Vuex);
+import storeData from './store/index'
+const store=new Vuex.Store(storeData);
+
 //todo:show errors in console with vue component
 Vue.config.productionTip = true
 
@@ -32,6 +38,7 @@ Vue.component('admin-main', require('./components/admin/MasterPage/Content').def
 Vue.component('admin-header', require('./components/admin/MasterPage/Header').default);
 //todo:Authentication Admin Dashboard
 Vue.component('master-seen', require('./components/admin/Authentication/MasterSeen').default);
+Vue.component('token-expire', require('./components/admin/Authentication/TokenExpire').default);
 
 //todo:External vue components
 //1-select
@@ -75,19 +82,22 @@ import vsOption from 'vuesax/dist/vsOption/index'
 Vue.component('vs-option',vsOption);
 import vsCheckbox from 'vuesax/dist/vsCheckbox/index'
 Vue.component('vs-checkbox',vsCheckbox);
+import vsAvatar from 'vuesax/dist/vsAvatar/index'
+Vue.component('vs-avatar',vsAvatar);
 
 //todo:declare main router array
 const router=new VueRouter({
     //todo:base => for make localhost call vue-routes
     base:'/ERIC/',
     routes, //short for 'routes:routes'
-    mode:'history',
+    mode:'hash',
 });
 
 //todo:create for each tab in sidebar vue object separately
 const content = new Vue({
     el: "#content",
     router,
+    store
 });
 
 const user = new Vue({
@@ -118,4 +128,5 @@ const course = new Vue({
 const adminheader = new Vue({
     el:"#admin-header",
     router,
+    store
 });

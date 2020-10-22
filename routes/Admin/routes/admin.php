@@ -16,12 +16,15 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function ()
 
     });
 
-    Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
 
         //todo:any route should auth
 
         //todo:make your internal routes inside this group
         Route::get('/', 'HomeController@index');
+
+        //todo:make your internal routes inside this group
+        Route::post('/user', 'HomeController@getUser');
 
         //todo:any path forward to index Dashboard Admin Panel page
         Route::get('/{any}', function () {

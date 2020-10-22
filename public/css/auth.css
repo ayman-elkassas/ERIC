@@ -11910,6 +11910,7 @@ a.text-dark:hover, a.text-dark:focus {
   font-style: normal;
   font-weight: 500;
   font-display: swap;
+  src: url("") format("woff2"), url("") format("woff");
 }
 
 @font-face {
@@ -11917,6 +11918,7 @@ a.text-dark:hover, a.text-dark:focus {
   font-style: normal;
   font-weight: 600;
   font-display: swap;
+  src: url("") format("woff2"), url("") format("woff");
 }
 
 @font-face {
@@ -11924,6 +11926,7 @@ a.text-dark:hover, a.text-dark:focus {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
+  src: url("") format("woff2"), url("") format("woff");
 }
 
 *:focus {
@@ -17595,6 +17598,7 @@ body:not(.minimenu) .pc-sidebar .pc-submenu .pc-submenu > .pc-item:before {
 }
 
 #task-container li.complete:before {
+    background: url("") no-repeat;
     position: absolute;
     top: 5px;
     right: 5px;
@@ -19791,12 +19795,15 @@ new-task label input[type=checkbox] {
 }
 
 .lb-cancel {
+    background: url("") no-repeat;
 }
 
 .lb-nav a.lb-prev {
+    background: url("") left 48% no-repeat;
 }
 
 .lb-nav a.lb-next {
+    background: url("") right 48% no-repeat;
 }
 
 .lb-data .lb-caption a {
@@ -19804,6 +19811,7 @@ new-task label input[type=checkbox] {
 }
 
 .lb-data .lb-close {
+    background: url("") top right no-repeat;
 }
 
 .alert-dismissable .close,

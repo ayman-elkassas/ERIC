@@ -58,7 +58,10 @@ export const routes=[
             default: Login,
             login:Login
     }},
-    {path:'/auth-register/',name:'auth-register',component:Register},
+    {path:'/auth-register/',name:'auth-register',components: {
+            default: Register,
+            login:Register
+    }},
     {path:'/master-seen/',name:'master-seen',components:{
             default:MasterSeen,
             master:MasterSeen

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\JWT;
 
 class LoginController extends Controller
 {
@@ -45,17 +46,19 @@ class LoginController extends Controller
         {
             $user = JWTAuth::user();
             $provider="admins";
+
+            Admins::find($user->id)->remember_token="Token";
+
             return ['token'=>$token,'user'=>$user,"provider"=>$provider];
         }
     }
 
     public final function Logout(Request $request):object {
 
-        $user=\auth()->user();
         try {
             \auth()->logout();
             return response()->json([
-                'message' => $user->name
+                'message' => "Logged Of Successfully"
             ], 200);
 
         }catch (\Exception $ex){
