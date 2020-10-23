@@ -96,10 +96,10 @@
         </div>
 
         <div class="center">
-            <vs-dialog prevent-close not-close blur v-model="active">
+            <vs-dialog prevent-close blur v-model="active">
                 <template #header>
                     <h4 class="not-margin">
-                        Upload Avatar <b>#</b>
+                        Upload Your <b>Avatar</b>
                     </h4>
                 </template>
                 <div class="con-form">

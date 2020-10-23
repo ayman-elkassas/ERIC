@@ -1,6 +1,8 @@
 <?php
 
 //todo:Admin routes
+use Intervention\Image\Facades\Image;
+
 if(!function_exists('FAdminUrl')){
     function FAdminUrl($url=null){
         return url('/admin/'.$url);
@@ -18,5 +20,22 @@ if(!function_exists('FAdminAuthUrl')){
 if(!function_exists('FAdminAuthGuard')){
     function FAdminAuthGuard(){
         return auth()->guard('adminAuthGuard');
+    }
+}
+
+//todo:Admin Auth routes
+if(!function_exists('imageToStreamBase64')){
+    function imageToStreamBase64($path=null){
+
+        if($path!=null){
+            // encode image as data-url
+            $avatar = (string) Image::make(
+                public_path().$path)->encode('data-url');
+        }
+        else{
+            return "Invalid Path";
+        }
+
+        return $avatar;
     }
 }

@@ -27,8 +27,40 @@
 <script>
 export default {
     name: "MasterView",
+    beforeCreate() {
+        this.openLoading();
+    },
+    data: () => ({
+        color: '#7a76cb',
+        loading:null,
+        percent: 0,
+        interval:null
+    }),
+    beforeMount() {
+        this.openLoading();
+    },
     mounted() {
         this.$router.push('/auth-login');
+        setTimeout(() => {
+            this.loading.close()
+            clearInterval(this.interval)
+            this.percent = 0
+        }, 4100)
+    },
+    methods:{
+        openLoading() {
+            this.loading = this.$vs.loading({
+                percent: this.percent,
+                background: this.color,
+                color: '#fff'
+            })
+
+            this.interval= setInterval(() => {
+                if (this.percent <= 100) {
+                    this.loading.changePercent(`${this.percent++}%`)
+                }
+            }, 40)
+        }
     }
 }
 </script>

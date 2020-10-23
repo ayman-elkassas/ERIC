@@ -41,7 +41,7 @@ class RegisterController extends Controller
         $ex=explode('/',$sub)[1];
         $name=time().'.'.$ex;
         $img=Image::make($request->avatar)->resize(300,300);
-        $upload_path=public_path("Admin")."/avatar/";
+        $upload_path=public_path("Admins")."/avatar/";
         $img->save($upload_path.$name);
 
         //todo:create new object
@@ -50,7 +50,7 @@ class RegisterController extends Controller
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=bcrypt($request->get('password'));
-        $user->avatar="Admin/avatar/".$name;
+        $user->avatar="/Admins/avatar/".$name;
         $user->save();
 
         $user->assignRole("admin");

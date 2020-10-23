@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserRole\RoleController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,20 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function ()
         })->where('any', '.*');
 
     });
-
-
 });
+
+//TODO:CRUD CONTROLLER
+// GET	        /users-role	            index	photos.index
+// GET	        /users-role/create	    create	photos.create
+// POST	        /users-role	            store	photos.store
+// GET	        /users-role/{id}	    show	photos.show
+// GET	        /users-role/{id}/edit	edit	photos.edit
+// PUT/PATCH	/users-role/{id}	    update	photos.update
+// DELETE	    /photos/{id}	        destroy	photos.destroy
+
+Route::group(['prefix' => 'admin-role','namespace' => 'Admin\UserRole'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/users-role', 'RoleController');
+    });
+});
+

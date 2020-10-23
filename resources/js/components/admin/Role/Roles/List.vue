@@ -3,14 +3,14 @@
         <div class="card-header">
             <template>
                 <div class="center">
-                    <vs-alert :hidden-content.sync="hidden">
+                    <vs-alert>
                         <template #icon>
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
                             Assign Roles
                         </template>
-                        Using Admin Panel Can Edit And Add Every Component
+                        Using Admin Panel Can Edit Using < Click Item > And Add Every Component
                     </vs-alert>
                 </div>
             </template>
@@ -18,7 +18,7 @@
 
         <div class="card-body">
 
-            <div>
+            <div style="margin-bottom: 5px">
                 <vs-row justify="flex-end">
                     <vs-col style="width:12.66%" w="2">
                         <router-link style="color: white" to="/admin-add">
@@ -33,124 +33,174 @@
                 </vs-row>
             </div>
 
-            <vs-table
-                striped
-                v-model="selected">
+            <div>
+                <vs-table
+                          striped
+                          v-model="selected">
 
-                <!--            todo:header-->
+                    <!--            todo:header-->
+                    <template #header>
+                        <vs-input v-model="search" border placeholder="Search" />
+                    </template>
+
+                    <template #thead>
+                        <vs-tr>
+                            <!--                        todo:base-->
+                            <vs-th>
+                                <vs-checkbox
+                                    :indeterminate="selected.length === users.length" v-model="allCheck"
+                                    @change="selected = $vs.checkAll(selected, users)"
+                                />
+                            </vs-th>
+
+<!--                        todo:hint make roles and permission nav tab to add new role and assign permission-->
+                            <!--                        todo:base-->
+                            <vs-th
+                                sort @click="users = $vs.sortData($event ,users, 'id')">
+                                Id
+                            </vs-th>
+
+                            <vs-th
+                                sort @click="users = $vs.sortData($event ,users, 'name')">
+                                Name
+                            </vs-th>
+                            <vs-th
+                                sort @click="users = $vs.sortData($event ,users, 'email')">
+                                Email
+                            </vs-th>
+
+                            <vs-th
+                                sort @click="users = $vs.sortData($event ,users, 'role')">
+                                Role
+                            </vs-th>
+
+                            <vs-th>
+                                Avatar
+                            </vs-th>
+
+                            <!--                        todo:base-->
+                            <vs-th>
+                                Created At
+                            </vs-th>
+
+                            <!--                        todo:view-->
+                            <vs-th>
+                                View
+                            </vs-th>
+
+                            <!--                        todo:base-->
+                            <vs-th>
+                                Delete
+                            </vs-th>
+
+                        </vs-tr>
+                    </template>
+
+                    <template #tbody>
+
+                        <vs-tr
+                            :key="i"
+                            v-for="(tr, i) in $vs.getPage($vs.getSearch(users, search), page, max)"
+                            :data="tr"
+                            :is-selected="!!selected.includes(tr)"
+                        >
+
+                            <!--                        todo:base-->
+                            <vs-td checkbox>
+                                <vs-checkbox :val="tr" v-model="selected" />
+                            </vs-td>
+
+                            <!--                        todo:base-->
+                            <vs-td>
+                                {{ tr.id }}
+                            </vs-td>
+
+                            <vs-td>
+                                {{ tr.name }}
+                            </vs-td>
+                            <vs-td edit @click="edit = tr, editProp = 'email', editActive = true">
+                                {{ tr.email }}
+                            </vs-td>
+
+                            <vs-td edit @click="edit = tr, editProp = 'roles', editActive = true">
+                                <span v-if="typeof tr.roles ==='string'">
+                                    <span v-if="tr.roles === 'super_admin'">
+                                        Super Administrator
+                                    </span>
+                                    <span v-else-if="tr.roles==='admin'" class="mb-0 font-roboto">
+                                        Administrator
+                                    </span>
+                                    <span v-else-if="tr.roles==='user'" class="mb-0 font-roboto">
+                                        Local User
+                                    </span>
+                                </span>
+                                <span v-else v-for="role in tr.roles">
+                                    <span v-if="role.name === 'super_admin'">
+                                        Super Administrator
+                                    </span>
+                                    <span v-else-if="role.name==='admin'" class="mb-0 font-roboto">
+                                        Administrator
+                                    </span>
+                                    <span v-else-if="role.name==='user'" class="mb-0 font-roboto">
+                                        Local User
+                                    </span>
+                                </span>
+
+                            </vs-td>
+
+                            <vs-td>
+                                <img :src="tr.avatar" alt="" style="margin-right: 3px"  width="30px"/>
+                            </vs-td>
+
+                            <vs-td>
+                                {{ tr.created_at }}
+                            </vs-td>
+
+                            <vs-td>
+                                <vs-button
+                                    circle
+                                    icon
+                                    floating
+                                    size="small"
+                                    primary
+                                >
+                                    <i class='bx bxs-eyedropper' ></i>
+                                </vs-button>
+                            </vs-td>
+
+                            <vs-td>
+                                <vs-button
+                                    circle
+                                    icon
+                                    floating
+                                    size="small"
+                                    danger
+                                >
+                                    <i class='bx bx-trash' ></i>
+                                </vs-button>
+                            </vs-td>
+
+                        </vs-tr>
+                    </template>
+                </vs-table>
+
+            </div>
+
+
+            <vs-dialog v-model="editActive">
                 <template #header>
-                    <vs-input v-model="search" border placeholder="Search" />
+                    Change Prop {{ editProp }}
                 </template>
+                <vs-select @change="editActive = false" block v-if="editProp == 'roles'" placeholder="Select" v-model="edit[editProp]">
+                    <vs-option label="Super Administrator" value="super_admin">
+                        Super Administrator
+                    </vs-option>
+                    <vs-option label="Administrator" value="admin">
+                        Administrator
+                    </vs-option>
+                </vs-select>
+            </vs-dialog>
 
-                <template #thead>
-                    <vs-tr>
-                        <!--                        todo:base-->
-                        <vs-th>
-                            <vs-checkbox
-                                :indeterminate="selected.length === users.length" v-model="allCheck"
-                                @change="selected = $vs.checkAll(selected, users)"
-                            />
-                        </vs-th>
-
-                        <!--                        todo:base-->
-                        <vs-th
-                            sort @click="users = $vs.sortData($event ,users, 'id')">
-                            Id
-                        </vs-th>
-
-                        <vs-th
-                            sort @click="users = $vs.sortData($event ,users, 'name')">
-                            Name
-                        </vs-th>
-                        <vs-th
-                            sort @click="users = $vs.sortData($event ,users, 'email')">
-                            Email
-                        </vs-th>
-
-                        <vs-th>
-                            Avatar
-                        </vs-th>
-
-                        <!--                        todo:base-->
-                        <vs-th>
-                            Created At
-                        </vs-th>
-
-                        <!--                        todo:base-->
-                        <vs-th>
-                            Edit
-                        </vs-th>
-
-                        <!--                        todo:base-->
-                        <vs-th>
-                            Delete
-                        </vs-th>
-
-                    </vs-tr>
-                </template>
-
-                <template #tbody>
-
-                    <vs-tr
-                        :key="i"
-                        v-for="(tr, i) in $vs.getPage($vs.getSearch(users, search), page, max)"
-                        :data="tr"
-                        :is-selected="!!selected.includes(tr)"
-                    >
-
-                        <!--                        todo:base-->
-                        <vs-td checkbox>
-                            <vs-checkbox :val="tr" v-model="selected" />
-                        </vs-td>
-
-                        <!--                        todo:base-->
-                        <vs-td>
-                            {{ tr.id }}
-                        </vs-td>
-
-                        <vs-td>
-                            {{ tr.name }}
-                        </vs-td>
-                        <vs-td>
-                            {{ tr.email }}
-                        </vs-td>
-
-                        <vs-td>
-                            <img src="../../images/user.png" alt="" style="margin-right: 3px"  width="30px"/>
-                            Ayman
-                        </vs-td>
-
-                        <vs-td>
-                            12-9-2020 15:00
-                        </vs-td>
-
-                        <vs-td>
-                            <vs-button
-                                circle
-                                icon
-                                floating
-                                size="small"
-                                primary
-                            >
-                                <i class='bx bx-edit' ></i>
-                            </vs-button>
-                        </vs-td>
-
-                        <vs-td>
-                            <vs-button
-                                circle
-                                icon
-                                floating
-                                size="small"
-                                danger
-                            >
-                                <i class='bx bx-trash' ></i>
-                            </vs-button>
-                        </vs-td>
-
-                    </vs-tr>
-                </template>
-            </vs-table>
             <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(users, max)" />
             <!--            todo:base-->
             <span class="data">
@@ -167,120 +217,58 @@ export default {
     name: "List",
     data() {
         return {
-            hidden:false,
+            hidden:true,
             search: '',
             allCheck: false,
             page: 1,
             max: 10,
             selected: [],
-            users: [
-                {
-                    "id": 1,
-                    "name": "Leanne Graham",
-                    "username": "Bret",
-                    "email": "Sincere@april.biz",
-                    "website": "hildegard.org",
-                },
-                {
-                    "id": 2,
-                    "name": "Ervin Howell",
-                    "username": "Antonette",
-                    "email": "Shanna@melissa.tv",
-                    "website": "anastasia.net",
-                },
-                {
-                    "id": 3,
-                    "name": "Clementine Bauch",
-                    "username": "Samantha",
-                    "email": "Nathan@yesenia.net",
-                    "website": "ramiro.info",
-                },
-                {
-                    "id": 4,
-                    "name": "Patricia Lebsack",
-                    "username": "Karianne",
-                    "email": "Julianne.OConner@kory.org",
-                    "website": "kale.biz",
-                },
-                {
-                    "id": 5,
-                    "name": "Chelsey Dietrich",
-                    "username": "Kamren",
-                    "email": "Lucio_Hettinger@annie.ca",
-                    "website": "demarco.info",
-                },
-                {
-                    "id": 6,
-                    "name": "Mrs. Dennis Schulist",
-                    "username": "Leopoldo_Corkery",
-                    "email": "Karley_Dach@jasper.info",
-                    "website": "ola.org",
-                },
-                {
-                    "id": 7,
-                    "name": "Kurtis Weissnat",
-                    "username": "Elwyn.Skiles",
-                    "email": "Telly.Hoeger@billy.biz",
-                    "website": "elvis.io",
-                },
-                {
-                    "id": 8,
-                    "name": "Nicholas Runolfsdottir V",
-                    "username": "Maxime_Nienow",
-                    "email": "Sherwood@rosamond.me",
-                    "website": "jacynthe.com",
-                },
-                {
-                    "id": 9,
-                    "name": "Glenna Reichert",
-                    "username": "Delphine",
-                    "email": "Chaim_McDermott@dana.io",
-                    "website": "conrad.com",
-                },
-                {
-                    "id": 10,
-                    "name": "Clementina DuBuque",
-                    "username": "Moriah.Stanton",
-                    "email": "Rey.Padberg@karina.biz",
-                    "website": "ambrose.net",
-                },
-                {
-                    "id": 11,
-                    "name": "Clementina DuBuque",
-                    "username": "Moriah.Stanton",
-                    "email": "Rey.Padberg@karina.biz",
-                    "website": "ambrose.net",
-                },
-                {
-                    "id": 12,
-                    "name": "Clementina DuBuque",
-                    "username": "Moriah.Stanton",
-                    "email": "Rey.Padberg@karina.biz",
-                    "website": "ambrose.net",
-                },
-                {
-                    "id": 13,
-                    "name": "Clementina DuBuque",
-                    "username": "Moriah.Stanton",
-                    "email": "Rey.Padberg@karina.biz",
-                    "website": "ambrose.net",
-                },
-                {
-                    "id": 14,
-                    "name": "Clementina DuBuque",
-                    "username": "Moriah.Stanton",
-                    "email": "Rey.Padberg@karina.biz",
-                    "website": "ambrose.net",
-                }
-            ]
+            editActive: false,
+            edit: null,
+            editProp: {},
+            users: [],
+            loading:null,
         }
     },
     created() {
     },
+    beforeMount() {
+        // this.UserRoles();
+    },
     mounted() {
+        this.UserRoles();
     },
     methods: {
-    }
+        //todo:second step (backendApi)
+        UserRoles(){
+            // this.openLoading();
+
+            let request={token:"",provider:""};
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+                request.token=localStorage.getItem("token");
+                request.provider=localStorage.getItem("provider");
+                axios.get('/admin-role/users-role?token='+request.token+
+                    '&provider='+request.provider)
+                    .then((response)=>{
+                        this.users=response.data;
+                    })
+                    .catch((error)=>{
+                        alert("Token has Invalid");
+                    });
+            }
+        }
+    },
+    openLoading() {
+        this.loading = this.$vs.loading({
+            target: this.$refs.content,
+            color: 'dark'
+        });
+    },
 }
 </script>
 

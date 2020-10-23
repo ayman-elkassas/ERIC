@@ -7,6 +7,7 @@ use App\Models\Admins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
+use Intervention\Image\Facades\Image;
 use Spatie\Permission\Models\Role;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -16,6 +17,7 @@ class HomeController extends Controller
     {
         $this->middleware('jwt.auth')->only('index');
 
+        //todo:should insert in constructor of controller to auth with provider
         Config::set('jwt.user', Admins::class);
         Config::set('auth.providers', ['users' => [
             'driver' => 'eloquent',
@@ -33,6 +35,9 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $user['role']=$user->getRoleNames();
+
+        // encode image as data-url
+        $user->avatar = (string) Image::make(public_path().$user->avatar)->encode('data-url');
 
         return response()->json([
             'user' => $user

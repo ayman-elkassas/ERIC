@@ -25,296 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
-      <change afterPath="$PROJECT_DIR$/Spatie_Functions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/TelescopeServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/telescope.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_092830_create_permission_tables.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/072d6a19df3292cdf420a31bf8155220.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/ba5bfadcec34eade50b9d307a3d49e3a.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/dbbea27b05fbd4dd7b5de611385e6c24.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/faf4da0e3ca7b4122c562243faac3df7.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admin/avatar/1603405469.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admin/avatar/1603405604.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admin/avatar/1603405903.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admin/avatar/1603406153.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admin/avatar/1603406333.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admin/avatar/1603406973.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/app-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/telescope/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/Role/Permissions/List.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/Role/Roles/List.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/config/telescope.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/public/app-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/public/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/public/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/public/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/components/Alert.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/components/ExceptionCodePreview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/components/IndexScreen.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/components/PreviewScreen.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/components/RelatedEntries.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/components/Stacktrace.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/mixins/entriesStyles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/cache/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/cache/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/commands/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/commands/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/dumps/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/events/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/events/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/exceptions/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/exceptions/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/gates/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/gates/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/jobs/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/jobs/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/logs/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/logs/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/mail/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/mail/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/models/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/models/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/monitoring/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/notifications/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/notifications/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/queries/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/queries/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/redis/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/redis/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/requests/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/requests/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/schedule/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/schedule/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/views/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/js/screens/views/preview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/sass/app-dark.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/sass/app.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/sass/base.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/sass/syntaxhighlight.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/resources/views/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/AuthorizesRequests.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Avatar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Console/ClearCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Console/InstallCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Console/PruneCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Console/PublishCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Contracts/ClearableRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Contracts/EntriesRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Contracts/PrunableRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Contracts/TerminableRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/EntryResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/EntryType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/EntryUpdate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/ExceptionContext.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/ExtractProperties.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/ExtractTags.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/ExtractsMailableTags.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/FormatModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/CacheController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/CommandsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/DumpController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/EntryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/EventsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/ExceptionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/GatesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/LogController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/MailController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/MailEmlController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/MailHtmlController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/ModelsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/MonitoredTagController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/NotificationsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/QueriesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/QueueController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/RecordingController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/RedisController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/RequestsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/ScheduleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Controllers/ViewsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/Middleware/Authorize.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Http/routes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/IncomingDumpEntry.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/IncomingEntry.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/IncomingExceptionEntry.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/ListensForStorageOpportunities.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/RegistersWatchers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Storage/DatabaseEntriesRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Storage/EntryModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Storage/EntryQueryOptions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Storage/factories/EntryModelFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Storage/migrations/2018_08_08_100000_create_telescope_entries_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Telescope.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/TelescopeApplicationServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/TelescopeServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/CacheWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/CommandWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/DumpWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/EventWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/ExceptionWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/FetchesStackTrace.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/FormatsClosure.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/GateWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/JobWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/LogWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/MailWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/ModelWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/NotificationWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/QueryWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/RedisWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/RequestWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/ScheduleWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/ViewWatcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/src/Watchers/Watcher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/stubs/TelescopeServiceProvider.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/laravel/telescope/webpack.mix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/.github/FUNDING.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/NOTICE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/src/Moontoast/Math/AbstractBigNumber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/src/Moontoast/Math/BigNumber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/src/Moontoast/Math/BigNumberImmutable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/src/Moontoast/Math/BigNumberInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/moontoast/math/src/Moontoast/Math/Exception/ArithmeticException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/phpseclib/bcmath_compat/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/phpseclib/bcmath_compat/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/phpseclib/bcmath_compat/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/phpseclib/bcmath_compat/lib/bcmath.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/phpseclib/bcmath_compat/src/BCMath.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/.github/FUNDING.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/.github/workflows/deploy-docs.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/.github/workflows/run-tests-L7.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/.github/workflows/run-tests-L8.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/config/permission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/database/migrations/create_permission_tables.php.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/about-us.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/cache.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/exceptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/extending.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/other.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/phpstorm.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/seeding.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/timestamps.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/ui-options.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/unit-testing.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/advanced-usage/uuid.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/artisan.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/basic-usage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/blade-directives.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/direct-permissions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/middleware.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/multiple-guards.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/new-app.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/role-permissions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/super-admin.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/basic-usage/wildcard-permissions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/best-practices/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/best-practices/performance.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/best-practices/roles-vs-permissions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/best-practices/using-policies.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/changelog.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/images/header.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/installation-laravel.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/installation-lumen.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/introduction.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/prerequisites.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/questions-issues.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/sponsor-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/support-us.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/docs/upgrading.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Commands/CacheReset.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Commands/CreatePermission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Commands/CreateRole.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Commands/Show.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Contracts/Permission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Contracts/Role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Exceptions/GuardDoesNotMatch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Exceptions/PermissionAlreadyExists.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Exceptions/PermissionDoesNotExist.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Exceptions/RoleAlreadyExists.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Exceptions/RoleDoesNotExist.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Exceptions/UnauthorizedException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Exceptions/WildcardPermissionInvalidArgument.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Exceptions/WildcardPermissionNotProperlyFormatted.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Guard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Middlewares/PermissionMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Middlewares/RoleMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Middlewares/RoleOrPermissionMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Models/Permission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Models/Role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/PermissionRegistrar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/PermissionServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Traits/HasPermissions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Traits/HasRoles.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Traits/RefreshesPermissionCache.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/WildcardPermission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-permission/src/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ERIC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ERIC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RoleAuthorization.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RoleAuthorization.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Admins.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admins.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Authentication/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Authentication/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Authentication/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Authentication/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Authentication/TokenExpire.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Authentication/TokenExpire.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/MasterPage/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/MasterPage/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/MasterPage/notification/userWelcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/MasterPage/notification/userWelcome.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/auth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/auth.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/Admin/apis/adminAuthApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/tymon/jwt-auth/src/Http/Middleware/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/tymon/jwt-auth/src/Http/Middleware/Check.php" afterDir="false" />
-    </list>
+    <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -508,7 +219,7 @@
     <property name="editor.config.ad.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/admin/Role/Permissions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/admin/HomePage" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -519,19 +230,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\HomePage" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Permissions" />
+      <recent name="E:\Server\htdocs\ERIC\resources\views\Admin\Authentication" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\MasterPage\notification" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Authentication" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Roles" />
       <recent name="E:\Server\htdocs\ERIC" />
       <recent name="E:\Server\htdocs\ERIC\app\Http\Controllers\Admin\Authentication" />
       <recent name="E:\Server\htdocs\ERIC\routes\Admin\apis" />
       <recent name="E:\Server\htdocs\ERIC\routes\Admin\routes" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Permissions" />
-      <recent name="E:\Server\htdocs\ERIC\resources\views\Admin\Authentication" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\MasterPage\notification" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Authentication" />
-      <recent name="E:\Server\htdocs\ERIC\public\admin-cuba\assets\images" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -859,7 +570,8 @@
       <workItem from="1603034941348" duration="18013000" />
       <workItem from="1603200455834" duration="21526000" />
       <workItem from="1603301668632" duration="288000" />
-      <workItem from="1603348632550" duration="52496000" />
+      <workItem from="1603348632550" duration="52916000" />
+      <workItem from="1603442363211" duration="33788000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -928,10 +640,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1602179979761" />
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603363285390">
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603455700483">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1603363285390" />
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1603455700483" />
     <state x="446" y="279" key="ComposerInitDialogKey" timestamp="1602096412589">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -944,22 +656,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1597406623916" />
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1603406980436">
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1603482399257">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1603406980436" />
-    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1603406980436">
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1603482399257" />
+    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1603482399257">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1603406980436" />
-    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1603406980436">
+    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1603482399257" />
+    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1603482399257">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1603406980436" />
-    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1603406980436">
+    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1603482399257" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1603482399257">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1603406980436" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1603482399257" />
     <state x="129" y="55" key="MergeDialog" timestamp="1597542580005">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -980,14 +692,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1601113810730" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603349087893">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603407378832">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1603349087893" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1603407378832" />
     <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602241436521">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.738@0.0.1366.738" timestamp="1602241436521" />
+    <state x="533" y="243" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1603452334533">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="533" y="243" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1366.738@0.0.1366.738" timestamp="1603452334533" />
     <state x="263" y="23" key="com.intellij.database.dbimport.ImportDialog" timestamp="1602101436007">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -1016,10 +732,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="dock-window-2/0.0.1366.738@0.0.1366.738" timestamp="1598124580202" />
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1603381885276">
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1603457627523">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1603381885276" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1603457627523" />
     <state x="475" y="226" key="scopes" timestamp="1597177503372">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

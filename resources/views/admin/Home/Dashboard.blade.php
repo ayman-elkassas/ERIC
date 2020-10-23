@@ -42,7 +42,7 @@
         <div class="page-body-wrapper sidebar-icon">
             <!-- Page Sidebar Start-->
             <header class="main-nav" sidebar-layout="iconcolor-sidebar">
-                <div  class="logo-wrapper"><router-link to="/home"><img class="img-fluid for-light" src="{{asset('admin-cuba')}}/assets/images/logo/logo.png" alt=""><img class="img-fluid for-dark" src="{{asset('admin-cuba')}}/assets/images/logo/logo.png" alt=""></router-link>
+                <div  class="logo-wrapper"><router-link to="/home"><img style="width: -webkit-fill-available" class="img-fluid for-dark" src="{{asset('admin-cuba')}}/assets/images/logo/logo.png" alt=""></router-link>
                     <div class="back-btn"><i class="fa fa-angle-left"></i></div>
                     <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="grid" id="sidebar-toggle"> </i></div>
                 </div>

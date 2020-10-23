@@ -242,7 +242,7 @@
                 <li class="profile-nav onhover-dropdown p-0">
                     <div class="media profile-media">
                         <vs-avatar history primary badge badge-color="success">
-                            <img src="./notification/avatar-6.png" alt="E">
+                            <img :src="getCurrentUser.avatar" alt="E">
                             <template #badge>
                                 28
                             </template>
