@@ -129,6 +129,9 @@ export default {
                     loading.changeProgress(this.progress++)
                 }
             }, 40)
+
+            localStorage.removeItem("welcome");
+            localStorage.setItem("welcome","2");
             window.location="/admin?token="+this.token+"&provider="+this.provider;
         }
     },
@@ -205,6 +208,7 @@ export default {
                             if(this.token){
                                 localStorage.setItem('token',this.token);
                                 localStorage.setItem('provider',this.provider);
+                                localStorage.setItem('welcome',"1");
 
                                 window.location="/admin?token="+this.token+"&provider="+this.provider;
 

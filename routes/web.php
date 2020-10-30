@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,9 @@ use Illuminate\Support\Facades\Route;
 //    return redirect('/admin/');
 //})->where('any', '.*');
 //
-//Route::get('/', function (Request $request) {
-//    return response()->json(['success'
-//    ], 200);
-//});
+Route::get('/', function (Request $request) {
+    return dd(\auth()->user());
+    $user=DB::table('admins')->
+    where("email","=","admin@eric.com")->get()->first();
+    return dd($user);
+});

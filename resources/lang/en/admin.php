@@ -41,6 +41,11 @@ return [
         'sub1'=>'Roles',
         'sub2'=>'Permissions',
     ],
+    'privilege'=>[
+        'title'=>'Role Manage',
+        'sub1'=>'Roles',
+        'sub2'=>'Permissions',
+    ],
     'eric_sys'=>[
         'res'=>[
             'resources'=> 'Resources',

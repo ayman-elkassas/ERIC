@@ -38354,3 +38354,54 @@ a:hover {
   font-size: .6rem;
 }
 
+.con-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.con-footer .vs-button {
+  margin: 0px;
+}
+
+.con-footer .vs-button .vs-button__content {
+  padding: 10px 30px;
+}
+
+.con-footer .vs-button .vs-button__content .vs-button {
+  margin-left: 10px;
+}
+
+.not-margin {
+  margin: 0px;
+  font-weight: normal;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+.con-content {
+  width: 100%;
+}
+
+.con-content p {
+  margin: 20px 0px;
+  position: relative;
+  display: block;
+  font-size: .9rem;
+}
+
+.con-content .vs-checkbox-label {
+  font-size: .8rem;
+}
+
+.footer-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.footer-dialog .vs-button {
+  margin: 0px;
+}
+

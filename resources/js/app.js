@@ -112,6 +112,12 @@ const roles = new Vue({
     store
 });
 
+const mroles = new Vue({
+    el:"#mroles",
+    router,
+    store
+});
+
 const post = new Vue({
     el:"#post",
     router,

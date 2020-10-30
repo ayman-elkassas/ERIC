@@ -1,0 +1,446 @@
+<template>
+    <div class="card">
+        <div class="card-header">
+            <template>
+                <div class="center">
+                    <vs-alert>
+                        <template #icon>
+                            <i class='bx bxs-info-circle'></i>
+                        </template>
+                        <template #title>
+                            Create Roles
+                        </template>
+                        Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
+                    </vs-alert>
+                </div>
+            </template>
+        </div>
+
+        <div class="card-body">
+
+            <div style="margin-bottom: 5px">
+                <vs-row justify="flex-end">
+                    <vs-col style="width:12.66%" w="2">
+                            <vs-button
+                                icon
+                                success
+                                relief
+                                @click="openAddRole()"
+                            >
+                                <i class='bx bx-plus' ></i> Create Role
+                            </vs-button>
+                    </vs-col>
+                    <vs-col style="width:16%" w="2">
+                        <vs-button
+                            icon
+                            danger
+                            relief
+                            ref="button"
+                            :active-disabled="enableRemoveAll"
+                            @click="deleteAllRoles()"
+                        >
+                            <i class='bx bx-trash' ></i> Delete All Roles
+                        </vs-button>
+                    </vs-col>
+                </vs-row>
+            </div>
+
+            <div>
+                <vs-table
+                          striped
+                          v-model="selected">
+
+                    <!--            todo:header-->
+                    <template #header>
+                        <vs-input v-model="search" border placeholder="Search" />
+                    </template>
+
+                    <template #thead>
+                        <vs-tr>
+                            <!--                        todo:base-->
+                            <vs-th>
+                                <vs-checkbox
+                                    :indeterminate="selected.length === users.length" v-model="allCheck"
+                                    @change="selected = $vs.checkAll(selected, users)"
+                                />
+                            </vs-th>
+
+<!--                        todo:hint make roles and permission nav tab to add new role and assign permission-->
+                            <!--                        todo:base-->
+                            <vs-th
+                                sort @click="users = $vs.sortData($event ,users, 'id')">
+                                Id
+                            </vs-th>
+
+                            <vs-th
+                                sort @click="users = $vs.sortData($event ,users, 'name')">
+                                Role Name
+                            </vs-th>
+                            <vs-th
+                                sort @click="users = $vs.sortData($event ,users, 'guard_name')">
+                                Guard Name
+                            </vs-th>
+
+                            <!--                        todo:base-->
+                            <vs-th>
+                                Created At
+                            </vs-th>
+
+                        </vs-tr>
+                    </template>
+
+                    <template #tbody>
+
+                        <vs-tr
+                            :key="i"
+                            v-for="(tr, i) in $vs.getPage($vs.getSearch(users, search), page, max)"
+                            :data="tr"
+                            :is-selected="selected == tr"
+                            @click="index=i"
+
+                        >
+
+                            <!--                        todo:base-->
+                            <vs-td checkbox style="width: 1%">
+                                <vs-checkbox :val="tr" v-model="selected" />
+                            </vs-td>
+
+                            <!--                        todo:base-->
+                            <vs-td>
+                                {{ tr.id }}
+                            </vs-td>
+
+                            <vs-td>
+                                {{ tr.name }}
+                            </vs-td>
+                            <vs-td>
+                                {{ tr.guard_name }}
+                            </vs-td>
+
+                            <vs-td>
+                                {{ tr.created_at }}
+                            </vs-td>
+
+                            <template #expand>
+                                <div class="con-content">
+                                    <div class="grid">
+                                        <vs-row>
+                                            <vs-col :key="index" v-for="col,index in 12" vs-type="flex-end" w="1">
+                                                <vs-button
+                                                    v-if="col===10" flat icon
+                                                    primary
+                                                >
+                                                    <i class='bx bx-edit' ></i>
+                                                </vs-button>
+                                                <vs-button v-if="col===11"
+                                                           flat icon
+                                                           warn
+                                                           @click="viewRole(i)"
+                                                >
+                                                    <i class='bx bxs-eyedropper' ></i>
+                                                </vs-button>
+                                                <vs-button v-if="col===12"
+                                                           flat icon
+                                                           danger
+                                                           @click="deleteRole()"
+                                                >
+                                                    <i class='bx bx-trash' ></i>
+                                                </vs-button>
+                                            </vs-col>
+                                        </vs-row>
+                                    </div>
+                                </div>
+                            </template>
+
+                        </vs-tr>
+                    </template>
+
+<!--                    <template #footer>-->
+<!--                        <vs-pagination v-model="page" :length="$vs.getLength($vs.getSearch(users, search), max)" />-->
+<!--                    </template>-->
+
+                </vs-table>
+
+            </div>
+
+            <!--            create dialogue-->
+            <vs-dialog blur overflow-hidden v-model="active">
+                <template #header>
+                    <h4 class="not-margin">
+                        Add New <b>Role</b>
+                    </h4>
+                </template>
+
+                <div class="con-form">
+
+                    <div class="center content-inputs">
+                        <vs-row>
+                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                                <div class="center content-inputs">
+                                    <vs-input type="text" v-model="role_name" placeholder="Role name">
+                                        <template #icon>
+                                            <i class='bx bx-book'></i>
+                                        </template>
+                                        <template v-if="role_name===''" #message-danger>
+                                            Required
+                                        </template>
+                                    </vs-input>
+                                </div>
+                            </vs-col>
+                        </vs-row>
+                        <br>
+                        <br>
+                        <vs-row>
+                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                                <vs-select
+                                    label="Guard Name"
+                                    filter
+                                    v-model="guard_name"
+                                >
+                                    <vs-option-group>
+                                        <div slot="title">
+                                            Admin Guards
+                                        </div>
+                                        <vs-option v-for="guard in getGuardsName" key="0" :label="guard" :value="guard">
+                                            {{guard}}
+                                        </vs-option>
+                                    </vs-option-group>
+                                </vs-select>
+                            </vs-col>
+                        </vs-row>
+                        <br>
+                    </div>
+                </div>
+
+                <template #footer>
+                    <div class="footer-dialog">
+                        <vs-button
+                            ref="button1"
+                            @click="addRole()"
+                            block>
+                            Add Role
+                        </vs-button>
+                        <br>
+                    </div>
+                </template>
+            </vs-dialog>
+
+<!--            view dialogue-->
+            <vs-dialog blur v-model="activeView">
+
+                <div class="con-form">
+
+                    <vs-card type="3">
+                        <template #title>
+                            <h3>{{users[index].name}}</h3>
+                        </template>
+                        <template #img>
+                            <img src="../../MasterPage/notification/avatar-6.png" alt="">
+                        </template>
+                        <template #text>
+                            <p>
+                                {{users[index].guard_name}}
+                            </p>
+                            <p>{{users[index].created_at}}</p>
+                            <p>If you're using multiple guards we've got you covered as well.
+                                Every guard will have its own set of permissions and roles</p>
+                        </template>
+                    </vs-card>
+
+                </div>
+            </vs-dialog>
+
+            <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(users, max)" />
+
+            <!--            todo:base-->
+            <span class="data">
+                <pre hidden>
+                    {{ selected.length >1 ? enableRemoveAll=false : enableRemoveAll=true }}
+                </pre>
+            </span>
+
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: "List",
+    data() {
+        return {
+            hidden:true,
+            search: '',
+            allCheck: false,
+            page: 1,
+            max: 10,
+            selected: [],
+            active: false,
+            edit: null,
+            editProp: {},
+            users: [],
+            loading:null,
+            role_name:"",
+            guard_name:"",
+            activeView:false,
+            activeEdit:false,
+            request:{
+                role_name:"",
+                guard_name:"",
+            },
+            enableRemoveAll:false,
+            authInfo:{
+                token:localStorage.getItem("token"),
+                provider:localStorage.getItem("provider")
+            },
+            index:0
+        }
+    },
+    created() {
+        if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
+            window.location='/admin/invalidToken';
+        }
+    },
+    beforeMount() {
+        // this.UserRoles();
+    },
+    mounted() {
+        this.UserRoles();
+        //todo:first step
+        this.$store.dispatch("GuardsName");
+    },
+    computed:{
+        getGuardsName(){
+            //todo:last step render value to component
+            return this.$store.getters.getGuardsName;
+        }
+    },
+    methods: {
+        //todo:second step (backendApi)
+        UserRoles(){
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+                axios.get('/admin-mrole/manage-role?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider)
+                    .then((response)=>{
+                        this.users=response.data;
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                        // alert("Token has Invalid");
+                    });
+            }else{
+                window.location='/admin/invalidToken';
+            }
+        },
+        openAddRole(){
+            this.active=true;
+        },
+        addRole(){
+            if(this.role_name !=="" && this.guard_name!==""){
+
+                this.request.guard_name=this.guard_name;
+                this.request.role_name=this.role_name;
+
+                //todo:call mutation and pass object data
+                //todo:should make axios request to get user object
+                //todo:make an api in back to return full user object
+                if(localStorage.hasOwnProperty('token')
+                    && localStorage.hasOwnProperty('provider')){
+
+                    const loading = this.$vs.loading({
+                        target: this.$refs.button1,
+                        scale: '0.6',
+                        background: 'primary',
+                        opacity: 1,
+                        color: '#fff'
+                    })
+
+                    axios.post('/admin-mrole/manage-role?token='+this.authInfo.token+
+                        '&provider='+this.authInfo.provider,this.request)
+                        .then((response)=>{
+                            this.openNotification('top-right',
+                                'success',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                            "Add New Role Successfully",
+                            "New role will be able to handle new permission and assign users...");
+                            this.active=false;
+                            loading.close();
+                        })
+                        .catch((error)=>{
+                            window.location='/admin/invalidToken';
+                        });
+                }
+                else{
+                    window.location='/admin/invalidToken';
+                }
+            }
+        },
+        viewRole(i){
+            this.index=i;
+            this.activeView=true;
+        },
+        deleteRole(){
+            // alert(this.selected)
+        },
+        deleteAllRoles(){
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                this.loading = this.$vs.loading({
+                    target: this.$refs.button,
+                    scale: '0.6',
+                    background: 'danger',
+                    opacity: 1,
+                    color: '#fff'
+                })
+
+                axios.get('/admin-mrole/remove-all-rolls?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider)
+                    .then((response)=>{
+                        if(response.data!=="error"){
+                            this.loading.close();
+                            this.openNotification('top-right',
+                                'danger',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "All Roles Are Deleted Successfully",
+                                "Can add new role will be able to handle new permission and assign users...");
+                            this.enableRemoveAll=true
+                        }
+                        else{
+                            this.openNotification('top-right',
+                                'danger',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "Error In Remove",
+                                "Can add new role will be able to handle new permission and assign users...");
+                            this.enableRemoveAll=true
+                        }
+
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }
+            else{
+                window.location='/admin/invalidToken';
+            }
+        },
+        openNotification(position = null, border,icon,title,text) {
+            const noti = this.$vs.notification({
+                border,
+                icon,
+                position,
+                title: title,
+                text: text
+            })
+        },
+    },
+}
+</script>
+
+<style scoped>
+
+</style>

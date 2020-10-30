@@ -26,7 +26,7 @@
                                 icon
                                 success
                             >
-                                <i class='bx bx-plus' ></i> Create Role
+                                <i class='bx bx-plus' ></i> Assign Role
                             </vs-button>
                         </router-link>
                     </vs-col>
@@ -81,6 +81,11 @@
                             <!--                        todo:base-->
                             <vs-th>
                                 Created At
+                            </vs-th>
+
+                            <!--                        todo:view-->
+                            <vs-th>
+                                Edit
                             </vs-th>
 
                             <!--                        todo:view-->
@@ -154,6 +159,18 @@
 
                             <vs-td>
                                 {{ tr.created_at }}
+                            </vs-td>
+
+                            <vs-td>
+                                <vs-button
+                                    circle
+                                    icon
+                                    floating
+                                    size="small"
+                                    primary
+                                >
+                                    <i class='bx bx-edit' ></i>
+                                </vs-button>
                             </vs-td>
 
                             <vs-td>

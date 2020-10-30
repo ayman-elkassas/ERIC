@@ -69,6 +69,17 @@
 
 {{--                                todo:User Management Roles And Permission--}}
                                     @role('super_admin')
+
+                                    <li  class="dropdown">
+                                        <a class="nav-link menu-title" href="#"><i data-feather="home"></i><span>{{trans('admin.privilege.title')}}</span>
+                                            <label class="badge badge-success">2</label>
+                                        </a>
+                                        <ul id="mroles" class="nav-submenu menu-content content">
+                                            <li><router-link to="/admin-mrole">{{trans('admin.privilege.sub1')}}</router-link></li>
+                                            <li><router-link to="/admin-mpermission">{{trans('admin.privilege.sub2')}}</router-link></li>
+                                        </ul>
+                                    </li>
+
                                     <li  class="dropdown">
                                         <a class="nav-link menu-title" href="#"><i data-feather="home"></i><span>{{trans('admin.roles.title')}}</span>
                                             <label class="badge badge-success">2</label>

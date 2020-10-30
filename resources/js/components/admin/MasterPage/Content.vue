@@ -4,6 +4,30 @@
 <!--            router-view is listen be replaced with component that path is the same path of-->
 <!--            (localhost/ERIC/-PATH-)-->
         <router-view></router-view>
+
+        <vs-dialog width="550px" not-center v-model="active">
+            <template #header>
+                <h4 class="not-margin">
+                    Welcome to <b>ERIC</b>
+                </h4>
+            </template>
+
+
+            <div class="con-content">
+                <p>
+                    ERIC is a relatively new framework with a refreshing design and in the latest trends, vuesax based on vuejs which means that we go hand in hand with one of the most popular javascript frameworks in the world and with a huge community with which you will have all the help and documentation to create and make your project
+                </p>
+            </div>
+
+            <template #footer>
+                <div class="con-footer">
+                    <vs-button @click="active=false" transparent>
+                        Ok
+                    </vs-button>
+                </div>
+            </template>
+        </vs-dialog>
+
     </div>
 </template>
 
@@ -20,6 +44,12 @@ export default {
             interval:null,
             loading:null,
             color: '#7a76cb',
+            active:false
+        }
+    },
+    created() {
+        if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
+            window.location='/auth/login';
         }
     },
     beforeMount() {
@@ -34,6 +64,16 @@ export default {
             this.loading.close()
             clearInterval(this.interval)
             this.percent = 0
+
+            if(localStorage.hasOwnProperty("welcome")){
+                if(localStorage.getItem("welcome")==="1"){
+                    this.active=true;
+                    localStorage.removeItem("welcome");
+                }
+                else {
+                    this.active=false;
+                }
+            }
 
             this.openNotification('bottom-right',
                 'success',

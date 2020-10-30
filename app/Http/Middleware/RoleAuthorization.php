@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
@@ -35,8 +37,12 @@ class RoleAuthorization
             //Thrown if token was not found in the request.
             return $this->unauthorized('Please, attach a Bearer Token to your request');
         }
+
         //If user was authenticated successfully and user is in one of the acceptable roles, send to next request.
+//        Role::create(['name' => 'admin',
+//            "guard_name"=>"adminAuthGuard"]);
 //        $user->syncRoles(['super_admin']);
+//
         if ($user && ($user->hasRole('super_admin') || $user->hasRole('admin'))) {
             return $next($request);
         }

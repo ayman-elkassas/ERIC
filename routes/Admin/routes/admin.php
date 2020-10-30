@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\UserRole\RoleController;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Role;
 
 Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function () {
 
@@ -33,6 +37,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function ()
         })->where('any', '.*');
 
     });
+
+    Route::get('invalidToken',function (){
+        return view('Admin.Authentication.TokenExpire');
+    });
+
 });
 
 //TODO:CRUD CONTROLLER
@@ -49,4 +58,16 @@ Route::group(['prefix' => 'admin-role','namespace' => 'Admin\UserRole'], functio
         Route::resource('/users-role', 'RoleController');
     });
 });
+
+Route::group(['prefix' => 'admin-mrole','namespace' => 'Admin\RoleManagement'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/manage-role', 'RoleManagement');
+
+        Route::get('/remove-all-rolls','RevokeAllRolls@RemoveAllRolls');
+
+    });
+});
+
+
+
 
