@@ -153,9 +153,6 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <div class="mode"><i class="fa fa-moon-o"></i></div>
-                </li>
                 <li class="cart-nav onhover-dropdown">
                     <div class="cart-box"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span class="badge badge-pill badge-primary">2</span></div>
                     <ul class="cart-dropdown chat-dropdown onhover-show-div">
@@ -239,7 +236,7 @@
                     </ul>
                 </li>
                 <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()" data-original-title="" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></a></li>
-                <li class="profile-nav onhover-dropdown p-0">
+                <li data-step="4" data-highlightClass="navtour" data-intro="This Is Now Account Login" class="profile-nav onhover-dropdown p-0">
                     <div class="media profile-media">
                         <vs-avatar history primary badge badge-color="success">
                             <img :src="getCurrentUser.avatar" alt="E">

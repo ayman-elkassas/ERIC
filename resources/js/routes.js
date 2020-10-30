@@ -35,6 +35,8 @@ import Register from './components/admin/Authentication/Register'
 import MasterSeen from './components/admin/Authentication/MasterSeen'
 
 export const routes=[
+    //todo:Default
+    {path:'/',name:'Home',component:AdminHome},
     //todo:Home
     {path:'/home/',name:'Home',component:AdminHome},
     //todo:Roles

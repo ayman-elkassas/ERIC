@@ -95,6 +95,20 @@ class RoleManagement extends Controller
     public function update(Request $request, $id)
     {
         //
+        try {
+            $role_name=cleanString($request->role_name);
+            $role=Role::findOrFail($id);
+
+            $role->name=$role_name;
+            $role->guard_name=$request->guard_name;
+//
+            $role->save();
+
+            return response()->json("Update Successfully", 200);
+        }catch (\Exception $ex){
+            return response()->json($role, 404);
+        }
+
     }
 
     /**

@@ -49,8 +49,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function ()
 // GET	        /users-role/create	    create	photos.create
 // POST	        /users-role	            store	photos.store
 // GET	        /users-role/{id}	    show	photos.show
-// GET	        /users-role/{id}/edit	edit	photos.edit
-// PUT/PATCH	/users-role/{id}	    update	photos.update
+// GET	        /users-role/{id}/edit	edit	photos.edit (get object by id to edit)
+// PUT/PATCH	/users-role/{id}	    update	photos.update (put new object to update)
 // DELETE	    /photos/{id}	        destroy	photos.destroy
 
 Route::group(['prefix' => 'admin-role','namespace' => 'Admin\UserRole'], function () {

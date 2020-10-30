@@ -42,12 +42,12 @@
         <div class="page-body-wrapper sidebar-icon">
             <!-- Page Sidebar Start-->
             <header class="main-nav" sidebar-layout="iconcolor-sidebar">
-                <div  class="logo-wrapper"><router-link to="/home"><img style="width: -webkit-fill-available" class="img-fluid for-dark" src="{{asset('admin-cuba')}}/assets/images/logo/logo.png" alt=""></router-link>
+                <div  class="logo-wrapper"><router-link to="/home"><img class="img-fluid for-dark" src="{{asset('admin-cuba')}}/assets/images/logo/logo.png" alt=""></router-link>
                     <div class="back-btn"><i class="fa fa-angle-left"></i></div>
                     <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="grid" id="sidebar-toggle"> </i></div>
                 </div>
                 <nav>
-                    <div  class="main-navbar">
+                    <div data-step="1" data-highlightClass="navtour" data-intro="This is side navbar" class="main-navbar">
                         <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
                         <div  id="mainnav">
                             <div >
@@ -70,8 +70,8 @@
 {{--                                todo:User Management Roles And Permission--}}
                                     @role('super_admin')
 
-                                    <li  class="dropdown">
-                                        <a class="nav-link menu-title" href="#"><i data-feather="home"></i><span>{{trans('admin.privilege.title')}}</span>
+                                    <li data-step="2" data-highlightClass="navtour" data-intro="Use This Tab To Add New Rolls And Permissions"  class="dropdown">
+                                        <a class="nav-link menu-title" href="#"><i data-feather="check-square"></i><span>{{trans('admin.privilege.title')}}</span>
                                             <label class="badge badge-success">2</label>
                                         </a>
                                         <ul id="mroles" class="nav-submenu menu-content content">
@@ -80,8 +80,8 @@
                                         </ul>
                                     </li>
 
-                                    <li  class="dropdown">
-                                        <a class="nav-link menu-title" href="#"><i data-feather="home"></i><span>{{trans('admin.roles.title')}}</span>
+                                    <li data-step="3" data-highlightClass="navtour" data-intro="Use This Tab To Assign Rolls And Permissions To Users" class="dropdown">
+                                        <a class="nav-link menu-title" href="#"><i data-feather="users"></i><span>{{trans('admin.roles.title')}}</span>
                                             <label class="badge badge-success">2</label>
                                         </a>
                                         <ul id="roles" class="nav-submenu menu-content content">
@@ -245,6 +245,8 @@
 <script src="{{asset('admin-cuba')}}/assets/js/config.js"></script>
 {{--<!-- Plugins JS start-->--}}
     <script src="{{asset('admin-cuba')}}/assets/js/tooltip-init.js"></script>
+    <script src="{{asset('admin-cuba')}}/assets/js/tour/intro.js"></script>
+    <script src="{{asset('admin-cuba')}}/assets/js/tour/intro-init.js"></script>
 <!-- Plugins JS Ends-->
 <!-- Theme js-->
 <script src="{{asset('admin-cuba')}}/assets/js/script.js"></script>

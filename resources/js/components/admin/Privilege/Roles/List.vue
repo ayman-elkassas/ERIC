@@ -86,6 +86,11 @@
                                 Created At
                             </vs-th>
 
+                            <!--                        todo:base-->
+                            <vs-th>
+                                Updated At
+                            </vs-th>
+
                         </vs-tr>
                     </template>
 
@@ -121,6 +126,10 @@
                                 {{ tr.created_at }}
                             </vs-td>
 
+                            <vs-td>
+                                {{ tr.updated_at }}
+                            </vs-td>
+
                             <template #expand>
                                 <div class="con-content">
                                     <div class="grid">
@@ -128,6 +137,7 @@
                                             <vs-col :key="index" v-for="col,index in 12" vs-type="flex-end" w="1">
                                                 <vs-button
                                                     v-if="col===10" flat icon
+                                                    @click="editRoleD(i)"
                                                     primary
                                                 >
                                                     <i class='bx bx-edit' ></i>
@@ -225,6 +235,70 @@
                 </template>
             </vs-dialog>
 
+<!--            edit dialogue-->
+            <vs-dialog blur overflow-hidden v-model="activeEdit">
+                <template #header>
+                    <h4 class="not-margin">
+                        Edit <b>Role</b>
+                    </h4>
+                </template>
+
+                <div class="con-form">
+
+                    <div class="center content-inputs">
+                        <vs-row>
+                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                                <div class="center content-inputs">
+                                    <vs-input type="text" v-model="getRoleName" placeholder="Role name">
+                                        <template #icon>
+                                            <i class='bx bx-book'></i>
+                                        </template>
+                                        <template v-if="getRoleName===''" #message-danger>
+                                            Required
+                                        </template>
+                                    </vs-input>
+                                </div>
+                            </vs-col>
+                        </vs-row>
+                        <br>
+                        <br>
+                        <vs-row>
+                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                                <vs-select
+                                    label="Guard Name"
+                                    filter
+                                    v-model="getGuardName"
+                                    placeholder="Guard Name"
+                                >
+                                    <vs-option-group>
+                                        <div slot="title">
+                                            Admin Guards
+                                        </div>
+                                        <vs-option v-for="guard in getGuardsName" key="0" :label="guard" :value="guard">
+                                            {{guard}}
+                                        </vs-option>
+                                    </vs-option-group>
+                                </vs-select>
+                            </vs-col>
+                        </vs-row>
+                        <br>
+                    </div>
+                </div>
+
+                <template #footer>
+                    <div class="footer-dialog">
+                        <vs-button
+                            ref="button2"
+                            @click="editRole()"
+                            success
+                            block>
+                            Edit Role
+                        </vs-button>
+                        <br>
+                    </div>
+                </template>
+            </vs-dialog>
+
 <!--            view dialogue-->
             <vs-dialog blur v-model="activeView">
 
@@ -242,6 +316,7 @@
                                 {{users[index].guard_name}}
                             </p>
                             <p>{{users[index].created_at}}</p>
+                            <p>{{users[index].updated_at}}</p>
                             <p>If you're using multiple guards we've got you covered as well.
                                 Every guard will have its own set of permissions and roles</p>
                         </template>
@@ -260,6 +335,9 @@
             </span>
 
         </div>
+<!--        <div ref="content" class="content-div">-->
+
+<!--        </div>-->
     </div>
 </template>
 
@@ -292,7 +370,10 @@ export default {
                 token:localStorage.getItem("token"),
                 provider:localStorage.getItem("provider")
             },
-            index:0
+            index:0,
+            refreshLoading:null,
+            guardNameEdit:"",
+            previous: null,
         }
     },
     created() {
@@ -310,8 +391,33 @@ export default {
     },
     computed:{
         getGuardsName(){
+            // this.refreshLoading = this.$vs.loading({
+            //     target: this.$refs.content,
+            //     color: 'dark'
+            // })
             //todo:last step render value to component
-            return this.$store.getters.getGuardsName;
+            const data=this.$store.getters.getGuardsName;
+            if(data.length>0){
+                // this.refreshLoading.close();
+                // $(".content-div").hide();
+
+                return data;
+            }
+        },
+        //edit old,new value
+        getRoleName: {
+            get(){return this.users[this.index].name},
+            set(v){
+                this.request.role_name = v
+            }
+        },
+        getGuardName:{
+            get(){
+                return this.users[this.index].guard_name
+            },
+            set(v){
+                this.request.guard_name=v
+            }
         }
     },
     methods: {
@@ -383,6 +489,68 @@ export default {
             this.index=i;
             this.activeView=true;
         },
+        editRoleD(i){
+            this.index=i;
+            this.activeEdit=true;
+            this.guardNameEdit=this.users[this.index].guard_name
+        },
+        editRole(){
+            // this.activeEdit=true;
+
+            if(this.request.role_name !=="" && this.request.guard_name!==""){
+
+                //todo:call mutation and pass object data
+                //todo:should make axios request to get user object
+                //todo:make an api in back to return full user object
+                if(localStorage.hasOwnProperty('token')
+                    && localStorage.hasOwnProperty('provider')){
+
+                    const loading = this.$vs.loading({
+                        target: this.$refs.button2,
+                        scale: '0.6',
+                        background: 'success',
+                        opacity: 1,
+                        color: '#fff'
+                    })
+
+                    axios.put('/admin-mrole/manage-role/'+(this.index+1)+'?token='+this.authInfo.token+
+                        '&provider='+this.authInfo.provider,this.request)
+                        .then((response)=>{
+                            this.openNotification('top-right',
+                                'success',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "Edit Role Successfully",
+                                "Edit role will be able to handle new permission and assign users...");
+                            this.activeEdit=false;
+                            loading.close();
+                        })
+                        .catch((error)=>{
+                            window.location='/admin/invalidToken';
+                        });
+                }
+                else{
+                    window.location='/admin/invalidToken';
+                }
+            }
+            else{
+                if(this.request.role_name==="" && this.request.guard_name===""){
+                    this.openNotification('top-right',
+                        'danger',
+                        `<i class='bx bx-select-multiple' ></i>`,
+                        "There is no update",
+                        "Edit role will be able to handle new permission and assign users...");
+                    this.activeEdit=false;
+                    return;
+                }
+                else if(this.request.role_name===""){
+                    this.request.role_name=this.users[this.index].name;
+                }
+                else if(this.request.guard_name===""){
+                    this.request.guard_name=this.users[this.index].guard_name;
+                }
+                this.editRole();
+            }
+        },
         deleteRole(){
             // alert(this.selected)
         },
@@ -437,10 +605,38 @@ export default {
                 text: text
             })
         },
+        update(evt) {
+            this.request.guard_name=this.guardNameEdit;
+        }
     },
+    filters: {
+        savePrevious: {
+            write(value, oldValue) {
+                this.$set("previous", oldValue)
+                return value
+            }
+        }
+    }
 }
 </script>
 
 <style scoped>
+
+.content-div{
+    width: 100%;
+    height :100%;
+    box-shadow: 0px 6px 25px -10px rgba(0,0,0,.1);
+    border-radius :20px;
+    position: absolute;
+    z-index: 9999;
+    display :flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction :column;
+    text-align :center;
+    font-size :.6rem;
+}
+
+
 
 </style>

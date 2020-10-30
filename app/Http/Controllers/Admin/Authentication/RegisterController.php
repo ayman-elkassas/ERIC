@@ -47,7 +47,7 @@ class RegisterController extends Controller
         //todo:create new object
 
         $user=new Admins();
-        $user->name=$request->name;
+        $user->name=ucwords(strtolower($request->name));
         $user->email=$request->email;
         $user->password=bcrypt($request->get('password'));
         $user->avatar="/Admins/avatar/".$name;

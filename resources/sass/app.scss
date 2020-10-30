@@ -26,6 +26,7 @@
 @import "~admin-panel-cuba/assets/css/owlcarousel.css";
 @import "~admin-panel-cuba/assets/css/owlcarousel.css";
 @import "~admin-panel-cuba/assets/css/rating.css";
+@import "~admin-panel-cuba/assets/css/tour.css";
 
 @import "~vue-select/dist/vue-select.css";
 @import "~primevue/resources/themes/saga-blue/theme.css";
@@ -177,6 +178,12 @@ a:hover {
 .footer-dialog .vs-button{
     margin: 0px
 }
+
+.navtour{
+    background:transparent;
+}
+
+
 
 
 
