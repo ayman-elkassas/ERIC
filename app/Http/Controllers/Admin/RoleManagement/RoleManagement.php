@@ -120,5 +120,13 @@ class RoleManagement extends Controller
     public function destroy($id)
     {
         //
+        try {
+            $role=Role::findOrFail($id)->delete();
+
+            return response()->json("Delete Successfully", 200);
+        }catch (\Exception $ex){
+            return response()->json($role, 404);
+        }
+
     }
 }

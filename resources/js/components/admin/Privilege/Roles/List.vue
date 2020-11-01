@@ -137,7 +137,7 @@
                                             <vs-col :key="index" v-for="col,index in 12" vs-type="flex-end" w="1">
                                                 <vs-button
                                                     v-if="col===10" flat icon
-                                                    @click="editRoleD(i)"
+                                                    @click="editRoleD(tr.id,i)"
                                                     primary
                                                 >
                                                     <i class='bx bx-edit' ></i>
@@ -152,7 +152,7 @@
                                                 <vs-button v-if="col===12"
                                                            flat icon
                                                            danger
-                                                           @click="deleteRole()"
+                                                           @click="deleteRole(tr.id)"
                                                 >
                                                     <i class='bx bx-trash' ></i>
                                                 </vs-button>
@@ -249,11 +249,11 @@
                         <vs-row>
                             <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
                                 <div class="center content-inputs">
-                                    <vs-input type="text" v-model="getRoleName" placeholder="Role name">
+                                    <vs-input type="text" v-model="roleEditName" placeholder="Role name">
                                         <template #icon>
                                             <i class='bx bx-book'></i>
                                         </template>
-                                        <template v-if="getRoleName===''" #message-danger>
+                                        <template v-if="roleEditName===''" #message-danger>
                                             Required
                                         </template>
                                     </vs-input>
@@ -267,7 +267,7 @@
                                 <vs-select
                                     label="Guard Name"
                                     filter
-                                    v-model="getGuardName"
+                                    v-model="guardEditName"
                                     placeholder="Guard Name"
                                 >
                                     <vs-option-group>
@@ -325,6 +325,34 @@
                 </div>
             </vs-dialog>
 
+            <vs-dialog width="550px" not-center v-model="active_ensure">
+                <template #header>
+                    <h4 class="not-margin">
+                        Are you sure delete this <b>Role</b>
+                    </h4>
+                </template>
+
+
+                <div class="con-content">
+                    <p>
+                        where users may be assigned roles, each which has its own set of permissions. How can we make that work?
+                    </p>
+                </div>
+
+                <template #footer>
+                    <div class="con-footer">
+                        <vs-button
+                            ref="button3"
+                            @click="performDelete()" transparent>
+                            Ok
+                        </vs-button>
+                        <vs-button @click="active_ensure=false" dark transparent>
+                            Cancel
+                        </vs-button>
+                    </div>
+                </template>
+            </vs-dialog>
+
             <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(users, max)" />
 
             <!--            todo:base-->
@@ -335,9 +363,9 @@
             </span>
 
         </div>
-<!--        <div ref="content" class="content-div">-->
+        <div ref="content_i" class="content-div-i">
 
-<!--        </div>-->
+        </div>
     </div>
 </template>
 
@@ -359,6 +387,8 @@ export default {
             loading:null,
             role_name:"",
             guard_name:"",
+            roleEditName:"",
+            guardEditName:"",
             activeView:false,
             activeEdit:false,
             request:{
@@ -371,9 +401,10 @@ export default {
                 provider:localStorage.getItem("provider")
             },
             index:0,
+            id:0,
             refreshLoading:null,
-            guardNameEdit:"",
             previous: null,
+            active_ensure:false,
         }
     },
     created() {
@@ -391,38 +422,26 @@ export default {
     },
     computed:{
         getGuardsName(){
-            // this.refreshLoading = this.$vs.loading({
-            //     target: this.$refs.content,
-            //     color: 'dark'
-            // })
+
+            // return this.$store.getters.getGuardsName
             //todo:last step render value to component
             const data=this.$store.getters.getGuardsName;
-            if(data.length>0){
-                // this.refreshLoading.close();
-                // $(".content-div").hide();
-
-                return data;
-            }
+            return data;
         },
         //edit old,new value
-        getRoleName: {
-            get(){return this.users[this.index].name},
-            set(v){
-                this.request.role_name = v
-            }
-        },
-        getGuardName:{
-            get(){
-                return this.users[this.index].guard_name
-            },
-            set(v){
-                this.request.guard_name=v
-            }
-        }
+        // getRoleName(){
+        //     return this.users[this.index].name
+        // },
     },
     methods: {
         //todo:second step (backendApi)
         UserRoles(){
+
+            $(".content-div-i").show();
+            this.refreshLoading = this.$vs.loading({
+                target: this.$refs.content_i,
+                color: 'dark'
+            })
 
             //todo:call mutation and pass object data
             //todo:should make axios request to get user object
@@ -433,6 +452,8 @@ export default {
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         this.users=response.data;
+                        this.refreshLoading.close();
+                        $(".content-div-i").hide();
                     })
                     .catch((error)=>{
                         window.location='/admin/invalidToken';
@@ -475,6 +496,7 @@ export default {
                             "New role will be able to handle new permission and assign users...");
                             this.active=false;
                             loading.close();
+                            this.UserRoles();
                         })
                         .catch((error)=>{
                             window.location='/admin/invalidToken';
@@ -489,16 +511,23 @@ export default {
             this.index=i;
             this.activeView=true;
         },
-        editRoleD(i){
-            this.index=i;
+        editRoleD(id,index){
+            this.id=id;
+            this.index=index;
             this.activeEdit=true;
-            this.guardNameEdit=this.users[this.index].guard_name
+            this.guardEditName=this.users[this.index].guard_name
+            this.roleEditName=this.users[this.index].name
         },
         editRole(){
             // this.activeEdit=true;
 
-            if(this.request.role_name !=="" && this.request.guard_name!==""){
+            if((this.roleEditName !=="" && this.guardEditName!=="") &&
+            (this.roleEditName!==this.users[this.index].name ||
+                this.guardEditName!==this.users[this.index].guard_name))
+            {
 
+                this.request.guard_name=this.guardEditName
+                this.request.role_name=this.roleEditName
                 //todo:call mutation and pass object data
                 //todo:should make axios request to get user object
                 //todo:make an api in back to return full user object
@@ -513,7 +542,7 @@ export default {
                         color: '#fff'
                     })
 
-                    axios.put('/admin-mrole/manage-role/'+(this.index+1)+'?token='+this.authInfo.token+
+                    axios.put('/admin-mrole/manage-role/'+(this.id)+'?token='+this.authInfo.token+
                         '&provider='+this.authInfo.provider,this.request)
                         .then((response)=>{
                             this.openNotification('top-right',
@@ -523,6 +552,7 @@ export default {
                                 "Edit role will be able to handle new permission and assign users...");
                             this.activeEdit=false;
                             loading.close();
+                            this.UserRoles();
                         })
                         .catch((error)=>{
                             window.location='/admin/invalidToken';
@@ -533,7 +563,10 @@ export default {
                 }
             }
             else{
-                if(this.request.role_name==="" && this.request.guard_name===""){
+                if((this.roleEditName==="" && this.guardEditName==="") ||
+                    this.roleEditName===this.users[this.index].name ||
+                    this.guardEditName===this.users[this.index].guard_name){
+
                     this.openNotification('top-right',
                         'danger',
                         `<i class='bx bx-select-multiple' ></i>`,
@@ -545,14 +578,16 @@ export default {
                 else if(this.request.role_name===""){
                     this.request.role_name=this.users[this.index].name;
                 }
-                else if(this.request.guard_name===""){
+                else if(this.guardEditName===""){
                     this.request.guard_name=this.users[this.index].guard_name;
                 }
                 this.editRole();
             }
         },
-        deleteRole(){
+        deleteRole(i){
             // alert(this.selected)
+            this.id=i
+            this.active_ensure=true
         },
         deleteAllRoles(){
             if(localStorage.hasOwnProperty('token')
@@ -577,6 +612,7 @@ export default {
                                 "All Roles Are Deleted Successfully",
                                 "Can add new role will be able to handle new permission and assign users...");
                             this.enableRemoveAll=true
+                            this.UserRoles();
                         }
                         else{
                             this.openNotification('top-right',
@@ -605,24 +641,54 @@ export default {
                 text: text
             })
         },
-        update(evt) {
-            this.request.guard_name=this.guardNameEdit;
+        performDelete(){
+
+            const loading = this.$vs.loading({
+                target: this.$refs.button3,
+                scale: '0.6',
+                background: 'danger',
+                opacity: 1,
+                color: '#fff'
+            })
+
+            axios.delete('/admin-mrole/manage-role/'+(this.id)+'?token='+this.authInfo.token+
+                '&provider='+this.authInfo.provider)
+                .then((response)=>{
+                    if(response.data!=="error"){
+                        loading.close();
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Role Is Deleted Successfully",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false
+                        this.UserRoles();
+                        // debugger
+                        $('.vs-table__tr__expand').hide();
+                        // rows[this.index].hide();
+                    }
+                    else{
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Error In Remove",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false
+                    }
+
+                })
+                .catch((error)=>{
+                    window.location='/admin/invalidToken';
+                });
         }
+
     },
-    filters: {
-        savePrevious: {
-            write(value, oldValue) {
-                this.$set("previous", oldValue)
-                return value
-            }
-        }
-    }
 }
 </script>
 
 <style scoped>
 
-.content-div{
+.content-div-i{
     width: 100%;
     height :100%;
     box-shadow: 0px 6px 25px -10px rgba(0,0,0,.1);
