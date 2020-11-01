@@ -25,7 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project" />
+    <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -216,6 +218,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
+    <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="js.last.introduce.type" value="LET" />
@@ -580,7 +583,7 @@
       <workItem from="1603955259970" duration="14343000" />
       <workItem from="1603977873437" duration="33038000" />
       <workItem from="1604037860395" duration="35353000" />
-      <workItem from="1604235498145" duration="22786000" />
+      <workItem from="1604235498145" duration="24970000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -657,30 +660,34 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="446" y="279" key="ComposerInitDialogKey/0.0.1366.738@0.0.1366.738" timestamp="1602096412589" />
+    <state x="363" y="123" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1604261851957">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="363" y="123" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1366.738@0.0.1366.738" timestamp="1604261851957" />
     <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1602179462345">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1602179462345" />
-    <state x="463" y="91" key="FileChooserDialogImpl" timestamp="1603985099068">
+    <state x="463" y="91" key="FileChooserDialogImpl" timestamp="1604261727726">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1603985099068" />
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1604259899575">
+    <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604261727726" />
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1604262486698">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1604259899575" />
-    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1604259899575">
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1604262486698" />
+    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1604262486698">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1604259899575" />
-    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1604259899575">
+    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1604262486698" />
+    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1604262486698">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1604259899575" />
-    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1604259899575">
+    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1604262486698" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1604262486698">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1604259899575" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1604262486698" />
     <state x="129" y="55" key="MergeDialog" timestamp="1597542580005">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -697,14 +704,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1603364044079" />
-    <state x="214" y="19" key="SettingsEditor" timestamp="1603482953818">
+    <state x="214" y="19" key="SettingsEditor" timestamp="1604260832426">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603482953818" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604086526233">
+    <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1604260832426" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604260838690">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1604086526233" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1604260838690" />
     <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602241436521">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
