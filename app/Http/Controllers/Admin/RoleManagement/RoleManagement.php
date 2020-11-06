@@ -58,7 +58,9 @@ class RoleManagement extends Controller
     public function store(Request $request)
     {
         //
-        $role = Role::create(['name' => $request->role_name,
+        $role_name=cleanString($request->role_name);
+
+        $role = Role::create(['name' => $role_name,
             "guard_name"=>$request->guard_name]);
         return response()->json("Done Created Role Successfully", 200);
     }

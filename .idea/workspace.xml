@@ -26,7 +26,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PermissionManagement/PermissionManagement.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0f490f8ffe1f866f4b139737f2473a73.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0f4cdc7a7bd4648761f7620a54ac75de.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/16c885d9c5c0dd30ce2991c0aa5aaec1.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/16f45ff9c1b35825ff3891eb2ea08121.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/183f93cd29f1a045e940038881aea46f.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2403da8e648db3845f9141ddc753ae96.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/244084488e880b6f250a968a29609d03.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/25875535eebe2fa84b119300f858071c.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/26ccd6a8ba1d58d976384ae3b4a886a5.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/29028a43fc3f90796f7cacdc62687c49.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/3220f01f0942c3e54c790719340114e0.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/38356fdd19ddfb5e36dcce855c837b9d.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/467308d124b10a295468cf6754c7052a.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/4cae1b1ed38dbe829c80e2bde878e43b.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/4f77d178310999e082266b2fce2b240d.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/516aeffcdd79f59b0e89035b4f25c3bd.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/576803012cfc3f3947d89d71a3ae8300.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5b471816620aa01e13c010adf812ce28.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5be8b949b67c2f54a0d10d3a92c13194.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5d57e005cac07b217a3ed7cf18bf8e05.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/683635c83e1c46b897b9df7900449254.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/697c096cac30b26b89d8966110eb12de.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/755b97ee023301398b3511034cbf9d25.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/7570d9310c582ce55acf1450ebe12500.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/7829b718328f22ebf50fd4e6df2b7ffd.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/853a6d6d01eeaa9324897d0523c1a8ec.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8b6ef54c0e9874247198772bdb119d99.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/902b542e2baa737145f5f3dae5fc4fbc.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/920e2f6194519da44c62fe814c05d35c.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/940ae194b95bdda13257a290bf5fe83b.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/97523452a43a82855ce32af4743667e3.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/99ba6645abeb6bc78103bd0bd1cf2c06.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/a0785906b13b6da4539c6abe62923e9c.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/a44daa0295b5dec09fd5adfa93eedcf9.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/a6e78426dd5e8c7617087059770191d2.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/acb376c21c53028d266bb1151a15e556.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/adf51127d35bed14de6b6910c6c2fffe.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/afe3d4fb0b85be81323457fe746fbf3d.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/b09a6a4e4ceb1f3121efbd9beeeb3fd9.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/b54fe1aa1e516c73e93c0d5630610d70.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/bf5427a0a195296b08ea49b17b20fc0f.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c6d45bf391ce8c154934ac27e3853f18.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/cacc26cc8b5da9a77ecd3bab7f9c505a.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/dadfbcc98f81d94c7a23c7b01e96c040.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/db95126979205102518b0aa7db0d3666.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/e1a4a131458029c4e7aacbcffe53944a.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/e326486693b544234ce22676f900b036.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/e79b49d1d19f7b07dd086efef35e2923.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/e9e5eaf4ad1cb3db36ba013165dcd4ed.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/f0e769f6d1b7c26c5b3af144e1772ee9.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/f272a27c1f0286e7a698da3f8780f9b1.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/fb7578453fd76ccff2922723e6e17de0.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/Role/Roles/List_backup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleManagement/RoleManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleManagement/RoleManagement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/0-template/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/0-template/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/MasterPage/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/MasterPage/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Roles/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Roles/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Role/Roles/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Role/Roles/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/Admin/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Admin/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +287,7 @@
     <property name="editor.config.ad.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/admin/Role/Roles" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -233,19 +298,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Roles" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Permissions" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Roles" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\privilege\Roles" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\privilege\Permissions" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\Roles" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\List" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Roles" />
       <recent name="E:\Server\htdocs\ERIC" />
       <recent name="E:\Server\htdocs\ERIC\app\Http\Controllers\Admin\Authentication" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Permissions" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Roles" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\privilege\Roles" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\privilege\Permissions" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\HomePage" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -398,10 +463,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.watch" />
-        <item itemvalue="npm.hot" />
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.install" />
+        <item itemvalue="npm.hot" />
         <item itemvalue="npm.uninstall" />
       </list>
     </recent_temporary>
@@ -584,6 +649,12 @@
       <workItem from="1603977873437" duration="33038000" />
       <workItem from="1604037860395" duration="35353000" />
       <workItem from="1604235498145" duration="24970000" />
+      <workItem from="1604262810049" duration="98000" />
+      <workItem from="1604411823019" duration="15893000" />
+      <workItem from="1604513896877" duration="5128000" />
+      <workItem from="1604642392066" duration="378000" />
+      <workItem from="1604643603287" duration="22302000" />
+      <workItem from="1604694632987" duration="10445000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -652,10 +723,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1603652210213" />
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603994912015">
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604430226526">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1603994912015" />
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1604430226526" />
     <state x="446" y="279" key="ComposerInitDialogKey" timestamp="1602096412589">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -672,22 +743,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604261727726" />
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1604262486698">
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1604705696315">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1604262486698" />
-    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1604262486698">
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1604705696315" />
+    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1604705696315">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1604262486698" />
-    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1604262486698">
+    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1604705696315" />
+    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1604705696314">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1604262486698" />
-    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1604262486698">
+    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1604705696314" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1604705696315">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1604262486698" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1604705696315" />
     <state x="129" y="55" key="MergeDialog" timestamp="1597542580005">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -708,10 +779,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1604260832426" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604260838690">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604262870595">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1604260838690" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1604262870595" />
     <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602241436521">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -748,10 +819,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="dock-window-2/0.0.1366.738@0.0.1366.738" timestamp="1598124580202" />
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1604253218414">
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1604667338139">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1604253218414" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1604667338139" />
     <state x="475" y="226" key="scopes" timestamp="1597177503372">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

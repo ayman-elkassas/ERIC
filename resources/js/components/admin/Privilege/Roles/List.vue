@@ -20,7 +20,24 @@
 
             <div style="margin-bottom: 5px">
                 <vs-row justify="flex-end">
+                    <vs-col style="width:10%" w="2">
+                        <vs-tooltip top>
+                            <vs-button
+                                icon
+                                primary
+                                relief
+                                @click="refresh()"
+                            >
+                                <i class='bx bx-refresh' ></i> Refresh
+                            </vs-button>
+                            <template #tooltip>
+                                Refresh Content
+                            </template>
+                        </vs-tooltip>
+
+                    </vs-col>
                     <vs-col style="width:12.66%" w="2">
+                        <vs-tooltip top>
                             <vs-button
                                 icon
                                 success
@@ -29,18 +46,28 @@
                             >
                                 <i class='bx bx-plus' ></i> Create Role
                             </vs-button>
+                            <template #tooltip>
+                                Add New Role
+                            </template>
+                        </vs-tooltip>
                     </vs-col>
                     <vs-col style="width:16%" w="2">
-                        <vs-button
-                            icon
-                            danger
-                            relief
-                            ref="button"
-                            :active-disabled="enableRemoveAll"
-                            @click="deleteAllRoles()"
-                        >
-                            <i class='bx bx-trash' ></i> Delete All Roles
-                        </vs-button>
+                        <vs-tooltip top>
+                            <vs-button
+                                icon
+                                danger
+                                relief
+                                ref="button"
+                                :active-disabled="enableRemoveAll"
+                                @click="deleteAllRoles()"
+                            >
+                                <i class='bx bx-trash' ></i> Delete All Roles
+                            </vs-button>
+                            <template #tooltip>
+                                Delete All Roles And Initialize Super Admin Role &#128540;
+                            </template>
+                        </vs-tooltip>
+
                     </vs-col>
                 </vs-row>
             </div>
@@ -60,24 +87,24 @@
                             <!--                        todo:base-->
                             <vs-th>
                                 <vs-checkbox
-                                    :indeterminate="selected.length === users.length" v-model="allCheck"
-                                    @change="selected = $vs.checkAll(selected, users)"
+                                    :indeterminate="selected.length === data.length" v-model="allCheck"
+                                    @change="selected = $vs.checkAll(selected, data)"
                                 />
                             </vs-th>
 
 <!--                        todo:hint make roles and permission nav tab to add new role and assign permission-->
                             <!--                        todo:base-->
                             <vs-th
-                                sort @click="users = $vs.sortData($event ,users, 'id')">
+                                sort @click="data = $vs.sortData($event ,data, 'id')">
                                 Id
                             </vs-th>
 
                             <vs-th
-                                sort @click="users = $vs.sortData($event ,users, 'name')">
+                                sort @click="data = $vs.sortData($event ,data, 'name')">
                                 Role Name
                             </vs-th>
                             <vs-th
-                                sort @click="users = $vs.sortData($event ,users, 'guard_name')">
+                                sort @click="data = $vs.sortData($event ,data, 'guard_name')">
                                 Guard Name
                             </vs-th>
 
@@ -96,9 +123,14 @@
 
                     <template #tbody>
 
+<!--                        <vs-tooltip top>-->
+<!--                            <template #tooltip>-->
+<!--                                Add New Role-->
+<!--                            </template>-->
+<!--                        </vs-tooltip>-->
                         <vs-tr
                             :key="i"
-                            v-for="(tr, i) in $vs.getPage($vs.getSearch(users, search), page, max)"
+                            v-for="(tr, i) in $vs.getPage($vs.getSearch(getUserRoles, search), page, max)"
                             :data="tr"
                             :is-selected="selected == tr"
                             @click="index=i"
@@ -147,7 +179,7 @@
                                                            warn
                                                            @click="viewRole(i)"
                                                 >
-                                                    <i class='bx bxs-eyedropper' ></i>
+                                                    <i class='bx bx-happy-heart-eyes' ></i>
                                                 </vs-button>
                                                 <vs-button v-if="col===12"
                                                            flat icon
@@ -156,6 +188,7 @@
                                                 >
                                                     <i class='bx bx-trash' ></i>
                                                 </vs-button>
+
                                             </vs-col>
                                         </vs-row>
                                     </div>
@@ -164,10 +197,6 @@
 
                         </vs-tr>
                     </template>
-
-<!--                    <template #footer>-->
-<!--                        <vs-pagination v-model="page" :length="$vs.getLength($vs.getSearch(users, search), max)" />-->
-<!--                    </template>-->
 
                 </vs-table>
 
@@ -306,17 +335,17 @@
 
                     <vs-card type="3">
                         <template #title>
-                            <h3>{{users[index].name}}</h3>
+                            <h3>{{data[index].name}}</h3>
                         </template>
                         <template #img>
                             <img src="../../MasterPage/notification/avatar-6.png" alt="">
                         </template>
                         <template #text>
                             <p>
-                                {{users[index].guard_name}}
+                                {{data[index].guard_name}}
                             </p>
-                            <p>{{users[index].created_at}}</p>
-                            <p>{{users[index].updated_at}}</p>
+                            <p>{{data[index].created_at}}</p>
+                            <p>{{data[index].updated_at}}</p>
                             <p>If you're using multiple guards we've got you covered as well.
                                 Every guard will have its own set of permissions and roles</p>
                         </template>
@@ -325,7 +354,9 @@
                 </div>
             </vs-dialog>
 
-            <vs-dialog width="550px" not-center v-model="active_ensure">
+            <!--            delete dialogue-->
+
+            <vs-dialog blur width="550px" not-center v-model="active_ensure">
                 <template #header>
                     <h4 class="not-margin">
                         Are you sure delete this <b>Role</b>
@@ -353,7 +384,7 @@
                 </template>
             </vs-dialog>
 
-            <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(users, max)" />
+            <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(data, max)" />
 
             <!--            todo:base-->
             <span class="data">
@@ -366,6 +397,12 @@
         <div ref="content_i" class="content-div-i">
 
         </div>
+        <p v-if="data.length===0 && flag">
+            {{this.reload()}}
+        </p>
+        <p v-else-if="firstLoad && data.length>0">
+            {{this.removeReload()}}
+        </p>
     </div>
 </template>
 
@@ -383,7 +420,7 @@ export default {
             active: false,
             edit: null,
             editProp: {},
-            users: [],
+            data: [],
             loading:null,
             role_name:"",
             guard_name:"",
@@ -405,64 +442,37 @@ export default {
             refreshLoading:null,
             previous: null,
             active_ensure:false,
+            progress:0,
+            interval:null,
+            flag:false,
+            firstLoad:true,
         }
+    },
+    beforeCreate() {
+        //todo:first step
+        this.$store.dispatch("GuardsName");
+        this.$store.dispatch("UserRoles");
     },
     created() {
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
             window.location='/admin/invalidToken';
         }
     },
-    beforeMount() {
-        // this.UserRoles();
-    },
-    mounted() {
-        this.UserRoles();
-        //todo:first step
-        this.$store.dispatch("GuardsName");
-    },
     computed:{
         getGuardsName(){
-
-            // return this.$store.getters.getGuardsName
             //todo:last step render value to component
             const data=this.$store.getters.getGuardsName;
             return data;
         },
-        //edit old,new value
-        // getRoleName(){
-        //     return this.users[this.index].name
-        // },
+        getUserRoles(){
+            //todo:last step render value to component
+            const userRoles=this.$store.getters.getUserRoles;
+            this.data=userRoles;
+            this.flag=true;
+            return userRoles;
+        },
     },
     methods: {
-        //todo:second step (backendApi)
-        UserRoles(){
-
-            $(".content-div-i").show();
-            this.refreshLoading = this.$vs.loading({
-                target: this.$refs.content_i,
-                color: 'dark'
-            })
-
-            //todo:call mutation and pass object data
-            //todo:should make axios request to get user object
-            //todo:make an api in back to return full user object
-            if(localStorage.hasOwnProperty('token')
-                && localStorage.hasOwnProperty('provider')){
-                axios.get('/admin-mrole/manage-role?token='+this.authInfo.token+
-                    '&provider='+this.authInfo.provider)
-                    .then((response)=>{
-                        this.users=response.data;
-                        this.refreshLoading.close();
-                        $(".content-div-i").hide();
-                    })
-                    .catch((error)=>{
-                        window.location='/admin/invalidToken';
-                        // alert("Token has Invalid");
-                    });
-            }else{
-                window.location='/admin/invalidToken';
-            }
-        },
         openAddRole(){
             this.active=true;
         },
@@ -496,7 +506,7 @@ export default {
                             "New role will be able to handle new permission and assign users...");
                             this.active=false;
                             loading.close();
-                            this.UserRoles();
+                            this.refresh();
                         })
                         .catch((error)=>{
                             window.location='/admin/invalidToken';
@@ -515,15 +525,15 @@ export default {
             this.id=id;
             this.index=index;
             this.activeEdit=true;
-            this.guardEditName=this.users[this.index].guard_name
-            this.roleEditName=this.users[this.index].name
+            this.guardEditName=this.data[this.index].guard_name
+            this.roleEditName=this.data[this.index].name
         },
         editRole(){
             // this.activeEdit=true;
 
             if((this.roleEditName !=="" && this.guardEditName!=="") &&
-            (this.roleEditName!==this.users[this.index].name ||
-                this.guardEditName!==this.users[this.index].guard_name))
+            (this.roleEditName!==this.data[this.index].name ||
+                this.guardEditName!==this.data[this.index].guard_name))
             {
 
                 this.request.guard_name=this.guardEditName
@@ -552,7 +562,7 @@ export default {
                                 "Edit role will be able to handle new permission and assign users...");
                             this.activeEdit=false;
                             loading.close();
-                            this.UserRoles();
+                            this.refresh();
                         })
                         .catch((error)=>{
                             window.location='/admin/invalidToken';
@@ -564,8 +574,8 @@ export default {
             }
             else{
                 if((this.roleEditName==="" && this.guardEditName==="") ||
-                    this.roleEditName===this.users[this.index].name ||
-                    this.guardEditName===this.users[this.index].guard_name){
+                    this.roleEditName===this.data[this.index].name ||
+                    this.guardEditName===this.data[this.index].guard_name){
 
                     this.openNotification('top-right',
                         'danger',
@@ -576,10 +586,10 @@ export default {
                     return;
                 }
                 else if(this.request.role_name===""){
-                    this.request.role_name=this.users[this.index].name;
+                    this.request.role_name=this.data[this.index].name;
                 }
                 else if(this.guardEditName===""){
-                    this.request.guard_name=this.users[this.index].guard_name;
+                    this.request.guard_name=this.data[this.index].guard_name;
                 }
                 this.editRole();
             }
@@ -612,7 +622,7 @@ export default {
                                 "All Roles Are Deleted Successfully",
                                 "Can add new role will be able to handle new permission and assign users...");
                             this.enableRemoveAll=true
-                            this.UserRoles();
+                            this.refresh();
                         }
                         else{
                             this.openNotification('top-right',
@@ -661,11 +671,9 @@ export default {
                             `<i class='bx bx-select-multiple' ></i>`,
                             "Role Is Deleted Successfully",
                             "Can add new role will be able to handle new permission and assign users...");
-                        this.active_ensure=false
-                        this.UserRoles();
-                        // debugger
+                        this.active_ensure=false;
+                        this.refresh();
                         $('.vs-table__tr__expand').hide();
-                        // rows[this.index].hide();
                     }
                     else{
                         this.openNotification('top-right',
@@ -675,13 +683,33 @@ export default {
                             "Can add new role will be able to handle new permission and assign users...");
                         this.active_ensure=false
                     }
-
                 })
                 .catch((error)=>{
                     window.location='/admin/invalidToken';
                 });
-        }
+        },
+        refresh(){
+            this.$store.dispatch("UserRoles");
+        },
+        reload(){
+            $(".content-div-i").show();
+            this.refreshLoading = this.$vs.loading({
+                target: this.$refs.content_i,
+                color: 'dark'
+            })
 
+            this.flag=false;
+        },
+        removeReload(){
+            this.refreshLoading = this.$vs.loading({
+                target: this.$refs.content_i,
+                color: 'dark'
+            })
+            this.refreshLoading.close();
+            $(".content-div-i").hide();
+
+            this.firstLoad=false;
+        },
     },
 }
 </script>
@@ -701,6 +729,7 @@ export default {
     flex-direction :column;
     text-align :center;
     font-size :.6rem;
+    display: none;
 }
 
 

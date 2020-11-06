@@ -61,10 +61,17 @@ Route::group(['prefix' => 'admin-role','namespace' => 'Admin\UserRole'], functio
 
 Route::group(['prefix' => 'admin-mrole','namespace' => 'Admin\RoleManagement'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
+        //TODO:CRUD Controller
         Route::resource('/manage-role', 'RoleManagement');
 
         Route::get('/remove-all-rolls','RevokeAllRolls@RemoveAllRolls');
 
+    });
+});
+
+Route::group(['prefix' => 'admin-mpermission','namespace' => 'Admin\PermissionManagement'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/manage-permission', 'PermissionManagement');
     });
 });
 

@@ -44,7 +44,7 @@ export const routes=[
     {path:'/admin-permission/',name:'Admin Add',component:PermissionList},
     //todo:Manage Roles
     {path:'/admin-mrole/',name:'Admin List',component:MRoleList},
-    {path:'/admin-mpermission/',name:'Admin Add',component:MRoleList},
+    {path:'/admin-mpermission/',name:'Admin Add',component:MPermissionList},
     //todo:Admin
     {path:'/admin-list/',name:'Admin List',component:AdminList},
     {path:'/admin-add/',name:'Admin Add',component:AdminNew},
