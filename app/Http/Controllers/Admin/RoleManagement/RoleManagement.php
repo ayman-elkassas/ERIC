@@ -129,6 +129,5 @@ class RoleManagement extends Controller
         }catch (\Exception $ex){
             return response()->json($role, 404);
         }
-
     }
 }

@@ -43,4 +43,21 @@ class RevokeAllRolls extends Controller
             return response()->json("error", 400);
         }
     }
+
+    public function getAllRolesWithPermissions(){
+
+        try {
+
+            $all_roles = Role::all();
+            foreach ($all_roles as $role){
+                $permissions = $role->permissions()->get();
+                $role['permissions']=$permissions;
+            }
+
+            return response()->json($all_roles, 200);
+        }catch (\Exception $ex){
+            return response()->json("error", 404);
+        }
+
+    }
 }

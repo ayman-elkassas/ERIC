@@ -529,8 +529,6 @@ export default {
             this.roleEditName=this.data[this.index].name
         },
         editRole(){
-            // this.activeEdit=true;
-
             if((this.roleEditName !=="" && this.guardEditName!=="") &&
             (this.roleEditName!==this.data[this.index].name ||
                 this.guardEditName!==this.data[this.index].guard_name))
@@ -595,7 +593,6 @@ export default {
             }
         },
         deleteRole(i){
-            // alert(this.selected)
             this.id=i
             this.active_ensure=true
         },

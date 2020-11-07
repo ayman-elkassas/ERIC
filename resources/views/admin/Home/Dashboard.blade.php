@@ -77,6 +77,7 @@
                                         <ul id="mroles" class="nav-submenu menu-content content">
                                             <li><router-link to="/admin-mrole">{{trans('admin.privilege.sub1')}}</router-link></li>
                                             <li><router-link to="/admin-mpermission">{{trans('admin.privilege.sub2')}}</router-link></li>
+                                            <li><router-link to="/admin-mrole-permission">{{trans('admin.privilege.sub3')}}</router-link></li>
                                         </ul>
                                     </li>
 

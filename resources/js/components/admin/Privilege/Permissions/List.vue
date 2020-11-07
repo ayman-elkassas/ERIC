@@ -398,10 +398,10 @@
 
         </div>
 
-        <p v-if="data.length===0 && flag">
+        <p v-if="data.length===0 && flagP">
             {{this.reload()}}
         </p>
-        <p v-else-if="firstLoad && data.length>0">
+        <p v-else-if="firstLoadP && data.length>0">
             {{this.removeReload()}}
         </p>
 
@@ -446,8 +446,8 @@ export default {
             active_ensure:false,
             progress:0,
             interval:null,
-            flag:false,
-            firstLoad:true,
+            flagP:false,
+            firstLoadP:true,
         }
     },
     beforeCreate() {
@@ -531,8 +531,6 @@ export default {
             this.permissionEditName=this.data[this.index].name
         },
         editPermission(){
-            // this.activeEdit=true;
-
             if((this.permissionEditName !=="" && this.guardEditName!=="") &&
                 (this.permissionEditName!==this.data[this.index].name ||
                     this.guardEditName!==this.data[this.index].guard_name))
@@ -597,7 +595,6 @@ export default {
             }
         },
         deletePermission(i){
-            // alert(this.selected)
             this.id=i
             this.active_ensure=true
         },
@@ -700,7 +697,7 @@ export default {
                 color: 'dark'
             })
 
-            this.flag=false;
+            this.flagP=false;
         },
         removeReload(){
             this.refreshLoading = this.$vs.loading({
@@ -710,7 +707,7 @@ export default {
             this.refreshLoading.close();
             $(".content-div-i").hide();
 
-            this.firstLoad=false;
+            this.firstLoadP=false;
         },
     },
 }

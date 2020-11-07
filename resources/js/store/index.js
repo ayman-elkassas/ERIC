@@ -4,7 +4,8 @@ export default {
         user:[],
         guardsName:[],
         userRoles:[],
-        userPermissions:[]
+        userPermissions:[],
+        rolesWithPermissions:[],
     },
     getters:{
         getUser(state){
@@ -19,6 +20,9 @@ export default {
         },
         getUserPermissions(state){
             return state.userPermissions;
+        },
+        getRolesWithPermissions(state){
+            return state.rolesWithPermissions;
         },
     },
     actions:{
@@ -113,6 +117,30 @@ export default {
             }else{
                 window.location='/admin/invalidToken';
             }
+        },
+        RolesWithPermissions(context) {
+            let request={token:"",provider:""};
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                request.token=localStorage.getItem("token");
+                request.provider=localStorage.getItem("provider");
+
+                axios.get('/admin-mrole/all-roles-with-permission?token='+request.token+
+                    '&provider='+request.provider)
+                    .then((response)=>{
+                        context.commit('rolesWithPermissions',response.data);
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }else{
+                window.location='/admin/invalidToken';
+            }
         }
     },
     mutations:{
@@ -128,6 +156,9 @@ export default {
         },
         userPermissions(state,data){
             return state.userPermissions=data;
+        },
+        rolesWithPermissions(state,data){
+            return state.rolesWithPermissions=data;
         }
     },
     modules:{

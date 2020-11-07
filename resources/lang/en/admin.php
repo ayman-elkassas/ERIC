@@ -42,9 +42,10 @@ return [
         'sub2'=>'Permissions',
     ],
     'privilege'=>[
-        'title'=>'Role Manage',
+        'title'=>'Role Manager',
         'sub1'=>'Roles',
         'sub2'=>'Permissions',
+        'sub3'=>'Assign P-T-R',
     ],
     'eric_sys'=>[
         'res'=>[

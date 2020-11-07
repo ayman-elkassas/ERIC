@@ -65,6 +65,7 @@ Route::group(['prefix' => 'admin-mrole','namespace' => 'Admin\RoleManagement'], 
         Route::resource('/manage-role', 'RoleManagement');
 
         Route::get('/remove-all-rolls','RevokeAllRolls@RemoveAllRolls');
+        Route::get('/all-roles-with-permission','RevokeAllRolls@getAllRolesWithPermissions');
 
     });
 });
