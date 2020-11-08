@@ -134,7 +134,7 @@
                             :data="tr"
                             :is-selected="selected == tr"
                             @click="index=i"
-
+                            not-click-selected
                         >
 
                             <!--                        todo:base-->

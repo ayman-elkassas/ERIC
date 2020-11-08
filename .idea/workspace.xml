@@ -26,9 +26,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8448915ff4efa6995d37372025f910f5.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8820d9a5f6b652f1b7272b2ef050900a.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/a3ab37f2603724158f3ae0abce932886.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/ade9e2825b07568a6e215ac4177d4d7a.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/aff6129073c7f25bee5b34b1b31481c4.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/ed3ee3df8bab6135f622fdf4ed2036fa.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/f3fa044677c7fb7d999ce36979a1c38b.json.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/AssignP-T-R/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/AssignP-T-R/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Roles/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Roles/List.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -594,7 +603,7 @@
       <workItem from="1604694632987" duration="10954000" />
       <workItem from="1604740625906" duration="23468000" />
       <workItem from="1604773708464" duration="2435000" />
-      <workItem from="1604821615707" duration="24669000" />
+      <workItem from="1604821615707" duration="46805000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -683,22 +692,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604261727726" />
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1604849072759">
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1604874283588">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1604849072759" />
-    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1604849072759">
+    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1604874283588" />
+    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1604874283587">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1604849072759" />
-    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1604849072758">
+    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1604874283587" />
+    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1604874283587">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1604849072758" />
-    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1604849072759">
+    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1604874283587" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1604874283587">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1604849072759" />
+    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1604874283587" />
     <state x="129" y="55" key="MergeDialog" timestamp="1597542580005">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -719,10 +728,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1604260832426" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604776246812">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604850197709">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1604776246812" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1604850197709" />
     <state x="584" y="240" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604743719328">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -763,10 +772,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="dock-window-2/0.0.1366.738@0.0.1366.738" timestamp="1598124580202" />
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1604849077804">
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1604870864730">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1604849077804" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1604870864730" />
     <state x="475" y="226" key="scopes" timestamp="1597177503372">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

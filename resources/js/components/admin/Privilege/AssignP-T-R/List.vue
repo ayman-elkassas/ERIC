@@ -42,8 +42,8 @@
                                 icon
                                 success
                                 relief
-                                :active-disabled="enableRemoveAll"
-                                @click=""
+                                :active-disabled="assign"
+                                @click="assignBegin()"
                             >
                                 <i class='bx bx-plus' ></i> Assign
                             </vs-button>
@@ -105,12 +105,7 @@
 
                     <template #tbody>
 
-<!--                        <span hidden-->
-<!--                              :key="out_key"-->
-<!--                              v-for="out_key in Object.keys(getRolesWithPermissions)">-->
-<!--                            {{select_permission[out_key]=inner_permission}}-->
-<!--                            {{inner_permission=[]}}-->
-<!--                        </span>-->
+
 
 <!--                        <vs-tooltip top>-->
 <!--                            create here content-->
@@ -122,6 +117,7 @@
                             v-for="(tr, i) in $vs.getPage($vs.getSearch(getRolesWithPermissions, search), page, max)"
                             :is-selected="selected == tr"
                             :key="i"
+                            :data="tr"
                             @click="index=i"
                         >
 
@@ -142,9 +138,13 @@
                                 {{ tr.guard_name }}
                             </vs-td>
 
+
+
                             <vs-td
                                 :key="j"
                                 v-for="(head,j) in getPermissions">
+
+
 
                                 <span v-if="tr.permissions.length>0">
                                     <span
@@ -152,9 +152,10 @@
                                         v-for="permission in tr.permissions">
 
                                         <span v-if="permission.name===head.name && permission.guard_name===head.guard_name">
-                                            <span hidden>{{setCheckVal(i,j,true)}}</span>
+                                            <span hidden>{{updatePermissions(i,j,true)}}</span>
+                                            <span hidden>{{check=true}}</span>
                                             <vs-checkbox
-                                                @click="updatePermissions(index,j,true)"
+                                                @click="selectedPermission(i,j,true)"
                                                 v-model="select_permission[i][j]">
                                                 <template #icon>
                                                     <i class='bx bx-check' ></i>
@@ -162,22 +163,23 @@
                                             </vs-checkbox>
                                         </span>
                                     </span>
-                                    <span v-if="!select_permission[i][j]">
-                                        <span hidden>{{setCheckVal(i,j,false)}}</span>
+                                    <span v-if="!check">
+                                        <span hidden>{{updatePermissions(i,j,false)}}</span>
+                                        <span hidden>{{check=false}}</span>
                                         <vs-checkbox
-                                            @click="updatePermissions(i,j,false)"
+                                            @click="selectedPermission(i,j,false)"
                                             v-model="select_permission[i][j]">
                                             <template #icon>
                                                 <i class='bx bx-check' ></i>
                                             </template>
                                         </vs-checkbox>
                                     </span>
-                                    <span hidden>{{setCheckVal(i,j,false)}}</span>
+                                    <span hidden>{{check=false}}</span>
                                 </span>
                                 <span v-else>
-                                    <span hidden>{{setCheckVal(i,j,false)}}</span>
+                                    <span hidden>{{updatePermissions(i,j,false)}}</span>
                                     <vs-checkbox
-                                        @click="updatePermissions(i,j,false)"
+                                        @click="selectedPermission(i,j,false)"
                                         v-model="select_permission[i][j]">
                                         <template #icon>
                                             <i class='bx bx-check' ></i>
@@ -196,33 +198,6 @@
 
             </div>
 
-<!--            view dialogue-->
-<!--            <vs-dialog blur v-model="activeView">-->
-
-<!--                <div class="con-form">-->
-
-<!--                    <vs-card type="3">-->
-<!--                        <template #title>-->
-<!--                            <h3>{{data[index].name}}</h3>-->
-<!--                        </template>-->
-<!--                        <template #img>-->
-<!--                            <img src="../../MasterPage/notification/avatar-6.png" alt="">-->
-<!--                        </template>-->
-<!--                        <template #text>-->
-<!--                            <p>-->
-<!--                                {{data[index].guard_name}}-->
-<!--                            </p>-->
-<!--                            <p>{{data[index].created_at}}</p>-->
-<!--                            <p>{{data[index].updated_at}}</p>-->
-<!--                            <p>If you're using multiple guards we've got you covered as well.-->
-<!--                                Every guard will have its own set of permissions and roles</p>-->
-<!--                        </template>-->
-<!--                    </vs-card>-->
-
-<!--                </div>-->
-<!--            </vs-dialog>-->
-
-<!--            &lt;!&ndash;            delete dialogue&ndash;&gt;-->
 
 <!--            <vs-dialog blur width="550px" not-center v-model="active_ensure">-->
 <!--                <template #header>-->
@@ -265,15 +240,12 @@
         <div ref="content_i" class="content-div-i">
 
         </div>
-<!--        <p v-if="data2.length===0 && flag">-->
-<!--            {{this.reload()}}-->
-<!--        </p>-->
-<!--        <p v-else-if="firstLoad && data2.length>0">-->
-<!--            {{this.removeReload()}}-->
-<!--        </p>-->
-
-
-
+        <p v-if="data2.length===0 && flag">
+            {{this.reload()}}
+        </p>
+        <p v-else-if="firstLoad && data2.length>0">
+            {{this.removeReload()}}
+        </p>
     </div>
 </template>
 
@@ -321,7 +293,8 @@ export default {
             select_permission: [],
             inner_permission:[],
             selected_permission:[],
-            check:true,
+            assign:true,
+            last_update:[],
         }
     },
     beforeCreate() {
@@ -351,28 +324,43 @@ export default {
         },
     },
     mounted() {
-
         for (let i of Object.keys(this.getRolesWithPermissions)) {
             let arr=[];
             for (let j of Object.keys(this.getPermissions)) {
                 arr[j]=false;
             }
-            this.select_permission[i]=arr;
+            this.select_permission[parseInt(i)]=arr;
         }
-
-    //     <span hidden
-    //                           :key="out_key"
-    // v-for="out_key in Object.keys(getRolesWithPermissions)">
-    // {{select_permission[out_key]=inner_permission}}
-    // {{inner_permission=[]}}
-    // </span>
     },
     methods: {
         updatePermissions(i,j,value){
-            alert(i+','+j+''+value);
+            if(this.assign){
+                this.select_permission[i][j]=value;
+                if(parseInt(i)===this.data2.length-1 && parseInt(j)===this.data.length-1){
+                    this.last_update=this.select_permission;
+                }
+            }
         },
-        setCheckVal(i,j,value){
-            this.select_permission[i][j]=value;
+        selectedPermission(i,j,value){
+            this.assign=false;
+            if(this.select_permission[i][j]===true)
+            {
+                this.select_permission[i][j]=false
+            }
+            else{
+                this.select_permission[i][j]=true
+            }
+            // this.select_permission[i][j]=value;
+        },
+        assignBegin(){
+            alert(this.select_permission)
+
+            // if(JSON.stringify(this.last_update) === JSON.stringify(this.select_permission)){
+            //     alert("No Change");
+            // }
+            // else{
+            //     alert(this.select_permission)
+            // }
         },
         refresh(){
             this.$store.dispatch("UserPermissions")
