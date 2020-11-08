@@ -105,6 +105,13 @@
 
                     <template #tbody>
 
+<!--                        <span hidden-->
+<!--                              :key="out_key"-->
+<!--                              v-for="out_key in Object.keys(getRolesWithPermissions)">-->
+<!--                            {{select_permission[out_key]=inner_permission}}-->
+<!--                            {{inner_permission=[]}}-->
+<!--                        </span>-->
+
 <!--                        <vs-tooltip top>-->
 <!--                            create here content-->
 <!--                            <template #tooltip>-->
@@ -112,12 +119,10 @@
 <!--                            </template>-->
 <!--                        </vs-tooltip>-->
                         <vs-tr
-                            :key="i"
                             v-for="(tr, i) in $vs.getPage($vs.getSearch(getRolesWithPermissions, search), page, max)"
-                            :data="tr"
                             :is-selected="selected == tr"
+                            :key="i"
                             @click="index=i"
-
                         >
 
                             <!--                        todo:base-->
@@ -139,36 +144,41 @@
 
                             <vs-td
                                 :key="j"
-                                :data="head"
                                 v-for="(head,j) in getPermissions">
 
                                 <span v-if="tr.permissions.length>0">
                                     <span
-                                        :key="p"
                                         :data="permission"
                                         v-for="permission in tr.permissions">
 
                                         <span v-if="permission.name===head.name && permission.guard_name===head.guard_name">
-                                            <span hidden>{{select_permission[i+j]=true}}</span>
-                                            <vs-checkbox v-model="select_permission[i+j]">
+                                            <span hidden>{{setCheckVal(i,j,true)}}</span>
+                                            <vs-checkbox
+                                                @click="updatePermissions(index,j,true)"
+                                                v-model="select_permission[i][j]">
                                                 <template #icon>
                                                     <i class='bx bx-check' ></i>
                                                 </template>
                                             </vs-checkbox>
                                         </span>
                                     </span>
-                                    <span v-if="!select_permission[i+j]">
-                                        <span hidden>{{select_permission[i+j]=false}}</span>
-                                        <vs-checkbox v-model="select_permission[i+j]">
+                                    <span v-if="!select_permission[i][j]">
+                                        <span hidden>{{setCheckVal(i,j,false)}}</span>
+                                        <vs-checkbox
+                                            @click="updatePermissions(i,j,false)"
+                                            v-model="select_permission[i][j]">
                                             <template #icon>
                                                 <i class='bx bx-check' ></i>
                                             </template>
                                         </vs-checkbox>
                                     </span>
+                                    <span hidden>{{setCheckVal(i,j,false)}}</span>
                                 </span>
                                 <span v-else>
-                                    <span hidden>{{select_permission[i+j]=false}}</span>
-                                    <vs-checkbox v-model="select_permission[i+j]">
+                                    <span hidden>{{setCheckVal(i,j,false)}}</span>
+                                    <vs-checkbox
+                                        @click="updatePermissions(i,j,false)"
+                                        v-model="select_permission[i][j]">
                                         <template #icon>
                                             <i class='bx bx-check' ></i>
                                         </template>
@@ -181,6 +191,8 @@
                     </template>
 
                 </vs-table>
+
+
 
             </div>
 
@@ -259,6 +271,9 @@
 <!--        <p v-else-if="firstLoad && data2.length>0">-->
 <!--            {{this.removeReload()}}-->
 <!--        </p>-->
+
+
+
     </div>
 </template>
 
@@ -303,7 +318,9 @@ export default {
             interval:null,
             flag:false,
             firstLoad:true,
-            select_permission: {},
+            select_permission: [],
+            inner_permission:[],
+            selected_permission:[],
             check:true,
         }
     },
@@ -333,7 +350,30 @@ export default {
             return rolesWithPermissions;
         },
     },
+    mounted() {
+
+        for (let i of Object.keys(this.getRolesWithPermissions)) {
+            let arr=[];
+            for (let j of Object.keys(this.getPermissions)) {
+                arr[j]=false;
+            }
+            this.select_permission[i]=arr;
+        }
+
+    //     <span hidden
+    //                           :key="out_key"
+    // v-for="out_key in Object.keys(getRolesWithPermissions)">
+    // {{select_permission[out_key]=inner_permission}}
+    // {{inner_permission=[]}}
+    // </span>
+    },
     methods: {
+        updatePermissions(i,j,value){
+            alert(i+','+j+''+value);
+        },
+        setCheckVal(i,j,value){
+            this.select_permission[i][j]=value;
+        },
         refresh(){
             this.$store.dispatch("UserPermissions")
             this.$store.dispatch("RolesWithPermissions");
