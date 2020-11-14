@@ -21,7 +21,6 @@ class RevokeAllRolls extends Controller
             'driver' => 'eloquent',
             'model' => Admins::class,
         ]]);
-
     }
 
     public function RemoveAllRolls () {
@@ -45,9 +44,7 @@ class RevokeAllRolls extends Controller
     }
 
     public function getAllRolesWithPermissions(){
-
         try {
-
             $all_roles = Role::all();
             foreach ($all_roles as $role){
                 $permissions = $role->permissions()->get();
@@ -58,6 +55,21 @@ class RevokeAllRolls extends Controller
         }catch (\Exception $ex){
             return response()->json("error", 404);
         }
+    }
 
+    public final function changeRolePermission(Request $request){
+        try {
+
+            $permissions=(array)json_decode($request->selected_RP,true);
+//            $permissions=explode(",","['read','update']");
+//            $request->selected_PR=ltrim($request->selected_PR,'"');
+//            $request->selected_PR=rtrim($request->selected_PR,'"');
+            $role=Role::findOrFail($request->role_id);
+            $role->syncPermissions($permissions);
+
+            return response()->json($permissions, 200);
+        }catch (\Exception $ex){
+            return response()->json($request->selected_RP, 404);
+        }
     }
 }

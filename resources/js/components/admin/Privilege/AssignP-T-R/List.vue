@@ -20,7 +20,7 @@
 
             <div style="margin-bottom: 5px">
                 <vs-row justify="flex-end">
-                    <vs-col style="width:10%" w="2">
+                    <vs-col style="width:10%" w="1">
                         <vs-tooltip top>
                             <vs-button
                                 icon
@@ -35,22 +35,6 @@
                             </template>
                         </vs-tooltip>
 
-                    </vs-col>
-                    <vs-col style="width:10.66%" w="2">
-                        <vs-tooltip top>
-                            <vs-button
-                                icon
-                                success
-                                relief
-                                :active-disabled="assign"
-                                @click="assignBegin()"
-                            >
-                                <i class='bx bx-plus' ></i> Assign
-                            </vs-button>
-                            <template #tooltip>
-                                Assign Selected Permissions To Roles
-                            </template>
-                        </vs-tooltip>
                     </vs-col>
                 </vs-row>
             </div>
@@ -97,7 +81,14 @@
                                 :data="head"
                                 v-for="(head,i) in getPermissions"
                                 sort @click="getPermissions = $vs.sortData($event ,getPermissions, 'name')">
-                                {{head.name}}
+
+                                <vs-tooltip top>
+                                    {{head.name}}
+                                    <template #tooltip>
+                                        Guard name : {{head.guard_name}}
+                                    </template>
+                                </vs-tooltip>
+
                             </vs-th>
 
                         </vs-tr>
@@ -119,6 +110,7 @@
                             :key="i"
                             :data="tr"
                             @click="index=i"
+                            not-click-selected
                         >
 
                             <!--                        todo:base-->
@@ -138,13 +130,9 @@
                                 {{ tr.guard_name }}
                             </vs-td>
 
-
-
                             <vs-td
                                 :key="j"
                                 v-for="(head,j) in getPermissions">
-
-
 
                                 <span v-if="tr.permissions.length>0">
                                     <span
@@ -152,10 +140,10 @@
                                         v-for="permission in tr.permissions">
 
                                         <span v-if="permission.name===head.name && permission.guard_name===head.guard_name">
-                                            <span hidden>{{updatePermissions(i,j,true)}}</span>
                                             <span hidden>{{check=true}}</span>
                                             <vs-checkbox
-                                                @click="selectedPermission(i,j,true)"
+                                                danger
+                                                disabled="true"
                                                 v-model="select_permission[i][j]">
                                                 <template #icon>
                                                     <i class='bx bx-check' ></i>
@@ -164,10 +152,10 @@
                                         </span>
                                     </span>
                                     <span v-if="!check">
-                                        <span hidden>{{updatePermissions(i,j,false)}}</span>
                                         <span hidden>{{check=false}}</span>
                                         <vs-checkbox
-                                            @click="selectedPermission(i,j,false)"
+                                            primary
+                                            disabled="true"
                                             v-model="select_permission[i][j]">
                                             <template #icon>
                                                 <i class='bx bx-check' ></i>
@@ -177,9 +165,9 @@
                                     <span hidden>{{check=false}}</span>
                                 </span>
                                 <span v-else>
-                                    <span hidden>{{updatePermissions(i,j,false)}}</span>
                                     <vs-checkbox
-                                        @click="selectedPermission(i,j,false)"
+                                        warn
+                                        disabled="true"
                                         v-model="select_permission[i][j]">
                                         <template #icon>
                                             <i class='bx bx-check' ></i>
@@ -188,6 +176,25 @@
                                 </span>
 
                             </vs-td>
+
+
+                            <template #expand>
+                                <div class="con-content">
+                                    <div class="grid">
+                                        <vs-row>
+                                            <vs-col :key="index" v-for="col,index in 12" vs-type="flex-end" w="1">
+                                                <vs-button
+                                                    v-if="col===12" flat icon
+                                                    @click="editRoleD(tr.id,i)"
+                                                    primary
+                                                >
+                                                    <i class='bx bx-edit' ></i>
+                                                </vs-button>
+                                            </vs-col>
+                                        </vs-row>
+                                    </div>
+                                </div>
+                            </template>
 
                         </vs-tr>
                     </template>
@@ -198,34 +205,59 @@
 
             </div>
 
+            <vs-dialog blur overflow-hidden v-model="activeEdit">
+                <template #header>
+                    <h4 class="not-margin">
+                        Edit <b>Permissions Assign Role</b>
+                    </h4>
+                </template>
 
-<!--            <vs-dialog blur width="550px" not-center v-model="active_ensure">-->
-<!--                <template #header>-->
-<!--                    <h4 class="not-margin">-->
-<!--                        Are you sure delete this <b>Role</b>-->
-<!--                    </h4>-->
-<!--                </template>-->
+                <div class="con-form">
 
+                    <div class="center content-inputs">
 
-<!--                <div class="con-content">-->
-<!--                    <p>-->
-<!--                        where users may be assigned roles, each which has its own set of permissions. How can we make that work?-->
-<!--                    </p>-->
-<!--                </div>-->
+<!--                        <span v-for="(permission,key) in data2[index].permissions">-->
+<!--                            {{selectedPermission[key]=permission.name}}-->
+<!--                        </span>-->
 
-<!--                <template #footer>-->
-<!--                    <div class="con-footer">-->
-<!--                        <vs-button-->
-<!--                            ref="button3"-->
-<!--                            @click="performDelete()" transparent>-->
-<!--                            Ok-->
-<!--                        </vs-button>-->
-<!--                        <vs-button @click="active_ensure=false" dark transparent>-->
-<!--                            Cancel-->
-<!--                        </vs-button>-->
-<!--                    </div>-->
-<!--                </template>-->
-<!--            </vs-dialog>-->
+                        <br>
+                        <vs-row>
+                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                                <vs-select
+                                    multiple
+                                    label="Permissions"
+                                    filter
+                                    v-model="selectedPermission"
+                                    placeholder="Permission Name"
+                                >
+                                    <vs-option-group>
+                                        <div slot="title">
+                                            Admin Role Assign Permission
+                                        </div>
+                                        <vs-option v-for="permission in data.filter(permission=>permission.guard_name===data2[index].guard_name)" key="0" :label="permission.name" :value="permission.name">
+                                            {{permission.name}}
+                                        </vs-option>
+                                    </vs-option-group>
+                                </vs-select>
+                            </vs-col>
+                        </vs-row>
+                        <br>
+                    </div>
+                </div>
+
+                <template #footer>
+                    <div class="footer-dialog">
+                        <vs-button
+                            ref="button2"
+                            @click="editPermission()"
+                            success
+                            block>
+                            Edit Permissions
+                        </vs-button>
+                        <br>
+                    </div>
+                </template>
+            </vs-dialog>
 
             <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(data2, max)" />
 
@@ -262,19 +294,14 @@ export default {
             selected: [],
             active: false,
             edit: null,
-            editProp: {},
             data: [],
             data2: [],
             loading:null,
-            role_name:"",
-            guard_name:"",
-            roleEditName:"",
-            guardEditName:"",
-            activeView:false,
+            selectedPermission:[],
             activeEdit:false,
             request:{
-                role_name:"",
-                guard_name:"",
+                role_id:"",
+                selected_RP:{},
             },
             enableRemoveAll:false,
             authInfo:{
@@ -284,17 +311,11 @@ export default {
             index:0,
             id:0,
             refreshLoading:null,
-            previous: null,
-            active_ensure:false,
             progress:0,
-            interval:null,
             flag:false,
             firstLoad:true,
-            select_permission: [],
-            inner_permission:[],
-            selected_permission:[],
-            assign:true,
-            last_update:[],
+            select_permission:[],
+            oldValue:[]
         }
     },
     beforeCreate() {
@@ -320,48 +341,22 @@ export default {
             const rolesWithPermissions=this.$store.getters.getRolesWithPermissions;
             this.data2=rolesWithPermissions;
             this.flag=true;
+
+            if(this.data2.length>0 && this.data.length>0){
+                for (let i of Object.keys(this.data2)) {
+                    let arr=[];
+                    for (let j of Object.keys(this.data)) {
+                        debugger;
+                        arr[j] = this.data2[i].permissions.length > 0 && this.data2[i].permissions.some(e=>e.name===this.data[j].name);
+                    }
+                    this.select_permission[parseInt(i)]=arr;
+                }
+            }
+
             return rolesWithPermissions;
         },
     },
-    mounted() {
-        for (let i of Object.keys(this.getRolesWithPermissions)) {
-            let arr=[];
-            for (let j of Object.keys(this.getPermissions)) {
-                arr[j]=false;
-            }
-            this.select_permission[parseInt(i)]=arr;
-        }
-    },
     methods: {
-        updatePermissions(i,j,value){
-            if(this.assign){
-                this.select_permission[i][j]=value;
-                if(parseInt(i)===this.data2.length-1 && parseInt(j)===this.data.length-1){
-                    this.last_update=this.select_permission;
-                }
-            }
-        },
-        selectedPermission(i,j,value){
-            this.assign=false;
-            if(this.select_permission[i][j]===true)
-            {
-                this.select_permission[i][j]=false
-            }
-            else{
-                this.select_permission[i][j]=true
-            }
-            // this.select_permission[i][j]=value;
-        },
-        assignBegin(){
-            alert(this.select_permission)
-
-            // if(JSON.stringify(this.last_update) === JSON.stringify(this.select_permission)){
-            //     alert("No Change");
-            // }
-            // else{
-            //     alert(this.select_permission)
-            // }
-        },
         refresh(){
             this.$store.dispatch("UserPermissions")
             this.$store.dispatch("RolesWithPermissions");
@@ -384,6 +379,87 @@ export default {
             $(".content-div-i").hide();
 
             this.firstLoad=false;
+        },
+        editRoleD(id,index){
+            this.id=id;
+            this.index=index;
+            this.activeEdit=true;
+            this.selectedPermission=[];
+            this.oldValue=[];
+
+            if(this.data2[this.index].permissions.length>0){
+                for (let key of this.data2[this.index].permissions) {
+                    let val = key.name;
+                    this.selectedPermission.push(val);
+                    this.oldValue.push(val);
+                }
+            }
+        },
+        editPermission(){
+            if(JSON.stringify(this.oldValue)!==JSON.stringify(this.selectedPermission)){
+
+                if(this.selectedPermission.length<=0){
+                    this.request.selected_RP=JSON.stringify(["read"])
+                }
+                else{
+                    for (let i = 0; i < this.selectedPermission.length; i++) {
+                        this.request.selected_RP[i]=this.selectedPermission[i];
+                    }
+                    this.request.selected_RP=JSON.stringify(this.request.selected_RP);
+                }
+
+                this.request.role_id=this.id;
+
+
+                if(localStorage.hasOwnProperty('token')
+                    && localStorage.hasOwnProperty('provider')) {
+
+                    const loading = this.$vs.loading({
+                        target: this.$refs.button2,
+                        scale: '0.6',
+                        background: 'success',
+                        opacity: 1,
+                        color: '#fff'
+                    })
+
+                    axios.post('/admin-mrole/update-role-permission/'+'?token='+this.authInfo.token+
+                        '&provider='+this.authInfo.provider,this.request)
+                        .then((response)=>{
+                            this.openNotification('top-right',
+                                'success',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "Update Role Permissions Successfully",
+                                "New role will be able to handle new permission and assign users...");
+                            this.activeEdit=false;
+                            loading.close();
+                            this.selectedPermission=[];
+                            this.request.selected_RP={}
+                            this.refresh();
+                        })
+                        .catch((error)=>{
+                            window.location='/admin/invalidToken';
+                        });
+                }
+            }
+            else{
+                this.activeEdit=false;
+                this.openNotification('top-right',
+                    'danger',
+                    `<i class='bx bx-select-multiple' ></i>`,
+                    "There is no change in permissions",
+                    "New role will be able to handle new permission and assign users...");
+            }
+
+
+        },
+        openNotification(position = null, border,icon,title,text) {
+            const noti = this.$vs.notification({
+                border,
+                icon,
+                position,
+                title: title,
+                text: text
+            })
         },
     },
 }
