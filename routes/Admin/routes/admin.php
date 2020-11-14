@@ -53,9 +53,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function ()
 // PUT/PATCH	/users-role/{id}	    update	photos.update (put new object to update)
 // DELETE	    /photos/{id}	        destroy	photos.destroy
 
-Route::group(['prefix' => 'admin-role','namespace' => 'Admin\UserRole'], function () {
+Route::group(['prefix' => 'admin-members','namespace' => 'Admin\AdminMembers'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
-        Route::resource('/users-role', 'RoleController');
+        Route::resource('/admins', 'AdminController');
     });
 });
 

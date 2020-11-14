@@ -81,15 +81,6 @@
                                         </ul>
                                     </li>
 
-                                    <li data-step="3" data-highlightClass="navtour" data-intro="Use This Tab To Assign Rolls And Permissions To Users" class="dropdown">
-                                        <a class="nav-link menu-title" href="#"><i data-feather="users"></i><span>{{trans('admin.roles.title')}}</span>
-                                            <label class="badge badge-success">2</label>
-                                        </a>
-                                        <ul id="roles" class="nav-submenu menu-content content">
-                                            <li><router-link to="/admin-role">{{trans('admin.roles.sub1')}}</router-link></li>
-                                            <li><router-link to="/admin-permission">{{trans('admin.roles.sub2')}}</router-link></li>
-                                        </ul>
-                                    </li>
                                     @endrole
 
 {{--                                todo:Users And Privealage--}}

@@ -44,6 +44,15 @@
 @import "~vuesax/dist/vuesax.css";
 @import "~boxicons/css/boxicons.min.css";
 
+// Import FilePond styles
+@import '~filepond/dist/filepond.min.css';
+// Import FilePond plugins
+// Please note that you need to install these plugins separately
+
+// Import image preview plugin styles
+@import '~filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
+
+
 body.dark-sidebar .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon header.main-nav .nav-menu .dropdown ul.nav-submenu li a:hover{
     text-decoration: none;
     color: #7366ff;

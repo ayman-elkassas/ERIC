@@ -6,6 +6,7 @@ export default {
         userRoles:[],
         userPermissions:[],
         rolesWithPermissions:[],
+        usersWithRoles:[]
     },
     getters:{
         getUser(state){
@@ -24,6 +25,9 @@ export default {
         getRolesWithPermissions(state){
             return state.rolesWithPermissions;
         },
+        getUsersWithRoles(state){
+            return state.usersWithRoles;
+        }
     },
     actions:{
 
@@ -141,6 +145,30 @@ export default {
             }else{
                 window.location='/admin/invalidToken';
             }
+        },
+        UsersWithRoles(context){
+            let request={token:"",provider:""};
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                request.token=localStorage.getItem("token");
+                request.provider=localStorage.getItem("provider");
+
+                axios.get('/admin-members/admins?token='+request.token+
+                    '&provider='+request.provider)
+                    .then((response)=>{
+                        context.commit('usersWithRoles',response.data);
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }else{
+                window.location='/admin/invalidToken';
+            }
         }
     },
     mutations:{
@@ -159,6 +187,9 @@ export default {
         },
         rolesWithPermissions(state,data){
             return state.rolesWithPermissions=data;
+        },
+        usersWithRoles(state,data){
+            return state.usersWithRoles=data;
         }
     },
     modules:{

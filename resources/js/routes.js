@@ -10,7 +10,6 @@ import RoleList from './components/admin/Role/Roles/List.vue'
 import PermissionList from './components/admin/Role/Permissions/List.vue'
 //todo:Admin
 import AdminList from './components/admin/User/AdminUser/List.vue'
-import AdminNew from './components/admin/User/AdminUser/New.vue'
 //todo:User
 import PublicUserList from './components/admin/User/PublicUser/List.vue'
 import PublicUserNew from './components/admin/User/PublicUser/New.vue'
@@ -49,7 +48,6 @@ export const routes=[
     {path:'/admin-mrole-permission/',name:'Admin Add',component:MAssignP_T_R},
     //todo:Admin
     {path:'/admin-list/',name:'Admin List',component:AdminList},
-    {path:'/admin-add/',name:'Admin Add',component:AdminNew},
     //todo:User
     {path:'/user-list/',name:'User List',component:PublicUserList},
     {path:'/user-add/',name:'User Add',component:PublicUserNew},

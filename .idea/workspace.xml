@@ -26,11 +26,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
+      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605370331.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605376308.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605376395.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605376453.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605381743.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605382862.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/back.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleManagement/RevokeAllRolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleManagement/RevokeAllRolls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserRole/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/AssignP-T-R/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/AssignP-T-R/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/0-template/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/0-template/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/New.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/View.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/Admin/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Admin/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,7 +242,7 @@
     <property name="editor.config.ad.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/admin/Privilege/AssignR-T-P" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -238,19 +253,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\User\AdminUser" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\AssignR-T-P" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Roles" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Permissions" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Roles" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\Roles" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\List" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Roles" />
       <recent name="E:\Server\htdocs\ERIC" />
       <recent name="E:\Server\htdocs\ERIC\app\Http\Controllers\Admin\Authentication" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\AssignR-T-P" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Roles" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Permissions" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Roles" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\privilege\Roles" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -344,6 +359,7 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="find" />
+      <command value="users-role" />
     </option>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -600,7 +616,7 @@
       <workItem from="1604821615707" duration="47873000" />
       <workItem from="1605242822076" duration="33744000" />
       <workItem from="1605294461641" duration="15961000" />
-      <workItem from="1605340327321" duration="12372000" />
+      <workItem from="1605340327321" duration="33003000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -669,10 +685,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1603652210213" />
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604430226526">
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605362411583">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1604430226526" />
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1605362411583" />
     <state x="446" y="279" key="ComposerInitDialogKey" timestamp="1602096412589">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -689,22 +705,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604261727726" />
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom" timestamp="1605352981982">
+    <state width="1322" height="257" key="GridCell.Tab.0.bottom" timestamp="1605382874481">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1605352981982" />
-    <state width="1322" height="262" key="GridCell.Tab.0.center" timestamp="1605352981982">
+    <state width="1322" height="257" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1605382874481" />
+    <state width="1322" height="257" key="GridCell.Tab.0.center" timestamp="1605382874481">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1605352981982" />
-    <state width="1322" height="262" key="GridCell.Tab.0.left" timestamp="1605352981982">
+    <state width="1322" height="257" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1605382874481" />
+    <state width="1322" height="257" key="GridCell.Tab.0.left" timestamp="1605382874481">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1605352981982" />
-    <state width="1322" height="262" key="GridCell.Tab.0.right" timestamp="1605352981982">
+    <state width="1322" height="257" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1605382874481" />
+    <state width="1322" height="257" key="GridCell.Tab.0.right" timestamp="1605382874481">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1605352981982" />
+    <state width="1322" height="257" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1605382874481" />
     <state x="129" y="55" key="MergeDialog" timestamp="1597542580005">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -725,10 +741,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1604260832426" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604874449983">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605353275262">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1604874449983" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1605353275262" />
     <state x="584" y="240" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604743719328">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -769,10 +785,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="dock-window-2/0.0.1366.738@0.0.1366.738" timestamp="1598124580202" />
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1605307901834">
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1605361275110">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1605307901834" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1605361275110" />
     <state x="475" y="226" key="scopes" timestamp="1597177503372">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
