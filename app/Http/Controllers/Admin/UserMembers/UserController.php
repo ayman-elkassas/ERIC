@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\UserMembers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admins;
+use App\Models\Prefer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -118,16 +119,26 @@ class UserController extends Controller
             if(is_array($request->skills) && is_array($request->fields))
             {
                 foreach ($request->skills as $skill){
-                    $user->skills=$user->skills.$skill.',';
+                    $user->skills=$user->skills.$skill["name"].',';
+
                 }
 
                 foreach ($request->fields as $field){
-                    $user->fields_follow=$user->fields_follow.$field.',';
+                    $user->fields_follow=$user->fields_follow.$field["name"].',';
                 }
             }
             $user->password=bcrypt($request->get('password'));
             $user->avatar="/Users/avatar/".$name;
             $user->save();
+
+            $temp=User::findOrFail($user->id);
+            foreach ($request->skills as $skill){
+                $user->OwnSkills()->attach($skill["id"]);
+            }
+
+            foreach ($request->skills as $field){
+                $user->fieldsFollowing()->attach($field["id"]);
+            }
 
             return response()->json($user, 200);
         }catch (\Exception $ex){

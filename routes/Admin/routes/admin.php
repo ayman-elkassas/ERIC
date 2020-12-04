@@ -69,7 +69,6 @@ Route::group(['prefix' => 'user-members','namespace' => 'Admin\UserMembers'], fu
 });
 
 
-
 //TODO:Role And Permissions CRUD
 Route::group(['prefix' => 'admin-mrole','namespace' => 'Admin\RoleManagement'], function () {
     Route::group(['middleware' => 'auth.role'], function () {

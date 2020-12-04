@@ -132,6 +132,7 @@
                             </vs-option>
 
                         </vs-select>
+                        <br>
 
                         <vs-button
                             relief
@@ -311,6 +312,37 @@ export default {
                 && this.request.name!=='' && this.request.email!==''
                 && this.request.password!=='' && this.request.phone
                 &&  this.request.skills!=="" && this.request.fields!==""){
+
+                let fields=this.dataF;
+                let arrF=this.request.fields;
+                let resultF=[];
+
+                fields.forEach(function (obj,i,fields) {
+                    const arr=obj.fields_under;
+                    arr.forEach(function(val,index,arr){
+                        arrF.forEach(function (val2,index2,arrF){
+                            if(JSON.stringify(val2)===JSON.stringify(val.name)){
+                                resultF.push(val);
+                            }
+                        });
+                    });
+                });
+                this.request.fields=resultF;
+
+                let skills=this.dataS;
+                const arrS=this.request.skills;
+                let resultS=[];
+
+                skills.forEach(function (obj,i,skills) {
+                    arrS.forEach(function (val,index2,arrS){
+                        if(JSON.stringify(obj.name)===JSON.stringify(val)){
+                            resultS.push(obj);
+                        }
+                    });
+                });
+                debugger;
+                this.request.skills=resultS;
+
                 this.uploadRequest();
             }
             else {
@@ -338,15 +370,30 @@ export default {
                 axios.post('/user-members/users?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider,this.request)
                     .then((response)=>{
+                        this.request={
+                            fname:"",
+                            lname:"",
+                            email:"",
+                            password:"",
+                            phone:"",
+                            avatar:"",
+                            fields:[],
+                            skills:[]
+                        };
                         this.openNotification('top-right',
                             'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Add New Role Successfully",
-                            "New role will be able to handle new permission and assign users...");
+                            "Add New User Successfully",
+                            "New user will be able to handle new permission and assign users...");
                         loading.close();
                     })
                     .catch((error)=>{
-                        window.location='/admin/invalidToken';
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Invalid insert New User Successfully",
+                            "New user will be able to handle new permission and assign users...");
+                        loading.close();
                     });
             }
             else{

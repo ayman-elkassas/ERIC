@@ -29,9 +29,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_12_4_20__12_21_PM.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2020-12-04T025940.200.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2020-12-04T030004.200.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/SkillUser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_04_141605_create_field_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0574f1a7565af62d62a8295cb87d86c8.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0acad03bff0b81525a995850f7e852bc.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1a7abd175459e3697df502062ac2ad9b.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1d2b2a1ece1f35d614ae548c2ee594e2.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1d69e6b61bab891e85a9939c7875e1ca.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/22ed9597971fab2ca5f3b2104aff167a.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2bcd2a085500e31d693d3184f174ad96.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2ddce5fc141c0cb9b47cba3fa00368c8.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/302c954296759a5ec10a56a163c4e94b.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/35cd789035fd31c1936d131ea189e7df.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5068cc039cde11cab7738172f736c9b4.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/56da1f30524255f40d6fd224b957e31c.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5abdbb4301699816bfcd2e444b7b0f89.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/75376b6f87094a8e6b350a4afa2ddb2a.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/878321319453cde1f289ff8278dced04.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8f824cd6fbeaf80fa63bb6cd5576ccbc.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c8ce82e20c7b5d29aff1309c5a323cb5.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/d2444518f4b16ae8e4a0e7faf12359f3.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/dda9d8e7b78cb22013380bbc86ea8504.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/e08a709da78c88af29c3be59934a45c1.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/f2edba7697c334dc08cbad6d725f62a7.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/fa227d4e47f8f7373d98eb6c19384263.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/fd8d455a409c3f7f5cca56fa5a121142.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/ff294241f1adda694c7dbab1a10889fd.json.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ERIC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ERIC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Prefer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FieldUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_21_172704_own_skills.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_04_140219_create_skill_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/HomePage/AdminHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/HomePage/AdminHome.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/Admin/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Admin/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +112,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/resources/js/bootstrap.js" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response7.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -77,12 +123,13 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="PhpDebugGeneral" xdebug_debug_port="9001" listening_started="true" zd_debug_port="9001" />
+  <component name="PhpDebugGeneral" xdebug_debug_port="9003" listening_started="true" zd_debug_port="9005" />
   <component name="PhpServers">
     <servers>
-      <server host="127.0.0.1" id="373fb9d2-39df-4f2b-8ae2-8bc49fa3230d" name="127.0.0.1" port="8000" />
+      <server host="127.0.0.1" id="4ae109f5-3f74-4ccf-bdc1-01ca05b604e1" name="eric" port="8000" />
     </servers>
   </component>
+  <component name="PhpWebServerValidation" path_to_validation_script="E:\Server\htdocs\ERIC" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1:8000" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
@@ -211,6 +258,7 @@
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
+  <component name="PhpXdebugProxy" port="9003" />
   <component name="ProjectId" id="1fxUpFATMDdC1Uej0TMbtTL5Y11" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -233,17 +281,24 @@
     <property name="editor.config.ad.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/storage" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../php/php.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
+    <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\app\Models" />
+      <recent name="E:\Server\htdocs\ERIC\database\migrations" />
+      <recent name="E:\Server\htdocs\ERIC\database\factories" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\Roles" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\List" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Server\htdocs\ERIC\public\storage" />
       <recent name="E:\Server\htdocs\ERIC\storage\app\public" />
@@ -251,17 +306,91 @@
       <recent name="E:\Server\htdocs\ERIC\public\Admins\avatar" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\User\AdminUser" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Server\htdocs\ERIC\database\migrations" />
-      <recent name="E:\Server\htdocs\ERIC\database\factories" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\Roles" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\List" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Roles" />
-    </key>
   </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1601214083000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="eric_session" />
+                <option name="path" value="/" />
+                <option name="value" value="C2doJKu1DM18tAvtv6y8FH9cIikSj7x6DnU96X8u" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1607093980000" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="eric_session" />
+                <option name="path" value="/" />
+                <option name="value" value="wHEwKXHcnG1LTaR9xi0oZJIY2u2Ebg0p8Z24AXxD" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/user-members/users/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDY5OTkxNjUsImV4cCI6MTYwNzYwMzk2NSwibmJmIjoxNjA2OTk5MTY1LCJqdGkiOiJDdXBLVkNGbnlsVTNpVEV3Iiwic3ViIjoxMCwicHJ2IjoiYmFjZGMzNWM5NzliNGE4N2M2Y2U2MWI4MjJlNDJmODQzMzU5NDY2ZiJ9.scm1kU7pev5oN_tjjEae6KkvgSsnaDzsjsJRWiWQpEg" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="provider" />
+                <option name="value" value="admins" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1601214083000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="eric_session" />
+                <option name="path" value="/" />
+                <option name="value" value="C2doJKu1DM18tAvtv6y8FH9cIikSj7x6DnU96X8u" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/user-members/users/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="biscuits">
             <list>
@@ -353,12 +482,23 @@
       <command value="users-role" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.watch">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.4" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" />
       <method v="2" />
     </configuration>
-    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="Unnamed" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request" nameIsGenerated="true" server_name="eric" url="/auth/login">
+      <method v="2" />
+    </configuration>
+    <configuration name="HomeController.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/HomeController.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -368,7 +508,7 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="hot" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="hot" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -388,17 +528,7 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="uninstall" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="uninstall" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="watch" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -408,13 +538,18 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="npm.dev" />
+      <item itemvalue="npm.watch" />
+      <item itemvalue="npm.hot" />
+      <item itemvalue="npm.install" />
+      <item itemvalue="PHP HTTP Request.Unnamed" />
+      <item itemvalue="PHP Script.HomeController.php" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.watch" />
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.install" />
-        <item itemvalue="npm.hot" />
-        <item itemvalue="npm.uninstall" />
       </list>
     </recent_temporary>
   </component>
@@ -618,7 +753,9 @@
       <workItem from="1606991124663" duration="450000" />
       <workItem from="1606992641179" duration="24000" />
       <workItem from="1606992692579" duration="11108000" />
-      <workItem from="1607061976418" duration="3915000" />
+      <workItem from="1607061976418" duration="14475000" />
+      <workItem from="1607077267407" duration="5133000" />
+      <workItem from="1607082814456" duration="12555000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -671,10 +808,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="restore base project" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="293" y="29" key="#CLI_Interpreters" timestamp="1606996623918">
+    <state x="293" y="29" key="#CLI_Interpreters" timestamp="1607089594848">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="293" y="29" key="#CLI_Interpreters/0.0.1366.738@0.0.1366.738" timestamp="1606996623918" />
+    <state x="293" y="29" key="#CLI_Interpreters/0.0.1366.738@0.0.1366.738" timestamp="1607089594848" />
+    <state x="528" y="279" key="#DBGp_Proxy" timestamp="1607086679125">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="528" y="279" key="#DBGp_Proxy/0.0.1366.738@0.0.1366.738" timestamp="1607086679125" />
+    <state x="263" y="35" key="#Servers" timestamp="1607089337294">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="263" y="35" key="#Servers/0.0.1366.738@0.0.1366.738" timestamp="1607089337294" />
+    <state x="137" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607089339883">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1607089339883" />
     <state x="487" y="37" key="#com.intellij.ide.util.MemberChooser" timestamp="1605876501700">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -687,14 +836,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1603652210213" />
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607000115559">
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607074385735">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607000115559" />
-    <state x="438" y="1" width="490" height="737" key="#xdebugger.evaluate" timestamp="1607001153960">
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607074385735" />
+    <state x="398" y="185" key="#com.jetbrains.php.debug.validation.PhpWebServerValidationDialog#" timestamp="1607086090314">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="438" y="1" width="490" height="737" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1607001153960" />
+    <state x="398" y="185" key="#com.jetbrains.php.debug.validation.PhpWebServerValidationDialog#/0.0.1366.738@0.0.1366.738" timestamp="1607086090314" />
+    <state x="438" y="1" width="490" height="737" key="#xdebugger.evaluate" timestamp="1607089787035">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="438" y="1" width="490" height="737" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1607089787035" />
     <state x="446" y="279" key="ComposerInitDialogKey" timestamp="1602096412589">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -703,86 +856,86 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="363" y="123" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1366.738@0.0.1366.738" timestamp="1604261851957" />
-    <state width="473" height="618" key="DebuggerActiveHint" timestamp="1607000855404">
+    <state width="473" height="618" key="DebuggerActiveHint" timestamp="1607089731285">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="473" height="618" key="DebuggerActiveHint/0.0.1366.738@0.0.1366.738" timestamp="1607000855404" />
+    <state width="473" height="618" key="DebuggerActiveHint/0.0.1366.738@0.0.1366.738" timestamp="1607089731285" />
     <state x="416" y="0" key="Diagram.Print.Preview.Dialog" timestamp="1605979858288">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="416" y="0" key="Diagram.Print.Preview.Dialog/0.0.1366.738@0.0.1366.738" timestamp="1605979858288" />
-    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1602179462345">
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1607086708433">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1602179462345" />
-    <state x="463" y="91" key="FileChooserDialogImpl" timestamp="1606065724370">
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1607086708433" />
+    <state x="463" y="91" key="FileChooserDialogImpl" timestamp="1607086362641">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1606065724370" />
-    <state width="1322" height="255" key="GridCell.Tab.0.bottom" timestamp="1607065632591">
+    <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1607086362641" />
+    <state width="1322" height="255" key="GridCell.Tab.0.bottom" timestamp="1607095579818">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607065632591" />
-    <state width="1322" height="255" key="GridCell.Tab.0.center" timestamp="1607065632591">
+    <state width="1322" height="255" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607095579818" />
+    <state width="1322" height="255" key="GridCell.Tab.0.center" timestamp="1607095579818">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607065632591" />
-    <state width="1322" height="255" key="GridCell.Tab.0.left" timestamp="1607065632591">
+    <state width="1322" height="255" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607095579818" />
+    <state width="1322" height="255" key="GridCell.Tab.0.left" timestamp="1607095579818">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607065632591" />
-    <state width="1322" height="255" key="GridCell.Tab.0.right" timestamp="1607065632591">
+    <state width="1322" height="255" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607095579818" />
+    <state width="1322" height="255" key="GridCell.Tab.0.right" timestamp="1607095579818">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607065632591" />
-    <state width="1322" height="275" key="GridCell.Tab.1.bottom" timestamp="1607003086615">
+    <state width="1322" height="255" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607095579818" />
+    <state width="1322" height="275" key="GridCell.Tab.1.bottom" timestamp="1607092989156">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="275" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
-    <state width="1322" height="275" key="GridCell.Tab.1.center" timestamp="1607003086615">
+    <state width="1322" height="275" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607092989156" />
+    <state width="1322" height="275" key="GridCell.Tab.1.center" timestamp="1607092989155">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="275" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
-    <state width="1322" height="275" key="GridCell.Tab.1.left" timestamp="1607003086615">
+    <state width="1322" height="275" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1607092989155" />
+    <state width="1322" height="275" key="GridCell.Tab.1.left" timestamp="1607092989155">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="275" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
-    <state width="1322" height="275" key="GridCell.Tab.1.right" timestamp="1607003086615">
+    <state width="1322" height="275" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1607092989155" />
+    <state width="1322" height="275" key="GridCell.Tab.1.right" timestamp="1607092989156">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="275" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
-    <state width="1322" height="275" key="GridCell.Tab.2.bottom" timestamp="1607003086615">
+    <state width="1322" height="275" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1607092989156" />
+    <state width="1322" height="275" key="GridCell.Tab.2.bottom" timestamp="1607092989156">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="275" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
-    <state width="1322" height="275" key="GridCell.Tab.2.center" timestamp="1607003086615">
+    <state width="1322" height="275" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607092989156" />
+    <state width="1322" height="275" key="GridCell.Tab.2.center" timestamp="1607092989156">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="275" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
-    <state width="1322" height="275" key="GridCell.Tab.2.left" timestamp="1607003086615">
+    <state width="1322" height="275" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1607092989156" />
+    <state width="1322" height="275" key="GridCell.Tab.2.left" timestamp="1607092989156">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="275" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
-    <state width="1322" height="275" key="GridCell.Tab.2.right" timestamp="1607003086615">
+    <state width="1322" height="275" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1607092989156" />
+    <state width="1322" height="275" key="GridCell.Tab.2.right" timestamp="1607092989156">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="275" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
-    <state width="1322" height="219" key="GridCell.Tab.3.bottom" timestamp="1606997981279">
+    <state width="1322" height="275" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1607092989156" />
+    <state width="1322" height="275" key="GridCell.Tab.3.bottom" timestamp="1607089195682">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="219" key="GridCell.Tab.3.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606997981279" />
-    <state width="1322" height="219" key="GridCell.Tab.3.center" timestamp="1606997981279">
+    <state width="1322" height="275" key="GridCell.Tab.3.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607089195682" />
+    <state width="1322" height="275" key="GridCell.Tab.3.center" timestamp="1607089195682">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="219" key="GridCell.Tab.3.center/0.0.1366.738@0.0.1366.738" timestamp="1606997981279" />
-    <state width="1322" height="219" key="GridCell.Tab.3.left" timestamp="1606997981278">
+    <state width="1322" height="275" key="GridCell.Tab.3.center/0.0.1366.738@0.0.1366.738" timestamp="1607089195682" />
+    <state width="1322" height="275" key="GridCell.Tab.3.left" timestamp="1607089195682">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="219" key="GridCell.Tab.3.left/0.0.1366.738@0.0.1366.738" timestamp="1606997981278" />
-    <state width="1322" height="219" key="GridCell.Tab.3.right" timestamp="1606997981279">
+    <state width="1322" height="275" key="GridCell.Tab.3.left/0.0.1366.738@0.0.1366.738" timestamp="1607089195682" />
+    <state width="1322" height="275" key="GridCell.Tab.3.right" timestamp="1607089195682">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="219" key="GridCell.Tab.3.right/0.0.1366.738@0.0.1366.738" timestamp="1606997981279" />
+    <state width="1322" height="275" key="GridCell.Tab.3.right/0.0.1366.738@0.0.1366.738" timestamp="1607089195682" />
     <state x="469" y="75" key="NewPhpClassDialog" timestamp="1599326408950">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -795,22 +948,26 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="247" height="198" key="RunAnythingAction_Filter_Popup/0.0.1366.738@0.0.1366.738" timestamp="1605548888468" />
-    <state x="214" y="19" key="SettingsEditor" timestamp="1606997466919">
+    <state x="224" y="5" key="SettingsEditor" timestamp="1607089708012">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606997466919" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1607062119632">
+    <state x="224" y="5" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1607089708012" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1607067028557">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1607062119632" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1607067028557" />
+    <state x="541" y="265" key="WebDeployment.AddServerDialog.v.1" timestamp="1607086089415">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="541" y="265" key="WebDeployment.AddServerDialog.v.1/0.0.1366.738@0.0.1366.738" timestamp="1607086089415" />
     <state x="584" y="240" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604743719328">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="584" y="240" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1366.738@0.0.1366.738" timestamp="1604743719328" />
-    <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602241436521">
+    <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1607091343871">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.738@0.0.1366.738" timestamp="1602241436521" />
+    <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.738@0.0.1366.738" timestamp="1607091343871" />
     <state x="533" y="243" width="300" height="277" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1606063123642">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -823,10 +980,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="173" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.0.1366.738@0.0.1366.738" timestamp="1603986755410" />
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1606161826036">
+    <state x="234" y="15" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1607087246786">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1606161826036" />
+    <state x="234" y="15" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738@0.0.1366.738" timestamp="1607087246786" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1607079508946">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1607079508946" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1605254043287">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -836,9 +997,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/routes/Admin/routes/admin.php</url>
-          <line>92</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/UserController.php</url>
+          <line>131</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -852,5 +1013,8 @@
         <watch expression="$skill" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ERIC@phpunit_xml.xml" NAME="phpunit.xml Coverage Results" MODIFIED="1607086168160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
