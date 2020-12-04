@@ -56,10 +56,24 @@
                 <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
                 </vs-col>
                 <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-                    <vs-input type="password" icon-before v-model="request.password" placeholder="Password">
+                    <vs-input
+                        type="password"
+                        v-model="request.password"
+                        label="Password Account"
+                        placeholder="password"
+                        :progress="getProgress">
                         <template #icon>
-                            <i class='bx bx-lock-open-alt'></i>
+                            <i class='bx bx-lock-open'></i>
                         </template>
+
+                        <template v-if="getProgress >= 100" #message-success>
+                            Secure password
+                        </template>
+
+                        <template v-if="getProgress < 40" #message-danger>
+                            A special character-More than 6 digits-One lower case letter-An uppercase letter-A number
+                        </template>
+
                     </vs-input>
                 </vs-col>
             </vs-row>
@@ -81,7 +95,7 @@
                         <vs-select
                             filter
                             multiple
-                            placeholder="Fields"
+                            placeholder="Follow Fields"
                             v-model="request.fields"
                             :loading="selectLoading"
                         >
@@ -93,7 +107,7 @@
                                 </div>
                                 <vs-option
                                     v-for="(field,key) in category.fields_under"
-                                    :key="key" :value="field"
+                                    :key="key" :value="field.name"
                                     :label="field.name"
                                 >
                                     {{field.name}}
@@ -106,18 +120,28 @@
                         <vs-select
                             filter
                             multiple
-                            placeholder="Skills"
+                            placeholder="Your Skills"
                             v-model="request.skills"
                         >
                             <vs-option
                                 v-for="(skill,key) in getAllSkills"
-                                :key="key" :value="skill"
+                                :key="key" :value="skill.name"
                                 :label="skill.name"
                             >
                                 {{skill.name}}
                             </vs-option>
 
                         </vs-select>
+
+                        <vs-button
+                            relief
+                            block
+                            success
+                            ref="button1"
+                            @click="addUser()"
+                        >
+                            <i class='bx bx-plus' ></i>Add User
+                        </vs-button>
 
 
                     </vs-col>
@@ -142,21 +166,6 @@
                             v-on:addfile="fileAdd"
                             v-on:removefile="fileRemove"
                         />
-                    </vs-col>
-                </vs-row>
-
-                <br>
-                <vs-row>
-                    <vs-col offset="4" w="4">
-                        <vs-button
-                            relief
-                            block
-                            success
-                            ref="button1"
-                            @click="addUser()"
-                        >
-                            <i class='bx bx-plus' ></i>Add User
-                        </vs-button>
                     </vs-col>
                 </vs-row>
             </div>

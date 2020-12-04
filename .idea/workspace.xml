@@ -29,56 +29,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/NormalAdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/NormalUserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Skill.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_21_172152_create_skills_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_21_172704_own_skills.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_22_164239_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleManagement/RoleManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleManagement/RoleManagement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Helper/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Helper/helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RoleAuthorization.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RoleAuthorization.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Field.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_04_171651_create_fields_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_04_171651_create_fields_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603405469.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603405604.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603405903.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603406153.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603406333.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603406973.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603407023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603407131.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603452136.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603474814.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605370331.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605376308.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605376395.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605376453.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605381743.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605382862.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Post/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Post/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/List.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/View.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/Admin/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Admin/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -665,6 +618,7 @@
       <workItem from="1606991124663" duration="450000" />
       <workItem from="1606992641179" duration="24000" />
       <workItem from="1606992692579" duration="11108000" />
+      <workItem from="1607061976418" duration="3915000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -765,22 +719,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1606065724370" />
-    <state width="1322" height="255" key="GridCell.Tab.0.bottom" timestamp="1607003784643">
+    <state width="1322" height="255" key="GridCell.Tab.0.bottom" timestamp="1607065632591">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607003784643" />
-    <state width="1322" height="255" key="GridCell.Tab.0.center" timestamp="1607003784643">
+    <state width="1322" height="255" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607065632591" />
+    <state width="1322" height="255" key="GridCell.Tab.0.center" timestamp="1607065632591">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607003784643" />
-    <state width="1322" height="255" key="GridCell.Tab.0.left" timestamp="1607003784643">
+    <state width="1322" height="255" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607065632591" />
+    <state width="1322" height="255" key="GridCell.Tab.0.left" timestamp="1607065632591">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607003784643" />
-    <state width="1322" height="255" key="GridCell.Tab.0.right" timestamp="1607003784643">
+    <state width="1322" height="255" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607065632591" />
+    <state width="1322" height="255" key="GridCell.Tab.0.right" timestamp="1607065632591">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607003784643" />
+    <state width="1322" height="255" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607065632591" />
     <state width="1322" height="275" key="GridCell.Tab.1.bottom" timestamp="1607003086615">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -845,10 +799,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606997466919" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605382974012">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1607062119632">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1605382974012" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1607062119632" />
     <state x="584" y="240" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604743719328">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

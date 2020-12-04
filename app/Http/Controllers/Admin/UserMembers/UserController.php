@@ -118,11 +118,11 @@ class UserController extends Controller
             if(is_array($request->skills) && is_array($request->fields))
             {
                 foreach ($request->skills as $skill){
-                    $user->skills=$user->skills.$skill["name"].',';
+                    $user->skills=$user->skills.$skill.',';
                 }
 
                 foreach ($request->fields as $field){
-                    $user->fields_follow=$user->fields_follow.$field["name"].',';
+                    $user->fields_follow=$user->fields_follow.$field.',';
                 }
             }
             $user->password=bcrypt($request->get('password'));
