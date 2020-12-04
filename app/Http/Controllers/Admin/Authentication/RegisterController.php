@@ -7,6 +7,7 @@ use App\Http\Middleware\Admin;
 use App\Models\Admins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Intervention\Image\Facades\Image;
 
@@ -40,9 +41,12 @@ class RegisterController extends Controller
         $sub=substr($request->avatar,0,$strpos);
         $ex=explode('/',$sub)[1];
         $name=time().'.'.$ex;
-        $img=Image::make($request->avatar)->resize(300,300);
-        $upload_path=public_path("Admins")."/avatar/";
-        $img->save($upload_path.$name);
+        $img=Image::make($request->avatar)->resize(350,350);
+        $upload_path="/Admins/avatar/";
+//        $img->save($upload_path.$name);
+
+        //todo:after make link (php artisan storage:link) save as following
+        Storage::disk("public")->put($upload_path.$name, (string) $img->encode(), 'public');
 
         //todo:create new object
 

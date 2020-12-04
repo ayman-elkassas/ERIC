@@ -16,8 +16,15 @@ class CreateFieldsTable extends Migration
         Schema::create('fields', function (Blueprint $table) {
             $table->increments('id');
             $table->string("name",100);
-            $table->string('category_name', 100);
+
+            $table->integer('category_id')->unsigned();//fk
             $table->timestamps();
+
+            //Relationships
+            $table->foreign('category_id')
+                ->references('id')->on('categories')
+                ->onDelete('cascade');
+
         });
     }
 

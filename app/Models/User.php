@@ -7,10 +7,16 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable,HasRoles;
+
+    protected $table='users';
+    protected $primaryKey = 'id';
+    //todo:should assign guard_name for spatie package
+    Protected $guard_name ='user';
 
     /**
      * The attributes that are mass assignable.
@@ -51,5 +57,15 @@ class User extends Authenticatable
     //todo:Make Relationships as Eloquent (1-M) User,Post (each User has many posts)
     public function posts():object {
         return $this->hasMany(Posts::class);
+    }
+
+    public function getJWTIdentifier()
+    {
+        // TODO: Implement getJWTIdentifier() method.
+    }
+
+    public function getJWTCustomClaims()
+    {
+        // TODO: Implement getJWTCustomClaims() method.
     }
 }

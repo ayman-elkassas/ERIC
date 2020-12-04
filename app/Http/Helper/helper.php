@@ -30,7 +30,7 @@ if(!function_exists('imageToStreamBase64')){
         if($path!=null){
             // encode image as data-url
             $avatar = (string) Image::make(
-                public_path().$path)->encode('data-url');
+                storage_path()."/app/public".$path)->encode('data-url');
         }
         else{
             return "Invalid Path";

@@ -19,7 +19,6 @@ class RoleManagement extends Controller
             'driver' => 'eloquent',
             'model' => Admins::class,
         ]]);
-
     }
 
     /**

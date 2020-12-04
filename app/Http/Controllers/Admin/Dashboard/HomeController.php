@@ -37,7 +37,7 @@ class HomeController extends Controller
         $user['role']=$user->getRoleNames();
 
         // encode image as data-url
-        $user->avatar = (string) Image::make(public_path().$user->avatar)->encode('data-url');
+        $user->avatar = imageToStreamBase64($user->avatar);
 
         return response()->json([
             'user' => $user

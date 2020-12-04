@@ -1,12 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\UserRole\RoleController;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use Spatie\Permission\Models\Role;
 
 Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function () {
 
@@ -53,12 +48,29 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function ()
 // PUT/PATCH	/users-role/{id}	    update	photos.update (put new object to update)
 // DELETE	    /photos/{id}	        destroy	photos.destroy
 
+//TODO:Admin CRUD
 Route::group(['prefix' => 'admin-members','namespace' => 'Admin\AdminMembers'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/admins', 'AdminController');
+        //todo:Normal controllers routes
+        Route::get('/roles', 'NormalAdminController@getRoleNames');
+        Route::get('/remove-all-admins', 'NormalAdminController@RemoveAllRolls');
     });
 });
 
+//TODO:User CRUD
+Route::group(['prefix' => 'user-members','namespace' => 'Admin\UserMembers'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/users', 'UserController');
+        //todo:Normal controllers routes
+        Route::get('/category', 'NormalUserController@getCategoriesWithFields');
+        Route::get('/skill', 'NormalUserController@getSkills');
+    });
+});
+
+
+
+//TODO:Role And Permissions CRUD
 Route::group(['prefix' => 'admin-mrole','namespace' => 'Admin\RoleManagement'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
         //TODO:CRUD Controller
@@ -75,6 +87,14 @@ Route::group(['prefix' => 'admin-mpermission','namespace' => 'Admin\PermissionMa
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/manage-permission', 'PermissionManagement');
     });
+});
+
+Route::get('/cache-clear',function (){
+    $exit_code=Artisan::call("optimize:clear");
+    //todo:return 0 if execute success
+    if($exit_code==0){
+        dd("Cached Is Cleared Successfully...");
+    }
 });
 
 

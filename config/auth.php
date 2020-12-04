@@ -42,6 +42,11 @@ return [
             'provider' => 'users',
         ],
         //todo:User define guards
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        //todo:Admin define guards
         'adminAuthGuard' => [
             'driver' => 'session',
             'provider' => 'admins',

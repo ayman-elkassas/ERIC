@@ -38410,3 +38410,11 @@ a:hover {
   background: transparent;
 }
 
+.vs-dialog__content {
+  padding: 15px 25px;
+}
+
+.vs-select-content {
+  max-width: 100%;
+}
+

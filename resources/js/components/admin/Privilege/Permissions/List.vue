@@ -470,7 +470,15 @@ export default {
             this.flagP=true;
             //todo:last step render value to component
             const userPermissions=this.$store.getters.getUserPermissions;
-            this.data=userPermissions;
+
+            if(userPermissions.length>0){
+                this.data=userPermissions;
+                this.flagP=true;
+            }else{
+                this.flagP=true;
+                this.data.push("1");
+            }
+
             return userPermissions;
         },
     },

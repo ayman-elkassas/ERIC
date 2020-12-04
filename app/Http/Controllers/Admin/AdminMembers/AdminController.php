@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Admins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
 {
@@ -18,7 +21,6 @@ class AdminController extends Controller
             'driver' => 'eloquent',
             'model' => Admins::class,
         ]]);
-
     }
 
     /**
@@ -38,7 +40,6 @@ class AdminController extends Controller
         }catch (\Exception $ex){
             return response()->json("Error", 404);
         }
-
     }
 
     /**
@@ -94,6 +95,38 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        try {
+
+            $user=Admins::findOrFail($id);
+
+            if($request->name!==""){
+                $user->name=$request->name;
+                $user->email=$request->email;
+
+                $roles=(array)json_decode($request->roles,true);
+                $user->syncRoles($roles);
+
+                if($request->avatar!==""){
+                    //todo:Avatar
+                    $strpos=strpos($request->avatar,';');
+                    $sub=substr($request->avatar,0,$strpos);
+                    $ex=explode('/',$sub)[1];
+                    $name=time().'.'.$ex;
+                    $img=Image::make($request->avatar)->resize(350,350);
+                    $upload_path="/Admins/avatar/";
+                    //todo:after make link (php artisan storage:link) save as following
+                    Storage::disk("public")->put($upload_path.$name, (string) $img->encode(), 'public');
+
+                    $user->avatar="/Admins/avatar/".$name;
+                }
+
+                $user->save();
+            }
+
+            return response()->json($user, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**
@@ -105,5 +138,12 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+        try {
+            Admins::findOrFail($id)->delete();
+
+            return response()->json("Deleted Successfully", 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 }

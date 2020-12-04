@@ -50,7 +50,7 @@ export const routes=[
     {path:'/admin-list/',name:'Admin List',component:AdminList},
     //todo:User
     {path:'/user-list/',name:'User List',component:PublicUserList},
-    {path:'/user-add/',name:'User Add',component:PublicUserNew},
+    {path:'/user-new/',name:'User New',component:PublicUserNew},
     //todo:Post
     {path:'/post-list/',name:'Post List',component: PostList},
     {path:'/post-add/',name:'Post Add',component: PostNew},

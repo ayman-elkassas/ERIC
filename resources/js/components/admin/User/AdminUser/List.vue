@@ -36,7 +36,7 @@
                         </vs-tooltip>
 
                     </vs-col>
-                    <vs-col style="width:14.66%" w="2">
+                    <vs-col style="width:14.0%" w="2">
                         <vs-tooltip top>
                             <vs-button
                                 icon
@@ -163,7 +163,9 @@
                             </vs-td>
 
                             <vs-td>
-                                <img :src="tr.avatar" alt="" style="margin-right: 3px"  width="30px"/>
+                                <vs-avatar writing >
+                                    <img :src="tr.avatar" alt="" style="margin-right: 3px"  width="30px"/>
+                                </vs-avatar>
                             </vs-td>
 
                             <vs-td>
@@ -175,7 +177,6 @@
                                 <span v-else>
                                     No Role
                                 </span>
-
                             </vs-td>
 
                             <vs-td>
@@ -324,7 +325,6 @@
                                 />
                             </vs-col>
                         </vs-row>
-
                     </div>
                 </div>
 
@@ -333,6 +333,7 @@
                         <vs-button
                             success
                             ref="button1"
+                            :active-disabled="activeOr"
                             @click="addAdmin()"
                             block>
                             Add Admin
@@ -346,21 +347,33 @@
             <vs-dialog blur overflow-hidden v-model="activeEdit">
                 <template #header>
                     <h4 class="not-margin">
-                        Edit <b>Role</b>
+                        Edit <b>Account</b>
                     </h4>
                 </template>
 
                 <div class="con-form">
 
                     <div class="center content-inputs">
+                        <vs-row justify="center">
+                            <vs-col w="2">
+                                <div class="center content-inputs">
+                                    <div class="center con-avatars">
+                                        <vs-avatar size="70" history success>
+                                            <img :src="avatarEdit" alt="">
+                                        </vs-avatar>
+                                    </div>
+                                </div>
+                            </vs-col>
+                        </vs-row>
+                        <br>
                         <vs-row>
                             <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
                                 <div class="center content-inputs">
-                                    <vs-input type="text" v-model="roleEditName" placeholder="Role name">
+                                    <vs-input type="text" v-model="FullEditName" placeholder="Role name">
                                         <template #icon>
                                             <i class='bx bx-book'></i>
                                         </template>
-                                        <template v-if="roleEditName===''" #message-danger>
+                                        <template v-if="FullEditName===''" #message-danger>
                                             Required
                                         </template>
                                     </vs-input>
@@ -371,24 +384,73 @@
                         <br>
                         <vs-row>
                             <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                                <vs-input
+                                    required autofocus
+                                    v-model="emailEditName"
+                                    label="Email address"
+                                    placeholder="eric@eric.com">
+                                    <template #icon>
+                                        <i class='bx bxl-mailchimp'></i>
+                                    </template>
+                                    <template v-if="validEmail" #message-success>
+                                        Email Valid
+                                    </template>
+                                    <template v-if="!validEmail && emailEditName !== ''" #message-danger>
+                                        Email Invalid
+                                    </template>
+                                    <template v-if="emailEditName===''" #message-danger>
+                                        Required
+                                    </template>
+                                </vs-input>
+                            </vs-col>
+                        </vs-row>
+                        <br>
+                        <br>
+                        <vs-row>
+                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
                                 <vs-select
-                                    label="Guard Name"
+                                    label="Role Name"
                                     filter
-                                    v-model="guardEditName"
-                                    placeholder="Guard Name"
+                                    multiple
+                                    v-model="roleEditName"
+                                    placeholder="Role Name"
                                 >
-                                    <vs-option-group>
+                                    <vs-option-group v-if="this.data.length>0">
                                         <div slot="title">
-                                            Admin Guards
+                                            Assign Roles
                                         </div>
-                                        <vs-option v-for="guard in getGuardsName" key="0" :label="guard" :value="guard">
-                                            {{guard}}
+                                        <vs-option v-for="role in getRoles[this.data[this.index].roles[0].guard_name]" :label="role" key="0" :value="role">
+                                            {{role}}
                                         </vs-option>
                                     </vs-option-group>
                                 </vs-select>
                             </vs-col>
                         </vs-row>
                         <br>
+                        <vs-row style="margin-bottom: 20px">
+                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+
+                                <file-pond
+                                    name="test"
+                                    ref="pond"
+                                    class-name="my-pond"
+                                    label-idle="Add Avatar..."
+                                    v-bind:allow-multiple="true"
+                                    allowDrop="true"
+                                    allowPaste="true"
+                                    allowReplace="true"
+                                    allowRevert="true"
+                                    allowRemove="true"
+                                    maxFiles="1"
+                                    accepted-file-types="image/jpeg, image/png, image/jpg"
+                                    allowFileEncode="true"
+                                    v-on:init="handleFilePondInit"
+                                    v-on:addfile="fileAdd"
+                                    v-on:removefile="fileRemove"
+                                />
+                            </vs-col>
+                        </vs-row>
+
                     </div>
                 </div>
 
@@ -399,7 +461,7 @@
                             @click="editRole()"
                             success
                             block>
-                            Edit Role
+                            Edit Account
                         </vs-button>
                         <br>
                     </div>
@@ -415,7 +477,9 @@
                             <h3>{{data[index].name}}</h3>
                         </template>
                         <template #img>
-                            <img :src="data[index].avatar" alt="">
+                            <vs-avatar size="150" circle writing >
+                                <img :src="data[index].avatar" alt="">
+                            </vs-avatar>
                         </template>
                         <template #text>
                             <p>{{data[index].email}}</p>
@@ -489,6 +553,13 @@
         <p v-else-if="firstLoad && data.length>0">
             {{this.removeReload()}}
         </p>
+
+        <span hidden v-if="imgUpload && request.name!=='' && emailValid && passwordValid">
+            {{activeOr=false}}
+        </span>
+        <span hidden v-else>
+            {{activeOr=true}}
+        </span>
     </div>
 </template>
 
@@ -505,16 +576,15 @@ import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
 // Create component
 const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview,FilePondPluginFileEncode);
 
-
 export default {
     name: "List",
     data() {
         return {
-            hidden:true,
+            hidden:false,
             search: '',
             allCheck: false,
             page: 1,
-            max: 10,
+            max: 15,
             selected: [],
             active: false,
             edit: null,
@@ -523,15 +593,19 @@ export default {
             loading:null,
             role_name:"",
             guard_name:"",
+            FullEditName:"",
+            emailEditName:"",
             roleEditName:"",
-            guardEditName:"",
+            avatarEdit:'',
+            oldRoles:[],
             activeView:false,
             activeEdit:false,
             request:{
                 name:"",
                 email:"",
                 password:"",
-                avatar:""
+                avatar:"",
+                roles:""
             },
             enableRemoveAll:false,
             authInfo:{
@@ -549,11 +623,15 @@ export default {
             firstLoad:true,
             emailValid:false,
             passwordValid:0,
+            activeOr:true,
+            imgUpload:false,
+
         }
     },
     beforeCreate() {
         //todo:first step
         this.$store.dispatch("UsersWithRoles");
+        this.$store.dispatch("AllRoles");
     },
     created() {
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
@@ -564,9 +642,30 @@ export default {
         getUserRoles(){
             //todo:last step render value to component
             const userRoles=this.$store.getters.getUsersWithRoles;
-            this.data=userRoles;
-            this.flag=true;
+
+            if(userRoles.length>0){
+                this.data=userRoles;
+                this.flag=true;
+            }else{
+                this.flag=true;
+                this.data.push("1");
+            }
+
             return userRoles;
+        },
+        getRoles(){
+            //todo:last step render value to component
+            const allRoles=this.$store.getters.getAllRoles;
+            let data=[]
+
+            for (const role of allRoles) {
+                data[role.guard_name]=[]
+            }
+
+            for (const role of allRoles) {
+                data[role.guard_name].push(role.name)
+            }
+            return data;
         },
         validEmail() {
             this.emailValid=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.request.email)
@@ -612,6 +711,8 @@ export default {
     methods: {
         openAddAdmin(){
             this.active=true;
+            this.request.avatar=''
+            this.imgUpload=false;
         },
         handleFilePondInit: function() {
             console.log('FilePond has initialized');
@@ -628,7 +729,7 @@ export default {
 
             if(file.fileSize <5000000){
                 this.request.avatar=file.getFileEncodeDataURL();
-                this.disable=false;
+                this.imgUpload=true;
             }
             else{
                 this.openNotification('top-left', 'danger',
@@ -652,7 +753,8 @@ export default {
             }
         },
         fileRemove:function () {
-            this.disable=true;
+            this.imgUpload=false;
+            this.request.avatar=''
         },
         uploadRequest(){
 
@@ -680,27 +782,58 @@ export default {
                         'Make Sure From Credentials',
                         'Username or password not matched with account credentials,' +
                         'make sure and try again...');
+                    this.active=false;
+                    loading.close();
                 });
         },
         viewRole(i){
             this.index=i;
             this.activeView=true;
         },
-        editRoleD(id,index){
-            this.id=id;
-            this.index=index;
+        editRoleD(id,i){
             this.activeEdit=true;
-            this.guardEditName=this.data[this.index].guard_name
-            this.roleEditName=this.data[this.index].name
+            this.request.avatar=''
+
+            this.oldRoles=[];
+            this.id=id;
+            this.index=i;
+            this.FullEditName=this.data[this.index].name
+            this.emailEditName=this.data[this.index].email
+            this.avatarEdit=this.data[this.index].avatar
+
+            let count=0;
+            if(this.data[this.index].roles.length>0){
+                this.data[this.index].roles.forEach(item=>{
+                    this.oldRoles.push(item.name);
+                    count++;
+                })
+                if(this.data[this.index].roles.length===count){
+                    this.roleEditName=this.oldRoles;
+                }
+            }
+            else{
+                this.roleEditName="";
+            }
         },
         editRole(){
-            if((this.roleEditName !=="" && this.guardEditName!=="") &&
-                (this.roleEditName!==this.data[this.index].name ||
-                    this.guardEditName!==this.data[this.index].guard_name))
+            if((this.FullEditName !=="" && this.emailEditName!=="" && this.avatarEdit!=="")
+                && (this.FullEditName!==this.data[this.index].name ||
+                    this.emailEditName!==this.data[this.index].email ||
+                    this.request.avatar!=="" ||
+                    JSON.stringify(this.roleEditName)!==JSON.stringify(this.oldRoles)))
             {
+                this.request.name=this.FullEditName
+                this.request.email=this.emailEditName
+                if(this.request.avatar===""){
+                    this.request.avatar=this.avatarEdit
+                }
 
-                this.request.guard_name=this.guardEditName
-                this.request.role_name=this.roleEditName
+                if(this.roleEditName.length>0){
+                    this.request.roles=JSON.stringify(this.roleEditName)
+                }
+                else{
+                    this.request.roles=""
+                }
                 //todo:call mutation and pass object data
                 //todo:should make axios request to get user object
                 //todo:make an api in back to return full user object
@@ -715,7 +848,7 @@ export default {
                         color: '#fff'
                     })
 
-                    axios.put('/admin-mrole/manage-role/'+(this.id)+'?token='+this.authInfo.token+
+                    axios.put('/admin-members/admins/'+(this.id)+'?token='+this.authInfo.token+
                         '&provider='+this.authInfo.provider,this.request)
                         .then((response)=>{
                             this.openNotification('top-right',
@@ -773,7 +906,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.get('/admin-mrole/remove-all-rolls?token='+this.authInfo.token+
+                axios.get('/admin-members/remove-all-admins?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         if(response.data!=="error"){
@@ -823,7 +956,7 @@ export default {
                 color: '#fff'
             })
 
-            axios.delete('/admin-mrole/manage-role/'+(this.id)+'?token='+this.authInfo.token+
+            axios.delete('/admin-members/admins/'+(this.id)+'?token='+this.authInfo.token+
                 '&provider='+this.authInfo.provider)
                 .then((response)=>{
                     if(response.data!=="error"){
@@ -852,6 +985,7 @@ export default {
         },
         refresh(){
             this.$store.dispatch("UsersWithRoles");
+            this.$store.dispatch("AllRoles");
         },
         reload(){
             $(".content-div-i").show();
@@ -897,7 +1031,5 @@ export default {
     font-size :.6rem;
     display: none;
 }
-
-
 
 </style>

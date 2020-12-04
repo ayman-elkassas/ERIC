@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -26,27 +29,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
-      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605370331.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605376308.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605376395.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605376453.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605381743.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Admins/avatar/1605382862.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/back.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/NormalAdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/NormalUserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Skill.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_21_172152_create_skills_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_21_172704_own_skills.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_22_164239_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserRole/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Authentication/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Dashboard/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleManagement/RoleManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleManagement/RoleManagement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Helper/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Helper/helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RoleAuthorization.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RoleAuthorization.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Field.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_04_171651_create_fields_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_04_171651_create_fields_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603405469.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603405604.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603405903.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603406153.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603406333.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603406973.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603407023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603407131.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603452136.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1603474814.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605370331.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605376308.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605376395.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605376453.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605381743.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admins/avatar/1605382862.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/0-template/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/0-template/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Post/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Post/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/New.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/View.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/View.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/Admin/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Admin/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +124,13 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpDebugGeneral" xdebug_debug_port="9001" listening_started="true" zd_debug_port="9001" />
+  <component name="PhpServers">
+    <servers>
+      <server host="127.0.0.1" id="373fb9d2-39df-4f2b-8ae2-8bc49fa3230d" name="127.0.0.1" port="8000" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
@@ -242,30 +280,30 @@
     <property name="editor.config.ad.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/storage" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\public\storage" />
+      <recent name="E:\Server\htdocs\ERIC\storage\app\public" />
+      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\User\PublicUser" />
+      <recent name="E:\Server\htdocs\ERIC\public\Admins\avatar" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\User\AdminUser" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\AssignR-T-P" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Roles" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Permissions" />
-      <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Privilege\Roles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Server\htdocs\ERIC\database\migrations" />
+      <recent name="E:\Server\htdocs\ERIC\database\factories" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\Roles" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Priveleage\List" />
       <recent name="E:\Server\htdocs\ERIC\resources\js\components\admin\Role\Roles" />
-      <recent name="E:\Server\htdocs\ERIC" />
-      <recent name="E:\Server\htdocs\ERIC\app\Http\Controllers\Admin\Authentication" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -616,7 +654,17 @@
       <workItem from="1604821615707" duration="47873000" />
       <workItem from="1605242822076" duration="33744000" />
       <workItem from="1605294461641" duration="15961000" />
-      <workItem from="1605340327321" duration="33003000" />
+      <workItem from="1605340327321" duration="33119000" />
+      <workItem from="1605545256785" duration="8720000" />
+      <workItem from="1605763025064" duration="38662000" />
+      <workItem from="1605869773718" duration="13904000" />
+      <workItem from="1605978258623" duration="9332000" />
+      <workItem from="1606059254472" duration="14674000" />
+      <workItem from="1606142349809" duration="16081000" />
+      <workItem from="1606990342538" duration="33000" />
+      <workItem from="1606991124663" duration="450000" />
+      <workItem from="1606992641179" duration="24000" />
+      <workItem from="1606992692579" duration="11108000" />
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -669,14 +717,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="restore base project" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="439" y="188" key="#Notifications" timestamp="1597945970890">
+    <state x="293" y="29" key="#CLI_Interpreters" timestamp="1606996623918">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="439" y="188" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1597945970890" />
-    <state x="487" y="37" key="#com.intellij.ide.util.MemberChooser" timestamp="1602254783782">
+    <state x="293" y="29" key="#CLI_Interpreters/0.0.1366.738@0.0.1366.738" timestamp="1606996623918" />
+    <state x="487" y="37" key="#com.intellij.ide.util.MemberChooser" timestamp="1605876501700">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="487" y="37" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1602254783782" />
+    <state x="487" y="37" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1605876501700" />
     <state x="412" y="158" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1599326405134">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -685,10 +733,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1603652210213" />
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605362411583">
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607000115559">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1605362411583" />
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607000115559" />
+    <state x="438" y="1" width="490" height="737" key="#xdebugger.evaluate" timestamp="1607001153960">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="438" y="1" width="490" height="737" key="#xdebugger.evaluate/0.0.1366.738@0.0.1366.738" timestamp="1607001153960" />
     <state x="446" y="279" key="ComposerInitDialogKey" timestamp="1602096412589">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -697,38 +749,86 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="363" y="123" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1366.738@0.0.1366.738" timestamp="1604261851957" />
+    <state width="473" height="618" key="DebuggerActiveHint" timestamp="1607000855404">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="473" height="618" key="DebuggerActiveHint/0.0.1366.738@0.0.1366.738" timestamp="1607000855404" />
+    <state x="416" y="0" key="Diagram.Print.Preview.Dialog" timestamp="1605979858288">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="416" y="0" key="Diagram.Print.Preview.Dialog/0.0.1366.738@0.0.1366.738" timestamp="1605979858288" />
     <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1602179462345">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1602179462345" />
-    <state x="463" y="91" key="FileChooserDialogImpl" timestamp="1604261727726">
+    <state x="463" y="91" key="FileChooserDialogImpl" timestamp="1606065724370">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604261727726" />
-    <state width="1322" height="257" key="GridCell.Tab.0.bottom" timestamp="1605382874481">
+    <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1606065724370" />
+    <state width="1322" height="255" key="GridCell.Tab.0.bottom" timestamp="1607003784643">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="257" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1605382874481" />
-    <state width="1322" height="257" key="GridCell.Tab.0.center" timestamp="1605382874481">
+    <state width="1322" height="255" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607003784643" />
+    <state width="1322" height="255" key="GridCell.Tab.0.center" timestamp="1607003784643">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="257" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1605382874481" />
-    <state width="1322" height="257" key="GridCell.Tab.0.left" timestamp="1605382874481">
+    <state width="1322" height="255" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607003784643" />
+    <state width="1322" height="255" key="GridCell.Tab.0.left" timestamp="1607003784643">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="257" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1605382874481" />
-    <state width="1322" height="257" key="GridCell.Tab.0.right" timestamp="1605382874481">
+    <state width="1322" height="255" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607003784643" />
+    <state width="1322" height="255" key="GridCell.Tab.0.right" timestamp="1607003784643">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="257" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1605382874481" />
-    <state x="129" y="55" key="MergeDialog" timestamp="1597542580005">
+    <state width="1322" height="255" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607003784643" />
+    <state width="1322" height="275" key="GridCell.Tab.1.bottom" timestamp="1607003086615">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="129" y="55" key="MergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1597542580005" />
-    <state x="313" y="122" key="MultipleFileMergeDialog" timestamp="1597542580037">
+    <state width="1322" height="275" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
+    <state width="1322" height="275" key="GridCell.Tab.1.center" timestamp="1607003086615">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="313" y="122" key="MultipleFileMergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1597542580037" />
+    <state width="1322" height="275" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
+    <state width="1322" height="275" key="GridCell.Tab.1.left" timestamp="1607003086615">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="275" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
+    <state width="1322" height="275" key="GridCell.Tab.1.right" timestamp="1607003086615">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="275" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
+    <state width="1322" height="275" key="GridCell.Tab.2.bottom" timestamp="1607003086615">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="275" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
+    <state width="1322" height="275" key="GridCell.Tab.2.center" timestamp="1607003086615">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="275" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
+    <state width="1322" height="275" key="GridCell.Tab.2.left" timestamp="1607003086615">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="275" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
+    <state width="1322" height="275" key="GridCell.Tab.2.right" timestamp="1607003086615">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="275" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1607003086615" />
+    <state width="1322" height="219" key="GridCell.Tab.3.bottom" timestamp="1606997981279">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="219" key="GridCell.Tab.3.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606997981279" />
+    <state width="1322" height="219" key="GridCell.Tab.3.center" timestamp="1606997981279">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="219" key="GridCell.Tab.3.center/0.0.1366.738@0.0.1366.738" timestamp="1606997981279" />
+    <state width="1322" height="219" key="GridCell.Tab.3.left" timestamp="1606997981278">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="219" key="GridCell.Tab.3.left/0.0.1366.738@0.0.1366.738" timestamp="1606997981278" />
+    <state width="1322" height="219" key="GridCell.Tab.3.right" timestamp="1606997981279">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="219" key="GridCell.Tab.3.right/0.0.1366.738@0.0.1366.738" timestamp="1606997981279" />
     <state x="469" y="75" key="NewPhpClassDialog" timestamp="1599326408950">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -737,14 +837,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1603364044079" />
-    <state x="214" y="19" key="SettingsEditor" timestamp="1604260832426">
+    <state width="247" height="198" key="RunAnythingAction_Filter_Popup" timestamp="1605548888468">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1604260832426" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605353275262">
+    <state width="247" height="198" key="RunAnythingAction_Filter_Popup/0.0.1366.738@0.0.1366.738" timestamp="1605548888468" />
+    <state x="214" y="19" key="SettingsEditor" timestamp="1606997466919">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1605353275262" />
+    <state x="214" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606997466919" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605382974012">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1605382974012" />
     <state x="584" y="240" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604743719328">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -753,10 +857,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="548" y="243" width="311" height="267" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.738@0.0.1366.738" timestamp="1602241436521" />
-    <state x="533" y="243" width="300" height="251" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1603989472274">
+    <state x="533" y="243" width="300" height="277" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1606063123642">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="533" y="243" width="300" height="251" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1366.738@0.0.1366.738" timestamp="1603989472274" />
+    <state x="533" y="243" width="300" height="277" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1366.738@0.0.1366.738" timestamp="1606063123642" />
     <state x="263" y="23" key="com.intellij.database.dbimport.ImportDialog" timestamp="1603726897918">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -765,37 +869,34 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="173" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.0.1366.738@0.0.1366.738" timestamp="1603986755410" />
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597449617383">
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1606161826036">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1597449617383" />
-    <state x="555" y="20" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1597486755668">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="555" y="20" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1366.738@0.0.1366.738" timestamp="1597486755668" />
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597449135698">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1597449135698" />
-    <state x="92" y="92" width="1182" height="554" key="dock-window-1" timestamp="1598124580202">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="92" y="92" width="1182" height="554" key="dock-window-1/0.0.1366.738@0.0.1366.738" timestamp="1598124580202" />
-    <state x="92" y="92" width="1182" height="554" key="dock-window-2" timestamp="1598124580202">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="92" y="92" width="1182" height="554" key="dock-window-2/0.0.1366.738@0.0.1366.738" timestamp="1598124580202" />
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1605361275110">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1605361275110" />
-    <state x="475" y="226" key="scopes" timestamp="1597177503372">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="475" y="226" key="scopes/0.0.1366.738@0.0.1366.738" timestamp="1597177503372" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1606161826036" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1605254043287">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1605254043287" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/routes/Admin/routes/admin.php</url>
+          <line>92</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="server.php">
+        <watch expression="$user" />
+        <watch expression="storage_path().$path" language="PHP" />
+        <watch expression="storage_path().&quot;/app/public&quot;.$path" />
+        <watch expression="$user-&gt;fname" />
+        <watch expression="$user-&gt;skills" />
+        <watch expression="$skill" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

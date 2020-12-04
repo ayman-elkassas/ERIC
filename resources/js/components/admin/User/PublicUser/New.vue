@@ -15,323 +15,348 @@
         </div>
         <div class="card-body">
 
-            <form>
-                <div class="row product-page-main">
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-input
-                                v-model="value1"
-                                label="Admin First Name"
-                            >
-                                <template #icon>
-                                    <i class='bx bx-user'></i>
-                                </template>
-                            </vs-input>
-                        </div>
-                    </div>
+            <div class="center grid">
 
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-input
-                                v-model="value1"
-                                label="Admin Last Name"
-                            >
-                                <template #icon>
-                                    <i class='bx bx-user'></i>
-                                </template>
-                            </vs-input>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row product-page-main">
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-input v-model="value3" label="eric@gmail.com">
-                                <template v-if="validEmail" #message-success>
-                                    Email Valid
-                                </template>
-                                <template v-if="!validEmail && value3 !== ''" #message-danger>
-                                    Email Invalid
-                                </template>
-                                <template #icon>
-                                    <i class='bx bx-mail-send'></i>
-                                </template>
-                            </vs-input>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-input type="number" v-model="value5" label="Phone">
-                                <template #icon>
-                                    <i class='bx bx-lock-open-alt'></i>
-                                </template>
-                            </vs-input>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row product-page-main">
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-input type="password"
-                                      v-model="value4"
-                                      label="Password"
-                                      :progress="getProgress"
-                                      :visiblePassword="hasVisiblePassword"
-                                      @click-icon="hasVisiblePassword = !hasVisiblePassword">
-                                <template #message-warn>
-                                    Insecure password
-                                </template>
-                                <template #icon>
-                                    <i class='bx bx-lock-open-alt'></i>
-                                </template>
-                            </vs-input>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-input type="password"
-                                      v-model="value5"
-                                      label="Re-enter Password"
-                                      :progress="getProgress"
-                                      :visiblePassword="hasVisiblePassword"
-                                      @click-icon="hasVisiblePassword = !hasVisiblePassword">
-                                <template #message-warn>
-                                    Insecure password
-                                </template>
-                                <template #icon>
-                                    <i class='bx bx-lock-open-alt'></i>
-                                </template>
-                            </vs-input>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row product-page-main">
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-
-                            <vs-select
-                                label="Group Multiple Filter"
-                                filter
-                                multiple
-                                v-model="value6"
-                            >
-                                <vs-option-group>
-                                    <div slot="title">
-                                        Vuejs
-                                    </div>
-                                    <vs-option label="Vuesax" value="1">
-                                        Vuesax
-                                    </vs-option>
-                                    <vs-option label="Vue" value="2">
-                                        Vue
-                                    </vs-option>
-                                    <vs-option label="Javascript" value="3">
-                                        Javascript
-                                    </vs-option>
-                                </vs-option-group>
-                                <vs-option-group>
-                                    <div slot="title">
-                                        Others
-                                    </div>
-                                    <vs-option label="Sass" value="4">
-                                        Sass
-                                    </vs-option>
-                                    <vs-option label="Typescript" value="5">
-                                        Typescript
-                                    </vs-option>
-                                    <vs-option label="Webpack" value="6">
-                                        Webpack
-                                    </vs-option>
-                                    <vs-option label="Nodejs" value="7">
-                                        Nodejs
-                                    </vs-option>
-                                </vs-option-group>
-                            </vs-select>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-select
-                                label="Group Multiple Filter"
-                                filter
-                                multiple
-                                v-model="value6"
-                            >
-                                <vs-option-group>
-                                    <div slot="title">
-                                        Vuejs
-                                    </div>
-                                    <vs-option label="Vuesax" value="1">
-                                        Vuesax
-                                    </vs-option>
-                                    <vs-option label="Vue" value="2">
-                                        Vue
-                                    </vs-option>
-                                    <vs-option label="Javascript" value="3">
-                                        Javascript
-                                    </vs-option>
-                                </vs-option-group>
-                                <vs-option-group>
-                                    <div slot="title">
-                                        Others
-                                    </div>
-                                    <vs-option label="Sass" value="4">
-                                        Sass
-                                    </vs-option>
-                                    <vs-option label="Typescript" value="5">
-                                        Typescript
-                                    </vs-option>
-                                    <vs-option label="Webpack" value="6">
-                                        Webpack
-                                    </vs-option>
-                                    <vs-option label="Nodejs" value="7">
-                                        Nodejs
-                                    </vs-option>
-                                </vs-option-group>
-                            </vs-select>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group row has-error">
-                    <label class="col-sm-2 col-form-label">Upload Avatar</label>
-                    <div class="col-sm-10">
-
-                        <vueDropzone ref="dropzone" :useCustomSlot=true class="dropzone digits dz-clickable" id="drop1" :options="dropOptions" :include-styling="false">
-                            <div class="dz-message needsclick"><i class="fa fa-upload"></i>
-                                <h6>Drop file here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
-                            </div>
-                        </vueDropzone>
-
-                        <div class="card-body megaoptions-border-space-sm">
-                            <form class="mega-inline">
-                                <div class="row">
-
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="media p-20">
-                                                <div class="radio radio-primary mr-3">
-                                                    <input id="radio14" type="radio" name="radio1" value="option1" data-original-title="" title="">
-                                                    <label for="radio14"></label>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="mt-0 mega-title-badge">Private<span class="badge badge-primary pull-right digits">50 INR</span></h6>
-                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="media p-20">
-                                                <div class="radio radio-success mr-3">
-                                                    <input id="radio13" type="radio" name="radio1" value="option1" data-original-title="" title="">
-                                                    <label for="radio13"></label>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="mt-0 mega-title-badge">Public<span class="badge badge-success pull-right digits">100 INR</span></h6>
-                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
-                            <br>
-                            <form class="mega-inline">
-                                <div class="row">
-
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="media p-20">
-                                                <div class="radio radio-danger mr-3">
-                                                    <input id="radio12" type="radio" name="radio1" value="option1" data-original-title="" title="">
-                                                    <label for="radio12"></label>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="mt-0 mega-title-badge">Read only<span class="badge badge-danger pull-right digits">100 INR</span></h6>
-                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="media p-20">
-                                                <div class="radio radio-secondary mr-3">
-                                                    <input id="radio11" type="radio" name="radio1" value="option1" data-original-title="" title="">
-                                                    <label for="radio11"></label>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="mt-0 mega-title-badge">Share Now<span class="badge badge-secondary pull-right digits">100 INR</span></h6>
-                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                        <vs-button
-                            size="large"
-                            color="success"
-                            circle
+            <vs-row justify="space-around">
+                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                    <vs-input v-model="request.fname" placeholder="First name">
+                        <template #icon>
+                            <i class='bx bx-user'></i>
+                        </template>
+                    </vs-input>
+                </vs-col>
+                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
+                </vs-col>
+                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                    <vs-input v-model="request.lname" placeholder="Last name">
+                        <template #icon>
+                            <i class='bx bx-user'></i>
+                        </template>
+                    </vs-input>
+                </vs-col>
+            </vs-row>
+                <br>
+            <vs-row justify="space-between">
+                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                    <vs-input v-model="request.email" placeholder="eric@gmail.com">
+                        <template #icon>
+                            <i class='bx bx-message'></i>
+                        </template>
+                        <template v-if="validEmail" #message-success>
+                            Email Valid
+                        </template>
+                        <template v-else #message-danger>
+                            Email Invalid
+                        </template>
+                        <template v-if="request.email===''" #message-danger>
+                            Required
+                        </template>
+                    </vs-input>
+                </vs-col>
+                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
+                </vs-col>
+                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                    <vs-input type="password" icon-before v-model="request.password" placeholder="Password">
+                        <template #icon>
+                            <i class='bx bx-lock-open-alt'></i>
+                        </template>
+                    </vs-input>
+                </vs-col>
+            </vs-row>
+                <br>
+                <vs-row justify="space-between">
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                        <vs-input
+                            type="number"
+                            v-model="request.phone"
+                            placeholder="phone no."
                         >
-                            Save
+                            <template #icon>
+                                <i class='bx bx-phone'></i>
+                            </template>
+                        </vs-input>
+
+                        <br>
+
+                        <vs-select
+                            filter
+                            multiple
+                            placeholder="Fields"
+                            v-model="request.fields"
+                            :loading="selectLoading"
+                        >
+                            <vs-option-group
+                                v-for="(category,key) in getAllCategoriesWithFields"
+                                :key="key" :value="category">
+                                <div slot="title">
+                                    {{category.name}}
+                                </div>
+                                <vs-option
+                                    v-for="(field,key) in category.fields_under"
+                                    :key="key" :value="field"
+                                    :label="field.name"
+                                >
+                                    {{field.name}}
+                                </vs-option>
+                            </vs-option-group>
+                        </vs-select>
+
+                        <br>
+
+                        <vs-select
+                            filter
+                            multiple
+                            placeholder="Skills"
+                            v-model="request.skills"
+                        >
+                            <vs-option
+                                v-for="(skill,key) in getAllSkills"
+                                :key="key" :value="skill"
+                                :label="skill.name"
+                            >
+                                {{skill.name}}
+                            </vs-option>
+
+                        </vs-select>
+
+
+                    </vs-col>
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
+                    </vs-col>
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                        <file-pond
+                            name="test"
+                            ref="pond"
+                            class-name="my-pond"
+                            label-idle="Add Avatar..."
+                            v-bind:allow-multiple="true"
+                            allowDrop="true"
+                            allowPaste="true"
+                            allowReplace="true"
+                            allowRevert="true"
+                            allowRemove="true"
+                            maxFiles="1"
+                            accepted-file-types="image/jpeg, image/png, image/jpg"
+                            allowFileEncode="true"
+                            v-on:init="handleFilePondInit"
+                            v-on:addfile="fileAdd"
+                            v-on:removefile="fileRemove"
+                        />
+                    </vs-col>
+                </vs-row>
+
+                <br>
+                <vs-row>
+                    <vs-col offset="4" w="4">
+                        <vs-button
+                            relief
+                            block
+                            success
+                            ref="button1"
+                            @click="addUser()"
+                        >
+                            <i class='bx bx-plus' ></i>Add User
                         </vs-button>
-
-                    </div>
-                </div>
-
-            </form>
+                    </vs-col>
+                </vs-row>
+            </div>
         </div>
     </div>
 
 </template>
 
 <script>
+
+//todo:file upload (filePond)
+// Import Vue FilePond
+import vueFilePond from 'vue-filepond';
+// Import image preview and file type validation plugins
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
+
+// Create component
+const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview,FilePondPluginFileEncode);
+
 export default {
     name: "New",
     data: () => ({
-        dropOptions: {
-            url: "https://httpbin.org/post",
-            maxFilesize: 2, // MB
-            maxFiles: 4,
-            chunking: true,
-            chunkSize: 500, // Bytes
-            thumbnailWidth: 70, // px
-            thumbnailHeight: 70,
-            addRemoveLinks: true,
+        dataF:[],
+        dataS:[],
+        request:{
+            fname:"",
+            lname:"",
+            email:"",
+            password:"",
+            phone:"",
+            avatar:"",
+            fields:[],
+            skills:[]
         },
-        value1:"",
-        value2:"",
-        value3:"",
-        value4:"",
-        value5:"",
-        value6:[''],
-        hasVisiblePassword: false
+        authInfo:{
+            token:localStorage.getItem("token"),
+            provider:localStorage.getItem("provider")
+        },
+        emailValid:false,
+        passwordValid:0,
+        selectLoading:true,
     }),
+    beforeCreate() {
+        this.$store.dispatch("AllCategoriesWithFields");
+        this.$store.dispatch("AllSkills");
+    },
+    created() {
+        if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
+            window.location='/admin/invalidToken';
+        }
+    },
+    computed:{
+        getAllCategoriesWithFields(){
+            //todo:last step render value to component
+            const categoriesWithFields=this.$store.getters.getCategoriesWithFields;
+            this.dataF=categoriesWithFields;
+            if(this.dataF.length>0){
+                this.selectLoading=false;
+            }
+            return categoriesWithFields;
+        },
+        getAllSkills(){
+            //todo:last step render value to component
+            const allSkills=this.$store.getters.getSkills;
+            this.dataS=allSkills;
+            return allSkills;
+        },
+        validEmail() {
+            this.emailValid=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.request.email)
+            return this.emailValid;
+        },
+        getProgress() {
+            let progress = 0
+
+            // at least one number
+
+            if (/\d/.test(this.request.password)) {
+                progress += 20
+            }
+
+            // at least one capital letter
+
+            if (/(.*[A-Z].*)/.test(this.request.password)) {
+                progress += 20
+            }
+
+            // at menons a lowercase
+
+            if (/(.*[a-z].*)/.test(this.request.password)) {
+                progress += 20
+            }
+
+            // more than 5 digits
+
+            if (this.request.password.length >= 6) {
+                progress += 20
+            }
+
+            // at least one special character
+
+            if (/[^A-Za-z0-9]/.test(this.request.password)) {
+                progress += 20
+            }
+
+            this.passwordValid=progress;
+            return progress
+        },
+    },
     methods: {
         removeAllFiles() {
             this.$refs.dropzone.removeAllFiles();
-        }
+        },
+        handleFilePondInit: function() {
+            console.log('FilePond has initialized');
+
+            // FilePond instance methods are available on `this.$refs.pond`
+            // alert(this.$refs.pond.getFile());
+        },
+
+        fileAdd:function (error,file){
+            if (error) {
+                console.log('Oh no');
+                return;
+            }
+
+            if(file.fileSize <5000000){
+                this.request.avatar=file.getFileEncodeDataURL();
+            }
+            else{
+                this.openNotification('top-left', 'danger',
+                    `<i class='bx bxs-bug' ></i>`,
+                    'Avatar size is large',
+                    'Upload image with minimal of 6 MB...');
+            }
+        },
+        fileRemove:function () {
+            this.request.avatar=''
+        },
+        addUser(){
+            if(this.request.avatar!==''
+                && this.request.name!=='' && this.request.email!==''
+                && this.request.password!=='' && this.request.phone
+                &&  this.request.skills!=="" && this.request.fields!==""){
+                this.uploadRequest();
+            }
+            else {
+                this.openNotification('top-left', 'danger',
+                    `<i class='bx bxs-bug' ></i>`,
+                    'Enter Valid Inputs',
+                    'Create Again User Admin Account');
+            }
+        },
+        uploadRequest(){
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                const loading = this.$vs.loading({
+                    target: this.$refs.button1,
+                    scale: '0.6',
+                    background: 'success',
+                    opacity: 1,
+                    color: '#fff'
+                })
+
+                axios.post('/user-members/users?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider,this.request)
+                    .then((response)=>{
+                        this.openNotification('top-right',
+                            'success',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Add New Role Successfully",
+                            "New role will be able to handle new permission and assign users...");
+                        loading.close();
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }
+            else{
+                window.location='/admin/invalidToken';
+            }
+        },
+        openNotification(position = null, border,icon,title,text) {
+            const noti = this.$vs.notification({
+                border,
+                icon,
+                position,
+                title: title,
+                text: text
+            })
+        },
     },
     mounted() {
         //todo:run any js can mounted
     },
-    computed:{
-        validEmail() {
-            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.value3)
-        }
-    }
 }
 
 </script>
