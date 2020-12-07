@@ -35,7 +35,7 @@ class UserController extends Controller
     {
         //
         try {
-            $all_users_with_all_their_roles = User::with('roles')->get();
+            $all_users_with_all_their_roles = User::with('roles','fieldsFollowing','OwnSkills')->get();
             foreach ($all_users_with_all_their_roles as $user) {
                 try {
                     $user->avatar=imageToStreamBase64($user->avatar);
@@ -120,7 +120,6 @@ class UserController extends Controller
             {
                 foreach ($request->skills as $skill){
                     $user->skills=$user->skills.$skill["name"].',';
-
                 }
 
                 foreach ($request->fields as $field){
@@ -131,12 +130,18 @@ class UserController extends Controller
             $user->avatar="/Users/avatar/".$name;
             $user->save();
 
-            $temp=User::findOrFail($user->id);
+            if(empty($request->get('role'))){
+                $user->assignRole("user");
+            }
+            else{
+                $user->assignRole($request->get('role'));
+            }
+
             foreach ($request->skills as $skill){
                 $user->OwnSkills()->attach($skill["id"]);
             }
 
-            foreach ($request->skills as $field){
+            foreach ($request->fields as $field){
                 $user->fieldsFollowing()->attach($field["id"]);
             }
 
@@ -178,6 +183,87 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        try {
+
+            try {
+                $data = $this->validate($request, [
+                    'fname' => 'required|string|max:255',
+                    'lname' => 'required|string|max:255',
+                    'email' => 'required|email|unique:admins|max:255',
+                    'password' => 'required|string|min:6',
+                    'avatar'=>'required',
+                    'phone'=>'required',
+                    'fields'=>'required',
+                    'skills'=>'required'
+                ], [], [
+                    'name' => trans('admin.register.name'),
+                    'email' => trans('admin.register.email'),
+                    'password' => trans('admin.register.password'),
+                    'avatar'=>'',
+                    'phone'=>'',
+                    'fields'=>'',
+                    'skills'=>''
+                ]);
+
+            } catch (ValidationException $e) {
+                return response(['error'=>"Credentials invalid"],400);
+            }
+
+            //todo:Avatar
+            if($request->avatar!==""){
+                //todo:Avatar
+                $strpos=strpos($request->avatar,';');
+                $sub=substr($request->avatar,0,$strpos);
+                $ex=explode('/',$sub)[1];
+                $name=time().'.'.$ex;
+                $img=Image::make($request->avatar)->resize(350,350);
+                $upload_path="/Users/avatar/";
+                //todo:after make link (php artisan storage:link) save as following
+                Storage::disk("public")->put($upload_path.$name, (string) $img->encode(), 'public');
+            }
+
+            //todo:create new object
+
+            $user=User::findOrFail($id);
+            Storage::disk("public")->delete($user->avatar);
+            $user->fname=ucwords(strtolower($request->fname));
+            $user->lname=ucwords(strtolower($request->lname));
+            $user->email=$request->email;
+            $user->phone=$request->phone;
+            $user->skills="";
+            $user->fields_follow="";
+            if(is_array($request->skills) && is_array($request->fields))
+            {
+                foreach ($request->skills as $skill){
+                    $user->skills=$user->skills.$skill["name"].',';
+                }
+
+                foreach ($request->fields as $field){
+                    $user->fields_follow=$user->fields_follow.$field["name"].',';
+                }
+            }
+            $user->password=bcrypt($request->get('password'));
+            $user->avatar="/Users/avatar/".$name;
+            $user->save();
+
+            foreach ($request->get('role') as $role){
+                $user->assignRole($role);
+            }
+
+            $user->OwnSkills()->detach();
+            foreach ($request->skills as $skill){
+                $user->OwnSkills()->attach($skill["id"]);
+            }
+
+            $user->fieldsFollowing()->detach();
+            foreach ($request->fields as $field){
+                $user->fieldsFollowing()->attach($field["id"]);
+            }
+
+            return response()->json($user, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**
@@ -189,5 +275,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        try {
+            User::findOrFail($id)->delete();
+
+            return response()->json("Deleted Successfully", 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 }

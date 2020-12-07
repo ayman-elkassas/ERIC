@@ -65,6 +65,10 @@ Route::group(['prefix' => 'user-members','namespace' => 'Admin\UserMembers'], fu
         //todo:Normal controllers routes
         Route::get('/category', 'NormalUserController@getCategoriesWithFields');
         Route::get('/skill', 'NormalUserController@getSkills');
+        Route::get('/getSkillUser/{id}', 'NormalUserController@getSkillUser');
+        Route::get('/getFieldUser/{id}', 'NormalUserController@getFieldUser');
+        Route::get('/remove-all-users', 'NormalUserController@RemoveAllUsers');
+
     });
 });
 
@@ -82,6 +86,7 @@ Route::group(['prefix' => 'admin-mrole','namespace' => 'Admin\RoleManagement'], 
     });
 });
 
+//TODO:Assign Permissions To Roles
 Route::group(['prefix' => 'admin-mpermission','namespace' => 'Admin\PermissionManagement'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/manage-permission', 'PermissionManagement');

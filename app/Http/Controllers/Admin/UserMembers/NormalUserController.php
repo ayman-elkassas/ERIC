@@ -8,12 +8,13 @@ use App\Models\Category;
 use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
 class NormalUserController extends Controller
 {
     //
-
     public function __construct()
     {
         //TODO:To Auth token who access this routes
@@ -44,4 +45,41 @@ class NormalUserController extends Controller
             return response()->json("Error", 404);
         }
     }
+    //todo:change
+    public final function getSkillUser($id):object{
+        try {
+            $user=User::findOrFail($id);
+            $skills=$user->OwnSkills()->get();
+
+            return response()->json($skills, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
+    }
+
+    public final function getFieldUser($id):object{
+        try {
+            $user=User::findOrFail($id);
+            $fields=$user->fieldsFollowing()->get();
+
+            return response()->json($fields, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
+    }
+
+    public function RemoveAllUsers () {
+        DB::statement("SET foreign_key_checks=0");
+        User::truncate();
+        DB::statement("SET foreign_key_checks=1");
+
+        if(User::all()->isEmpty()){
+            return response()->json("Done Deleted All Rolls", 200);
+        }
+        else{
+            return response()->json("error", 400);
+        }
+    }
+
+
 }

@@ -41,10 +41,12 @@
                             icon
                             success
                             relief
-                            to="/user-new"
+                            @click="createNewUser()"
                         >
                             <i class='bx bx-plus' ></i> Create User
                         </vs-button>
+<!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
+
                     </vs-col>
                     <vs-col style="width:16%" w="2">
                         <vs-tooltip top>
@@ -183,17 +185,18 @@
                             <vs-td>
                                 <vs-button
                                     flat icon
-                                    @click="editRoleD(tr.id,i)"
+                                    ref="skill"
+                                    @click="showSkills(tr.id,i+(page-1)*15)"
                                     primary
                                 >
-                                    <i class='bx bx-mask' ></i>
+                                    <i class='bx bxl-spotify' ></i>
                                 </vs-button>
                             </vs-td>
 
                             <vs-td>
                                 <vs-button
                                     flat icon
-                                    @click="editRoleD(tr.id,i)"
+                                    @click="showFields(tr.id,i+(page-1)*15)"
                                     success
                                 >
                                     <i class='bx bx-book' ></i>
@@ -207,7 +210,7 @@
                                             <vs-col :key="index" v-for="col,index in 12" vs-type="flex-end" w="1">
                                                 <vs-button
                                                     v-if="col===10" flat icon
-                                                    @click="editRoleD(tr.id,i)"
+                                                    @click="editCurrentUser(tr.id,i+(page-1)*15)"
                                                     primary
                                                 >
                                                     <i class='bx bx-edit' ></i>
@@ -215,7 +218,7 @@
                                                 <vs-button v-if="col===11"
                                                            flat icon
                                                            warn
-                                                           @click="viewRole(i)"
+                                                           @click="viewRole(i+(page-1)*15)"
                                                 >
                                                     <i class='bx bx-happy-heart-eyes' ></i>
                                                 </vs-button>
@@ -239,247 +242,6 @@
                 </vs-table>
 
             </div>
-
-            <!--            create dialogue-->
-            <vs-dialog blur overflow-hidden v-model="active">
-                <template #header>
-                    <h4 class="not-margin">
-                        Add New <b>User</b>
-                    </h4>
-                </template>
-
-                <div class="con-form">
-
-                    <div class="center content-inputs">
-                        <vs-row>
-                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-                                <div class="center content-inputs">
-                                    <vs-input type="text"
-                                              label="Admin name"
-                                              v-model="request.name" placeholder="User name">
-                                        <template #icon>
-                                            <i class='bx bx-user'></i>
-                                        </template>
-                                        <template v-if="request.name===''" #message-danger>
-                                            Required
-                                        </template>
-                                    </vs-input>
-                                </div>
-                            </vs-col>
-                        </vs-row>
-                        <br>
-                        <vs-row>
-                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-                                <vs-input
-                                    required autofocus
-                                    v-model="request.email"
-                                    label="Email address"
-                                    placeholder="eric@eric.com">
-                                    <template #icon>
-                                        <i class='bx bxl-mailchimp'></i>
-                                    </template>
-                                    <template v-if="validEmail" #message-success>
-                                        Email Valid
-                                    </template>
-                                    <template v-if="!validEmail && request.email !== ''" #message-danger>
-                                        Email Invalid
-                                    </template>
-                                    <template v-if="request.email===''" #message-danger>
-                                        Required
-                                    </template>
-                                </vs-input>
-                            </vs-col>
-                        </vs-row>
-                        <br>
-                        <vs-row>
-                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-                                <vs-input
-                                    type="password"
-                                    v-model="request.password"
-                                    label="Password Account"
-                                    placeholder="password"
-                                    :progress="getProgress">
-                                    <template #icon>
-                                        <i class='bx bx-lock-open'></i>
-                                    </template>
-
-                                    <template v-if="getProgress >= 100" #message-success>
-                                        Secure password
-                                    </template>
-
-                                    <template v-if="getProgress < 40" #message-danger>
-                                        A special character-More than 6 digits-One lower case letter-An uppercase letter-A number
-                                    </template>
-
-                                </vs-input>
-                            </vs-col>
-                        </vs-row>
-                        <br>
-                        <vs-row style="margin-bottom: 20px">
-                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-
-                                <file-pond
-                                    name="test"
-                                    ref="pond"
-                                    class-name="my-pond"
-                                    label-idle="Add Avatar..."
-                                    v-bind:allow-multiple="true"
-                                    allowDrop="true"
-                                    allowPaste="true"
-                                    allowReplace="true"
-                                    allowRevert="true"
-                                    allowRemove="true"
-                                    maxFiles="1"
-                                    accepted-file-types="image/jpeg, image/png, image/jpg"
-                                    allowFileEncode="true"
-                                    v-on:init="handleFilePondInit"
-                                    v-on:addfile="fileAdd"
-                                    v-on:removefile="fileRemove"
-                                />
-                            </vs-col>
-                        </vs-row>
-                    </div>
-                </div>
-
-                <template #footer>
-                    <div class="footer-dialog">
-                        <vs-button
-                            success
-                            ref="button1"
-                            :active-disabled="activeOr"
-                            @click="addAdmin()"
-                            block>
-                            Add Admin
-                        </vs-button>
-                        <br>
-                    </div>
-                </template>
-            </vs-dialog>
-
-            <!--            edit dialogue-->
-<!--            <vs-dialog blur overflow-hidden v-model="activeEdit">-->
-<!--                <template #header>-->
-<!--                    <h4 class="not-margin">-->
-<!--                        Edit <b>Account</b>-->
-<!--                    </h4>-->
-<!--                </template>-->
-
-<!--                <div class="con-form">-->
-
-<!--                    <div class="center content-inputs">-->
-<!--                        <vs-row justify="center">-->
-<!--                            <vs-col w="2">-->
-<!--                                <div class="center content-inputs">-->
-<!--                                    <div class="center con-avatars">-->
-<!--                                        <vs-avatar size="70" history success>-->
-<!--                                            <img :src="avatarEdit" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </vs-col>-->
-<!--                        </vs-row>-->
-<!--                        <br>-->
-<!--                        <vs-row>-->
-<!--                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">-->
-<!--                                <div class="center content-inputs">-->
-<!--                                    <vs-input type="text" v-model="FullEditName" placeholder="Role name">-->
-<!--                                        <template #icon>-->
-<!--                                            <i class='bx bx-book'></i>-->
-<!--                                        </template>-->
-<!--                                        <template v-if="FullEditName===''" #message-danger>-->
-<!--                                            Required-->
-<!--                                        </template>-->
-<!--                                    </vs-input>-->
-<!--                                </div>-->
-<!--                            </vs-col>-->
-<!--                        </vs-row>-->
-<!--                        <br>-->
-<!--                        <br>-->
-<!--                        <vs-row>-->
-<!--                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">-->
-<!--                                <vs-input-->
-<!--                                    required autofocus-->
-<!--                                    v-model="emailEditName"-->
-<!--                                    label="Email address"-->
-<!--                                    placeholder="eric@eric.com">-->
-<!--                                    <template #icon>-->
-<!--                                        <i class='bx bxl-mailchimp'></i>-->
-<!--                                    </template>-->
-<!--                                    <template v-if="validEmail" #message-success>-->
-<!--                                        Email Valid-->
-<!--                                    </template>-->
-<!--                                    <template v-if="!validEmail && emailEditName !== ''" #message-danger>-->
-<!--                                        Email Invalid-->
-<!--                                    </template>-->
-<!--                                    <template v-if="emailEditName===''" #message-danger>-->
-<!--                                        Required-->
-<!--                                    </template>-->
-<!--                                </vs-input>-->
-<!--                            </vs-col>-->
-<!--                        </vs-row>-->
-<!--                        <br>-->
-<!--                        <br>-->
-<!--                        <vs-row>-->
-<!--                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">-->
-<!--                                <vs-select-->
-<!--                                    label="Role Name"-->
-<!--                                    filter-->
-<!--                                    multiple-->
-<!--                                    v-model="roleEditName"-->
-<!--                                    placeholder="Role Name"-->
-<!--                                >-->
-<!--                                    <vs-option-group v-if="this.data.length>0">-->
-<!--                                        <div slot="title">-->
-<!--                                            Assign Roles-->
-<!--                                        </div>-->
-<!--                                        <vs-option v-for="role in getRoles[this.data[this.index].roles[0].guard_name]" :label="role" key="0" :value="role">-->
-<!--                                            {{role}}-->
-<!--                                        </vs-option>-->
-<!--                                    </vs-option-group>-->
-<!--                                </vs-select>-->
-<!--                            </vs-col>-->
-<!--                        </vs-row>-->
-<!--                        <br>-->
-<!--                        <vs-row style="margin-bottom: 20px">-->
-<!--                            <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">-->
-
-<!--                                <file-pond-->
-<!--                                    name="test"-->
-<!--                                    ref="pond"-->
-<!--                                    class-name="my-pond"-->
-<!--                                    label-idle="Add Avatar..."-->
-<!--                                    v-bind:allow-multiple="true"-->
-<!--                                    allowDrop="true"-->
-<!--                                    allowPaste="true"-->
-<!--                                    allowReplace="true"-->
-<!--                                    allowRevert="true"-->
-<!--                                    allowRemove="true"-->
-<!--                                    maxFiles="1"-->
-<!--                                    accepted-file-types="image/jpeg, image/png, image/jpg"-->
-<!--                                    allowFileEncode="true"-->
-<!--                                    v-on:init="handleFilePondInit"-->
-<!--                                    v-on:addfile="fileAdd"-->
-<!--                                    v-on:removefile="fileRemove"-->
-<!--                                />-->
-<!--                            </vs-col>-->
-<!--                        </vs-row>-->
-
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <template #footer>-->
-<!--                    <div class="footer-dialog">-->
-<!--                        <vs-button-->
-<!--                            ref="button2"-->
-<!--                            @click="editRole()"-->
-<!--                            success-->
-<!--                            block>-->
-<!--                            Edit Account-->
-<!--                        </vs-button>-->
-<!--                        <br>-->
-<!--                    </div>-->
-<!--                </template>-->
-<!--            </vs-dialog>-->
 
             <!--            view dialogue-->
             <vs-dialog blur v-model="activeView">
@@ -510,6 +272,45 @@
                             <p>{{data[index].updated_at}}</p>
                             <p>If you're using multiple guards we've got you covered as well.
                                 Every guard will have its own set of permissions and roles</p>
+                        </template>
+                    </vs-card>
+
+                </div>
+
+            </vs-dialog>
+
+
+            <!--            view skills dialogue-->
+            <vs-dialog blur v-model="activeSkills">
+                <div class="con-form">
+
+                    <vs-card>
+                        <template #title>
+                            <h3><b>{{data[index].fname}} {{data[index].lname}}</b> Skills</h3>
+                        </template>
+                        <template #text>
+                            <div class="center grid">
+                                <tree style="height: 500px" raduis="15px" :data="treeSkills" type="cluster" node-text="name" layoutType="horizontal"></tree>
+                            </div>
+                        </template>
+                    </vs-card>
+
+                </div>
+
+            </vs-dialog>
+
+            <!--            view skills dialogue-->
+            <vs-dialog blur v-model="activeFields">
+                <div class="con-form">
+
+                    <vs-card>
+                        <template #title>
+                            <h3><b>{{data[index].fname}} {{data[index].lname}}</b> Fields Follow</h3>
+                        </template>
+                        <template #text>
+                            <div class="center grid">
+                                <tree style="height: 500px" raduis="15px" :data="treeFields" type="cluster" node-text="name" layoutType="horizontal"></tree>
+                            </div>
                         </template>
                     </vs-card>
 
@@ -586,6 +387,9 @@ import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
 
+import {tree} from 'vued3tree'
+
+
 // Create component
 const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview,FilePondPluginFileEncode);
 
@@ -604,15 +408,11 @@ export default {
             editProp: {},
             data: [],
             loading:null,
-            role_name:"",
             guard_name:"",
-            FullEditName:"",
-            emailEditName:"",
-            roleEditName:"",
-            avatarEdit:'',
             oldRoles:[],
             activeView:false,
-            activeEdit:false,
+            activeSkills:false,
+            activeFields:false,
             request:{
                 name:"",
                 email:"",
@@ -638,6 +438,16 @@ export default {
             passwordValid:0,
             activeOr:true,
             imgUpload:false,
+            ownSkills:[],
+            followFields:[],
+            treeSkills: {
+                name: "Skills",
+                children:[]
+            },
+            treeFields: {
+                name: "Fields Follow",
+                children:[]
+            }
 
         }
     },
@@ -650,6 +460,9 @@ export default {
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
             window.location='/admin/invalidToken';
         }
+    },
+    mounted() {
+        console.log(this.$vs.getPage())
     },
     computed:{
         getAllUsers(){
@@ -720,6 +533,15 @@ export default {
         },
     },
     methods: {
+        createNewUser(){
+            //todo:if you want to send params to component in router-link should call as <name> no <path>
+            this.$router.push({name: 'user-new', params: { status: 1 } });
+        },
+        editCurrentUser(id,index){
+            debugger
+            //todo:if you want to send params to component in router-link should call as <name> no <path>
+            this.$router.push({name: 'user-new', params: { status: 2,id:id,data:this.data[index] } });
+        },
         openAddUser(){
             this.active=true;
             this.request.avatar=''
@@ -801,106 +623,6 @@ export default {
             this.index=i;
             this.activeView=true;
         },
-        editRoleD(id,i){
-            this.activeEdit=true;
-            this.request.avatar=''
-
-            this.oldRoles=[];
-            this.id=id;
-            this.index=i;
-            this.FullEditName=this.data[this.index].name
-            this.emailEditName=this.data[this.index].email
-            this.avatarEdit=this.data[this.index].avatar
-
-            let count=0;
-            if(this.data[this.index].roles.length>0){
-                this.data[this.index].roles.forEach(item=>{
-                    this.oldRoles.push(item.name);
-                    count++;
-                })
-                if(this.data[this.index].roles.length===count){
-                    this.roleEditName=this.oldRoles;
-                }
-            }
-            else{
-                this.roleEditName="";
-            }
-        },
-        editRole(){
-            if((this.FullEditName !=="" && this.emailEditName!=="" && this.avatarEdit!=="")
-                && (this.FullEditName!==this.data[this.index].name ||
-                    this.emailEditName!==this.data[this.index].email ||
-                    this.request.avatar!=="" ||
-                    JSON.stringify(this.roleEditName)!==JSON.stringify(this.oldRoles)))
-            {
-                this.request.name=this.FullEditName
-                this.request.email=this.emailEditName
-                if(this.request.avatar===""){
-                    this.request.avatar=this.avatarEdit
-                }
-
-                if(this.roleEditName.length>0){
-                    this.request.roles=JSON.stringify(this.roleEditName)
-                }
-                else{
-                    this.request.roles=""
-                }
-                //todo:call mutation and pass object data
-                //todo:should make axios request to get user object
-                //todo:make an api in back to return full user object
-                if(localStorage.hasOwnProperty('token')
-                    && localStorage.hasOwnProperty('provider')){
-
-                    const loading = this.$vs.loading({
-                        target: this.$refs.button2,
-                        scale: '0.6',
-                        background: 'success',
-                        opacity: 1,
-                        color: '#fff'
-                    })
-
-                    axios.put('/admin-members/admins/'+(this.id)+'?token='+this.authInfo.token+
-                        '&provider='+this.authInfo.provider,this.request)
-                        .then((response)=>{
-                            this.openNotification('top-right',
-                                'success',
-                                `<i class='bx bx-select-multiple' ></i>`,
-                                "Edit Role Successfully",
-                                "Edit role will be able to handle new permission and assign users...");
-                            this.activeEdit=false;
-                            loading.close();
-                            this.refresh();
-                        })
-                        .catch((error)=>{
-                            window.location='/admin/invalidToken';
-                        });
-                }
-                else{
-                    window.location='/admin/invalidToken';
-                }
-            }
-            else{
-                if((this.roleEditName==="" && this.guardEditName==="") ||
-                    this.roleEditName===this.data[this.index].name ||
-                    this.guardEditName===this.data[this.index].guard_name){
-
-                    this.openNotification('top-right',
-                        'danger',
-                        `<i class='bx bx-select-multiple' ></i>`,
-                        "There is no update",
-                        "Edit role will be able to handle new permission and assign users...");
-                    this.activeEdit=false;
-                    return;
-                }
-                else if(this.request.role_name===""){
-                    this.request.role_name=this.data[this.index].name;
-                }
-                else if(this.guardEditName===""){
-                    this.request.guard_name=this.data[this.index].guard_name;
-                }
-                this.editRole();
-            }
-        },
         deleteRole(i){
             this.id=i
             this.active_ensure=true
@@ -917,7 +639,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.get('/admin-members/remove-all-admins?token='+this.authInfo.token+
+                axios.get('/user-members/remove-all-users?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         if(response.data!=="error"){
@@ -967,13 +689,13 @@ export default {
                 color: '#fff'
             })
 
-            axios.delete('/admin-members/admins/'+(this.id)+'?token='+this.authInfo.token+
+            axios.delete('/user-members/users/'+(this.id)+'?token='+this.authInfo.token+
                 '&provider='+this.authInfo.provider)
                 .then((response)=>{
                     if(response.data!=="error"){
                         loading.close();
                         this.openNotification('top-right',
-                            'danger',
+                            'success',
                             `<i class='bx bx-select-multiple' ></i>`,
                             "Role Is Deleted Successfully",
                             "Can add new role will be able to handle new permission and assign users...");
@@ -1017,10 +739,108 @@ export default {
 
             this.firstLoad=false;
         },
+        showSkills(id,index){
+            this.id=id;
+            this.index=index;
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                //todo:to set inside response of axios should define global <this> object
+                let self=this;
+
+                axios.get('/user-members/getSkillUser/'+(this.id)+'?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider)
+                    .then(function (response){
+                        self.ownSkills=response.data
+                        self.activeSkills=true;
+
+                        // tree: {
+                        //     name: "father",
+                        //         children:[{
+                        //         name: "son1",
+                        //         children:[ {name: "grandson"}, {name: "grandson2"}]
+                        //     },{
+                        //         name: "son2",
+                        //         children:[ {name: "grandson3"}, {name: "grandson4"}]
+                        //     }]
+                        // }
+
+                        let childrenSkills=[]
+                        self.ownSkills.forEach(async function (skill){
+                            let obj={};
+                            obj.name=skill.name;
+                            childrenSkills.push(obj)
+                        })
+                        self.treeSkills.children=childrenSkills;
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }
+            else{
+                window.location='/admin/invalidToken';
+            }
+        },
+        showFields(id,index){
+            this.id=id;
+            this.index=index;
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                //todo:to set inside response of axios should define global <this> object
+                let self=this;
+
+                axios.get('/user-members/getFieldUser/'+(this.id)+'?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider)
+                    .then(function (response){
+                        self.followFields=response.data
+                        self.activeFields=true;
+
+                        // tree: {
+                        //     name: "father",
+                        //         children:[{
+                        //         name: "son1",
+                        //         children:[ {name: "grandson"}, {name: "grandson2"}]
+                        //     },{
+                        //         name: "son2",
+                        //         children:[ {name: "grandson3"}, {name: "grandson4"}]
+                        //     }]
+                        // }
+
+                        let childrenFields=[]
+                        self.followFields.forEach(async function (field){
+                            let obj={};
+                            obj.name=field.name;
+                            childrenFields.push(obj)
+                        })
+                        self.treeFields.children=childrenFields;
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }
+            else{
+                window.location='/admin/invalidToken';
+            }
+        }
 
     },
+    watch:{
+        page(newVal,oldVal){
+            // alert(newVal)
+            // debugger
+            // this.index=this.index+(this.page-1)*15;
+        }
+    },
     components:{
-        FilePond
+        FilePond,
+        tree
     },
 }
 </script>

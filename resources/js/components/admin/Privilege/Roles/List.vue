@@ -8,7 +8,7 @@
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
-                            Create Roles
+                            Create Role
                         </template>
                         Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
                     </vs-alert>
@@ -169,7 +169,7 @@
                                             <vs-col :key="index" v-for="col,index in 12" vs-type="flex-end" w="1">
                                                 <vs-button
                                                     v-if="col===10" flat icon
-                                                    @click="editRoleD(tr.id,i)"
+                                                    @click="editRoleD(tr.id,i+(page-1)*15)"
                                                     primary
                                                 >
                                                     <i class='bx bx-edit' ></i>
@@ -177,7 +177,7 @@
                                                 <vs-button v-if="col===11"
                                                            flat icon
                                                            warn
-                                                           @click="viewRole(i)"
+                                                           @click="viewRole(i+(page-1)*15)"
                                                 >
                                                     <i class='bx bx-happy-heart-eyes' ></i>
                                                 </vs-button>
@@ -415,7 +415,7 @@ export default {
             search: '',
             allCheck: false,
             page: 1,
-            max: 10,
+            max: 15,
             selected: [],
             active: false,
             edit: null,

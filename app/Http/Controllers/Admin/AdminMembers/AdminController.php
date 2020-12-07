@@ -102,6 +102,7 @@ class AdminController extends Controller
             if($request->name!==""){
                 $user->name=$request->name;
                 $user->email=$request->email;
+                Storage::disk("public")->delete($user->avatar);
 
                 $roles=(array)json_decode($request->roles,true);
                 $user->syncRoles($roles);

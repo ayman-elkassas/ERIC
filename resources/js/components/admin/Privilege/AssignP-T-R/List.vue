@@ -8,7 +8,7 @@
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
-                            Assign Permissions To Roles
+                            Assign Permission To Role
                         </template>
                         Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
                     </vs-alert>
@@ -185,7 +185,7 @@
                                             <vs-col :key="index" v-for="col,index in 12" vs-type="flex-end" w="1">
                                                 <vs-button
                                                     v-if="col===12" flat icon
-                                                    @click="editRoleD(tr.id,i)"
+                                                    @click="editRoleD(tr.id,i+(page-1)*15)"
                                                     primary
                                                 >
                                                     <i class='bx bx-edit' ></i>

@@ -56,6 +56,7 @@
         "vue2-datatable-component": "^2.3.1",
         "vue2-dropzone": "^3.6.0",
         "vuesax": "^4.0.1-alpha.24",
-        "vuex": "^3.5.1"
+        "vuex": "^3.5.1",
+        "vued3tree": "^5.1.0"
     }
 }

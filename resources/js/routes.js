@@ -5,9 +5,6 @@ import AdminHome from './components/admin/HomePage/AdminHome.vue'
 import MRoleList from './components/admin/Privilege/Roles/List.vue'
 import MPermissionList from './components/admin/Privilege/Permissions/List.vue'
 import MAssignP_T_R from './components/admin/Privilege/AssignP-T-R/List.vue'
-//todo:Roles
-import RoleList from './components/admin/Role/Roles/List.vue'
-import PermissionList from './components/admin/Role/Permissions/List.vue'
 //todo:Admin
 import AdminList from './components/admin/User/AdminUser/List.vue'
 //todo:User
@@ -39,9 +36,6 @@ export const routes=[
     {path:'/',name:'Home',component:AdminHome},
     //todo:Home
     {path:'/home/',name:'Home',component:AdminHome},
-    //todo:Roles
-    {path:'/admin-role/',name:'Admin List',component:RoleList},
-    {path:'/admin-permission/',name:'Admin Add',component:PermissionList},
     //todo:Manage Roles
     {path:'/admin-mrole/',name:'Admin List',component:MRoleList},
     {path:'/admin-mpermission/',name:'Admin Add',component:MPermissionList},
@@ -50,7 +44,7 @@ export const routes=[
     {path:'/admin-list/',name:'Admin List',component:AdminList},
     //todo:User
     {path:'/user-list/',name:'User List',component:PublicUserList},
-    {path:'/user-new/',name:'User New',component:PublicUserNew},
+    {path:'/user-new/',name:'user-new',component:PublicUserNew},
     //todo:Post
     {path:'/post-list/',name:'Post List',component: PostList},
     {path:'/post-add/',name:'Post Add',component: PostNew},

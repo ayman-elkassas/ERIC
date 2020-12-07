@@ -28,55 +28,22 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="restore base project">
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_12_4_20__12_21_PM.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2020-12-04T025940.200.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2020-12-04T030004.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/SkillUser.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_04_141605_create_field_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0574f1a7565af62d62a8295cb87d86c8.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0acad03bff0b81525a995850f7e852bc.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1a7abd175459e3697df502062ac2ad9b.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1d2b2a1ece1f35d614ae548c2ee594e2.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1d69e6b61bab891e85a9939c7875e1ca.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/22ed9597971fab2ca5f3b2104aff167a.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2bcd2a085500e31d693d3184f174ad96.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2ddce5fc141c0cb9b47cba3fa00368c8.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/302c954296759a5ec10a56a163c4e94b.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/35cd789035fd31c1936d131ea189e7df.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5068cc039cde11cab7738172f736c9b4.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/56da1f30524255f40d6fd224b957e31c.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5abdbb4301699816bfcd2e444b7b0f89.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/75376b6f87094a8e6b350a4afa2ddb2a.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/878321319453cde1f289ff8278dced04.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8f824cd6fbeaf80fa63bb6cd5576ccbc.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c8ce82e20c7b5d29aff1309c5a323cb5.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/d2444518f4b16ae8e4a0e7faf12359f3.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/dda9d8e7b78cb22013380bbc86ea8504.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/e08a709da78c88af29c3be59934a45c1.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/f2edba7697c334dc08cbad6d725f62a7.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/fa227d4e47f8f7373d98eb6c19384263.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/fd8d455a409c3f7f5cca56fa5a121142.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/ff294241f1adda694c7dbab1a10889fd.json.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ERIC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ERIC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b74ebdd2-8d0b-4566-9bf7-e0b0d37055ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/NormalUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/NormalUserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Prefer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FieldUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_21_172704_own_skills.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_04_140219_create_skill_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/HomePage/AdminHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/HomePage/AdminHome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/AssignP-T-R/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/AssignP-T-R/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Permissions/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Roles/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/Privilege/Roles/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/AdminUser/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/List.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/User/PublicUser/New.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/Admin/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Admin/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +79,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/resources/js/bootstrap.js" root0="SKIP_INSPECTION" />
-    <setting file="dummy://restClient/response7.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -872,22 +838,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1607086362641" />
-    <state width="1322" height="255" key="GridCell.Tab.0.bottom" timestamp="1607095579818">
+    <state width="1322" height="255" key="GridCell.Tab.0.bottom" timestamp="1607367233131">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607095579818" />
-    <state width="1322" height="255" key="GridCell.Tab.0.center" timestamp="1607095579818">
+    <state width="1322" height="255" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607367233131" />
+    <state width="1322" height="255" key="GridCell.Tab.0.center" timestamp="1607367233131">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607095579818" />
-    <state width="1322" height="255" key="GridCell.Tab.0.left" timestamp="1607095579818">
+    <state width="1322" height="255" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607367233131" />
+    <state width="1322" height="255" key="GridCell.Tab.0.left" timestamp="1607367233131">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607095579818" />
-    <state width="1322" height="255" key="GridCell.Tab.0.right" timestamp="1607095579818">
+    <state width="1322" height="255" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607367233131" />
+    <state width="1322" height="255" key="GridCell.Tab.0.right" timestamp="1607367233131">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="255" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607095579818" />
+    <state width="1322" height="255" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607367233131" />
     <state width="1322" height="275" key="GridCell.Tab.1.bottom" timestamp="1607092989156">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -998,7 +964,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserMembers/UserController.php</url>
-          <line>131</line>
+          <line>130</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
