@@ -29,6 +29,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0468ad-2d2b-4030-bbd6-3910e33f002f" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TopicManagment/NormalTopicController.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TopicManagment/TopicController.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/storage/Admins/avatar/1607450878.jpeg" afterDir="false" />
@@ -70,6 +71,12 @@
       <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Home/Dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/Admin/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Admin/routes/admin.php" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/restore_base_project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/restore_base_project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> origin/master
       <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/public/.gitignore" afterDir="false" />
     </list>
@@ -114,10 +121,14 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
+<<<<<<< HEAD
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpDebugGeneral" xdebug_debug_port="9003" zd_debug_port="9005" />
+=======
+  <component name="PhpDebugGeneral" xdebug_debug_port="9003" listening_started="true" zd_debug_port="9005" />
+>>>>>>> origin/master
   <component name="PhpServers">
     <servers>
       <server host="127.0.0.1" id="4ae109f5-3f74-4ccf-bdc1-01ca05b604e1" name="eric" port="8000" />
@@ -289,6 +300,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -755,7 +767,12 @@
       <workItem from="1607061976418" duration="14475000" />
       <workItem from="1607077267407" duration="5133000" />
       <workItem from="1607082814456" duration="12555000" />
+<<<<<<< HEAD
       <workItem from="1607446424294" duration="6763000" />
+=======
+      <workItem from="1607410925333" duration="124000" />
+      <workItem from="1607411649834" duration="182000" />
+>>>>>>> origin/master
     </task>
     <task id="LOCAL-00001" summary="restore base project">
       <created>1597401686445</created>
@@ -820,10 +837,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="263" y="35" key="#Servers/0.0.1366.738@0.0.1366.738" timestamp="1607089337294" />
+<<<<<<< HEAD
     <state x="137" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607450666273">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="137" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1607450666273" />
+=======
+    <state x="193" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607411831658">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="137" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1607089339883" />
+    <state x="193" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1607411831658" />
+>>>>>>> origin/master
     <state x="487" y="37" key="#com.intellij.ide.util.MemberChooser" timestamp="1605876501700">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -936,6 +961,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1322" height="275" key="GridCell.Tab.3.right/0.0.1366.738@0.0.1366.738" timestamp="1607089195682" />
+    <state width="196" height="539" key="HiddenNamespacesPopup" timestamp="1607411800098">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1050@0.0.1920.1050" timestamp="1607411800098" />
     <state x="469" y="75" key="NewPhpClassDialog" timestamp="1599326408950">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
