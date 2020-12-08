@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Intervention\Image\Facades\Image;
+use Spatie\Permission\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -57,6 +58,7 @@ class RegisterController extends Controller
         $user->avatar="/Admins/avatar/".$name;
         $user->save();
 
+        $role =Role::findOrCreate("admin","adminAuthGuard");
         $user->assignRole("admin");
 
         return response(['message'=>"User Created Successfully",'user'=>$user],200);

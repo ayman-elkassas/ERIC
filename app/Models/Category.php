@@ -21,4 +21,8 @@ class Category extends Model
     public final function fieldsUnder():object {
         return $this->hasMany(Field::class);
     }
+
+    public final function categoryUser():object {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

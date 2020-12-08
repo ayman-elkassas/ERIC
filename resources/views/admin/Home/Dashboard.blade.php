@@ -94,31 +94,23 @@
                                         </ul>
                                     </li>
 
-{{--                                todo:Posts--}}
-                                    <li id="post">
-                                        <router-link class="nav-link menu-title link-nav" to="/post-list">
-                                            <i data-feather="layout"></i>
-                                            <span>{{trans('admin.eric_sys.Post.Post')}} </span>
-                                        </router-link>
-                                    </li>
-
-{{--                                    todo:Fields--}}
-                                    <li id="field">
-                                        <router-link class="nav-link menu-title link-nav" to="/field-list">
+                                    {{--                                    todo:Scientific Topic--}}
+                                    <li class="dropdown">
+                                        <a class="nav-link menu-title" href="#">
                                             <i data-feather="zap"></i>
-                                            <span>{{trans('admin.eric_sys.field.field')}} </span>
-                                        </router-link>
+                                            <span>{{trans('admin.eric_sys.field.field')}}
+                                            </span>
+                                        </a>
+
+                                        <ul id="field" class="nav-submenu menu-content">
+                                            <li><router-link to="./topic-list">{{trans('admin.eric_sys.field.manage-topic')}}</router-link></li>
+                                            <li><router-link to="./topic-list">{{trans('admin.eric_sys.field.manage-field')}}</router-link></li>
+                                            <li><router-link to="./topic-list">{{trans('admin.eric_sys.field.manage-skill')}}</router-link></li>
+                                        </ul>
+
                                     </li>
 
-{{--                                   todo: main idea of project--}}
-                                    <li class="sidebar-title">
-                                        <div>
-                                            <h6 class="lan-8">{{trans('admin.dash_headers.second')}}</h6>
-                                            <p class="lan-9">Ready to use Apps</p>
-                                        </div>
-                                    </li>
-
-{{--                                    todo:Resources--}}
+                                    {{--                                    todo:Resources--}}
                                     <li class="dropdown">
                                         <a class="nav-link menu-title" href="#">
                                             <i data-feather="box"></i>
@@ -136,6 +128,26 @@
                                         </ul>
 
                                     </li>
+
+
+
+{{--                                   todo: main idea of project--}}
+                                    <li class="sidebar-title">
+                                        <div>
+                                            <h6 class="lan-8">{{trans('admin.dash_headers.second')}}</h6>
+                                            <p class="lan-9">Ready to use Apps</p>
+                                        </div>
+                                    </li>
+
+
+                                    {{--                                todo:Posts--}}
+                                    <li id="post">
+                                        <router-link class="nav-link menu-title link-nav" to="/post-list">
+                                            <i data-feather="layout"></i>
+                                            <span>{{trans('admin.eric_sys.Post.Post')}} </span>
+                                        </router-link>
+                                    </li>
+
 
 {{--                                    todo: Courses--}}
                                     <li id="course" class="dropdown">

@@ -39,10 +39,9 @@ class RoleAuthorization
         }
 
         //If user was authenticated successfully and user is in one of the acceptable roles, send to next request.
-//        Role::create(['name' => 'super_admin',
-//            "guard_name"=>"adminAuthGuard"]);
-//        $user->syncRoles(['super_admin']);
-//
+        $role =Role::findOrCreate("super_admin","adminAuthGuard");
+        $user->assignRole("super_admin");
+
         if ($user && ($user->hasRole('super_admin') || $user->hasRole('admin'))) {
             return $next($request);
         }

@@ -59,6 +59,12 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Posts::class);
     }
 
+    //todo:Many relation
+    //todo:Make Relationships as Eloquent (1-M) User,Post (each User has many posts)
+    public final function topics():object {
+        return $this->hasMany(Category::class);
+    }
+
     //todo:(M-M) relationship between user,fields in (prefer)
     //todo:name of relation table should be (first name of first table with out s _ next name without s)
     //todo:ex: between users and skills (user_skill)

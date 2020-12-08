@@ -10,7 +10,8 @@ export default {
         allRoles:[],
         allUsers:[],
         categoryWithFields:[],
-        skills:[]
+        skills:[],
+        topics:[],
     },
     getters:{
         getUser(state){
@@ -43,6 +44,9 @@ export default {
         },
         getSkills(state){
             return state.skills;
+        },
+        getTopics(state){
+            return state.topics;
         }
     },
     actions:{
@@ -283,7 +287,31 @@ export default {
             }else{
                 window.location='/admin/invalidToken';
             }
-        }
+        },
+        AllTopics(context){
+            let request={token:"",provider:""};
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                request.token=localStorage.getItem("token");
+                request.provider=localStorage.getItem("provider");
+
+                axios.get('/user-members/skill?token='+request.token+
+                    '&provider='+request.provider)
+                    .then((response)=>{
+                        context.commit('allSkills',response.data);
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }else{
+                window.location='/admin/invalidToken';
+            }
+        },
         // template(context){
         //     let request={token:"",provider:""};
         //
@@ -340,6 +368,9 @@ export default {
         },
         allSkills(state,data){
             return state.skills=data;
+        },
+        allTopics(state,data){
+            return state.topics=data;
         }
     },
     modules:{

@@ -39,6 +39,25 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin\Dashboard'], function ()
 
 });
 
+
+//TODO:Role And Permissions CRUD
+Route::group(['prefix' => 'admin-mrole','namespace' => 'Admin\RoleManagement'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        //TODO:CRUD Controller
+        Route::resource('/manage-role', 'RoleManagement');
+        Route::get('/remove-all-rolls','RevokeAllRolls@RemoveAllRolls');
+        Route::get('/all-roles-with-permission','RevokeAllRolls@getAllRolesWithPermissions');
+        Route::post('/update-role-permission','RevokeAllRolls@changeRolePermission');
+    });
+});
+
+//TODO:Assign Permissions To Roles
+Route::group(['prefix' => 'admin-mpermission','namespace' => 'Admin\PermissionManagement'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/manage-permission', 'PermissionManagement');
+    });
+});
+
 //TODO:CRUD CONTROLLER
 // GET	        /users-role	            index	photos.index
 // GET	        /users-role/create	    create	photos.create
@@ -68,28 +87,16 @@ Route::group(['prefix' => 'user-members','namespace' => 'Admin\UserMembers'], fu
         Route::get('/getSkillUser/{id}', 'NormalUserController@getSkillUser');
         Route::get('/getFieldUser/{id}', 'NormalUserController@getFieldUser');
         Route::get('/remove-all-users', 'NormalUserController@RemoveAllUsers');
-
     });
 });
 
-
-//TODO:Role And Permissions CRUD
-Route::group(['prefix' => 'admin-mrole','namespace' => 'Admin\RoleManagement'], function () {
+//TODO:Topics CRUD
+Route::group(['prefix' => 'admin-topics','namespace' => 'Admin\TopicManagment'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
-        //TODO:CRUD Controller
-        Route::resource('/manage-role', 'RoleManagement');
-
-        Route::get('/remove-all-rolls','RevokeAllRolls@RemoveAllRolls');
-        Route::get('/all-roles-with-permission','RevokeAllRolls@getAllRolesWithPermissions');
-        Route::post('/update-role-permission','RevokeAllRolls@changeRolePermission');
-
-    });
-});
-
-//TODO:Assign Permissions To Roles
-Route::group(['prefix' => 'admin-mpermission','namespace' => 'Admin\PermissionManagement'], function () {
-    Route::group(['middleware' => 'auth.role'], function () {
-        Route::resource('/manage-permission', 'PermissionManagement');
+        Route::resource('/topics', 'TopicController');
+        //todo:Normal controllers routes
+//        Route::get('/roles', 'NormalAdminController@getRoleNames');
+//        Route::get('/remove-all-admins', 'NormalAdminController@RemoveAllRolls');
     });
 });
 

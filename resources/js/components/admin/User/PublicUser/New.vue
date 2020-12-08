@@ -386,8 +386,7 @@ export default {
         addUser(){
             if(this.request.avatar!==''
                 && this.request.name!=='' && this.request.email!==''
-                && this.request.password!=='' && this.request.phone
-                &&  this.request.skills!=="" && this.request.fields!==""){
+                && this.request.password!=='' && this.request.phone){
 
                 this.prepareSkillsFields();
 

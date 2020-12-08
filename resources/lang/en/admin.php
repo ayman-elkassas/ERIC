@@ -60,7 +60,10 @@ return [
             'course'=>'Courses'
         ],
         'field'=>[
-            'field'=>'Fields'
+            'field'=>'Scientific Topic',
+            'manage-topic'=>'Manage Topics',
+            'manage-field'=>'Manage Fields',
+            'manage-skill'=>'Manage Skills',
         ],
         'Post'=>[
             'Post'=>'Posts'

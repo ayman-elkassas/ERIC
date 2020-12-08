@@ -14,8 +14,8 @@ import PublicUserNew from './components/admin/User/PublicUser/New.vue'
 import PostList from './components/admin/Post/List.vue'
 import PostNew from './components/admin/Post/New.vue'
 //todo:Field
-import FieldList from './components/admin/Field/List'
-import FieldNew from './components/admin/Field/New.vue'
+import TopicList from './components/admin/Topic/mainTopic/List'
+import TopicNew from './components/admin/Topic/mainTopic/New.vue'
 //todo:Course
 import CourseList from './components/admin/Course/List'
 import CourseNew from './components/admin/Course/New'
@@ -49,8 +49,8 @@ export const routes=[
     {path:'/post-list/',name:'Post List',component: PostList},
     {path:'/post-add/',name:'Post Add',component: PostNew},
     //todo:Field
-    {path:'/field-list/',name:'Field List',component: FieldList},
-    {path:'/field-add/',name:'Field Add',component: FieldNew},
+    {path:'/topic-list/',name:'Topic List',component: TopicList},
+    {path:'/topic-add/',name:'Topic Add',component: TopicNew},
     //todo:Course
     {path:'/course-list/',name:'Course List',component: CourseList},
     {path:'/course-add/',name:'Course Add',component: CourseNew},

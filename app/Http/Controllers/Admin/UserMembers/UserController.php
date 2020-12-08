@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Admin\UserMembers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admins;
-use App\Models\Prefer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Intervention\Image\Facades\Image;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -34,6 +34,7 @@ class UserController extends Controller
     public function index()
     {
         //
+
         try {
             $all_users_with_all_their_roles = User::with('roles','fieldsFollowing','OwnSkills')->get();
             foreach ($all_users_with_all_their_roles as $user) {
@@ -78,8 +79,6 @@ class UserController extends Controller
                     'password' => 'required|string|min:6',
                     'avatar'=>'required',
                     'phone'=>'required',
-                    'fields'=>'required',
-                    'skills'=>'required'
                 ], [], [
                     'name' => trans('admin.register.name'),
                     'email' => trans('admin.register.email'),
@@ -131,18 +130,23 @@ class UserController extends Controller
             $user->save();
 
             if(empty($request->get('role'))){
+                $role =Role::findOrCreate("user","user");
                 $user->assignRole("user");
             }
             else{
                 $user->assignRole($request->get('role'));
             }
 
-            foreach ($request->skills as $skill){
-                $user->OwnSkills()->attach($skill["id"]);
+            if(is_array($request->skills)){
+                foreach ($request->skills as $skill){
+                    $user->OwnSkills()->attach($skill["id"]);
+                }
             }
 
-            foreach ($request->fields as $field){
-                $user->fieldsFollowing()->attach($field["id"]);
+            if(is_array($request->fields)){
+                foreach ($request->fields as $field){
+                    $user->fieldsFollowing()->attach($field["id"]);
+                }
             }
 
             return response()->json($user, 200);
