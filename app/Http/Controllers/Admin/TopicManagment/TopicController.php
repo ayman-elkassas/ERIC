@@ -7,6 +7,7 @@ use App\Models\Admins;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use function Sodium\add;
 
 class TopicController extends Controller
 {
@@ -31,14 +32,19 @@ class TopicController extends Controller
     {
         //
         try {
+            $avatar=[];
             $all_main_topics = Category::with('categoryUser')->get();
-//            foreach ($all_main_topics as $topic) {
-//                try {
-//                    $user->avatar=imageToStreamBase64($topic->avatar);
-//                }catch (\Exception $ex){
-//                    continue;
-//                }
-//            }
+            foreach ($all_main_topics as $topic) {
+                try {
+                    $val=imageToStreamBase64($topic->categoryUser()->get()[0]->avatar);
+                    $avatar[$topic->categoryUser()->get()[0]->id]=$val;
+                }catch (\Exception $ex){
+                    continue;
+                }
+            }
+
+            $all_main_topics->push($avatar);
+
             return response()->json($all_main_topics, 200);
         }catch (\Exception $ex){
             return response()->json("Error", 404);
@@ -64,6 +70,20 @@ class TopicController extends Controller
     public function store(Request $request)
     {
         //
+
+        try {
+            $topic=new Category();
+            $topic->name=$request->get("topicName");
+            $topic->user_id=(int)$request->get("Uid");
+
+            $topic->save();
+
+            return response()->json($topic, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
+
+
     }
 
     /**

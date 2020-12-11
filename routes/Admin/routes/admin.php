@@ -86,6 +86,7 @@ Route::group(['prefix' => 'user-members','namespace' => 'Admin\UserMembers'], fu
         Route::get('/skill', 'NormalUserController@getSkills');
         Route::get('/getSkillUser/{id}', 'NormalUserController@getSkillUser');
         Route::get('/getFieldUser/{id}', 'NormalUserController@getFieldUser');
+        Route::get('/getUserByCharFromFName/{char}', 'NormalUserController@getUserByCharFromFName');
         Route::get('/remove-all-users', 'NormalUserController@RemoveAllUsers');
     });
 });

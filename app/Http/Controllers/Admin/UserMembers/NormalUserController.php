@@ -81,5 +81,26 @@ class NormalUserController extends Controller
         }
     }
 
+    public final function getUserByCharFromFName($searchChar):object{
+        try {
+            $users=DB::table('users')->where("fname",
+            "like",$searchChar.'%')
+                ->limit(10)
+                ->get();
+
+            foreach ($users as $user) {
+                try {
+                    $user->avatar=imageToStreamBase64($user->avatar);
+                }catch (\Exception $ex){
+                    continue;
+                }
+            }
+
+            return response()->json($users, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
+    }
+
 
 }

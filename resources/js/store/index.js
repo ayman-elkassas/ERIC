@@ -12,6 +12,7 @@ export default {
         categoryWithFields:[],
         skills:[],
         topics:[],
+        UserByCharFname:[]
     },
     getters:{
         getUser(state){
@@ -47,6 +48,9 @@ export default {
         },
         getTopics(state){
             return state.topics;
+        },
+        getUserByCharFname(state){
+            return state.UserByCharFname;
         }
     },
     actions:{
@@ -300,10 +304,10 @@ export default {
                 request.token=localStorage.getItem("token");
                 request.provider=localStorage.getItem("provider");
 
-                axios.get('/user-members/skill?token='+request.token+
+                axios.get('/admin-topics/topics?token='+request.token+
                     '&provider='+request.provider)
                     .then((response)=>{
-                        context.commit('allSkills',response.data);
+                        context.commit('allTopics',response.data);
                     })
                     .catch((error)=>{
                         window.location='/admin/invalidToken';
@@ -312,6 +316,30 @@ export default {
                 window.location='/admin/invalidToken';
             }
         },
+        AllUserByName(context,char){
+            let request={token:"",provider:""};
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                request.token=localStorage.getItem("token");
+                request.provider=localStorage.getItem("provider");
+
+                axios.get('/user-members/getUserByCharFromFName/'+char+'?token='+request.token+
+                    '&provider='+request.provider)
+                    .then((response)=>{
+                        context.commit('allUserByCharFname',response.data);
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }else{
+                window.location='/admin/invalidToken';
+            }
+        }
         // template(context){
         //     let request={token:"",provider:""};
         //
@@ -371,6 +399,9 @@ export default {
         },
         allTopics(state,data){
             return state.topics=data;
+        },
+        allUserByCharFname(state,data){
+            return state.UserByCharFname=data
         }
     },
     modules:{

@@ -50,7 +50,7 @@ export const routes=[
     {path:'/post-add/',name:'Post Add',component: PostNew},
     //todo:Field
     {path:'/topic-list/',name:'Topic List',component: TopicList},
-    {path:'/topic-add/',name:'Topic Add',component: TopicNew},
+    {path:'/topic-add/',name:'topic-add',component: TopicNew},
     //todo:Course
     {path:'/course-list/',name:'Course List',component: CourseList},
     {path:'/course-add/',name:'Course Add',component: CourseNew},
