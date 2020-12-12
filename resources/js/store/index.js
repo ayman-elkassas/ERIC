@@ -12,7 +12,8 @@ export default {
         categoryWithFields:[],
         skills:[],
         topics:[],
-        UserByCharFname:[]
+        UserByCharFname:[],
+        topicsCreatedByUser:[],
     },
     getters:{
         getUser(state){
@@ -51,6 +52,9 @@ export default {
         },
         getUserByCharFname(state){
             return state.UserByCharFname;
+        },
+        getUserTopics(state){
+            return state.topicsCreatedByUser;
         }
     },
     actions:{
@@ -339,6 +343,30 @@ export default {
             }else{
                 window.location='/admin/invalidToken';
             }
+        },
+        AllUserCategory(context,id){
+            let request={token:"",provider:""};
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                request.token=localStorage.getItem("token");
+                request.provider=localStorage.getItem("provider");
+
+                axios.get('/admin-topics/getTopics/'+id+'?token='+request.token+
+                    '&provider='+request.provider)
+                    .then((response)=>{
+                        context.commit('allCategoryOfUser',response.data);
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }else{
+                window.location='/admin/invalidToken';
+            }
         }
         // template(context){
         //     let request={token:"",provider:""};
@@ -402,6 +430,9 @@ export default {
         },
         allUserByCharFname(state,data){
             return state.UserByCharFname=data
+        },
+        allCategoryOfUser(state,data){
+            return state.topicsCreatedByUser=data;
         }
     },
     modules:{

@@ -8,7 +8,7 @@
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
-                            Create New User
+                            Create New Field
                         </template>
                         Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
                     </vs-alert>
@@ -43,7 +43,7 @@
                             relief
                             @click="createNewUser()"
                         >
-                            <i class='bx bx-plus' ></i> Create User
+                            <i class='bx bx-plus' ></i> Create Field
                         </vs-button>
 <!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
 
@@ -535,7 +535,7 @@ export default {
     methods: {
         createNewUser(){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'user-new', params: { status: 1 } });
+            this.$router.push({name: 'field-new', params: { status: 1 } });
         },
         editCurrentUser(id,index){
             debugger

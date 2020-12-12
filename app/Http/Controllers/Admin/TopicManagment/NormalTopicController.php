@@ -36,4 +36,17 @@ class NormalTopicController extends Controller
             return response()->json("error", 400);
         }
     }
+
+    public function GetTopicsOfUser ($id) {
+        try {
+            $users=User::findOrFail($id);
+            $categories=$users->topics()->get();
+
+            return response()->json($categories, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
+    }
+
+
 }

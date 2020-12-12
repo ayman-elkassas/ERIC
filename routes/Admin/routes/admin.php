@@ -97,6 +97,7 @@ Route::group(['prefix' => 'admin-topics','namespace' => 'Admin\TopicManagment'],
         Route::resource('/topics', 'TopicController');
         //todo:Normal controllers routes
         Route::get('/remove-all-admins', 'NormalTopicController@RemoveAllCategories');
+        Route::get('/getTopics/{id}', 'NormalTopicController@GetTopicsOfUser');
     });
 });
 

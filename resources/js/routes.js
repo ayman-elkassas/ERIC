@@ -10,12 +10,15 @@ import AdminList from './components/admin/User/AdminUser/List.vue'
 //todo:User
 import PublicUserList from './components/admin/User/PublicUser/List.vue'
 import PublicUserNew from './components/admin/User/PublicUser/New.vue'
+//todo:Main Topic
+import TopicList from './components/admin/Topic/mainTopic/List'
+import TopicNew from './components/admin/Topic/mainTopic/New.vue'
+//todo:Field Under Topic
+import FieldList from './components/admin/Topic/Field/List'
+import FieldNew from './components/admin/Topic/Field/New'
 //todo:Post
 import PostList from './components/admin/Post/List.vue'
 import PostNew from './components/admin/Post/New.vue'
-//todo:Field
-import TopicList from './components/admin/Topic/mainTopic/List'
-import TopicNew from './components/admin/Topic/mainTopic/New.vue'
 //todo:Course
 import CourseList from './components/admin/Course/List'
 import CourseNew from './components/admin/Course/New'
@@ -45,12 +48,15 @@ export const routes=[
     //todo:User
     {path:'/user-list/',name:'User List',component:PublicUserList},
     {path:'/user-new/',name:'user-new',component:PublicUserNew},
+    //todo:Topic
+    {path:'/topic-list/',name:'Topic List',component: TopicList},
+    {path:'/topic-add/',name:'topic-add',component: TopicNew},
+    //todo:Field
+    {path:'/field-list/',name:'Field List',component: FieldList},
+    {path:'/field-new/',name:'field-new',component: FieldNew},
     //todo:Post
     {path:'/post-list/',name:'Post List',component: PostList},
     {path:'/post-add/',name:'Post Add',component: PostNew},
-    //todo:Field
-    {path:'/topic-list/',name:'Topic List',component: TopicList},
-    {path:'/topic-add/',name:'topic-add',component: TopicNew},
     //todo:Course
     {path:'/course-list/',name:'Course List',component: CourseList},
     {path:'/course-add/',name:'Course Add',component: CourseNew},
