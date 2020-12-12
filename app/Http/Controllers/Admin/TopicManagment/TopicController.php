@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TopicManagment;
 use App\Http\Controllers\Controller;
 use App\Models\Admins;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use function Sodium\add;
@@ -118,6 +119,17 @@ class TopicController extends Controller
     public function update(Request $request, $id)
     {
         //
+        try {
+            $topic=Category::findOrFail($id);
+            $topic->name=$request->get("topicName");
+            $topic->user_id=(int)$request->get("Uid");
+
+            $topic->save();
+
+            return response()->json($topic, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**
@@ -129,5 +141,12 @@ class TopicController extends Controller
     public function destroy($id)
     {
         //
+        try {
+            Category::findOrFail($id)->delete();
+
+            return response()->json("Deleted Successfully", 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 }

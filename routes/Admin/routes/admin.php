@@ -96,8 +96,7 @@ Route::group(['prefix' => 'admin-topics','namespace' => 'Admin\TopicManagment'],
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/topics', 'TopicController');
         //todo:Normal controllers routes
-//        Route::get('/roles', 'NormalAdminController@getRoleNames');
-//        Route::get('/remove-all-admins', 'NormalAdminController@RemoveAllRolls');
+        Route::get('/remove-all-admins', 'NormalTopicController@RemoveAllCategories');
     });
 });
 

@@ -30,6 +30,7 @@
                     </vs-col>
                 </vs-row>
                 <br>
+                <br>
 
             <vs-row justify="space-around">
                 <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
@@ -76,15 +77,28 @@
                 <br>
                 <vs-row justify="space-between">
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-                        <vs-button
-                            relief
-                            block
-                            success
-                            ref="button1"
-                            @click="addTopic()"
-                        >
-                            <i class='bx b-add' ></i> Add New Topic
-                        </vs-button>
+                        <div v-if="status===1">
+                            <vs-button
+                                relief
+                                block
+                                success
+                                ref="button1"
+                                @click="addTopic()"
+                            >
+                                <i class='bx bx-plus' ></i>Add New Topic
+                            </vs-button>
+                        </div>
+                        <div v-else>
+                            <vs-button
+                                relief
+                                block
+                                primary
+                                ref="button1"
+                                @click="editTopic()"
+                            >
+                                <i class='bx bx-edit-alt' ></i> Edit Topic
+                            </vs-button>
+                        </div>
                     </vs-col>
                 </vs-row>
             </div>
@@ -109,11 +123,20 @@ export default {
         },
         selectLoading:true,
         status:0,
+        avatar:"",
+        oldData:[],
+        id:0,
     }),
     beforeCreate() {
         this.$store.dispatch("AllUserByName","a");
     },
     created() {
+        this.status=this.$route.params.status;
+        if(this.status===2){
+            this.id=this.$route.params.id
+            this.avatar=this.$route.params.avatar
+            this.oldData=this.$route.params.data
+        }
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
             window.location='/admin/invalidToken';
         }
@@ -164,9 +187,90 @@ export default {
                         loading.close();
                     });
             }
-        }
+        },
+        editTopic(){
+            this.path='/admin-topics/topics/'+this.id
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                const loading = this.$vs.loading({
+                    target: this.$refs.button1,
+                    scale: '0.6',
+                    background: 'primary',
+                    opacity: 1,
+                    color: '#fff'
+                })
+
+                axios.put(this.path+'?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider,this.request)
+                    .then((response)=>{
+                        this.openNotification('top-right',
+                            'primary',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Edit User Successfully",
+                            "New user will be able to handle new permission and assign users...");
+                        loading.close();
+                    })
+                    .catch((error)=>{
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Invalid insert New User Successfully",
+                            "New user will be able to handle new permission and assign users...");
+                        loading.close();
+                    });
+            }
+            else{
+                window.location='/admin/invalidToken';
+            }
+        },
+        performDelete(){
+
+            const loading = this.$vs.loading({
+                target: this.$refs.button3,
+                scale: '0.6',
+                background: 'danger',
+                opacity: 1,
+                color: '#fff'
+            })
+
+            axios.delete('/user-members/users/'+(this.id)+'?token='+this.authInfo.token+
+                '&provider='+this.authInfo.provider)
+                .then((response)=>{
+                    if(response.data!=="error"){
+                        loading.close();
+                        this.openNotification('top-right',
+                            'success',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Role Is Deleted Successfully",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false;
+                        this.refresh();
+                        $('.vs-table__tr__expand').hide();
+                    }
+                    else{
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Error In Remove",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false
+                    }
+                })
+                .catch((error)=>{
+                    window.location='/admin/invalidToken';
+                });
+        },
     },
     mounted() {
+        if(this.status===2){
+            //todo:run any js can mounted
+            this.request.topicName=this.oldData["name"];
+            this.request.Uid=this.oldData["category_user"].id;
+        }
     },
     watch:{
         char(newVal,oldVal){

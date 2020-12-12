@@ -26,6 +26,7 @@
                                 icon
                                 primary
                                 relief
+                                @click="refresh()"
                             >
                                 <i class='bx bx-refresh' ></i> Refresh
                             </vs-button>
@@ -55,14 +56,14 @@
                                 relief
                                 ref="button"
                                 :active-disabled="enableRemoveAll"
+                                @click="deleteAllCategory()"
                             >
-                                <i class='bx bx-trash' ></i> Delete All Topics
+                                <i class='bx bx-trash' ></i> Delete All Users
                             </vs-button>
                             <template #tooltip>
-                                Delete All Topics And Initialize User Role &#128540;
+                                Delete All Users And Initialize User Role &#128540;
                             </template>
                         </vs-tooltip>
-
                     </vs-col>
                 </vs-row>
             </div>
@@ -165,18 +166,21 @@
                                                 <vs-button
                                                     v-if="col===10" flat icon
                                                     primary
+                                                    @click="editCurrentUser(tr.id,i+(page-1)*15)"
                                                 >
                                                     <i class='bx bx-edit' ></i>
                                                 </vs-button>
                                                 <vs-button v-if="col===11"
                                                            flat icon
                                                            warn
+                                                           @click="viewTopic(i+(page-1)*15)"
                                                 >
                                                     <i class='bx bx-happy-heart-eyes' ></i>
                                                 </vs-button>
                                                 <vs-button v-if="col===12"
                                                            flat icon
                                                            danger
+                                                           @click="deleteRole(tr.id)"
                                                 >
                                                     <i class='bx bx-trash' ></i>
                                                 </vs-button>
@@ -200,68 +204,20 @@
 
                     <vs-card>
                         <template #title>
-                            <h3>{{data[index].fname}} {{data[index].lname}}</h3>
+                            <h3>{{data[index].category_user.fname}} {{data[index].category_user.lname}}</h3>
                         </template>
                         <template #img>
                             <vs-avatar size="150" circle writing >
-                                <img :src="data[index].avatar" alt="">
+                                <img :src="avatars[data[index].category_user.id]" alt="">
                             </vs-avatar>
                         </template>
                         <template #text>
-                            <p>{{data[index].email}}</p>
-                            <p>
-                                <span v-if="data[index].roles.length>0">
-                                    <span v-for="role in data[index].roles">
-                                        {{ role.name}}
-                                    </span>
-                                </span>
-                                <span v-else>
-                                    No Role
-                                </span>
-                            </p>
+                            <h6>Topic Name : <b>{{data[index].name}}</b></h6>
+                            <p>{{data[index].category_user.email}}</p>
                             <p>{{data[index].created_at}}</p>
                             <p>{{data[index].updated_at}}</p>
                             <p>If you're using multiple guards we've got you covered as well.
                                 Every guard will have its own set of permissions and roles</p>
-                        </template>
-                    </vs-card>
-
-                </div>
-
-            </vs-dialog>
-
-
-            <!--            view skills dialogue-->
-            <vs-dialog blur v-model="activeSkills">
-                <div class="con-form">
-
-                    <vs-card>
-                        <template #title>
-                            <h3><b>{{data[index].fname}} {{data[index].lname}}</b> Skills</h3>
-                        </template>
-                        <template #text>
-                            <div class="center grid">
-                                <tree style="height: 500px" raduis="15px" :data="treeSkills" type="cluster" node-text="name" layoutType="horizontal"></tree>
-                            </div>
-                        </template>
-                    </vs-card>
-
-                </div>
-
-            </vs-dialog>
-
-            <!--            view skills dialogue-->
-            <vs-dialog blur v-model="activeFields">
-                <div class="con-form">
-
-                    <vs-card>
-                        <template #title>
-                            <h3><b>{{data[index].fname}} {{data[index].lname}}</b> Fields Follow</h3>
-                        </template>
-                        <template #text>
-                            <div class="center grid">
-                                <tree style="height: 500px" raduis="15px" :data="treeFields" type="cluster" node-text="name" layoutType="horizontal"></tree>
-                            </div>
                         </template>
                     </vs-card>
 
@@ -289,7 +245,7 @@
                     <div class="con-footer">
                         <vs-button
                             ref="button3"
-                            transparent>
+                            @click="performDelete()" transparent>
                             Ok
                         </vs-button>
                         <vs-button @click="active_ensure=false" dark transparent>
@@ -333,18 +289,7 @@ export default {
             data: [],
             avatars:[],
             loading:null,
-            guard_name:"",
-            oldRoles:[],
             activeView:false,
-            activeSkills:false,
-            activeFields:false,
-            request:{
-                name:"",
-                email:"",
-                password:"",
-                avatar:"",
-                roles:""
-            },
             enableRemoveAll:false,
             authInfo:{
                 token:localStorage.getItem("token"),
@@ -359,21 +304,7 @@ export default {
             interval:null,
             flag:false,
             firstLoad:true,
-            emailValid:false,
-            passwordValid:0,
             activeOr:true,
-            imgUpload:false,
-            ownSkills:[],
-            followFields:[],
-            treeSkills: {
-                name: "Skills",
-                children:[]
-            },
-            treeFields: {
-                name: "Fields Follow",
-                children:[]
-            }
-
         }
     },
     beforeCreate() {
@@ -409,9 +340,9 @@ export default {
             this.$router.push({name: 'topic-add', params: { status: 1 } });
         },
         editCurrentUser(id,index){
-            debugger
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'user-new', params: { status: 2,id:id,data:this.data[index] } });
+            debugger
+            this.$router.push({name: 'topic-add', params: { status: 2,id:id,avatar:this.avatars[this.data[index].category_user.id],data:this.data[index] } });
         },
         openNotification(position = null, border,icon,title,text) {
             const noti = this.$vs.notification({
@@ -421,6 +352,97 @@ export default {
                 title: title,
                 text: text
             })
+        },
+        viewTopic(i){
+            this.index=i;
+            this.activeView=true;
+        },
+        deleteRole(i){
+            this.id=i
+            this.active_ensure=true
+        },
+        performDelete(){
+
+            const loading = this.$vs.loading({
+                target: this.$refs.button3,
+                scale: '0.6',
+                background: 'danger',
+                opacity: 1,
+                color: '#fff'
+            })
+
+            axios.delete('/admin-topics/topics/'+(this.id)+'?token='+this.authInfo.token+
+                '&provider='+this.authInfo.provider)
+                .then((response)=>{
+                    if(response.data!=="error"){
+                        loading.close();
+                        this.openNotification('top-right',
+                            'success',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Topic Is Deleted Successfully",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false;
+                        this.refresh();
+                        $('.vs-table__tr__expand').hide();
+                    }
+                    else{
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Error In Remove",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false
+                    }
+                })
+                .catch((error)=>{
+                    window.location='/admin/invalidToken';
+                });
+        },
+        refresh(){
+            this.$store.dispatch("AllTopics");
+        },
+        deleteAllCategory(){
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                this.loading = this.$vs.loading({
+                    target: this.$refs.button,
+                    scale: '0.6',
+                    background: 'danger',
+                    opacity: 1,
+                    color: '#fff'
+                })
+
+                axios.get('/admin-topics/remove-all-admins?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider)
+                    .then((response)=>{
+                        if(response.data!=="error"){
+                            this.loading.close();
+                            this.openNotification('top-right',
+                                'danger',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "All Categories Are Deleted Successfully",
+                                "Can add new role will be able to handle new permission and assign users...");
+                            this.enableRemoveAll=true
+                            this.refresh();
+                        }
+                        else{
+                            this.openNotification('top-right',
+                                'danger',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "Error In Remove",
+                                "Can add new role will be able to handle new permission and assign users...");
+                            this.enableRemoveAll=true
+                        }
+
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }
+            else{
+                window.location='/admin/invalidToken';
+            }
         },
     },
     watch:{
