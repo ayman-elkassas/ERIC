@@ -32,6 +32,26 @@ class FieldController extends Controller
     public function index()
     {
         //
+        try {
+            $avatar=[];
+            $all_fields = Field::with(['categoryRelated','userFollow'=>function($query){
+                $query->select('fname', 'lname','email','avatar');
+            }])->get();
+            foreach ($all_fields as $field) {
+                try {
+                    $val=imageToStreamBase64($field->userFollow()->get()[0]->avatar);
+                    $avatar[$field->categoryRelated()->get()[0]->user_id]=$val;
+                }catch (\Exception $ex){
+                    continue;
+                }
+            }
+
+            $all_fields->push($avatar);
+
+            return response()->json($all_fields, 200);
+        }catch (\Exception $ex){
+            return response()->json($ex, 404);
+        }
     }
 
     /**
@@ -60,7 +80,7 @@ class FieldController extends Controller
 
             $field->save();
 
-            $field->fieldsFollowing()->attach((int)$request->get("Uid"));
+            $field->userFollow()->attach((int)$request->get("Uid"));
 
             return response()->json($field, 200);
         }catch (\Exception $ex){
