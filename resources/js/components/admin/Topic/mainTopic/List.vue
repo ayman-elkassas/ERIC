@@ -58,7 +58,7 @@
                                 :active-disabled="enableRemoveAll"
                                 @click="deleteAllCategory()"
                             >
-                                <i class='bx bx-trash' ></i> Delete All Users
+                                <i class='bx bx-trash' ></i> Delete All Topics
                             </vs-button>
                             <template #tooltip>
                                 Delete All Users And Initialize User Role &#128540;
@@ -317,7 +317,6 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch("AllTopics");
     },
     computed:{
         getAllTopics(){

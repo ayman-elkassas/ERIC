@@ -106,7 +106,7 @@ Route::group(['prefix' => 'admin-fields','namespace' => 'Admin\FieldManagment'],
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/fields', 'FieldController');
         //todo:Normal controllers routes
-//        Route::get('/remove-all-admins', 'NormalTopicController@RemoveAllCategories');
+        Route::get('/remove-all-admins', 'NormalFieldController@RemoveAllFields');
 //        Route::get('/getTopics/{id}', 'NormalTopicController@GetTopicsOfUser');
     });
 });

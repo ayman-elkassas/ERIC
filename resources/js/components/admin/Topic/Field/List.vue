@@ -43,7 +43,7 @@
                             relief
                             @click="createNewUser()"
                         >
-                            <i class='bx bx-plus' ></i> Create Topic
+                            <i class='bx bx-plus' ></i> Create Field
                         </vs-button>
 <!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
 
@@ -58,7 +58,7 @@
                                 :active-disabled="enableRemoveAll"
                                 @click="deleteAllCategory()"
                             >
-                                <i class='bx bx-trash' ></i> Delete All Users
+                                <i class='bx bx-trash' ></i> Delete All Fields
                             </vs-button>
                             <template #tooltip>
                                 Delete All Users And Initialize User Role &#128540;
@@ -212,7 +212,8 @@
 
                     <vs-card>
                         <template #title>
-                            <h3>Field Name : {{data[index].category_related.name}}</h3>
+
+                            <h3>Field Name : {{data[index].name}}</h3>
                         </template>
                         <template #img>
                             <vs-avatar size="150" circle writing >
@@ -220,7 +221,7 @@
                             </vs-avatar>
                         </template>
                         <template #text>
-                            <h6>Field Name : <b>{{data[index].name}}</b></h6>
+                            <h6>Category Name : {{data[index].category_related.name}}</h6>
                             <p>{{data[index].created_at}}</p>
                             <p>{{data[index].updated_at}}</p>
                             <p>If you're using multiple guards we've got you covered as well.
@@ -324,14 +325,12 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch("AllFieldsWithCategoriesUnder");
+        //this.$store.dispatch("AllFieldsWithCategoriesUnder");
     },
     computed:{
         getAllFields(){
             //todo:last step render value to component
             const users=this.$store.getters.getFieldsUnderCategories;
-
-            debugger
 
             if(users.length>0){
                 this.avatars=users[users.length - 1 ];
@@ -350,8 +349,7 @@ export default {
         },
         editCurrentUser(id,index){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            debugger
-            // this.$router.push({name: 'topic-add', params: { status: 2,id:id,avatar:this.avatars[this.data[index].category_user.id],data:this.data[index] } });
+            this.$router.push({name: 'field-new', params: { status: 2,id:id,avatar:this.avatars[this.data[index].category_related.user_id],data:this.data[index] } });
         },
         openNotification(position = null, border,icon,title,text) {
             const noti = this.$vs.notification({
@@ -365,7 +363,6 @@ export default {
         viewTopic(i){
             this.index=i;
             this.activeView=true;
-            debugger
         },
         deleteRole(i){
             this.id=i
@@ -381,7 +378,7 @@ export default {
                 color: '#fff'
             })
 
-            axios.delete('/admin-topics/topics/'+(this.id)+'?token='+this.authInfo.token+
+            axios.delete('/admin-fields/fields/'+(this.id)+'?token='+this.authInfo.token+
                 '&provider='+this.authInfo.provider)
                 .then((response)=>{
                     if(response.data!=="error"){
@@ -409,7 +406,7 @@ export default {
                 });
         },
         refresh(){
-            this.$store.dispatch("AllTopics");
+            this.$store.dispatch("AllFieldsWithCategoriesUnder");
         },
         deleteAllCategory(){
             if(localStorage.hasOwnProperty('token')
@@ -423,7 +420,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.get('/admin-topics/remove-all-admins?token='+this.authInfo.token+
+                axios.get('/admin-fields/remove-all-admins?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         if(response.data!=="error"){
@@ -431,7 +428,7 @@ export default {
                             this.openNotification('top-right',
                                 'danger',
                                 `<i class='bx bx-select-multiple' ></i>`,
-                                "All Categories Are Deleted Successfully",
+                                "All Fields Are Deleted Successfully",
                                 "Can add new role will be able to handle new permission and assign users...");
                             this.enableRemoveAll=true
                             this.refresh();

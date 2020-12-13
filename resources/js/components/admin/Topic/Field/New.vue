@@ -10,7 +10,7 @@
                                 <i class='bx bx-plus' ></i> Add New Field
                             </span>
                             <span v-else-if="status===2">
-                                <i class='bx bx-edit' ></i> Edit Topic
+                                <i class='bx bx-edit' ></i> Edit Field
                             </span>
                         </template>
                         Admin can control between all users can share any information
@@ -113,7 +113,7 @@
                                 ref="button1"
                                 @click="editTopic()"
                             >
-                                <i class='bx bx-edit-alt' ></i> Edit Topic
+                                <i class='bx bx-edit-alt' ></i> Edit Field
                             </vs-button>
                         </div>
                     </vs-col>
@@ -198,8 +198,6 @@ export default {
                     color: '#fff'
                 })
 
-                debugger
-
                 axios.post('/admin-fields/fields'+'?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider,this.request)
                     .then((response)=>{
@@ -219,7 +217,7 @@ export default {
             }
         },
         editTopic(){
-            this.path='/admin-topics/topics/'+this.id
+            this.path='/admin-fields/fields/'+this.id
             //todo:call mutation and pass object data
             //todo:should make axios request to get user object
             //todo:make an api in back to return full user object
@@ -298,8 +296,9 @@ export default {
     mounted() {
         if(this.status===2){
             //todo:run any js can mounted
-            this.request.topicName=this.oldData["name"];
-            this.request.Uid=this.oldData["category_user"].id;
+            this.request.fieldName=this.oldData["name"];
+            debugger;
+            this.request.fieldName=this.oldData["name"];
         }
     },
     watch:{

@@ -80,6 +80,7 @@ class FieldController extends Controller
 
             $field->save();
 
+            //todo:option for logic
             $field->userFollow()->attach((int)$request->get("Uid"));
 
             return response()->json($field, 200);
@@ -120,6 +121,21 @@ class FieldController extends Controller
     public function update(Request $request, $id)
     {
         //
+        try {
+            $field=Field::findOrFail($id);
+//            $field->userFollow()->detach();
+
+            $field->name=$request->get("fieldName");
+            $field->category_id=(int)$request->get("categoryId");
+
+            $field->save();
+
+//            $field->userFollow()->attach((int)$request->get("Uid"));
+
+            return response()->json($field, 200);
+        }catch (\Exception $ex){
+            return response()->json($ex, 404);
+        }
     }
 
     /**
@@ -131,5 +147,12 @@ class FieldController extends Controller
     public function destroy($id)
     {
         //
+        try {
+            Field::findOrFail($id)->delete();
+
+            return response()->json("Deleted Successfully", 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 }
