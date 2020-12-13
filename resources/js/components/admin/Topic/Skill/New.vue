@@ -7,10 +7,10 @@
                     <vs-alert color="warn">
                         <template #title>
                             <span v-if="status===1">
-                                <i class='bx bx-plus' ></i> Add New User
+                                <i class='bx bx-plus' ></i> Add New Skill
                             </span>
                             <span v-else-if="status===2">
-                                <i class='bx bx-edit' ></i> Edit Current User
+                                <i class='bx bx-edit' ></i> Edit Skill
                             </span>
                         </template>
                         Admin can control between all users can share any information
@@ -30,152 +30,79 @@
                     </vs-col>
                 </vs-row>
                 <br>
-
-            <vs-row justify="space-around">
-                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-                    <vs-input v-model="request.fname" placeholder="First name">
-                        <template #icon>
-                            <i class='bx bx-user'></i>
-                        </template>
-                    </vs-input>
-                </vs-col>
-                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
-                </vs-col>
-                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-                    <vs-input v-model="request.lname" placeholder="Last name">
-                        <template #icon>
-                            <i class='bx bx-user'></i>
-                        </template>
-                    </vs-input>
-                </vs-col>
-            </vs-row>
                 <br>
-            <vs-row justify="space-between">
-                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-                    <vs-input v-model="request.email" placeholder="eric@gmail.com">
-                        <template #icon>
-                            <i class='bx bx-message'></i>
-                        </template>
-                        <template v-if="validEmail" #message-success>
-                            Email Valid
-                        </template>
-                        <template v-else #message-danger>
-                            Email Invalid
-                        </template>
-                        <template v-if="request.email===''" #message-danger>
-                            Required
-                        </template>
-                    </vs-input>
-                </vs-col>
-                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
-                </vs-col>
-                <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-                    <vs-input
-                        type="password"
-                        v-model="request.password"
-                        label="Password Account"
-                        placeholder="password"
-                        :progress="getProgress">
-                        <template #icon>
-                            <i class='bx bx-lock-open'></i>
-                        </template>
 
-                        <template v-if="getProgress >= 100" #message-success>
-                            Secure password
-                        </template>
-
-                        <template v-if="getProgress < 40" #message-danger>
-                            A special character-More than 6 digits-One lower case letter-An uppercase letter-A number
-                        </template>
-                    </vs-input>
-                </vs-col>
-            </vs-row>
-                <br>
-                <vs-row justify="space-between">
+                <vs-row justify="space-around">
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
 
-                        <vs-select
-                            label="Role Name"
-                            filter
-                            multiple
-                            v-model="request.role"
-                            placeholder="Role Name"
-                        >
-                            <vs-option-group>
-                                <div slot="title">
-                                    Assign Roles
-                                </div>
-                                <vs-option v-for="role in getRoles['user']" :label="role" key="0" :value="role">
-                                    {{role}}
-                                </vs-option>
-                            </vs-option-group>
-                        </vs-select>
-
-                        <br>
-
                         <vs-input
-                            type="number"
-                            v-model="request.phone"
-                            placeholder="phone no."
-                        >
+                            label="User Creator Name"
+                            v-model="char" placeholder="Search By User Name...">
                             <template #icon>
-                                <i class='bx bx-phone'></i>
+                                <i class='bx bx-search'></i>
                             </template>
                         </vs-input>
 
-                        <br>
-
                         <vs-select
                             filter
-                            multiple
-                            placeholder="Follow Fields"
-                            v-model="request.fields"
+                            v-model="Uid"
+                            placeholder="User Name"
                             :loading="selectLoading"
                         >
-                            <vs-option-group
-                                v-for="(category,key) in getAllCategoriesWithFields"
-                                :key="key" :value="category">
+                            <vs-option-group>
                                 <div slot="title">
-                                    {{category.name}}
+                                    Users
                                 </div>
-                                <vs-option
-                                    v-for="(field,key) in category.fields_under"
-                                    :key="key" :value="field.name"
-                                    :label="field.name"
-                                >
-                                    {{field.name}}
+                                <vs-option v-for="user in getUserByChar" :label="user.fname" key="0" :value="user.id">
+                                    <vs-avatar size="25">
+                                        <img :src="user.avatar" alt="">
+                                    </vs-avatar> &nbsp;&nbsp; {{user.fname}} {{user.lname}}
+                                </vs-option>
+                            </vs-option-group>
+                        </vs-select>
+                    </vs-col>
+
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
+                    </vs-col>
+
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                        <vs-input v-model="request.fieldName" placeholder="Field Name">
+                            <template #icon>
+                                <i class='bx bx-bomb'></i>
+                            </template>
+                        </vs-input>
+                        <br>
+                        <vs-select
+                            filter
+                            v-model="request.categoryId"
+                            placeholder="Category Name"
+                            :loading="selectLoading2"
+                        >
+                            <vs-option-group>
+                                <div slot="title">
+                                    Select Category Added Under
+                                </div>
+                                <vs-option v-for="category in getCategoryOfUser" :label="category.name" key="0" :value="category.id">
+                                    {{category.name}}
                                 </vs-option>
                             </vs-option-group>
                         </vs-select>
 
-                        <br>
+                    </vs-col>
 
-                        <vs-select
-                            filter
-                            multiple
-                            placeholder="Your Skills"
-                            v-model="request.skills"
-                        >
-                            <vs-option
-                                v-for="(skill,key) in getAllSkills"
-                                :key="key" :value="skill.name"
-                                :label="skill.name"
-                            >
-                                {{skill.name}}
-                            </vs-option>
-
-                        </vs-select>
-                        <br>
-
+                </vs-row>
+                <br>
+                <vs-row justify="space-between">
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
                         <div v-if="status===1">
                             <vs-button
                                 relief
                                 block
                                 success
                                 ref="button1"
-                                @click="addUser()"
+                                @click="addTopic()"
                             >
-                                <i class='bx bx-plus' ></i>Add User
+                                <i class='bx bx-plus' ></i>Add New Topic
                             </vs-button>
                         </div>
                         <div v-else>
@@ -184,34 +111,11 @@
                                 block
                                 primary
                                 ref="button1"
-                                @click="editUser()"
+                                @click="editTopic()"
                             >
-                                <i class='bx bx-edit-alt' ></i> Edit User
+                                <i class='bx bx-edit-alt' ></i> Edit Field
                             </vs-button>
                         </div>
-
-                    </vs-col>
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
-                    </vs-col>
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-                        <file-pond
-                            name="test"
-                            ref="pond"
-                            class-name="my-pond"
-                            label-idle="Add Avatar..."
-                            v-bind:allow-multiple="true"
-                            allowDrop="true"
-                            allowPaste="true"
-                            allowReplace="true"
-                            allowRevert="true"
-                            allowRemove="true"
-                            maxFiles="1"
-                            accepted-file-types="image/jpeg, image/png, image/jpg"
-                            allowFileEncode="true"
-                            v-on:init="handleFilePondInit"
-                            v-on:addfile="fileAdd"
-                            v-on:removefile="fileRemove"
-                        />
                     </vs-col>
                 </vs-row>
             </div>
@@ -222,62 +126,36 @@
 
 <script>
 
-//todo:file upload (filePond)
-// Import Vue FilePond
-import vueFilePond from 'vue-filepond';
-// Import image preview and file type validation plugins
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
-
-// Create component
-const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview,FilePondPluginFileEncode);
-
-//todo:uploaded all media
-// https://ernestbrandi.github.io/filepond-plugin-media-preview/
-
 export default {
     name: "New",
     data: () => ({
-        dataF:[],
-        dataS:[],
+        char:"",
+        Uid:"",
         request:{
-            fname:"",
-            lname:"",
-            email:"",
-            password:"",
-            phone:"",
-            avatar:"",
-            role:[],
-            fields:[],
-            skills:[],
-            skillsIds:[],
-            fieldsIds:[],
+            Uid:"",
+            fieldName:"",
+            categoryId:""
         },
-        data: [],
         authInfo:{
             token:localStorage.getItem("token"),
             provider:localStorage.getItem("provider")
         },
-        roleName:"",
-        emailValid:false,
-        passwordValid:0,
         selectLoading:true,
+        selectLoading2:true,
         status:0,
-        id:0,
+        avatar:"",
         oldData:[],
-        path:'',
-        avatar:""
+        id:0,
     }),
     beforeCreate() {
-        this.$store.dispatch("AllCategoriesWithFields");
-        this.$store.dispatch("AllSkills");
-        this.$store.dispatch("AllRoles");
+        this.$store.dispatch("AllUserByName","a");
+        this.$store.dispatch("AllUserCategory","1");
     },
     created() {
         this.status=this.$route.params.status;
         if(this.status===2){
             this.id=this.$route.params.id
+            this.avatar=this.$route.params.avatar
             this.oldData=this.$route.params.data
         }
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
@@ -285,129 +163,32 @@ export default {
         }
     },
     computed:{
-        getAllCategoriesWithFields(){
+        getUserByChar(){
             //todo:last step render value to component
-            const categoriesWithFields=this.$store.getters.getCategoriesWithFields;
-            this.dataF=categoriesWithFields;
-            this.dataF.length>0?this.selectLoading=false:null;
-            return categoriesWithFields;
+            const allUsers=this.$store.getters.getUserByCharFname;
+            allUsers.length>0?this.selectLoading=false:null;
+            return allUsers;
         },
-        getAllSkills(){
+        getCategoryOfUser(){
             //todo:last step render value to component
-            const allSkills=this.$store.getters.getSkills;
-            this.dataS=allSkills;
-            return allSkills;
-        },
-        getRoles(){
-            //todo:last step render value to component
-            const allRoles=this.$store.getters.getAllRoles;
-            let data=[]
-
-            allRoles.forEach(obj=>{
-                data[obj.guard_name]=[]
-            });
-
-            allRoles.forEach(obj=>{
-                data[obj.guard_name].push(obj.name)
-            });
-            return data;
-        },
-        validEmail() {
-            this.emailValid=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.request.email)
-            return this.emailValid;
-        },
-        getProgress() {
-            let progress = 0
-
-            // at least one number
-
-            if (/\d/.test(this.request.password)) {
-                progress += 20
-            }
-
-            // at least one capital letter
-
-            if (/(.*[A-Z].*)/.test(this.request.password)) {
-                progress += 20
-            }
-
-            // at menons a lowercase
-
-            if (/(.*[a-z].*)/.test(this.request.password)) {
-                progress += 20
-            }
-
-            // more than 5 digits
-
-            if (this.request.password.length >= 6) {
-                progress += 20
-            }
-
-            // at least one special character
-
-            if (/[^A-Za-z0-9]/.test(this.request.password)) {
-                progress += 20
-            }
-
-            this.passwordValid=progress;
-            return progress
-        },
+            const allCategory=this.$store.getters.getUserTopics;
+            allCategory.length>0?this.selectLoading2=false:null;
+            return allCategory;
+        }
     },
     methods: {
-        removeAllFiles() {
-            this.$refs.dropzone.removeAllFiles();
+        openNotification(position = null, border,icon,title,text) {
+            const noti = this.$vs.notification({
+                border,
+                icon,
+                position,
+                title: title,
+                text: text
+            })
         },
-        handleFilePondInit: function() {
-            console.log('FilePond has initialized');
-
-            // FilePond instance methods are available on `this.$refs.pond`
-            // alert(this.$refs.pond.getFile());
-        },
-
-        fileAdd:function (error,file){
-            if (error) {
-                console.log('Oh no');
-                return;
-            }
-
-            if(file.fileSize <5000000){
-                this.request.avatar=file.getFileEncodeDataURL();
-            }
-            else{
-                this.openNotification('top-left', 'danger',
-                    `<i class='bx bxs-bug' ></i>`,
-                    'Avatar size is large',
-                    'Upload image with minimal of 6 MB...');
-            }
-        },
-        fileRemove:function () {
-            this.request.avatar=''
-        },
-        addUser(){
-            if(this.request.avatar!==''
-                && this.request.name!=='' && this.request.email!==''
-                && this.request.password!=='' && this.request.phone
-                &&  this.request.skills!=="" && this.request.fields!==""){
-
-                this.prepareSkillsFields();
-
-                this.path='/user-members/users';
-                this.uploadRequest();
-            }
-            else {
-                this.openNotification('top-left', 'danger',
-                    `<i class='bx bxs-bug' ></i>`,
-                    'Enter Valid Inputs',
-                    'Create Again User Admin Account');
-            }
-        },
-        uploadRequest(){
-            debugger;
-            //todo:call mutation and pass object data
-            //todo:should make axios request to get user object
-            //todo:make an api in back to return full user object
-            if(localStorage.hasOwnProperty('token')
-                && localStorage.hasOwnProperty('provider')){
+        addTopic(){
+            this.request.Uid=this.Uid;
+            if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldName!==""){
 
                 const loading = this.$vs.loading({
                     target: this.$refs.button1,
@@ -417,44 +198,26 @@ export default {
                     color: '#fff'
                 })
 
-                axios.post(this.path+'?token='+this.authInfo.token+
+                axios.post('/admin-fields/fields'+'?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider,this.request)
                     .then((response)=>{
-                        this.request={
-                            fname:"",
-                            lname:"",
-                            email:"",
-                            password:"",
-                            phone:"",
-                            role:"",
-                            avatar:"",
-                            fields:[],
-                            skills:[]
-                        };
-                        this.openNotification('top-right',
-                            'success',
+                        this.openNotification('top-right', 'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Add New User Successfully",
-                            "New user will be able to handle new permission and assign users...");
+                            'Add New Field Topic Successfully',
+                            'New Admin added with rules and permissions');
                         loading.close();
                     })
                     .catch((error)=>{
-                        this.openNotification('top-right',
-                            'danger',
-                            `<i class='bx bx-select-multiple' ></i>`,
-                            "Invalid insert New User Successfully",
-                            "New user will be able to handle new permission and assign users...");
+                        this.openNotification('top-right', 'danger',
+                            `<i class='bx bxs-bug' ></i>`,
+                            'Make Sure From Inputs',
+                            "Inputs invalid make sure from inputs...");
                         loading.close();
                     });
             }
-            else{
-                window.location='/admin/invalidToken';
-            }
         },
-        editUser(){
-            this.prepareSkillsFields();
-
-            this.path='/user-members/users/'+this.id
+        editTopic(){
+            this.path='/admin-fields/fields/'+this.id
             //todo:call mutation and pass object data
             //todo:should make axios request to get user object
             //todo:make an api in back to return full user object
@@ -492,77 +255,65 @@ export default {
                 window.location='/admin/invalidToken';
             }
         },
-        prepareSkillsFields(){
-            let fields=this.dataF;
-            let arrF=this.request.fields;
-            let resultF=[];
+        performDelete(){
 
-            fields.forEach(function (obj,i,fields) {
-                const arr=obj.fields_under;
-                arr.forEach(function(val,index,arr){
-                    arrF.forEach(function (val2,index2,arrF){
-                        if(JSON.stringify(val2)===JSON.stringify(val.name)){
-                            resultF.push(val);
-                        }
-                    });
-                });
-            });
-
-            this.request.fields=resultF;
-
-            let skills=this.dataS;
-            const arrS=this.request.skills;
-            let resultS=[];
-
-            skills.forEach(function (obj,i,skills) {
-                arrS.forEach(function (val,index2,arrS){
-                    if(JSON.stringify(obj.name)===JSON.stringify(val)){
-                        resultS.push(obj);
-                    }
-                });
-            });
-            this.request.skills=resultS;
-        },
-        openNotification(position = null, border,icon,title,text) {
-            const noti = this.$vs.notification({
-                border,
-                icon,
-                position,
-                title: title,
-                text: text
+            const loading = this.$vs.loading({
+                target: this.$refs.button3,
+                scale: '0.6',
+                background: 'danger',
+                opacity: 1,
+                color: '#fff'
             })
+
+            axios.delete('/user-members/users/'+(this.id)+'?token='+this.authInfo.token+
+                '&provider='+this.authInfo.provider)
+                .then((response)=>{
+                    if(response.data!=="error"){
+                        loading.close();
+                        this.openNotification('top-right',
+                            'success',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Role Is Deleted Successfully",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false;
+                        this.refresh();
+                        $('.vs-table__tr__expand').hide();
+                    }
+                    else{
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Error In Remove",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false
+                    }
+                })
+                .catch((error)=>{
+                    window.location='/admin/invalidToken';
+                });
         },
     },
     mounted() {
         if(this.status===2){
             //todo:run any js can mounted
-            this.request.fname=this.oldData["fname"];
-            this.request.lname=this.oldData["lname"];
-            this.request.email=this.oldData["email"];
-            this.request.phone=this.oldData["phone"];
-            this.avatar=this.oldData["avatar"];
-
-            //todo: set arrays
-            if((this.oldData["roles"].length>0)){
-                this.oldData["roles"].forEach(obj=>{
-                    this.request.role.push(obj["name"]);
-                });
-            }
-
-            if(this.oldData["fields_following"].length>0){
-                this.oldData["fields_following"].forEach(obj=>{
-                    this.request.fields.push(obj["name"]);
-                    this.request.fieldsIds.push(obj["id"]);
-                });
-            }
-
-            if(this.oldData["own_skills"].length>0){
-                this.oldData["own_skills"].forEach(obj=>{
-                    this.request.skills.push(obj["name"]);
-                    this.request.skillsIds.push(obj["id"]);
-                });
-            }
+            this.request.fieldName=this.oldData["name"];
+            debugger;
+            this.request.fieldName=this.oldData["name"];
         }
+    },
+    watch:{
+        char(newVal,oldVal){
+            newVal===""?this.$store.dispatch("AllUserByName","a"):
+                this.$store.dispatch("AllUserByName",newVal);
+
+            this.selectLoading=true;
+        },
+        Uid(newVal,oldVal){
+            newVal===""?this.$store.dispatch("AllUserCategory","1"):
+                this.$store.dispatch("AllUserCategory",newVal);
+
+            this.selectLoading2=true;
+        },
     },
 }
 

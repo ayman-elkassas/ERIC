@@ -101,13 +101,21 @@ Route::group(['prefix' => 'admin-topics','namespace' => 'Admin\TopicManagment'],
     });
 });
 
-//TODO:Topics CRUD
+//TODO:Fields CRUD
 Route::group(['prefix' => 'admin-fields','namespace' => 'Admin\FieldManagment'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/fields', 'FieldController');
         //todo:Normal controllers routes
         Route::get('/remove-all-admins', 'NormalFieldController@RemoveAllFields');
-//        Route::get('/getTopics/{id}', 'NormalTopicController@GetTopicsOfUser');
+    });
+});
+
+//TODO:Skills CRUD
+Route::group(['prefix' => 'admin-skill','namespace' => 'Admin\SkillManagment'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/skills', 'SkillController');
+        //todo:Normal controllers routes
+        Route::get('/remove-all-admins', 'NormalSkillController@RemoveAllSkills');
     });
 });
 
