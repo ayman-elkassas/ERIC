@@ -14,10 +14,18 @@ class Field extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'category_id'
     ];
 
+    //todo: belong to row in table with id
     public final function categoryRelated():object {
-        return $this->belongsTo(Category::class,'user_id');
+        return $this->belongsTo(Category::class);
+    }
+
+    //todo:(M-M) relationship between user,fields in (prefer)
+    //todo:name of relation table should be (first name of first table with out s _ next name without s)
+    public final function fieldsFollowing():object {
+        return $this->belongsToMany(User::class);
     }
 }

@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Admin\TopicManagment;
 use App\Http\Controllers\Controller;
 use App\Models\Admins;
 use App\Models\Category;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use function Sodium\add;
 
 class TopicController extends Controller
 {
@@ -71,7 +69,6 @@ class TopicController extends Controller
     public function store(Request $request)
     {
         //
-
         try {
             $topic=new Category();
             $topic->name=$request->get("topicName");
@@ -83,8 +80,6 @@ class TopicController extends Controller
         }catch (\Exception $ex){
             return response()->json("Error", 404);
         }
-
-
     }
 
     /**

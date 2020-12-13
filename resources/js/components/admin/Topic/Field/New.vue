@@ -188,7 +188,7 @@ export default {
         },
         addTopic(){
             this.request.Uid=this.Uid;
-            if(JSON.stringify(this.request.Uid)!=="" && this.request.topicName!==""){
+            if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldName!==""){
 
                 const loading = this.$vs.loading({
                     target: this.$refs.button1,
@@ -198,12 +198,14 @@ export default {
                     color: '#fff'
                 })
 
-                axios.post('/admin-topics/topics'+'?token='+this.authInfo.token+
+                debugger
+
+                axios.post('/admin-fields/fields'+'?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider,this.request)
                     .then((response)=>{
                         this.openNotification('top-right', 'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            'Add New Main Topic Successfully',
+                            'Add New Field Topic Successfully',
                             'New Admin added with rules and permissions');
                         loading.close();
                     })

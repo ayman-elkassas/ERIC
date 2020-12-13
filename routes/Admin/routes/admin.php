@@ -101,6 +101,16 @@ Route::group(['prefix' => 'admin-topics','namespace' => 'Admin\TopicManagment'],
     });
 });
 
+//TODO:Topics CRUD
+Route::group(['prefix' => 'admin-fields','namespace' => 'Admin\FieldManagment'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/fields', 'FieldController');
+        //todo:Normal controllers routes
+//        Route::get('/remove-all-admins', 'NormalTopicController@RemoveAllCategories');
+//        Route::get('/getTopics/{id}', 'NormalTopicController@GetTopicsOfUser');
+    });
+});
+
 Route::get('/cache-clear',function (){
     $exit_code=Artisan::call("optimize:clear");
     //todo:return 0 if execute success
