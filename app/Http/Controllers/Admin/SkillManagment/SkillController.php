@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\SkillManagment;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admins;
+use App\Models\Category;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
@@ -29,6 +31,24 @@ class SkillController extends Controller
     public function index()
     {
         //
+        try {
+            $avatar=[];
+            $all_main_skills = Skill::with('OwnSkills')->get();
+            foreach ($all_main_skills as $skill) {
+                try {
+                    $val=imageToStreamBase64($skill->OwnSkills()->get()[0]->avatar);
+                    $avatar[$skill->OwnSkills()->get()[0]->id]=$val;
+                }catch (\Exception $ex){
+                    continue;
+                }
+            }
+
+            $all_main_skills->push($avatar);
+
+            return response()->json($all_main_skills, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**
@@ -50,6 +70,18 @@ class SkillController extends Controller
     public function store(Request $request)
     {
         //
+        try {
+            $topic=new Skill();
+            $topic->name=$request->get("skillName");
+
+            $topic->save();
+
+            $topic->OwnSkills()->attach((int)$request->get("Uid"));
+
+            return response()->json($topic, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**
@@ -84,6 +116,19 @@ class SkillController extends Controller
     public function update(Request $request, $id)
     {
         //
+        try {
+            $topic=Skill::findOrFail($id);
+            $topic->OwnSkills()->detach();
+            $topic->name=$request->get("skillName");
+
+            $topic->save();
+
+            $topic->OwnSkills()->attach((int)$request->get("Uid"));
+
+            return response()->json($topic, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**
@@ -95,5 +140,12 @@ class SkillController extends Controller
     public function destroy($id)
     {
         //
+        try {
+            Skill::findOrFail($id)->delete();
+
+            return response()->json("Deleted Successfully", 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 }

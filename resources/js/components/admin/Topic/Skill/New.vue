@@ -45,7 +45,7 @@
 
                         <vs-select
                             filter
-                            v-model="Uid"
+                            v-model="request.Uid"
                             placeholder="User Name"
                             :loading="selectLoading"
                         >
@@ -66,28 +66,11 @@
                     </vs-col>
 
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-                        <vs-input v-model="request.fieldName" placeholder="Field Name">
+                        <vs-input v-model="request.skillName" placeholder="Skill name">
                             <template #icon>
                                 <i class='bx bx-bomb'></i>
                             </template>
                         </vs-input>
-                        <br>
-                        <vs-select
-                            filter
-                            v-model="request.categoryId"
-                            placeholder="Category Name"
-                            :loading="selectLoading2"
-                        >
-                            <vs-option-group>
-                                <div slot="title">
-                                    Select Category Added Under
-                                </div>
-                                <vs-option v-for="category in getCategoryOfUser" :label="category.name" key="0" :value="category.id">
-                                    {{category.name}}
-                                </vs-option>
-                            </vs-option-group>
-                        </vs-select>
-
                     </vs-col>
 
                 </vs-row>
@@ -100,9 +83,9 @@
                                 block
                                 success
                                 ref="button1"
-                                @click="addTopic()"
+                                @click="addSkill()"
                             >
-                                <i class='bx bx-plus' ></i>Add New Topic
+                                <i class='bx bx-plus' ></i>Add New Skill
                             </vs-button>
                         </div>
                         <div v-else>
@@ -111,9 +94,9 @@
                                 block
                                 primary
                                 ref="button1"
-                                @click="editTopic()"
+                                @click="editSkill()"
                             >
-                                <i class='bx bx-edit-alt' ></i> Edit Field
+                                <i class='bx bx-edit-alt' ></i> Edit Skill
                             </vs-button>
                         </div>
                     </vs-col>
@@ -130,18 +113,15 @@ export default {
     name: "New",
     data: () => ({
         char:"",
-        Uid:"",
         request:{
             Uid:"",
-            fieldName:"",
-            categoryId:""
+            skillName:""
         },
         authInfo:{
             token:localStorage.getItem("token"),
             provider:localStorage.getItem("provider")
         },
         selectLoading:true,
-        selectLoading2:true,
         status:0,
         avatar:"",
         oldData:[],
@@ -149,7 +129,6 @@ export default {
     }),
     beforeCreate() {
         this.$store.dispatch("AllUserByName","a");
-        this.$store.dispatch("AllUserCategory","1");
     },
     created() {
         this.status=this.$route.params.status;
@@ -169,12 +148,6 @@ export default {
             allUsers.length>0?this.selectLoading=false:null;
             return allUsers;
         },
-        getCategoryOfUser(){
-            //todo:last step render value to component
-            const allCategory=this.$store.getters.getUserTopics;
-            allCategory.length>0?this.selectLoading2=false:null;
-            return allCategory;
-        }
     },
     methods: {
         openNotification(position = null, border,icon,title,text) {
@@ -186,9 +159,8 @@ export default {
                 text: text
             })
         },
-        addTopic(){
-            this.request.Uid=this.Uid;
-            if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldName!==""){
+        addSkill(){
+            if(JSON.stringify(this.request.Uid)!=="" && this.request.skillName!==""){
 
                 const loading = this.$vs.loading({
                     target: this.$refs.button1,
@@ -198,13 +170,13 @@ export default {
                     color: '#fff'
                 })
 
-                axios.post('/admin-fields/fields'+'?token='+this.authInfo.token+
+                axios.post('/admin-skill/skills'+'?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider,this.request)
                     .then((response)=>{
                         this.openNotification('top-right', 'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            'Add New Field Topic Successfully',
-                            'New Admin added with rules and permissions');
+                            'Add New Skill Successfully',
+                            'New Skill added with rules and permissions');
                         loading.close();
                     })
                     .catch((error)=>{
@@ -216,8 +188,8 @@ export default {
                     });
             }
         },
-        editTopic(){
-            this.path='/admin-fields/fields/'+this.id
+        editSkill(){
+            this.path='/admin-skill/skills/'+this.id
             //todo:call mutation and pass object data
             //todo:should make axios request to get user object
             //todo:make an api in back to return full user object
@@ -238,8 +210,8 @@ export default {
                         this.openNotification('top-right',
                             'primary',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Edit User Successfully",
-                            "New user will be able to handle new permission and assign users...");
+                            "Edit Skill Successfully",
+                            "New Skill will be able to handle new permission and assign users...");
                         loading.close();
                     })
                     .catch((error)=>{
@@ -296,9 +268,8 @@ export default {
     mounted() {
         if(this.status===2){
             //todo:run any js can mounted
-            this.request.fieldName=this.oldData["name"];
-            debugger;
-            this.request.fieldName=this.oldData["name"];
+            this.request.skillName=this.oldData["name"];
+            this.request.Uid=this.oldData["own_skills"][0].id;
         }
     },
     watch:{
@@ -307,13 +278,7 @@ export default {
                 this.$store.dispatch("AllUserByName",newVal);
 
             this.selectLoading=true;
-        },
-        Uid(newVal,oldVal){
-            newVal===""?this.$store.dispatch("AllUserCategory","1"):
-                this.$store.dispatch("AllUserCategory",newVal);
-
-            this.selectLoading2=true;
-        },
+        }
     },
 }
 

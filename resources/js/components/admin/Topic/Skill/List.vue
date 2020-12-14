@@ -96,24 +96,21 @@
                             </vs-th>
 
                             <vs-th
-                                sort @click="data = $vs.sortData($event ,data, 'name')">
+                                sort @click="data = $vs.sortData($event ,data, 'fname')">
                                 Skill Name
                             </vs-th>
 
                             <vs-th>
-                                Category Contained
+                                Creator Name
                             </vs-th>
 
                             <vs-th>
-                                First Follower
+                                Creator Avatar
                             </vs-th>
 
-                            <vs-th>
-                                Follower Avatar
-                            </vs-th>
-
-                            <vs-th>
-                                Follower email
+                            <vs-th
+                                sort @click="data = $vs.sortData($event ,data, 'email')">
+                                Creator email
                             </vs-th>
 
                         </vs-tr>
@@ -128,9 +125,9 @@
                         <!--                        </vs-tooltip>-->
                         <vs-tr
                             :key="i"
-                            v-for="(tr, i) in $vs.getPage($vs.getSearch(getAllFields, search), page, max)"
+                            v-for="(tr, i) in $vs.getPage($vs.getSearch(getAllSkills, search), page, max)"
                             :data="tr"
-                            :is-selected="selected == tr"
+                            :is-selected="selected === tr"
                             @click="index=i"
                             not-click-selected
                         >
@@ -148,22 +145,19 @@
                             <vs-td>
                                 {{ tr.name }}
                             </vs-td>
+
                             <vs-td>
-                                {{ tr.category_related.name }}
+                                {{ tr.own_skills[0].fname }} {{ tr.own_skills[0].lname }}
                             </vs-td>
 
                             <vs-td>
-                                {{ tr.user_follow[0].fname }} {{ tr.user_follow[0].lname }}
+                                {{ tr.own_skills[0].email }}
                             </vs-td>
 
                             <vs-td>
                                 <vs-avatar writing >
-                                    <img :src="avatars[tr.category_related.user_id]" alt="" style="margin-right: 3px"  width="30px"/>
+                                    <img :src="avatars[tr.own_skills[0].id]" alt="" style="margin-right: 3px"  width="30px"/>
                                 </vs-avatar>
-                            </vs-td>
-
-                            <vs-td>
-                                {{ tr.user_follow[0].email }}
                             </vs-td>
 
                             <template #expand>
@@ -212,16 +206,16 @@
 
                     <vs-card>
                         <template #title>
-
-                            <h3>Field Name : {{data[index].name}}</h3>
+                            <h3>{{data[index].own_skills[0].fname}} {{data[index].own_skills[0].lname}}</h3>
                         </template>
                         <template #img>
                             <vs-avatar size="150" circle writing >
-                                <img :src="avatars[data[index].category_related.user_id]" alt="">
+                                <img :src="avatars[data[index].own_skills[0].id]" alt="">
                             </vs-avatar>
                         </template>
                         <template #text>
-                            <h6>Category Name : {{data[index].category_related.name}}</h6>
+                            <h6>Skill Name : <b>{{data[index].name}}</b></h6>
+                            <p>{{data[index].own_skills[0].email}}</p>
                             <p>{{data[index].created_at}}</p>
                             <p>{{data[index].updated_at}}</p>
                             <p>If you're using multiple guards we've got you covered as well.
@@ -317,7 +311,7 @@ export default {
     },
     beforeCreate() {
         //todo:first step
-        this.$store.dispatch("AllFieldsWithCategoriesUnder");
+        this.$store.dispatch("AllSkillsOfUser");
     },
     created() {
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
@@ -325,12 +319,13 @@ export default {
         }
     },
     mounted() {
-        //this.$store.dispatch("AllFieldsWithCategoriesUnder");
     },
     computed:{
-        getAllFields(){
+        getAllSkills(){
             //todo:last step render value to component
-            const users=this.$store.getters.getFieldsUnderCategories;
+            const users=this.$store.getters.getSkillsOfUser;
+
+            debugger
 
             if(users.length>0){
                 this.avatars=users[users.length - 1 ];
@@ -349,7 +344,8 @@ export default {
         },
         editCurrentUser(id,index){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'skill-new', params: { status: 2,id:id,avatar:this.avatars[this.data[index].category_related.user_id],data:this.data[index] } });
+            debugger
+            this.$router.push({name: 'skill-new', params: { status: 2,id:id,avatar:this.avatars[this.data[index].own_skills[0].id],data:this.data[index] } });
         },
         openNotification(position = null, border,icon,title,text) {
             const noti = this.$vs.notification({
@@ -378,7 +374,7 @@ export default {
                 color: '#fff'
             })
 
-            axios.delete('/admin-fields/fields/'+(this.id)+'?token='+this.authInfo.token+
+            axios.delete('/admin-skill/skills/'+(this.id)+'?token='+this.authInfo.token+
                 '&provider='+this.authInfo.provider)
                 .then((response)=>{
                     if(response.data!=="error"){
@@ -386,7 +382,7 @@ export default {
                         this.openNotification('top-right',
                             'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Topic Is Deleted Successfully",
+                            "Skill Is Deleted Successfully",
                             "Can add new role will be able to handle new permission and assign users...");
                         this.active_ensure=false;
                         this.refresh();
@@ -406,7 +402,7 @@ export default {
                 });
         },
         refresh(){
-            this.$store.dispatch("AllFieldsWithCategoriesUnder");
+            this.$store.dispatch("AllSkillsOfUser");
         },
         deleteAllCategory(){
             if(localStorage.hasOwnProperty('token')
@@ -420,7 +416,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.get('/admin-fields/remove-all-admins?token='+this.authInfo.token+
+                axios.get('/admin-skill/remove-all-admins?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         if(response.data!=="error"){
@@ -428,7 +424,7 @@ export default {
                             this.openNotification('top-right',
                                 'danger',
                                 `<i class='bx bx-select-multiple' ></i>`,
-                                "All Fields Are Deleted Successfully",
+                                "All Skills Are Deleted Successfully",
                                 "Can add new role will be able to handle new permission and assign users...");
                             this.enableRemoveAll=true
                             this.refresh();
@@ -438,7 +434,7 @@ export default {
                                 'danger',
                                 `<i class='bx bx-select-multiple' ></i>`,
                                 "Error In Remove",
-                                "Can add new role will be able to handle new permission and assign users...");
+                                "Can add new skill will be able to handle new permission and assign users...");
                             this.enableRemoveAll=true
                         }
 

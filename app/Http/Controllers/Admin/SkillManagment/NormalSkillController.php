@@ -24,7 +24,7 @@ class NormalSkillController extends Controller
         ]]);
     }
 
-    public function RemoveAllFields () {
+    public function RemoveAllSkills () {
         DB::statement("SET foreign_key_checks=0");
         Skill::truncate();
         DB::statement("SET foreign_key_checks=1");

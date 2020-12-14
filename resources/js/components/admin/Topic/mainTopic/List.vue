@@ -126,7 +126,7 @@
                             :key="i"
                             v-for="(tr, i) in $vs.getPage($vs.getSearch(getAllTopics, search), page, max)"
                             :data="tr"
-                            :is-selected="selected == tr"
+                            :is-selected="selected === tr"
                             @click="index=i"
                             not-click-selected
                         >
