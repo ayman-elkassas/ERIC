@@ -10,7 +10,7 @@
                                 <i class='bx bx-plus' ></i> Add New Field
                             </span>
                             <span v-else-if="status===2">
-                                <i class='bx bx-edit' ></i> Edit Topic
+                                <i class='bx bx-edit' ></i> Edit Field
                             </span>
                         </template>
                         Admin can control between all users can share any information
@@ -113,7 +113,7 @@
                                 ref="button1"
                                 @click="editTopic()"
                             >
-                                <i class='bx bx-edit-alt' ></i> Edit Topic
+                                <i class='bx bx-edit-alt' ></i> Edit Field
                             </vs-button>
                         </div>
                     </vs-col>
@@ -188,7 +188,7 @@ export default {
         },
         addTopic(){
             this.request.Uid=this.Uid;
-            if(JSON.stringify(this.request.Uid)!=="" && this.request.topicName!==""){
+            if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldName!==""){
 
                 const loading = this.$vs.loading({
                     target: this.$refs.button1,
@@ -198,12 +198,12 @@ export default {
                     color: '#fff'
                 })
 
-                axios.post('/admin-topics/topics'+'?token='+this.authInfo.token+
+                axios.post('/admin-fields/fields'+'?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider,this.request)
                     .then((response)=>{
                         this.openNotification('top-right', 'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            'Add New Main Topic Successfully',
+                            'Add New Field Topic Successfully',
                             'New Admin added with rules and permissions');
                         loading.close();
                     })
@@ -217,7 +217,7 @@ export default {
             }
         },
         editTopic(){
-            this.path='/admin-topics/topics/'+this.id
+            this.path='/admin-fields/fields/'+this.id
             //todo:call mutation and pass object data
             //todo:should make axios request to get user object
             //todo:make an api in back to return full user object
@@ -296,8 +296,9 @@ export default {
     mounted() {
         if(this.status===2){
             //todo:run any js can mounted
-            this.request.topicName=this.oldData["name"];
-            this.request.Uid=this.oldData["category_user"].id;
+            this.request.fieldName=this.oldData["name"];
+            debugger;
+            this.request.fieldName=this.oldData["name"];
         }
     },
     watch:{

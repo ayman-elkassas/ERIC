@@ -8,7 +8,7 @@
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
-                            Create New User
+                            Create New Skill
                         </template>
                         Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
                     </vs-alert>
@@ -43,9 +43,9 @@
                             relief
                             @click="createNewUser()"
                         >
-                            <i class='bx bx-plus' ></i> Create User
+                            <i class='bx bx-plus' ></i> Create Skill
                         </vs-button>
-<!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
+                        <!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
 
                     </vs-col>
                     <vs-col style="width:16%" w="2">
@@ -56,15 +56,14 @@
                                 relief
                                 ref="button"
                                 :active-disabled="enableRemoveAll"
-                                @click="deleteAllUsers()"
+                                @click="deleteAllCategory()"
                             >
-                                <i class='bx bx-trash' ></i> Delete All Users
+                                <i class='bx bx-trash' ></i> Delete All Skills
                             </vs-button>
                             <template #tooltip>
-                                Delete All Users And Initialize User Role &#128540;
+                                Delete All Skills And Initialize User Role &#128540;
                             </template>
                         </vs-tooltip>
-
                     </vs-col>
                 </vs-row>
             </div>
@@ -98,31 +97,20 @@
 
                             <vs-th
                                 sort @click="data = $vs.sortData($event ,data, 'fname')">
-                                Name
+                                Skill Name
                             </vs-th>
+
+                            <vs-th>
+                                Creator Name
+                            </vs-th>
+
+                            <vs-th>
+                                Creator Avatar
+                            </vs-th>
+
                             <vs-th
                                 sort @click="data = $vs.sortData($event ,data, 'email')">
-                                email
-                            </vs-th>
-
-                            <vs-th>
-                                Avatar
-                            </vs-th>
-
-                            <vs-th>
-                                Phone
-                            </vs-th>
-
-                            <vs-th>
-                                Role
-                            </vs-th>
-
-                            <vs-th>
-                                Skills
-                            </vs-th>
-
-                            <vs-th>
-                                Fields
+                                Creator email
                             </vs-th>
 
                         </vs-tr>
@@ -137,9 +125,9 @@
                         <!--                        </vs-tooltip>-->
                         <vs-tr
                             :key="i"
-                            v-for="(tr, i) in $vs.getPage($vs.getSearch(getAllUsers, search), page, max)"
+                            v-for="(tr, i) in $vs.getPage($vs.getSearch(getAllSkills, search), page, max)"
                             :data="tr"
-                            :is-selected="selected == tr"
+                            :is-selected="selected === tr"
                             @click="index=i"
                             not-click-selected
                         >
@@ -155,52 +143,21 @@
                             </vs-td>
 
                             <vs-td>
-                                {{ tr.fname }}
+                                {{ tr.name }}
                             </vs-td>
+
                             <vs-td>
-                                {{ tr.email }}
+                                {{ tr.own_skills[0].fname }} {{ tr.own_skills[0].lname }}
+                            </vs-td>
+
+                            <vs-td>
+                                {{ tr.own_skills[0].email }}
                             </vs-td>
 
                             <vs-td>
                                 <vs-avatar writing >
-                                    <img :src="tr.avatar" alt="" style="margin-right: 3px"  width="30px"/>
+                                    <img :src="avatars[tr.own_skills[0].id]" alt="" style="margin-right: 3px"  width="30px"/>
                                 </vs-avatar>
-                            </vs-td>
-
-                            <vs-td>
-                                {{ tr.phone }}
-                            </vs-td>
-
-                            <vs-td>
-                                <span v-if="tr.roles.length>0">
-                                    <span v-for="role in tr.roles">
-                                        {{ role.name}}
-                                    </span>
-                                </span>
-                                <span v-else>
-                                    No Role
-                                </span>
-                            </vs-td>
-
-                            <vs-td>
-                                <vs-button
-                                    flat icon
-                                    ref="skill"
-                                    @click="showSkills(tr.id,i+(page-1)*15)"
-                                    primary
-                                >
-                                    <i class='bx bxl-spotify' ></i>
-                                </vs-button>
-                            </vs-td>
-
-                            <vs-td>
-                                <vs-button
-                                    flat icon
-                                    @click="showFields(tr.id,i+(page-1)*15)"
-                                    success
-                                >
-                                    <i class='bx bx-book' ></i>
-                                </vs-button>
                             </vs-td>
 
                             <template #expand>
@@ -210,15 +167,15 @@
                                             <vs-col :key="index" v-for="col,index in 12" vs-type="flex-end" w="1">
                                                 <vs-button
                                                     v-if="col===10" flat icon
-                                                    @click="editCurrentUser(tr.id,i+(page-1)*15)"
                                                     primary
+                                                    @click="editCurrentUser(tr.id,i+(page-1)*15)"
                                                 >
                                                     <i class='bx bx-edit' ></i>
                                                 </vs-button>
                                                 <vs-button v-if="col===11"
                                                            flat icon
                                                            warn
-                                                           @click="viewRole(i+(page-1)*15)"
+                                                           @click="viewTopic(i+(page-1)*15)"
                                                 >
                                                     <i class='bx bx-happy-heart-eyes' ></i>
                                                 </vs-button>
@@ -249,68 +206,20 @@
 
                     <vs-card>
                         <template #title>
-                            <h3>{{data[index].fname}} {{data[index].lname}}</h3>
+                            <h3>{{data[index].own_skills[0].fname}} {{data[index].own_skills[0].lname}}</h3>
                         </template>
                         <template #img>
                             <vs-avatar size="150" circle writing >
-                                <img :src="data[index].avatar" alt="">
+                                <img :src="avatars[data[index].own_skills[0].id]" alt="">
                             </vs-avatar>
                         </template>
                         <template #text>
-                            <p>{{data[index].email}}</p>
-                            <p>
-                                <span v-if="data[index].roles.length>0">
-                                    <span v-for="role in data[index].roles">
-                                        {{ role.name}}
-                                    </span>
-                                </span>
-                                <span v-else>
-                                    No Role
-                                </span>
-                            </p>
+                            <h6>Skill Name : <b>{{data[index].name}}</b></h6>
+                            <p>{{data[index].own_skills[0].email}}</p>
                             <p>{{data[index].created_at}}</p>
                             <p>{{data[index].updated_at}}</p>
                             <p>If you're using multiple guards we've got you covered as well.
                                 Every guard will have its own set of permissions and roles</p>
-                        </template>
-                    </vs-card>
-
-                </div>
-
-            </vs-dialog>
-
-
-            <!--            view skills dialogue-->
-            <vs-dialog blur v-model="activeSkills">
-                <div class="con-form">
-
-                    <vs-card>
-                        <template #title>
-                            <h3><b>{{data[index].fname}} {{data[index].lname}}</b> Skills</h3>
-                        </template>
-                        <template #text>
-                            <div class="center grid">
-                                <tree style="height: 500px" raduis="15px" :data="treeSkills" type="cluster" node-text="name" layoutType="horizontal"></tree>
-                            </div>
-                        </template>
-                    </vs-card>
-
-                </div>
-
-            </vs-dialog>
-
-            <!--            view skills dialogue-->
-            <vs-dialog blur v-model="activeFields">
-                <div class="con-form">
-
-                    <vs-card>
-                        <template #title>
-                            <h3><b>{{data[index].fname}} {{data[index].lname}}</b> Fields Follow</h3>
-                        </template>
-                        <template #text>
-                            <div class="center grid">
-                                <tree style="height: 500px" raduis="15px" :data="treeFields" type="cluster" node-text="name" layoutType="horizontal"></tree>
-                            </div>
                         </template>
                     </vs-card>
 
@@ -361,37 +270,10 @@
         <div ref="content_i" class="content-div-i">
 
         </div>
-        <p v-if="data.length===0 && flag">
-            {{this.reload()}}
-        </p>
-        <p v-else-if="firstLoad && data.length>0">
-            {{this.removeReload()}}
-        </p>
-
-        <span hidden v-if="imgUpload && request.name!=='' && emailValid && passwordValid">
-            {{activeOr=false}}
-        </span>
-        <span hidden v-else>
-            {{activeOr=true}}
-        </span>
     </div>
 </template>
 
 <script>
-
-//todo:file upload (filePond)
-// Import Vue FilePond
-import vueFilePond from 'vue-filepond';
-// Import image preview and file type validation plugins
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
-
-import {tree} from 'vued3tree'
-
-
-// Create component
-const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview,FilePondPluginFileEncode);
 
 export default {
     name: "List",
@@ -407,19 +289,9 @@ export default {
             edit: null,
             editProp: {},
             data: [],
+            avatars:[],
             loading:null,
-            guard_name:"",
-            oldRoles:[],
             activeView:false,
-            activeSkills:false,
-            activeFields:false,
-            request:{
-                name:"",
-                email:"",
-                password:"",
-                avatar:"",
-                roles:""
-            },
             enableRemoveAll:false,
             authInfo:{
                 token:localStorage.getItem("token"),
@@ -434,27 +306,12 @@ export default {
             interval:null,
             flag:false,
             firstLoad:true,
-            emailValid:false,
-            passwordValid:0,
             activeOr:true,
-            imgUpload:false,
-            ownSkills:[],
-            followFields:[],
-            treeSkills: {
-                name: "Skills",
-                children:[]
-            },
-            treeFields: {
-                name: "Fields Follow",
-                children:[]
-            }
-
         }
     },
     beforeCreate() {
         //todo:first step
-        this.$store.dispatch("AllUsers");
-        this.$store.dispatch("AllRoles");
+        this.$store.dispatch("AllSkillsOfUser");
     },
     created() {
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
@@ -462,213 +319,33 @@ export default {
         }
     },
     mounted() {
-        console.log(this.$vs.getPage())
     },
     computed:{
-        getAllUsers(){
+        getAllSkills(){
             //todo:last step render value to component
-            const users=this.$store.getters.getAllUsers;
+            const users=this.$store.getters.getSkillsOfUser;
+
+            debugger
+
             if(users.length>0){
-                this.data=users;
-                this.flag=true;
-            }else{
-                this.flag=true;
-                this.data.push("1");
+                this.avatars=users[users.length - 1 ];
+                users.pop();
             }
+
+            this.data=users;
+
             return users;
-        },
-        getRoles(){
-            //todo:last step render value to component
-            const allRoles=this.$store.getters.getAllRoles;
-            let data=[]
-
-            for (const role of allRoles) {
-                data[role.guard_name]=[]
-            }
-
-            for (const role of allRoles) {
-                data[role.guard_name].push(role.name)
-            }
-            return data;
-        },
-        validEmail() {
-            this.emailValid=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.request.email)
-            return this.emailValid;
-        },
-        getProgress() {
-            let progress = 0
-
-            // at least one number
-
-            if (/\d/.test(this.request.password)) {
-                progress += 20
-            }
-
-            // at least one capital letter
-
-            if (/(.*[A-Z].*)/.test(this.request.password)) {
-                progress += 20
-            }
-
-            // at menons a lowercase
-
-            if (/(.*[a-z].*)/.test(this.request.password)) {
-                progress += 20
-            }
-
-            // more than 5 digits
-
-            if (this.request.password.length >= 6) {
-                progress += 20
-            }
-
-            // at least one special character
-
-            if (/[^A-Za-z0-9]/.test(this.request.password)) {
-                progress += 20
-            }
-
-            this.passwordValid=progress;
-            return progress
         },
     },
     methods: {
         createNewUser(){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'user-new', params: { status: 1 } });
+            this.$router.push({name: 'skill-new', params: { status: 1 } });
         },
         editCurrentUser(id,index){
-            debugger
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'user-new', params: { status: 2,id:id,data:this.data[index] } });
-        },
-        openAddUser(){
-            this.active=true;
-            this.request.avatar=''
-            this.imgUpload=false;
-        },
-        handleFilePondInit: function() {
-            console.log('FilePond has initialized');
-
-            // FilePond instance methods are available on `this.$refs.pond`
-            // alert(this.$refs.pond.getFile());
-        },
-
-        fileAdd:function (error,file){
-            if (error) {
-                console.log('Oh no');
-                return;
-            }
-
-            if(file.fileSize <5000000){
-                this.request.avatar=file.getFileEncodeDataURL();
-                this.imgUpload=true;
-            }
-            else{
-                this.openNotification('top-left', 'danger',
-                    `<i class='bx bxs-bug' ></i>`,
-                    'Avatar size is large',
-                    'Upload image with minimal of 6 MB...');
-            }
-        },
-        addAdmin(){
-            if(this.request.avatar!=='' &&
-                this.request.name!=='' && this.request.email!==''
-                && this.request.password!==''){
-                this.uploadRequest();
-            }
-            else {
-                this.openNotification('top-left', 'danger',
-                    `<i class='bx bxs-bug' ></i>`,
-                    'Enter Valid Inputs',
-                    'Create Again User Admin Account');
-                this.active=false;
-            }
-        },
-        fileRemove:function () {
-            this.imgUpload=false;
-            this.request.avatar=''
-        },
-        uploadRequest(){
-
-            const loading = this.$vs.loading({
-                target: this.$refs.button1,
-                scale: '0.6',
-                background: 'success',
-                opacity: 1,
-                color: '#fff'
-            })
-
-            axios.post('/auth/register',this.request)
-                .then((response)=>{
-                    this.openNotification('top-right', 'success',
-                        `<i class='bx bx-select-multiple' ></i>`,
-                        'Add New Admin Account Successfully',
-                        'New Admin added with rules and permissions');
-                    this.active=false;
-                    loading.close();
-                    this.refresh();
-                })
-                .catch((error)=>{
-                    this.openNotification('top-right', 'danger',
-                        `<i class='bx bxs-bug' ></i>`,
-                        'Make Sure From Credentials',
-                        'Username or password not matched with account credentials,' +
-                        'make sure and try again...');
-                    this.active=false;
-                    loading.close();
-                });
-        },
-        viewRole(i){
-            this.index=i;
-            this.activeView=true;
-        },
-        deleteRole(i){
-            this.id=i
-            this.active_ensure=true
-        },
-        deleteAllUsers(){
-            if(localStorage.hasOwnProperty('token')
-                && localStorage.hasOwnProperty('provider')){
-
-                this.loading = this.$vs.loading({
-                    target: this.$refs.button,
-                    scale: '0.6',
-                    background: 'danger',
-                    opacity: 1,
-                    color: '#fff'
-                })
-
-                axios.get('/user-members/remove-all-users?token='+this.authInfo.token+
-                    '&provider='+this.authInfo.provider)
-                    .then((response)=>{
-                        if(response.data!=="error"){
-                            this.loading.close();
-                            this.openNotification('top-right',
-                                'danger',
-                                `<i class='bx bx-select-multiple' ></i>`,
-                                "All Roles Are Deleted Successfully",
-                                "Can add new role will be able to handle new permission and assign users...");
-                            this.enableRemoveAll=true
-                            this.refresh();
-                        }
-                        else{
-                            this.openNotification('top-right',
-                                'danger',
-                                `<i class='bx bx-select-multiple' ></i>`,
-                                "Error In Remove",
-                                "Can add new role will be able to handle new permission and assign users...");
-                            this.enableRemoveAll=true
-                        }
-
-                    })
-                    .catch((error)=>{
-                        window.location='/admin/invalidToken';
-                    });
-            }
-            else{
-                window.location='/admin/invalidToken';
-            }
+            debugger
+            this.$router.push({name: 'skill-new', params: { status: 2,id:id,avatar:this.avatars[this.data[index].own_skills[0].id],data:this.data[index] } });
         },
         openNotification(position = null, border,icon,title,text) {
             const noti = this.$vs.notification({
@@ -678,6 +355,14 @@ export default {
                 title: title,
                 text: text
             })
+        },
+        viewTopic(i){
+            this.index=i;
+            this.activeView=true;
+        },
+        deleteRole(i){
+            this.id=i
+            this.active_ensure=true
         },
         performDelete(){
 
@@ -689,7 +374,7 @@ export default {
                 color: '#fff'
             })
 
-            axios.delete('/user-members/users/'+(this.id)+'?token='+this.authInfo.token+
+            axios.delete('/admin-skill/skills/'+(this.id)+'?token='+this.authInfo.token+
                 '&provider='+this.authInfo.provider)
                 .then((response)=>{
                     if(response.data!=="error"){
@@ -697,7 +382,7 @@ export default {
                         this.openNotification('top-right',
                             'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Role Is Deleted Successfully",
+                            "Skill Is Deleted Successfully",
                             "Can add new role will be able to handle new permission and assign users...");
                         this.active_ensure=false;
                         this.refresh();
@@ -717,64 +402,42 @@ export default {
                 });
         },
         refresh(){
-            this.$store.dispatch("AllUsers");
-            this.$store.dispatch("AllRoles");
+            this.$store.dispatch("AllSkillsOfUser");
         },
-        reload(){
-            $(".content-div-i").show();
-            this.refreshLoading = this.$vs.loading({
-                target: this.$refs.content_i,
-                color: 'dark'
-            })
-
-            this.flag=false;
-        },
-        removeReload(){
-            this.refreshLoading = this.$vs.loading({
-                target: this.$refs.content_i,
-                color: 'dark'
-            })
-            this.refreshLoading.close();
-            $(".content-div-i").hide();
-
-            this.firstLoad=false;
-        },
-        showSkills(id,index){
-            this.id=id;
-            this.index=index;
-            //todo:call mutation and pass object data
-            //todo:should make axios request to get user object
-            //todo:make an api in back to return full user object
+        deleteAllCategory(){
             if(localStorage.hasOwnProperty('token')
                 && localStorage.hasOwnProperty('provider')){
 
-                //todo:to set inside response of axios should define global <this> object
-                let self=this;
+                this.loading = this.$vs.loading({
+                    target: this.$refs.button,
+                    scale: '0.6',
+                    background: 'danger',
+                    opacity: 1,
+                    color: '#fff'
+                })
 
-                axios.get('/user-members/getSkillUser/'+(this.id)+'?token='+this.authInfo.token+
+                axios.get('/admin-skill/remove-all-admins?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
-                    .then(function (response){
-                        self.ownSkills=response.data
-                        self.activeSkills=true;
+                    .then((response)=>{
+                        if(response.data!=="error"){
+                            this.loading.close();
+                            this.openNotification('top-right',
+                                'danger',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "All Skills Are Deleted Successfully",
+                                "Can add new role will be able to handle new permission and assign users...");
+                            this.enableRemoveAll=true
+                            this.refresh();
+                        }
+                        else{
+                            this.openNotification('top-right',
+                                'danger',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "Error In Remove",
+                                "Can add new skill will be able to handle new permission and assign users...");
+                            this.enableRemoveAll=true
+                        }
 
-                        // tree: {
-                        //     name: "father",
-                        //         children:[{
-                        //         name: "son1",
-                        //         children:[ {name: "grandson"}, {name: "grandson2"}]
-                        //     },{
-                        //         name: "son2",
-                        //         children:[ {name: "grandson3"}, {name: "grandson4"}]
-                        //     }]
-                        // }
-
-                        let childrenSkills=[]
-                        self.ownSkills.forEach(async function (skill){
-                            let obj={};
-                            obj.name=skill.name;
-                            childrenSkills.push(obj)
-                        })
-                        self.treeSkills.children=childrenSkills;
                     })
                     .catch((error)=>{
                         window.location='/admin/invalidToken';
@@ -784,52 +447,6 @@ export default {
                 window.location='/admin/invalidToken';
             }
         },
-        showFields(id,index){
-            this.id=id;
-            this.index=index;
-            //todo:call mutation and pass object data
-            //todo:should make axios request to get user object
-            //todo:make an api in back to return full user object
-            if(localStorage.hasOwnProperty('token')
-                && localStorage.hasOwnProperty('provider')){
-
-                //todo:to set inside response of axios should define global <this> object
-                let self=this;
-
-                axios.get('/user-members/getFieldUser/'+(this.id)+'?token='+this.authInfo.token+
-                    '&provider='+this.authInfo.provider)
-                    .then(function (response){
-                        self.followFields=response.data
-                        self.activeFields=true;
-
-                        // tree: {
-                        //     name: "father",
-                        //         children:[{
-                        //         name: "son1",
-                        //         children:[ {name: "grandson"}, {name: "grandson2"}]
-                        //     },{
-                        //         name: "son2",
-                        //         children:[ {name: "grandson3"}, {name: "grandson4"}]
-                        //     }]
-                        // }
-
-                        let childrenFields=[]
-                        self.followFields.forEach(async function (field){
-                            let obj={};
-                            obj.name=field.name;
-                            childrenFields.push(obj)
-                        })
-                        self.treeFields.children=childrenFields;
-                    })
-                    .catch((error)=>{
-                        window.location='/admin/invalidToken';
-                    });
-            }
-            else{
-                window.location='/admin/invalidToken';
-            }
-        }
-
     },
     watch:{
         page(newVal,oldVal){
@@ -837,10 +454,6 @@ export default {
             // debugger
             // this.index=this.index+(this.page-1)*15;
         }
-    },
-    components:{
-        FilePond,
-        tree
     },
 }
 </script>

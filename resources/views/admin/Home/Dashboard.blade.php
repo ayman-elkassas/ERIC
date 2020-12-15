@@ -105,7 +105,7 @@
                                         <ul id="field" class="nav-submenu menu-content">
                                             <li><router-link to="./topic-list">{{trans('admin.eric_sys.field.manage-topic')}}</router-link></li>
                                             <li><router-link to="./field-list">{{trans('admin.eric_sys.field.manage-field')}}</router-link></li>
-                                            <li><router-link to="./topic-list">{{trans('admin.eric_sys.field.manage-skill')}}</router-link></li>
+                                            <li><router-link to="./skill-list">{{trans('admin.eric_sys.field.manage-skill')}}</router-link></li>
                                         </ul>
 
                                     </li>

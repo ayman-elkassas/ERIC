@@ -16,6 +16,9 @@ import TopicNew from './components/admin/Topic/mainTopic/New.vue'
 //todo:Field Under Topic
 import FieldList from './components/admin/Topic/Field/List'
 import FieldNew from './components/admin/Topic/Field/New'
+//todo:Skill
+import SkillList from './components/admin/Topic/Skill/List'
+import SkillNew from './components/admin/Topic/Skill/New'
 //todo:Post
 import PostList from './components/admin/Post/List.vue'
 import PostNew from './components/admin/Post/New.vue'
@@ -54,6 +57,9 @@ export const routes=[
     //todo:Field
     {path:'/field-list/',name:'Field List',component: FieldList},
     {path:'/field-new/',name:'field-new',component: FieldNew},
+    //todo:Field
+    {path:'/skill-list/',name:'Skill List',component: SkillList},
+    {path:'/skill-new/',name:'skill-new',component: SkillNew},
     //todo:Post
     {path:'/post-list/',name:'Post List',component: PostList},
     {path:'/post-add/',name:'Post Add',component: PostNew},

@@ -14,6 +14,9 @@ export default {
         topics:[],
         UserByCharFname:[],
         topicsCreatedByUser:[],
+        fieldsUnderCategories:[],
+        skillsOfUser:[],
+
     },
     getters:{
         getUser(state){
@@ -55,6 +58,12 @@ export default {
         },
         getUserTopics(state){
             return state.topicsCreatedByUser;
+        },
+        getFieldsUnderCategories(state){
+            return state.fieldsUnderCategories;
+        },
+        getSkillsOfUser(state){
+            return state.skillsOfUser;
         }
     },
     actions:{
@@ -367,6 +376,54 @@ export default {
             }else{
                 window.location='/admin/invalidToken';
             }
+        },
+        AllFieldsWithCategoriesUnder(context){
+            let request={token:"",provider:""};
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                request.token=localStorage.getItem("token");
+                request.provider=localStorage.getItem("provider");
+
+                axios.get('/admin-fields/fields?token='+request.token+
+                    '&provider='+request.provider)
+                    .then((response)=>{
+                        context.commit('allFields',response.data);
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }else{
+                window.location='/admin/invalidToken';
+            }
+        },
+        AllSkillsOfUser(context){
+            let request={token:"",provider:""};
+
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                request.token=localStorage.getItem("token");
+                request.provider=localStorage.getItem("provider");
+
+                axios.get('/admin-skill/skills?token='+request.token+
+                    '&provider='+request.provider)
+                    .then((response)=>{
+                        context.commit('allSkillsUser',response.data);
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }else{
+                window.location='/admin/invalidToken';
+            }
         }
         // template(context){
         //     let request={token:"",provider:""};
@@ -433,6 +490,12 @@ export default {
         },
         allCategoryOfUser(state,data){
             return state.topicsCreatedByUser=data;
+        },
+        allFields(state,data){
+            return state.fieldsUnderCategories=data;
+        },
+        allSkillsUser(state,data){
+            return state.skillsOfUser=data;
         }
     },
     modules:{

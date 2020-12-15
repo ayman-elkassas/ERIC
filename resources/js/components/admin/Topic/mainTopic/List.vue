@@ -58,7 +58,7 @@
                                 :active-disabled="enableRemoveAll"
                                 @click="deleteAllCategory()"
                             >
-                                <i class='bx bx-trash' ></i> Delete All Users
+                                <i class='bx bx-trash' ></i> Delete All Topics
                             </vs-button>
                             <template #tooltip>
                                 Delete All Users And Initialize User Role &#128540;
@@ -126,7 +126,7 @@
                             :key="i"
                             v-for="(tr, i) in $vs.getPage($vs.getSearch(getAllTopics, search), page, max)"
                             :data="tr"
-                            :is-selected="selected == tr"
+                            :is-selected="selected === tr"
                             @click="index=i"
                             not-click-selected
                         >
@@ -317,7 +317,6 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch("AllTopics");
     },
     computed:{
         getAllTopics(){
