@@ -22,6 +22,18 @@
 
             <div class="center grid">
 
+                <vs-row>
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                        <ckeditor :editor="editor"
+                                  v-model="editorData"
+                                  :config="editorConfig"
+                                  @ready="onEditorReady"
+                                  @focus="onEditorFocus"
+                                  @blur="onEditorBlur"
+                                  @input="onEditorInput"></ckeditor>
+                    </vs-col>
+                </vs-row>
+
                 <vs-row v-if="status===2" justify="space-around">
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
                         <vs-avatar size="70" history success>
@@ -126,6 +138,8 @@
 
 <script>
 
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 export default {
     name: "New",
     data: () => ({
@@ -146,6 +160,23 @@ export default {
         avatar:"",
         oldData:[],
         id:0,
+        editor: ClassicEditor,
+        editorData: '<p>Content of the editor.</p>',
+        editorConfig: {
+            // The configuration of the editor.
+        },
+        onEditorReady(){
+            alert("ready")
+        },
+        onEditorFocus(){
+            alert("focus")
+        },
+        onEditorBlur(){
+            alert("blur")
+        },
+        onEditorInput(){
+            alert("input")
+        }
     }),
     beforeCreate() {
         this.$store.dispatch("AllUserByName","a");
@@ -174,7 +205,7 @@ export default {
             const allCategory=this.$store.getters.getUserTopics;
             allCategory.length>0?this.selectLoading2=false:null;
             return allCategory;
-        }
+        },
     },
     methods: {
         openNotification(position = null, border,icon,title,text) {

@@ -32,6 +32,10 @@ Vue.component(HasError.name,HasError);
 Vue.component(AlertError.name,AlertError);
 window.Form=Form;
 
+//todo:Ckeditor
+import CKEditor from '@ckeditor/ckeditor5-vue2';
+Vue.use( CKEditor );
+
 //todo:User-define Component
 //todo:Admin Dashboard
 Vue.component('admin-main', require('./components/admin/MasterPage/Content').default);

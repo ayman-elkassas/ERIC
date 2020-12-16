@@ -61,8 +61,8 @@ export const routes=[
     {path:'/skill-list/',name:'Skill List',component: SkillList},
     {path:'/skill-new/',name:'skill-new',component: SkillNew},
     //todo:Post
-    {path:'/post-list/',name:'Post List',component: PostList},
-    {path:'/post-add/',name:'Post Add',component: PostNew},
+    {path:'/post-list/',name:'post-list',component: PostList},
+    {path:'/post-new/',name:'post-new',component: PostNew},
     //todo:Course
     {path:'/course-list/',name:'Course List',component: CourseList},
     {path:'/course-add/',name:'Course Add',component: CourseNew},

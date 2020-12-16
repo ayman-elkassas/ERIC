@@ -345,7 +345,7 @@ export default {
     methods: {
         createNewUser(){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'field-new', params: { status: 1 } });
+            this.$router.push({name: 'post-new', params: { status: 1 } });
         },
         editCurrentUser(id,index){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
