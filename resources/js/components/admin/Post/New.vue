@@ -6,7 +6,12 @@
                 <div class="center">
                     <vs-alert color="warn">
                         <template #title>
-                            Add New Post
+                            <span v-if="status===1">
+                                <i class='bx bx-plus' ></i> Add New Field
+                            </span>
+                            <span v-else-if="status===2">
+                                <i class='bx bx-edit' ></i> Edit Field
+                            </span>
                         </template>
                         Admin can control between all users can share any information
                     </vs-alert>
@@ -15,249 +20,301 @@
         </div>
         <div class="card-body">
 
-            <form>
-                <div class="row product-page-main">
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-input
-                                v-model="value1"
-                                label="Post Title"
-                            >
-                                <template #icon>
-                                    <i class='bx bxl-blogger'></i>
-                                </template>
-                            </vs-input>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-input
-                                v-model="value1"
-                                label="Post Description"
-                            >
-                                <template #icon>
-                                    <i class='bx bx-message-alt'></i>
-                                </template>
-                            </vs-input>
-                        </div>
-                    </div>
-                </div>
+            <div class="center grid">
 
-                <div class="row product-page-main">
-                    <div class="col-xl-6">
-                        <div class="center content-inputs">
-                            <vs-select
-                                label="Post Owners"
-                                filter
-                                multiple
-                                v-model="value6"
-                            >
-                                <vs-option-group>
-                                    <div slot="title">
-                                        Vuejs
-                                    </div>
-                                    <vs-option label="Vuesax" value="1">
-                                        Vuesax
-                                    </vs-option>
-                                    <vs-option label="Vue" value="2">
-                                        Vue
-                                    </vs-option>
-                                    <vs-option label="Javascript" value="3">
-                                        Javascript
-                                    </vs-option>
-                                </vs-option-group>
-                                <vs-option-group>
-                                    <div slot="title">
-                                        Others
-                                    </div>
-                                    <vs-option label="Sass" value="4">
-                                        Sass
-                                    </vs-option>
-                                    <vs-option label="Typescript" value="5">
-                                        Typescript
-                                    </vs-option>
-                                    <vs-option label="Webpack" value="6">
-                                        Webpack
-                                    </vs-option>
-                                    <vs-option label="Nodejs" value="7">
-                                        Nodejs
-                                    </vs-option>
-                                </vs-option-group>
-                            </vs-select>
+                <vs-row v-if="status===2" justify="space-around">
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                        <vs-avatar size="70" history success>
+                            <img :src="avatar" alt="">
+                        </vs-avatar>
+                    </vs-col>
+                </vs-row>
+                <br>
+                <br>
 
-                        </div>
-                    </div>
-                </div>
+                <vs-row justify="space-around">
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
 
-                <div class="form-group row has-error">
-                    <label class="col-sm-2 col-form-label">Upload Avatar</label>
-                    <div class="col-sm-10">
+                        <vs-input
+                            label="User Creator Name"
+                            v-model="char" placeholder="Search By User Name...">
+                            <template #icon>
+                                <i class='bx bx-search'></i>
+                            </template>
+                        </vs-input>
 
-                        <vueDropzone ref="dropzone" :useCustomSlot=true class="dropzone digits dz-clickable" id="drop1" :options="dropOptions" :include-styling="false">
-                            <div class="dz-message needsclick"><i class="fa fa-upload"></i>
-                                <h6>Drop file here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
-                            </div>
-                        </vueDropzone>
-
-                        <div class="card-body megaoptions-border-space-sm">
-                            <form class="mega-inline">
-                                <div class="row">
-
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="media p-20">
-                                                <div class="radio radio-primary mr-3">
-                                                    <input id="radio14" type="radio" name="radio1" value="option1" data-original-title="" title="">
-                                                    <label for="radio14"></label>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="mt-0 mega-title-badge">Private<span class="badge badge-primary pull-right digits">50 INR</span></h6>
-                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="media p-20">
-                                                <div class="radio radio-success mr-3">
-                                                    <input id="radio13" type="radio" name="radio1" value="option1" data-original-title="" title="">
-                                                    <label for="radio13"></label>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="mt-0 mega-title-badge">Public<span class="badge badge-success pull-right digits">100 INR</span></h6>
-                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
-                            <br>
-                            <form class="mega-inline">
-                                <div class="row">
-
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="media p-20">
-                                                <div class="radio radio-danger mr-3">
-                                                    <input id="radio12" type="radio" name="radio1" value="option1" data-original-title="" title="">
-                                                    <label for="radio12"></label>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="mt-0 mega-title-badge">Read only<span class="badge badge-danger pull-right digits">100 INR</span></h6>
-                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="media p-20">
-                                                <div class="radio radio-secondary mr-3">
-                                                    <input id="radio11" type="radio" name="radio1" value="option1" data-original-title="" title="">
-                                                    <label for="radio11"></label>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="mt-0 mega-title-badge">Share Now<span class="badge badge-secondary pull-right digits">100 INR</span></h6>
-                                                    <p>Estimated 1 Day Shipping ( Duties end tax may be due delivery )</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                        <vs-button
-                            size="large"
-                            color="success"
-                            circle
+                        <vs-select
+                            filter
+                            v-model="Uid"
+                            placeholder="User Name"
+                            :loading="selectLoading"
                         >
-                            Save
-                        </vs-button>
+                            <vs-option-group>
+                                <div slot="title">
+                                    Users
+                                </div>
+                                <vs-option v-for="user in getUserByChar" :label="user.fname" key="0" :value="user.id">
+                                    <vs-avatar size="25">
+                                        <img :src="user.avatar" alt="">
+                                    </vs-avatar> &nbsp;&nbsp; {{user.fname}} {{user.lname}}
+                                </vs-option>
+                            </vs-option-group>
+                        </vs-select>
+                    </vs-col>
 
-                    </div>
-                </div>
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
+                    </vs-col>
 
-            </form>
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                        <vs-input v-model="request.fieldName" placeholder="Field Name">
+                            <template #icon>
+                                <i class='bx bx-bomb'></i>
+                            </template>
+                        </vs-input>
+                        <br>
+                        <vs-select
+                            filter
+                            v-model="request.categoryId"
+                            placeholder="Category Name"
+                            :loading="selectLoading2"
+                        >
+                            <vs-option-group>
+                                <div slot="title">
+                                    Select Category Added Under
+                                </div>
+                                <vs-option v-for="category in getCategoryOfUser" :label="category.name" key="0" :value="category.id">
+                                    {{category.name}}
+                                </vs-option>
+                            </vs-option-group>
+                        </vs-select>
+
+                    </vs-col>
+
+                </vs-row>
+                <br>
+                <vs-row justify="space-between">
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                        <div v-if="status===1">
+                            <vs-button
+                                relief
+                                block
+                                success
+                                ref="button1"
+                                @click="addTopic()"
+                            >
+                                <i class='bx bx-plus' ></i>Add New Topic
+                            </vs-button>
+                        </div>
+                        <div v-else>
+                            <vs-button
+                                relief
+                                block
+                                primary
+                                ref="button1"
+                                @click="editTopic()"
+                            >
+                                <i class='bx bx-edit-alt' ></i> Edit Field
+                            </vs-button>
+                        </div>
+                    </vs-col>
+                </vs-row>
+            </div>
         </div>
     </div>
 
 </template>
 
 <script>
+
 export default {
     name: "New",
     data: () => ({
-        dropOptions: {
-            url: "https://httpbin.org/post",
-            maxFilesize: 2, // MB
-            maxFiles: 4,
-            chunking: true,
-            chunkSize: 500, // Bytes
-            thumbnailWidth: 70, // px
-            thumbnailHeight: 70,
-            addRemoveLinks: true,
+        char:"",
+        Uid:"",
+        request:{
+            Uid:"",
+            fieldName:"",
+            categoryId:""
         },
-        value1:"",
-        value2:"",
-        value3:"",
-        value4:"",
-        value5:"",
-        value6:[""],
-        hasVisiblePassword: false
+        authInfo:{
+            token:localStorage.getItem("token"),
+            provider:localStorage.getItem("provider")
+        },
+        selectLoading:true,
+        selectLoading2:true,
+        status:0,
+        avatar:"",
+        oldData:[],
+        id:0,
     }),
-    methods: {
-        removeAllFiles() {
-            this.$refs.dropzone.removeAllFiles();
-        }
+    beforeCreate() {
+        this.$store.dispatch("AllUserByName","a");
+        this.$store.dispatch("AllUserCategory","1");
     },
-    mounted() {
-        //todo:run any js can mounted
+    created() {
+        this.status=this.$route.params.status;
+        if(this.status===2){
+            this.id=this.$route.params.id
+            this.avatar=this.$route.params.avatar
+            this.oldData=this.$route.params.data
+        }
+        if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
+            window.location='/admin/invalidToken';
+        }
     },
     computed:{
-        validEmail() {
-            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.value3)
+        getUserByChar(){
+            //todo:last step render value to component
+            const allUsers=this.$store.getters.getUserByCharFname;
+            allUsers.length>0?this.selectLoading=false:null;
+            return allUsers;
         },
-        getProgress() {
-            let progress = 0
-
-            // at least one number
-
-            if (/\d/.test(this.value)) {
-                progress += 20
-            }
-
-            // at least one capital letter
-
-            if (/(.*[A-Z].*)/.test(this.value)) {
-                progress += 20
-            }
-
-            // at menons a lowercase
-
-            if (/(.*[a-z].*)/.test(this.value)) {
-                progress += 20
-            }
-
-            // more than 5 digits
-
-            if (this.value.length >= 6) {
-                progress += 20
-            }
-
-            // at least one special character
-
-            if (/[^A-Za-z0-9]/.test(this.value)) {
-                progress += 20
-            }
-
-            return progress
+        getCategoryOfUser(){
+            //todo:last step render value to component
+            const allCategory=this.$store.getters.getUserTopics;
+            allCategory.length>0?this.selectLoading2=false:null;
+            return allCategory;
         }
-    }
+    },
+    methods: {
+        openNotification(position = null, border,icon,title,text) {
+            const noti = this.$vs.notification({
+                border,
+                icon,
+                position,
+                title: title,
+                text: text
+            })
+        },
+        addTopic(){
+            this.request.Uid=this.Uid;
+            if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldName!==""){
+
+                const loading = this.$vs.loading({
+                    target: this.$refs.button1,
+                    scale: '0.6',
+                    background: 'success',
+                    opacity: 1,
+                    color: '#fff'
+                })
+
+                axios.post('/admin-fields/fields'+'?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider,this.request)
+                    .then((response)=>{
+                        this.openNotification('top-right', 'success',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            'Add New Field Topic Successfully',
+                            'New Admin added with rules and permissions');
+                        loading.close();
+                    })
+                    .catch((error)=>{
+                        this.openNotification('top-right', 'danger',
+                            `<i class='bx bxs-bug' ></i>`,
+                            'Make Sure From Inputs',
+                            "Inputs invalid make sure from inputs...");
+                        loading.close();
+                    });
+            }
+        },
+        editTopic(){
+            this.path='/admin-fields/fields/'+this.id
+            //todo:call mutation and pass object data
+            //todo:should make axios request to get user object
+            //todo:make an api in back to return full user object
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                const loading = this.$vs.loading({
+                    target: this.$refs.button1,
+                    scale: '0.6',
+                    background: 'primary',
+                    opacity: 1,
+                    color: '#fff'
+                })
+
+                axios.put(this.path+'?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider,this.request)
+                    .then((response)=>{
+                        this.openNotification('top-right',
+                            'primary',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Edit User Successfully",
+                            "New user will be able to handle new permission and assign users...");
+                        loading.close();
+                    })
+                    .catch((error)=>{
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Invalid insert New User Successfully",
+                            "New user will be able to handle new permission and assign users...");
+                        loading.close();
+                    });
+            }
+            else{
+                window.location='/admin/invalidToken';
+            }
+        },
+        performDelete(){
+
+            const loading = this.$vs.loading({
+                target: this.$refs.button3,
+                scale: '0.6',
+                background: 'danger',
+                opacity: 1,
+                color: '#fff'
+            })
+
+            axios.delete('/user-members/users/'+(this.id)+'?token='+this.authInfo.token+
+                '&provider='+this.authInfo.provider)
+                .then((response)=>{
+                    if(response.data!=="error"){
+                        loading.close();
+                        this.openNotification('top-right',
+                            'success',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Role Is Deleted Successfully",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false;
+                        this.refresh();
+                        $('.vs-table__tr__expand').hide();
+                    }
+                    else{
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Error In Remove",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false
+                    }
+                })
+                .catch((error)=>{
+                    window.location='/admin/invalidToken';
+                });
+        },
+    },
+    mounted() {
+        if(this.status===2){
+            //todo:run any js can mounted
+            this.request.fieldName=this.oldData["name"];
+            debugger;
+            this.request.fieldName=this.oldData["name"];
+        }
+    },
+    watch:{
+        char(newVal,oldVal){
+            newVal===""?this.$store.dispatch("AllUserByName","a"):
+                this.$store.dispatch("AllUserByName",newVal);
+
+            this.selectLoading=true;
+        },
+        Uid(newVal,oldVal){
+            newVal===""?this.$store.dispatch("AllUserCategory","1"):
+                this.$store.dispatch("AllUserCategory",newVal);
+
+            this.selectLoading2=true;
+        },
+    },
 }
 
 </script>
