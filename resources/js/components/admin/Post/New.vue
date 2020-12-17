@@ -7,10 +7,10 @@
                     <vs-alert color="warn">
                         <template #title>
                             <span v-if="status===1">
-                                <i class='bx bx-plus' ></i> Add New Field
+                                <i class='bx bx-plus' ></i> Add New Post
                             </span>
                             <span v-else-if="status===2">
-                                <i class='bx bx-edit' ></i> Edit Field
+                                <i class='bx bx-edit' ></i> Edit Post
                             </span>
                         </template>
                         Admin can control between all users can share any information
@@ -21,6 +21,104 @@
         <div class="card-body">
 
             <div class="center grid">
+
+                <br>
+
+                <vs-row w="12">
+                    <vs-col w="12">
+                            <vs-input
+                                label="User Creator Name"
+                                v-model="char" placeholder="Search By User Name...">
+                                <template #icon>
+                                    <i class='bx bx-search'></i>
+                                </template>
+                            </vs-input>
+
+                            <vs-select
+                                filter
+                                v-model="Uid"
+                                placeholder="User Name"
+                                :loading="selectLoading"
+                            >
+                                <vs-option-group>
+                                    <div slot="title">
+                                        Users
+                                    </div>
+                                    <vs-option v-for="user in getUserByChar" :label="user.fname" key="0" :value="user.id">
+                                        <vs-avatar size="25">
+                                            <img :src="user.avatar" alt="">
+                                        </vs-avatar> &nbsp;&nbsp; {{user.fname}} {{user.lname}}
+                                    </vs-option>
+                                </vs-option-group>
+                            </vs-select>
+                    </vs-col>
+                </vs-row>
+
+                <br>
+                <br>
+
+                <vs-row>
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                        <vs-input v-model="request.fieldName"
+                                  label="Post Title"
+                                  placeholder="What's in your mind?">
+                            <template #icon>
+                                <i class='bx bx-book'></i>
+                            </template>
+                        </vs-input>
+                    </vs-col>
+                </vs-row>
+
+                <br>
+
+                <vs-row w="12">
+                    <vs-col w="3">
+                        <vs-radio primary v-model="picked" val="1">
+                            Text
+                        </vs-radio>
+                    </vs-col>
+
+                    <vs-col w="3">
+                        <vs-radio success v-model="picked" val="2">
+                            Image
+                        </vs-radio>
+                    </vs-col>
+
+                    <vs-col w="3">
+                        <vs-radio warn v-model="picked" val="3">
+                            Video
+                        </vs-radio>
+                    </vs-col>
+
+                    <vs-col w="3">
+                        <vs-radio danger v-model="picked" val="4">
+                            Audio
+                        </vs-radio>
+                    </vs-col>
+                </vs-row>
+
+                <br>
+
+                <vs-row w="12">
+                    <vs-col w="12">
+                        <vs-select
+                            filter
+                            v-model="request.categoryId"
+                            placeholder="Field Name"
+                            :loading="selectLoading2"
+                        >
+                            <vs-option-group>
+                                <div slot="title">
+                                    Select Category Added Under
+                                </div>
+                                <vs-option v-for="category in getCategoryOfUser" :label="category.name" key="0" :value="category.id">
+                                    {{category.name}}
+                                </vs-option>
+                            </vs-option-group>
+                        </vs-select>
+                    </vs-col>
+                </vs-row>
+                <br>
 
                 <vs-row>
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
@@ -44,68 +142,29 @@
                 <br>
                 <br>
 
-                <vs-row justify="space-around">
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-
-                        <vs-input
-                            label="User Creator Name"
-                            v-model="char" placeholder="Search By User Name...">
-                            <template #icon>
-                                <i class='bx bx-search'></i>
-                            </template>
-                        </vs-input>
-
-                        <vs-select
-                            filter
-                            v-model="Uid"
-                            placeholder="User Name"
-                            :loading="selectLoading"
-                        >
-                            <vs-option-group>
-                                <div slot="title">
-                                    Users
-                                </div>
-                                <vs-option v-for="user in getUserByChar" :label="user.fname" key="0" :value="user.id">
-                                    <vs-avatar size="25">
-                                        <img :src="user.avatar" alt="">
-                                    </vs-avatar> &nbsp;&nbsp; {{user.fname}} {{user.lname}}
-                                </vs-option>
-                            </vs-option-group>
-                        </vs-select>
+                <vs-row w="12">
+                    <vs-col w="12">
+                        <file-pond
+                            name="test"
+                            ref="pond"
+                            class-name="my-pond"
+                            label-idle="Add Attachments..."
+                            v-bind:allow-multiple="true"
+                            allowDrop="true"
+                            allowPaste="true"
+                            allowReplace="true"
+                            allowRevert="true"
+                            allowRemove="true"
+                            maxFiles="5"
+                            allowFileEncode="true"
+                            v-on:addfile="fileAdd"
+                            v-on:removefile="fileRemove"
+                        />
                     </vs-col>
-
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
-                    </vs-col>
-
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
-                        <vs-input v-model="request.fieldName" placeholder="Field Name">
-                            <template #icon>
-                                <i class='bx bx-bomb'></i>
-                            </template>
-                        </vs-input>
-                        <br>
-                        <vs-select
-                            filter
-                            v-model="request.categoryId"
-                            placeholder="Category Name"
-                            :loading="selectLoading2"
-                        >
-                            <vs-option-group>
-                                <div slot="title">
-                                    Select Category Added Under
-                                </div>
-                                <vs-option v-for="category in getCategoryOfUser" :label="category.name" key="0" :value="category.id">
-                                    {{category.name}}
-                                </vs-option>
-                            </vs-option-group>
-                        </vs-select>
-
-                    </vs-col>
-
                 </vs-row>
-                <br>
+
                 <vs-row justify="space-between">
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="5">
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
                         <div v-if="status===1">
                             <vs-button
                                 relief
@@ -116,6 +175,7 @@
                             >
                                 <i class='bx bx-plus' ></i>Add New Topic
                             </vs-button>
+
                         </div>
                         <div v-else>
                             <vs-button
@@ -140,6 +200,11 @@
 
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
+import * as FilePond from "filepond";
+import FilePondPluginMediaPreview from "filepond-plugin-media-preview";
+
+FilePond.registerPlugin(FilePondPluginMediaPreview);
+
 export default {
     name: "New",
     data: () => ({
@@ -154,6 +219,7 @@ export default {
             token:localStorage.getItem("token"),
             provider:localStorage.getItem("provider")
         },
+        picked:2,
         selectLoading:true,
         selectLoading2:true,
         status:0,
@@ -161,21 +227,21 @@ export default {
         oldData:[],
         id:0,
         editor: ClassicEditor,
-        editorData: '<p>Content of the editor.</p>',
+        editorData: '<p>Edit your content.</p>',
         editorConfig: {
             // The configuration of the editor.
         },
         onEditorReady(){
-            alert("ready")
+            // alert("ready")
         },
         onEditorFocus(){
-            alert("focus")
+            // alert("focus")
         },
         onEditorBlur(){
-            alert("blur")
+            // alert("blur")
         },
         onEditorInput(){
-            alert("input")
+            // alert("input")
         }
     }),
     beforeCreate() {
@@ -184,11 +250,13 @@ export default {
     },
     created() {
         this.status=this.$route.params.status;
+
         if(this.status===2){
             this.id=this.$route.params.id
             this.avatar=this.$route.params.avatar
             this.oldData=this.$route.params.data
         }
+
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
             window.location='/admin/invalidToken';
         }
@@ -323,6 +391,27 @@ export default {
                     window.location='/admin/invalidToken';
                 });
         },
+        fileRemove:function () {
+            this.imgUpload=false;
+            this.request.avatar=''
+        },
+        fileAdd:function (error,file){
+            if (error) {
+                console.log('Oh no');
+                return;
+            }
+
+            if(file.fileSize <5000000){
+                this.request.avatar=file.getFileEncodeDataURL();
+                this.imgUpload=true;
+            }
+            else{
+                this.openNotification('top-left', 'danger',
+                    `<i class='bx bxs-bug' ></i>`,
+                    'Avatar size is large',
+                    'Upload image with minimal of 6 MB...');
+            }
+        },
     },
     mounted() {
         if(this.status===2){
@@ -345,6 +434,9 @@ export default {
 
             this.selectLoading2=true;
         },
+    },
+    components:{
+        FilePondPluginMediaPreview
     },
 }
 

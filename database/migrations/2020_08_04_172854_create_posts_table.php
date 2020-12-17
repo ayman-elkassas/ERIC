@@ -17,12 +17,19 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('desc');
+            //todo:type (text 1,image 2, video 3, audio 4)
+            $table->integer('type')->unsigned();
             $table->integer('user_id')->unsigned();//fk
+            $table->integer('field_id')->unsigned();//fk
             $table->timestamps();
 
             //Relationships
             $table->foreign('user_id')
                 ->references('id')->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('field_id')
+                ->references('id')->on('fields')
                 ->onDelete('cascade');
         });
     }

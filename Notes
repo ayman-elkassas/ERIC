@@ -1,0 +1,14 @@
+ Integrity constraint violation:
+ *******************************
+ 1-Schema::disableForeignKeyConstraints(); (Providers/AppServiceProvider in boot)
+ 2-php artisan migrate:rollback --path=/database/migrations/2020_08_04_172854_create_posts_table.php
+ 3-php artisan migrate --path=/database/migrations/2020_08_04_172854_create_posts_table.php
+ 4-enable again Schema::enableForeignKeyConstraints()
+
+ *************************************************************************
+ Local node_module:
+ ******************
+ 1-create another folder (test_dir)
+ 2-in cmd : npm init (and continue steps)
+ 3-going to outside and in the same level of node_module make :
+ 4-npm install test_dir\package_name folder (that contain on package.json file)
