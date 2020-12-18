@@ -1,6 +1,7 @@
 <?php
 
 //todo:Admin routes
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 if(!function_exists('FAdminUrl')){
@@ -47,4 +48,32 @@ if(!function_exists('cleanString')) {
         return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
     }
 };
+
+if(!function_exists('saveInStorage')){
+    function saveInStorage($file,$mimeTpe,$uploadPath,$post_id=null){
+
+        $strPos=strpos($file,';');
+        $sub=substr($file,0,$strPos);
+        $ex=explode('/',$sub)[1];
+        $name=time().'.'.$ex;
+
+        $str_decode=explode(',', $file)[1];
+
+        $upload_path=$uploadPath.$post_id."/";
+
+        switch ($mimeTpe) {
+            case 'image':
+                //do something
+                //todo:Avatar
+                $img=Image::make($file)->resize(350,350);
+                //todo:after make link (php artisan storage:link) save as following
+                Storage::disk("public")->put($upload_path.$name, (string) $img->encode(), 'public');
+                return [$name,$upload_path];
+            default:
+                //todo:after make link (php artisan storage:link) save as following
+                Storage::disk("public")->put($upload_path.$name, (string) base64_decode($str_decode), 'public');
+                return [$name,$upload_path];
+        }
+    }
+}
 

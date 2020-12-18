@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Posts extends Model
 {
     //
-    public function p_user():object {
+    public final function postUser():object {
         return $this->belongsTo(User::class,'user_id');
     }
 }

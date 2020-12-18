@@ -8,7 +8,7 @@
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
-                            Create New Field
+                            Create New Post
                         </template>
                         Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
                     </vs-alert>
@@ -43,7 +43,7 @@
                             relief
                             @click="createNewUser()"
                         >
-                            <i class='bx bx-plus' ></i> Create Field
+                            <i class='bx bx-plus' ></i> Create Post
                         </vs-button>
                         <!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
 
@@ -58,10 +58,10 @@
                                 :active-disabled="enableRemoveAll"
                                 @click="deleteAllCategory()"
                             >
-                                <i class='bx bx-trash' ></i> Delete All Fields
+                                <i class='bx bx-trash' ></i> Delete All Posts
                             </vs-button>
                             <template #tooltip>
-                                Delete All Users And Initialize User Role &#128540;
+                                Delete All Posts And Initialize User Role &#128540;
                             </template>
                         </vs-tooltip>
                     </vs-col>
@@ -97,23 +97,23 @@
 
                             <vs-th
                                 sort @click="data = $vs.sortData($event ,data, 'name')">
-                                Field Name
+                                Post Title
                             </vs-th>
 
                             <vs-th>
-                                Category Contained
+                                Post Desc
                             </vs-th>
 
                             <vs-th>
-                                First Follower
+                                User Creation
                             </vs-th>
 
                             <vs-th>
-                                Follower Avatar
+                                Field Under
                             </vs-th>
 
                             <vs-th>
-                                Follower email
+                                Type
                             </vs-th>
 
                         </vs-tr>

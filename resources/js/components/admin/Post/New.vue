@@ -36,7 +36,7 @@
 
                             <vs-select
                                 filter
-                                v-model="Uid"
+                                v-model="request.Uid"
                                 placeholder="User Name"
                                 :loading="selectLoading"
                             >
@@ -59,7 +59,7 @@
 
                 <vs-row>
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-                        <vs-input v-model="request.fieldName"
+                        <vs-input v-model="request.postTitle"
                                   label="Post Title"
                                   placeholder="What's in your mind?">
                             <template #icon>
@@ -71,48 +71,66 @@
 
                 <br>
 
+<!--                text : 1, image:2, video:3, audio:4-->
                 <vs-row w="12">
-                    <vs-col w="3">
-                        <vs-radio primary v-model="picked" val="1">
+                    <vs-col w="2">
+                        <vs-radio primary v-model="request.postType" val="1">
                             Text
                         </vs-radio>
                     </vs-col>
 
-                    <vs-col w="3">
-                        <vs-radio success v-model="picked" val="2">
+                    <vs-col w="2">
+                        <vs-radio success v-model="request.postType" val="2">
                             Image
                         </vs-radio>
                     </vs-col>
 
                     <vs-col w="3">
-                        <vs-radio warn v-model="picked" val="3">
+                        <vs-radio warn v-model="request.postType" val="3">
                             Video
                         </vs-radio>
                     </vs-col>
 
-                    <vs-col w="3">
-                        <vs-radio danger v-model="picked" val="4">
+                    <vs-col w="2">
+                        <vs-radio danger v-model="request.postType" val="4">
                             Audio
                         </vs-radio>
                     </vs-col>
+
+                    <vs-col w="2">
+                        <vs-radio danger v-model="request.postType" val="5">
+                            Mix
+                        </vs-radio>
+                    </vs-col>
+
                 </vs-row>
 
+                <br>
                 <br>
 
                 <vs-row w="12">
                     <vs-col w="12">
+
+                        <vs-input
+                            label="Field Name"
+                            v-model="fieldChar" placeholder="Search By Field Name...">
+                            <template #icon>
+                                <i class='bx bx-search'></i>
+                            </template>
+                        </vs-input>
+
                         <vs-select
                             filter
-                            v-model="request.categoryId"
+                            v-model="request.fieldId"
                             placeholder="Field Name"
                             :loading="selectLoading2"
                         >
                             <vs-option-group>
                                 <div slot="title">
-                                    Select Category Added Under
+                                    Select Field
                                 </div>
-                                <vs-option v-for="category in getCategoryOfUser" :label="category.name" key="0" :value="category.id">
-                                    {{category.name}}
+                                <vs-option v-for="field in getFieldByName" :label="field.name" key="0" :value="field.id">
+                                    {{field.name}}
                                 </vs-option>
                             </vs-option-group>
                         </vs-select>
@@ -123,7 +141,7 @@
                 <vs-row>
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
                         <ckeditor :editor="editor"
-                                  v-model="editorData"
+                                  v-model="request.postContent"
                                   :config="editorConfig"
                                   @ready="onEditorReady"
                                   @focus="onEditorFocus"
@@ -140,8 +158,6 @@
                     </vs-col>
                 </vs-row>
                 <br>
-                <br>
-
                 <vs-row w="12">
                     <vs-col w="12">
                         <file-pond
@@ -155,9 +171,9 @@
                             allowReplace="true"
                             allowRevert="true"
                             allowRemove="true"
-                            maxFiles="5"
                             allowFileEncode="true"
                             v-on:addfile="fileAdd"
+                            accepted-file-types="image/jpeg, image/png, image/jpg, video/mp4, audio/mp3, audio/mpeg, application/pdf, text/plain"
                             v-on:removefile="fileRemove"
                         />
                     </vs-col>
@@ -209,17 +225,19 @@ export default {
     name: "New",
     data: () => ({
         char:"",
-        Uid:"",
+        fieldChar:"",
         request:{
             Uid:"",
-            fieldName:"",
-            categoryId:""
+            postTitle:"",
+            postType:1,
+            fieldId:"",
+            postContent:"<p>Edit your content.</p>",
+            attachments:[],
         },
         authInfo:{
             token:localStorage.getItem("token"),
             provider:localStorage.getItem("provider")
         },
-        picked:2,
         selectLoading:true,
         selectLoading2:true,
         status:0,
@@ -227,26 +245,13 @@ export default {
         oldData:[],
         id:0,
         editor: ClassicEditor,
-        editorData: '<p>Edit your content.</p>',
         editorConfig: {
             // The configuration of the editor.
         },
-        onEditorReady(){
-            // alert("ready")
-        },
-        onEditorFocus(){
-            // alert("focus")
-        },
-        onEditorBlur(){
-            // alert("blur")
-        },
-        onEditorInput(){
-            // alert("input")
-        }
     }),
     beforeCreate() {
         this.$store.dispatch("AllUserByName","a");
-        this.$store.dispatch("AllUserCategory","1");
+        this.$store.dispatch("AlFieldsByName","m");
     },
     created() {
         this.status=this.$route.params.status;
@@ -268,11 +273,11 @@ export default {
             allUsers.length>0?this.selectLoading=false:null;
             return allUsers;
         },
-        getCategoryOfUser(){
+        getFieldByName(){
             //todo:last step render value to component
-            const allCategory=this.$store.getters.getUserTopics;
-            allCategory.length>0?this.selectLoading2=false:null;
-            return allCategory;
+            const allFields=this.$store.getters.getFieldByCharName;
+            allFields.length>0?this.selectLoading2=false:null;
+            return allFields;
         },
     },
     methods: {
@@ -285,9 +290,20 @@ export default {
                 text: text
             })
         },
+        onEditorReady(){
+            // alert("ready")
+        },
+        onEditorFocus(){
+            // alert("focus")
+        },
+        onEditorBlur(){
+            // alert("blur")
+        },
+        onEditorInput(){
+            // alert("input")
+        },
         addTopic(){
-            this.request.Uid=this.Uid;
-            if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldName!==""){
+            if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldId!==""){
 
                 const loading = this.$vs.loading({
                     target: this.$refs.button1,
@@ -297,7 +313,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.post('/admin-fields/fields'+'?token='+this.authInfo.token+
+                axios.post('/admin-post/posts'+'?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider,this.request)
                     .then((response)=>{
                         this.openNotification('top-right', 'success',
@@ -393,7 +409,7 @@ export default {
         },
         fileRemove:function () {
             this.imgUpload=false;
-            this.request.avatar=''
+            this.request.attachments=[]
         },
         fileAdd:function (error,file){
             if (error) {
@@ -401,8 +417,8 @@ export default {
                 return;
             }
 
-            if(file.fileSize <5000000){
-                this.request.avatar=file.getFileEncodeDataURL();
+            if(file.fileSize <20000000){
+                this.request.attachments.push(file.getFileEncodeDataURL());
                 this.imgUpload=true;
             }
             else{
@@ -428,9 +444,9 @@ export default {
 
             this.selectLoading=true;
         },
-        Uid(newVal,oldVal){
-            newVal===""?this.$store.dispatch("AllUserCategory","1"):
-                this.$store.dispatch("AllUserCategory",newVal);
+        fieldChar(newVal,oldVal){
+            newVal===""?this.$store.dispatch("AlFieldsByName","m"):
+                this.$store.dispatch("AlFieldsByName",newVal);
 
             this.selectLoading2=true;
         },

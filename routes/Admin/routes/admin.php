@@ -119,6 +119,16 @@ Route::group(['prefix' => 'admin-skill','namespace' => 'Admin\SkillManagment'], 
     });
 });
 
+//TODO:Posts CRUD
+Route::group(['prefix' => 'admin-post','namespace' => 'Admin\PostManagment'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/posts', 'PostController');
+        //todo:Normal controllers routes
+        Route::get('/getFieldsByCharFromName/{char}', 'NormalPostController@getFieldsByCharFromName');
+//        Route::get('/remove-all-admins', 'NormalSkillController@RemoveAllSkills');
+    });
+});
+
 Route::get('/cache-clear',function (){
     $exit_code=Artisan::call("optimize:clear");
     //todo:return 0 if execute success

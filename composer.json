@@ -21,7 +21,8 @@
         "spatie/laravel-permission": "^3.17",
         "symfony/psr-http-message-bridge": "^1.0.2",
         "tymon/jwt-auth": "^1.0.1",
-        "ext-json": "*"
+        "ext-json": "*",
+      "ext-fileinfo": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
