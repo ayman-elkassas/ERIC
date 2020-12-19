@@ -235,13 +235,12 @@
                                 <small class="text-muted">{{getAllPosts[index].created_at}}</small>
                             </div>
                         </div>
-                        <p style="color: #7366ff" class="card-text mt-3">
+                        <p style="color: #7366ff;" class="card-title mt-3">
                             <b>{{ getAllPosts[index].post_field.name }}</b>
                         </p>
-                        <p class="card-text mt-0">
-                            {{ getAllPosts[index].title }}
+                        <p class="card-title mt-0">
+                            <b>{{ getAllPosts[index].title }}</b>
                         </p>
-
                         <p class="card-text mt-0">
                             {{ getAllPosts[index].desc.replace(/<[^>]*>/g, '') }}
                         </p>
