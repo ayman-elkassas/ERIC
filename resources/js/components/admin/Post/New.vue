@@ -251,7 +251,7 @@ export default {
     }),
     beforeCreate() {
         this.$store.dispatch("AllUserByName","a");
-        this.$store.dispatch("AlFieldsByName","m");
+        this.$store.dispatch("AllFieldsByName","m");
     },
     created() {
         this.status=this.$route.params.status;
@@ -417,7 +417,9 @@ export default {
                 return;
             }
 
-            if(file.fileSize <20000000){
+            //todo: 1000000 Byte = 1MB
+            //todo: max size is 15MB
+            if(file.fileSize <15000000){
                 this.request.attachments.push(file.getFileEncodeDataURL());
                 this.imgUpload=true;
             }
@@ -425,7 +427,7 @@ export default {
                 this.openNotification('top-left', 'danger',
                     `<i class='bx bxs-bug' ></i>`,
                     'Avatar size is large',
-                    'Upload image with minimal of 6 MB...');
+                    'Upload image with minimal of 15 MB...');
             }
         },
     },
@@ -445,8 +447,8 @@ export default {
             this.selectLoading=true;
         },
         fieldChar(newVal,oldVal){
-            newVal===""?this.$store.dispatch("AlFieldsByName","m"):
-                this.$store.dispatch("AlFieldsByName",newVal);
+            newVal===""?this.$store.dispatch("AllFieldsByName","m"):
+                this.$store.dispatch("AllFieldsByName",newVal);
 
             this.selectLoading2=true;
         },

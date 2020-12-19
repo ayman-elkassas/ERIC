@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admins;
 use App\Models\PostAttachment;
 use App\Models\Posts;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
@@ -34,9 +35,23 @@ class PostController extends Controller
         //
         try {
 
-            $posts=Posts::with(["postUser"=>function ($query) {
-                $query->select('fname', 'lname','email','avatar');
-            }])->get();
+            $avatar=[];
+            $posts=Posts::with(["postUser","postField"])->get();
+            foreach ($posts as $post) {
+                try {
+                    $val=imageToStreamBase64($post->postUser()->get()[0]->avatar);
+                    $avatar[$post->postUser()->get()[0]->id]=$val;
+                }catch (\Exception $ex){
+                    continue;
+                }
+            }
+
+            $posts->push($avatar);
+
+
+//            $posts=Posts::with("postUser",function ($query) {
+//                $query->select('fname', 'lname','email','avatar');
+//            })->get();
 
             return response()->json($posts, 200);
         }catch (\Exception $ex){

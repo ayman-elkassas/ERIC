@@ -109,6 +109,10 @@
                             </vs-th>
 
                             <vs-th>
+                                Avatar
+                            </vs-th>
+
+                            <vs-th>
                                 Field Under
                             </vs-th>
 
@@ -128,7 +132,7 @@
                         <!--                        </vs-tooltip>-->
                         <vs-tr
                             :key="i"
-                            v-for="(tr, i) in $vs.getPage($vs.getSearch(getAllFields, search), page, max)"
+                            v-for="(tr, i) in $vs.getPage($vs.getSearch(getAllPosts, search), page, max)"
                             :data="tr"
                             :is-selected="selected == tr"
                             @click="index=i"
@@ -146,24 +150,28 @@
                             </vs-td>
 
                             <vs-td>
-                                {{ tr.name }}
+                                {{ tr.title }}
                             </vs-td>
                             <vs-td>
-                                {{ tr.category_related.name }}
+                                {{ truncate( tr.desc.replace(/<[^>]*>/g, ''),20) }}
                             </vs-td>
 
                             <vs-td>
-                                {{ tr.user_follow[0].fname }} {{ tr.user_follow[0].lname }}
+                                {{ tr.post_user.fname }} {{ tr.post_user.lname }}
                             </vs-td>
 
                             <vs-td>
                                 <vs-avatar writing >
-                                    <img :src="avatars[tr.category_related.user_id]" alt="" style="margin-right: 3px"  width="30px"/>
+                                    <img :src="avatars[tr.user_id]" alt="" style="margin-right: 3px"  width="30px"/>
                                 </vs-avatar>
                             </vs-td>
 
                             <vs-td>
-                                {{ tr.user_follow[0].email }}
+                                {{ tr.post_field.name }}
+                            </vs-td>
+
+                            <vs-td>
+                                {{ tr.type }}
                             </vs-td>
 
                             <template #expand>
@@ -317,7 +325,7 @@ export default {
     },
     beforeCreate() {
         //todo:first step
-        this.$store.dispatch("AllFieldsWithCategoriesUnder");
+        this.$store.dispatch("AllPost");
     },
     created() {
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
@@ -328,18 +336,18 @@ export default {
         //this.$store.dispatch("AllFieldsWithCategoriesUnder");
     },
     computed:{
-        getAllFields(){
+        getAllPosts(){
             //todo:last step render value to component
-            const users=this.$store.getters.getFieldsUnderCategories;
+            const posts=this.$store.getters.getAllPost;
 
-            if(users.length>0){
-                this.avatars=users[users.length - 1 ];
-                users.pop();
+            if(posts.length>0){
+                this.avatars=posts[posts.length - 1 ];
+                posts.pop();
             }
+            // debugger
+            this.data=posts;
 
-            this.data=users;
-
-            return users;
+            return posts;
         },
     },
     methods: {
@@ -451,6 +459,9 @@ export default {
                 window.location='/admin/invalidToken';
             }
         },
+        truncate(source,size){
+            return source.length > size ? source.slice(0, size - 1) + "…" : source;
+        }
     },
     watch:{
         page(newVal,oldVal){

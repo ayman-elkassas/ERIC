@@ -4,7 +4,7 @@ const modulePost = {
         allPost:[],
     }),
     actions: {
-        AlFieldsByName(context,fieldChar){
+        AllFieldsByName(context,fieldChar){
             let request={token:"",provider:""};
 
             //todo:call mutation and pass object data
