@@ -235,7 +235,14 @@
                                 <small class="text-muted">{{getAllPosts[index].created_at}}</small>
                             </div>
                         </div>
-                        <p class="card-text mt-3">
+                        <p style="color: #195bff" class="card-text mt-3">
+                            <b>{{ getAllPosts[index].post_field.name }}</b>
+                        </p>
+                        <p class="card-text mt-0">
+                            {{ getAllPosts[index].title }}
+                        </p>
+
+                        <p class="card-text mt-0">
                             {{ getAllPosts[index].desc.replace(/<[^>]*>/g, '') }}
                         </p>
                         <!-- post img -->
@@ -289,23 +296,6 @@
                                         </vs-avatar>
                                     </vs-avatar-group>
 
-<!--                                    <div class="avatar-group ml-1">-->
-<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Trina Lynes" class="avatar pull-up">-->
-<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
-<!--                                        </div>-->
-<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Lilian Nenez" class="avatar pull-up">-->
-<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
-<!--                                        </div>-->
-<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Alberto Glotzbach" class="avatar pull-up">-->
-<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
-<!--                                        </div>-->
-<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="George Nordic" class="avatar pull-up">-->
-<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
-<!--                                        </div>-->
-<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Vinnie Mostowy" class="avatar pull-up">-->
-<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
-<!--                                        </div>-->
-<!--                                    </div>-->
                                     <a href="javascript:void(0)" class="text-muted text-nowrap ml-3">+140 more</a>
                                 </div>
                                 <!-- avatar group with tooltip -->
