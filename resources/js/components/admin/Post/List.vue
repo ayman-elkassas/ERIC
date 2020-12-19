@@ -218,24 +218,141 @@
             <vs-dialog blur v-model="activeView">
                 <div class="con-form">
 
-                    <vs-card>
-                        <template #title>
 
-                            <h3>Field Name : {{data[index].name}}</h3>
-                        </template>
-                        <template #img>
-                            <vs-avatar size="150" circle writing >
-                                <img :src="avatars[data[index].category_related.user_id]" alt="">
-                            </vs-avatar>
-                        </template>
-                        <template #text>
-                            <h6>Category Name : {{data[index].category_related.name}}</h6>
-                            <p>{{data[index].created_at}}</p>
-                            <p>{{data[index].updated_at}}</p>
-                            <p>If you're using multiple guards we've got you covered as well.
-                                Every guard will have its own set of permissions and roles</p>
-                        </template>
-                    </vs-card>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-start align-items-center mb-1 mt-0">
+
+                            <!-- avatar -->
+                            <div class="avatar mr-3">
+                                <vs-avatar writing badge badge-color="success">
+                                    <img :src="avatars[getAllPosts[index].user_id]" alt="">
+                                </vs-avatar>
+                            </div>
+
+                            <!--/ avatar -->
+                            <div class="profile-user-info">
+                                <h6 class="mb-0">{{ getAllPosts[index].post_user.fname }} {{ getAllPosts[index].post_user.lname }}</h6>
+                                <small class="text-muted">{{getAllPosts[index].created_at}}</small>
+                            </div>
+                        </div>
+                        <p class="card-text mt-3">
+                            {{ getAllPosts[index].desc.replace(/<[^>]*>/g, '') }}
+                        </p>
+                        <!-- post img -->
+                        <img class="img-fluid rounded mb-3" src="../images/back.jpg" alt="avatar img">
+                        <!--/ post img -->
+
+                        <!-- like share -->
+                        <div class="row d-flex justify-content-start align-items-center flex-wrap pb-50">
+                            <div class="col-sm-6 d-flex justify-content-between justify-content-sm-start mb-2">
+                                <a href="javascript:void(0)" class="d-flex align-items-center text-muted text-nowrap">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart profile-likes font-medium-3 mr-50"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                    <span class="ml-2">1.25k</span>
+                                </a>
+
+                                <!-- avatar group with tooltip -->
+                                <div class="d-flex align-items-center ml-3">
+
+                                    <vs-avatar-group max="8">
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar >
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                        <vs-avatar size="35">
+                                            <img src="../images/user.png" alt="">
+                                        </vs-avatar>
+                                    </vs-avatar-group>
+
+<!--                                    <div class="avatar-group ml-1">-->
+<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Trina Lynes" class="avatar pull-up">-->
+<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
+<!--                                        </div>-->
+<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Lilian Nenez" class="avatar pull-up">-->
+<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
+<!--                                        </div>-->
+<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Alberto Glotzbach" class="avatar pull-up">-->
+<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
+<!--                                        </div>-->
+<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="George Nordic" class="avatar pull-up">-->
+<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
+<!--                                        </div>-->
+<!--                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Vinnie Mostowy" class="avatar pull-up">-->
+<!--                                            <img src="../images/user.png" alt="Avatar" width="26" height="26">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <a href="javascript:void(0)" class="text-muted text-nowrap ml-3">+140 more</a>
+                                </div>
+                                <!-- avatar group with tooltip -->
+                            </div>
+
+                            <!-- share and like count and icons -->
+                            <div class="col-sm-6 d-flex justify-content-between justify-content-sm-end align-items-center mb-2">
+                                <a href="javascript:void(0)" class="text-nowrap">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square text-body font-medium-3 mr-50"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                    <span class="text-muted mr-1">1.25k</span>
+                                </a>
+
+                                <a href="javascript:void(0)" class="text-nowrap">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2 text-body font-medium-3 mx-50"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                    <span class="text-muted">1.25k</span>
+                                </a>
+                            </div>
+                            <!-- share and like count and icons -->
+                        </div>
+                        <!-- like share -->
+
+                        <!-- comments -->
+                        <div class="d-flex align-items-start mb-1">
+                            <div class="avatar mt-25 mr-2">
+                                <img src="../images/user.png" alt="Avatar" width="34" height="34">
+                            </div>
+                            <div class="profile-user-info w-100">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h6 class="mb-0">Kitty Allanson</h6>
+                                    <a href="javascript:void(0)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart text-body font-medium-3"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                        <span class="align-middle text-muted">34</span>
+                                    </a>
+                                </div>
+                                <small>Easy &amp; smart fuzzy search🕵🏻 functionality which enables users to search quickly.</small>
+                            </div>
+                        </div>
+                        <!--/ comments -->
+
+                        <!-- comment box -->
+                        <fieldset class="form-label-group mb-2">
+                            <textarea class="form-control" id="label-textarea" rows="3" placeholder="Add Comment"></textarea>
+                        </fieldset>
+                        <!--/ comment box -->
+                        <button type="button" class="btn btn-sm btn-primary waves-effect waves-float waves-light">Post Comment</button>
+                    </div>
+
 
                 </div>
 
@@ -369,6 +486,7 @@ export default {
             })
         },
         viewTopic(i){
+            debugger;
             this.index=i;
             this.activeView=true;
         },

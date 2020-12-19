@@ -53,6 +53,8 @@
 @import '~filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
 @import "~filepond-plugin-media-preview/dist/filepond-plugin-media-preview.min.css";
 
+@import "~admin-vuexy/app-assets/vendors/css/vendors.min.css";
+
 body.dark-sidebar .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon header.main-nav .nav-menu .dropdown ul.nav-submenu li a:hover{
     text-decoration: none;
     color: #7366ff;

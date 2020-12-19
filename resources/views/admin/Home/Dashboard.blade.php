@@ -255,6 +255,10 @@
 <!-- Theme js-->
 <script src="{{asset('admin-cuba')}}/assets/js/script.js"></script>
 
+<!-- BEGIN: Vendor JS-->
+<script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/vendors.min.js"></script>
+<!-- BEGIN Vendor JS-->
+
     {{--main js--}}
 <script src="{{asset('/js/app.js')}}" type="text/javascript"></script>
 

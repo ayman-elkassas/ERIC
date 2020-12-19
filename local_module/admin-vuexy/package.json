@@ -1,0 +1,59 @@
+{
+  "_args": [
+    [
+      "admin-vuexy@1.0.0",
+      "E:\\Server\\htdocs\\ERIC"
+    ]
+  ],
+  "_development": true,
+  "_from": "admin-vuexy@1.0.0",
+  "_id": "admin-vuexy@1.0.0",
+  "_inBundle": false,
+  "_location": "/admin-vuexy",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "admin-vuexy@1.0.0",
+    "name": "admin-vuexy",
+    "escapedName": "admin-vuexy@1.0.0",
+    "rawSpec": "1.2.0",
+    "saveSpec": null,
+    "fetchSpec": "1.2.0"
+  },
+  "_requiredBy": [
+    "/copy-concurrently",
+    "/move-concurrently",
+    "/run-queue"
+  ],
+  "_where": "E:\\Server\\htdocs\\ERIC",
+  "author": {
+    "name": "Rebecca Turner",
+    "email": "me@re-becca.org"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3",
+    "tap": "^10.0.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "argument",
+    "validate"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "admin-vuexy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iarna/aproba.git"
+  },
+  "scripts": {
+    "test": "standard && tap -j3 test/*.js"
+  },
+  "version": "1.0.0"
+}
