@@ -132,6 +132,7 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -144,6 +145,38 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+        try {
+
+            $post=Posts::findOrFail($id);
+            $post->title=$request->get("postTitle");
+            $post->desc=$request->get("postContent");
+            $post->type=$request->get("postType");
+            $post->user_id=$request->get("Uid");
+            $post->field_id=$request->get("fieldId");
+
+            $post->save();
+
+            if(count($request->get("attachments"))>0){
+                Storage::disk("public")->delete("/Users/post/attachments/".$post->id);
+                foreach ($request->get("attachments") as $file){
+                    $mimeType=explode("/",mime_content_type($file))[0];
+
+                    $arr=saveInStorage($file,$mimeType,"/Users/post/attachments/",$post->id);
+
+                    $postAttach=new PostAttachment();
+                    $postAttach->file_name=$arr[0];
+                    $postAttach->file_path=$arr[1].$arr[0];
+                    $postAttach->size=Storage::disk("public")->size($arr[1].$arr[0]);
+                    $postAttach->post_id=$post->id;
+
+                    $postAttach->save();
+                }
+            }
+
+            return response()->json($post, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**
@@ -155,5 +188,12 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        try {
+            Posts::findOrFail($id)->delete();
+
+            return response()->json("Deleted Successfully", 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 }

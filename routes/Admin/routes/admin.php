@@ -125,7 +125,7 @@ Route::group(['prefix' => 'admin-post','namespace' => 'Admin\PostManagment'], fu
         Route::resource('/posts', 'PostController');
         //todo:Normal controllers routes
         Route::get('/getFieldsByCharFromName/{char}', 'NormalPostController@getFieldsByCharFromName');
-//        Route::get('/remove-all-admins', 'NormalSkillController@RemoveAllSkills');
+        Route::get('/remove-all-posts', 'NormalPostController@RemoveAllPosts');
     });
 });
 

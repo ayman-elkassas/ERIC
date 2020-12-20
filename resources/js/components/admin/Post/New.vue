@@ -22,6 +22,14 @@
 
             <div class="center grid">
 
+                <vs-row v-if="status===2" justify="space-around">
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                        <vs-avatar size="70" history success>
+                            <img :src="avatar" alt="">
+                        </vs-avatar>
+                    </vs-col>
+                </vs-row>
+                <br>
                 <br>
 
                 <vs-row w="12">
@@ -149,15 +157,8 @@
                                   @input="onEditorInput"></ckeditor>
                     </vs-col>
                 </vs-row>
-
-                <vs-row v-if="status===2" justify="space-around">
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-                        <vs-avatar size="70" history success>
-                            <img :src="avatar" alt="">
-                        </vs-avatar>
-                    </vs-col>
-                </vs-row>
                 <br>
+
                 <vs-row w="12">
                     <vs-col w="12">
                         <file-pond
@@ -189,7 +190,7 @@
                                 ref="button1"
                                 @click="addTopic()"
                             >
-                                <i class='bx bx-plus' ></i>Add New Topic
+                                <i class='bx bx-plus' ></i>Add New Post
                             </vs-button>
 
                         </div>
@@ -201,7 +202,7 @@
                                 ref="button1"
                                 @click="editTopic()"
                             >
-                                <i class='bx bx-edit-alt' ></i> Edit Field
+                                <i class='bx bx-edit-alt' ></i> Edit Post
                             </vs-button>
                         </div>
                     </vs-col>
@@ -231,7 +232,7 @@ export default {
             postTitle:"",
             postType:1,
             fieldId:"",
-            postContent:"<p>Edit your content.</p>",
+            postContent:"",
             attachments:[],
         },
         authInfo:{
@@ -292,6 +293,11 @@ export default {
         },
         onEditorReady(){
             // alert("ready")
+            if(this.status===2){
+                //todo:remove html tags (str.replace(/(<p[^>]+?>|<p>|<\/p>)/img, "")))
+                let con=this.oldData["desc"].replace(/(<p[^>]+?>|<p>|<\/p>)/img, "");
+                this.request.postContent="<p>"+con+"</p>";
+            }
         },
         onEditorFocus(){
             // alert("focus")
@@ -303,7 +309,9 @@ export default {
             // alert("input")
         },
         addTopic(){
-            if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldId!==""){
+            if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldId!==""
+                && this.request.postTitle!=="" && this.request.postType!==""
+                && this.request.postContent!==""){
 
                 const loading = this.$vs.loading({
                     target: this.$refs.button1,
@@ -318,7 +326,7 @@ export default {
                     .then((response)=>{
                         this.openNotification('top-right', 'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            'Add New Field Topic Successfully',
+                            'Add New Post Successfully',
                             'New Admin added with rules and permissions');
                         loading.close();
                     })
@@ -329,10 +337,16 @@ export default {
                             "Inputs invalid make sure from inputs...");
                         loading.close();
                     });
+            }else {
+                this.openNotification('top-right', 'danger',
+                    `<i class='bx bxs-bug' ></i>`,
+                    'Make Sure From Inputs',
+                    "Inputs invalid make sure from inputs...");
+                loading.close();
             }
         },
         editTopic(){
-            this.path='/admin-fields/fields/'+this.id
+            this.path='/admin-post/posts/'+this.id
             //todo:call mutation and pass object data
             //todo:should make axios request to get user object
             //todo:make an api in back to return full user object
@@ -353,7 +367,7 @@ export default {
                         this.openNotification('top-right',
                             'primary',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Edit User Successfully",
+                            "Edit Post Successfully",
                             "New user will be able to handle new permission and assign users...");
                         loading.close();
                     })
@@ -361,7 +375,7 @@ export default {
                         this.openNotification('top-right',
                             'danger',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Invalid insert New User Successfully",
+                            "Invalid insert New Post",
                             "New user will be able to handle new permission and assign users...");
                         loading.close();
                     });
@@ -369,43 +383,6 @@ export default {
             else{
                 window.location='/admin/invalidToken';
             }
-        },
-        performDelete(){
-
-            const loading = this.$vs.loading({
-                target: this.$refs.button3,
-                scale: '0.6',
-                background: 'danger',
-                opacity: 1,
-                color: '#fff'
-            })
-
-            axios.delete('/user-members/users/'+(this.id)+'?token='+this.authInfo.token+
-                '&provider='+this.authInfo.provider)
-                .then((response)=>{
-                    if(response.data!=="error"){
-                        loading.close();
-                        this.openNotification('top-right',
-                            'success',
-                            `<i class='bx bx-select-multiple' ></i>`,
-                            "Role Is Deleted Successfully",
-                            "Can add new role will be able to handle new permission and assign users...");
-                        this.active_ensure=false;
-                        this.refresh();
-                        $('.vs-table__tr__expand').hide();
-                    }
-                    else{
-                        this.openNotification('top-right',
-                            'danger',
-                            `<i class='bx bx-select-multiple' ></i>`,
-                            "Error In Remove",
-                            "Can add new role will be able to handle new permission and assign users...");
-                        this.active_ensure=false
-                    }
-                })
-                .catch((error)=>{
-                    window.location='/admin/invalidToken';
-                });
         },
         fileRemove:function () {
             this.imgUpload=false;
@@ -434,9 +411,11 @@ export default {
     mounted() {
         if(this.status===2){
             //todo:run any js can mounted
-            this.request.fieldName=this.oldData["name"];
-            debugger;
-            this.request.fieldName=this.oldData["name"];
+            this.request.postTitle=this.oldData["title"];
+            //todo:remove html tags (str.replace(/(<p[^>]+?>|<p>|<\/p>)/img, "")))
+            this.request.postType=this.oldData["type"];
+            this.request.Uid=this.oldData["user_id"];
+            this.request.fieldId=this.oldData["field_id"];
         }
     },
     watch:{

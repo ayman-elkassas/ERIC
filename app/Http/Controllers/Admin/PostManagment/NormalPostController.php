@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\PostManagment;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admins;
+use App\Models\Category;
+use App\Models\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -32,6 +34,19 @@ class NormalPostController extends Controller
             return response()->json($fields, 200);
         }catch (\Exception $ex){
             return response()->json("Error", 404);
+        }
+    }
+
+    public function RemoveAllPosts () {
+        DB::statement("SET foreign_key_checks=0");
+        Posts::truncate();
+        DB::statement("SET foreign_key_checks=1");
+
+        if(Posts::all()->isEmpty()){
+            return response()->json("Done Deleted All Posts", 200);
+        }
+        else{
+            return response()->json("error", 400);
         }
     }
 }

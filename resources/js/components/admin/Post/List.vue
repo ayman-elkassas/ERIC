@@ -216,10 +216,17 @@
 
             <!--            view dialogue-->
             <vs-dialog blur v-model="activeView">
-                <div class="con-form">
+
+                <template #header>
+<!--                    <h3>-->
+<!--                        Introduction-->
+<!--                    </h3>-->
+                </template>
+
+                <div v-if="data.length>0" class="con-content">
 
 
-                    <div class="card-body">
+                    <div class="card-body viewPost">
                         <div class="d-flex justify-content-start align-items-center mb-1 mt-0">
 
                             <!-- avatar -->
@@ -450,8 +457,11 @@ export default {
                 this.avatars=posts[posts.length - 1 ];
                 posts.pop();
             }
-            // debugger
+            else{
+                return []
+            }
             this.data=posts;
+            // debugger
 
             return posts;
         },
@@ -463,7 +473,7 @@ export default {
         },
         editCurrentUser(id,index){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'field-new', params: { status: 2,id:id,avatar:this.avatars[this.data[index].category_related.user_id],data:this.data[index] } });
+            this.$router.push({name: 'post-new', params: { status: 2,id:id,avatar:this.avatars[this.data[index].user_id],data:this.data[index] } });
         },
         openNotification(position = null, border,icon,title,text) {
             const noti = this.$vs.notification({
@@ -493,7 +503,7 @@ export default {
                 color: '#fff'
             })
 
-            axios.delete('/admin-fields/fields/'+(this.id)+'?token='+this.authInfo.token+
+            axios.delete('/admin-post/posts/'+(this.id)+'?token='+this.authInfo.token+
                 '&provider='+this.authInfo.provider)
                 .then((response)=>{
                     if(response.data!=="error"){
@@ -501,7 +511,7 @@ export default {
                         this.openNotification('top-right',
                             'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Topic Is Deleted Successfully",
+                            "Post Is Deleted Successfully",
                             "Can add new role will be able to handle new permission and assign users...");
                         this.active_ensure=false;
                         this.refresh();
@@ -521,7 +531,7 @@ export default {
                 });
         },
         refresh(){
-            this.$store.dispatch("AllFieldsWithCategoriesUnder");
+            this.$store.dispatch("AllPost");
         },
         deleteAllCategory(){
             if(localStorage.hasOwnProperty('token')
@@ -535,7 +545,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.get('/admin-fields/remove-all-admins?token='+this.authInfo.token+
+                axios.get('/admin-post/remove-all-posts?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         if(response.data!=="error"){
@@ -596,6 +606,13 @@ export default {
     text-align :center;
     font-size :.6rem;
     display: none;
+}
+
+.con-content .viewPost{
+    margin: 20px 0px;
+    position: relative;
+    display: block;
+    font-size: .9rem;
 }
 
 </style>
