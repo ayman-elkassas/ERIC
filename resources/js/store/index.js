@@ -2,6 +2,7 @@ import moduleRole from './role_module/index'
 import moduleAccount from './account_module/index'
 import moduleTopic from './topic_module/index'
 import modulePost from './post_module/index'
+import moduleResourceTXT from './resourceTXT_module/index'
 export default {
     actions:{
         // template(context){
@@ -33,6 +34,7 @@ export default {
         moduleRole,
         moduleAccount,
         moduleTopic,
-        modulePost
+        modulePost,
+        moduleResourceTXT
     }
 }

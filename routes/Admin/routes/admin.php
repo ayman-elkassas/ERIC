@@ -129,6 +129,15 @@ Route::group(['prefix' => 'admin-post','namespace' => 'Admin\PostManagment'], fu
     });
 });
 
+//TODO:ResourceTxt CRUD
+Route::group(['prefix' => 'admin-txt','namespace' => 'Admin\ResourceTxt'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/txt', 'ResourceTxt');
+        //todo:Normal controllers routes
+        Route::get('/remove-all-txt', 'NormalResourceTxt@RemoveAllResourcesTxt');
+    });
+});
+
 Route::get('/cache-clear',function (){
     $exit_code=Artisan::call("optimize:clear");
     //todo:return 0 if execute success

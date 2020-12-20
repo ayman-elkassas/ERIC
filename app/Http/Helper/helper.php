@@ -77,3 +77,13 @@ if(!function_exists('saveInStorage')){
     }
 }
 
+if(!function_exists('txtToPdf')) {
+    function txtToPdf($string,$name) {
+        $pdf=new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial');
+        $pdf->Write(10,$string);
+        return $pdf->Output($name, "S");
+    }
+};
+

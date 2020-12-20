@@ -63,13 +63,13 @@ export const routes=[
     //todo:Post
     {path:'/post-list/',name:'post-list',component: PostList},
     {path:'/post-new/',name:'post-new',component: PostNew},
+    //todo:Resource-text
+    {path:'/text-list/',name:'text-list',component:ResourceTextList },
+    {path:'/text-new/',name:'text-new',component:ResourceTextNew },
     //todo:Course
     {path:'/course-list/',name:'Course List',component: CourseList},
     {path:'/course-add/',name:'Course Add',component: CourseNew},
     {path:'/course-details/',name:'Course Details',component:CourseDetails },
-    //todo:Resource-text
-    {path:'/resource-text-list/',name:'Resource Text List',component:ResourceTextList },
-    {path:'/resource-text-add/',name:'Resource Text Add',component:ResourceTextNew },
     //todo:Resource-audio
     {path:'/resource-voice-list/',name:'Resource Audio List',component:ResourceAudioList },
     {path:'/resource-voice-add/',name:'Resource Audio Add',component:ResourceAudioNew},

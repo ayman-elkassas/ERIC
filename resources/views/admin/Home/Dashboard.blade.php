@@ -120,7 +120,7 @@
                                         </a>
 
                                         <ul id="resource" class="nav-submenu menu-content">
-                                            <li><router-link to="./resource-text-list">{{trans('admin.eric_sys.res.txt')}}</router-link></li>
+                                            <li><router-link to="./text-list">{{trans('admin.eric_sys.res.txt')}}</router-link></li>
                                             <li><router-link to="./resource-video-list">{{trans('admin.eric_sys.res.video')}}</router-link></li>
                                             <li><router-link to="./resource-image-list">{{trans('admin.eric_sys.res.img')}}</router-link></li>
                                             <li><router-link to="./resource-voice-list">{{trans('admin.eric_sys.res.voice')}}</router-link></li>
