@@ -19,6 +19,7 @@ class CreateResourcesTable extends Migration
             $table->string('file_path',200);
             $table->integer('type')->unsigned();
             $table->integer('size');
+            $table->string('desc');
             $table->integer('user_id')->unsigned();//fk
             $table->integer('field_id')->unsigned();//fk
             $table->timestamps();

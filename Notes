@@ -3,6 +3,8 @@
  1-Schema::disableForeignKeyConstraints(); (Providers/AppServiceProvider in boot)
  2-php artisan migrate:rollback --path=/database/migrations/2020_08_04_172854_create_posts_table.php
  3-php artisan migrate --path=/database/migrations/2020_08_04_172854_create_posts_table.php
+ or:php artisan migrate:refresh --path=/database/migrations/2020_08_04_172854_create_posts_table.php
+
  4-enable again Schema::enableForeignKeyConstraints()
 
  *************************************************************************

@@ -39,6 +39,7 @@ class PostController extends Controller
             $posts=Posts::with(["postUser","postField"])->get();
             foreach ($posts as $post) {
                 try {
+                    $post->post_cover=imageToStreamBase64($post->post_cover);
                     $val=imageToStreamBase64($post->postUser()->get()[0]->avatar);
                     $avatar[$post->postUser()->get()[0]->id]=$val;
                 }catch (\Exception $ex){
@@ -87,6 +88,12 @@ class PostController extends Controller
             $post->user_id=$request->get("Uid");
             $post->field_id=$request->get("fieldId");
 
+            $post->save();
+
+            $mimeType=explode("/",mime_content_type($request->get("postCover")))[0];
+
+            $arr=saveInStorage($request->get("postCover"),$mimeType,"/Users/post/cover/",$post->id);
+            $post->post_cover=$arr[1].$arr[0];
             $post->save();
 
             if(count($request->get("attachments"))>0){

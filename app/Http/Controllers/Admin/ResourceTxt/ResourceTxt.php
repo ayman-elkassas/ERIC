@@ -9,6 +9,7 @@ use App\Models\Posts;
 use App\Models\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ResourceTxt extends Controller
@@ -33,6 +34,38 @@ class ResourceTxt extends Controller
     public function index()
     {
         //
+        try {
+
+            $resourcesTxt=((DB::table('resources')
+                ->where('type', '=', 1))
+                ->join("users","users.id","=","resources.user_id")
+                ->join("fields","fields.id","=","resources.field_id"))
+                ->select("resources.id",
+                    "resources.user_id",
+                    "resources.field_id",
+                    "resources.file_name",
+                    "resources.file_path",
+                    "resources.desc",
+                    "resources.created_at",
+                    "users.fname",
+                    "users.lname",
+                    "users.avatar",
+                    "fields.name")
+                ->get();
+
+            foreach ($resourcesTxt as $txt) {
+                try {
+                    $txt->avatar=imageToStreamBase64($txt->avatar);
+                    $txt->file_path=convertToBase64($txt->file_path.$txt->file_name);
+                }catch (\Exception $ex){
+                    continue;
+                }
+            }
+
+            return response()->json($resourcesTxt, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**
@@ -70,6 +103,7 @@ class ResourceTxt extends Controller
             $resource->size=Storage::disk("public")->size($upload_path.$name);
             $resource->user_id=$request->get("Uid");
             $resource->field_id=$request->get("fieldId");
+            $resource->desc=$request->get("desc");
 
             $resource->save();
 
@@ -111,6 +145,32 @@ class ResourceTxt extends Controller
     public function update(Request $request, $id)
     {
         //
+        try {
+
+            $resource=Resources::findOrFail($id);
+            $resource->desc=$request->get("desc");
+            $resource->user_id=$request->get("Uid");
+            $resource->field_id=$request->get("fieldId");
+            $resource->type=$request->get("resourceType");
+
+            if(!empty($request->get("txtContent"))){
+                Storage::disk("public")->delete($resource->file_path.$resource->file_name);
+                $name=time().'.pdf';
+
+                $pdf=txtToPdf($request->get("txtContent"),$name);
+                $resource->file_name=$name;
+                $upload_path="/Users/Resources/Text/".$request->get("Uid")."/";
+                $resource->file_path=$upload_path;
+                Storage::disk("public")->put($upload_path.$name, (string) $pdf, 'public');
+                $resource->size=Storage::disk("public")->size($upload_path.$name);
+            }
+
+            $resource->save();
+
+            return response()->json($resource, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**

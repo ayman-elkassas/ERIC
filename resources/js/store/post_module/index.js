@@ -28,7 +28,7 @@ const modulePost = {
                 window.location='/admin/invalidToken';
             }
         },
-        AllPost(context,){
+        AllPost(context){
             let request={token:"",provider:""};
 
             //todo:call mutation and pass object data
