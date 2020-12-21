@@ -252,7 +252,7 @@
                             {{ getAllPosts[index].desc.replace(/<[^>]*>/g, '') }}
                         </p>
                         <!-- post img -->
-                        <img class="img-fluid rounded mb-3" src="../images/back.jpg" alt="avatar img">
+                        <img class="img-fluid rounded mb-3" :src="getAllPosts[index].post_cover" alt="avatar img">
                         <!--/ post img -->
 
                         <!-- like share -->

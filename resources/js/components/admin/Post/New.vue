@@ -165,6 +165,28 @@
                             name="test"
                             ref="pond"
                             class-name="my-pond"
+                            label-idle="Add Post Cover..."
+                            v-bind:allow-multiple="true"
+                            allowDrop="true"
+                            allowPaste="true"
+                            allowReplace="true"
+                            allowRevert="true"
+                            allowRemove="true"
+                            allowFileEncode="true"
+                            v-on:addfile="coverAdd"
+                            accepted-file-types="image/jpeg, image/png, image/jpg"
+                            v-on:removefile="coverRemove"
+                        />
+                    </vs-col>
+                </vs-row>
+                <br>
+
+                <vs-row w="12">
+                    <vs-col w="12">
+                        <file-pond
+                            name="test"
+                            ref="pond"
+                            class-name="my-pond"
                             label-idle="Add Attachments..."
                             v-bind:allow-multiple="true"
                             allowDrop="true"
@@ -233,6 +255,7 @@ export default {
             postType:1,
             fieldId:"",
             postContent:"",
+            postCover:"",
             attachments:[],
         },
         authInfo:{
@@ -311,7 +334,7 @@ export default {
         addTopic(){
             if(JSON.stringify(this.request.Uid)!=="" && this.request.fieldId!==""
                 && this.request.postTitle!=="" && this.request.postType!==""
-                && this.request.postContent!==""){
+                && this.request.postContent!=="" && this.request.postCover!==""){
 
                 const loading = this.$vs.loading({
                     target: this.$refs.button1,
@@ -407,6 +430,29 @@ export default {
                     'Upload image with minimal of 15 MB...');
             }
         },
+        coverAdd(error,file){
+            if (error) {
+                console.log('Oh no');
+                return;
+            }
+
+            //todo: 1000000 Byte = 1MB
+            //todo: max size is 15MB
+            if(file.fileSize <6000000){
+                this.request.postCover=file.getFileEncodeDataURL();
+                this.imgUpload=true;
+            }
+            else{
+                this.openNotification('top-left', 'danger',
+                    `<i class='bx bxs-bug' ></i>`,
+                    'Cover size is large',
+                    'Upload image with minimal of 6 MB...');
+            }
+        },
+        coverRemove(){
+            this.imgUpload=false;
+            this.request.postCover=""
+        }
     },
     mounted() {
         if(this.status===2){

@@ -65,7 +65,7 @@ if(!function_exists('saveInStorage')){
             case 'image':
                 //do something
                 //todo:Avatar
-                $img=Image::make($file)->resize(350,350);
+                $img=Image::make($file);
                 //todo:after make link (php artisan storage:link) save as following
                 Storage::disk("public")->put($upload_path.$name, (string) $img->encode(), 'public');
                 return [$name,$upload_path];
@@ -85,5 +85,10 @@ if(!function_exists('txtToPdf')) {
         $pdf->Write(10,$string);
         return $pdf->Output($name, "S");
     }
-};
+}
 
+if(!function_exists('convertToBase64')) {
+    function convertToBase64($file) {
+        return base64_encode(file_get_contents(storage_path()."/app/public".$file));
+    }
+}

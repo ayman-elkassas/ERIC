@@ -30,6 +30,7 @@
                     </vs-col>
                 </vs-row>
                 <br>
+                <br>
 
                 <vs-row w="12">
                     <vs-col w="12">
@@ -89,6 +90,19 @@
                                 </vs-option>
                             </vs-option-group>
                         </vs-select>
+                    </vs-col>
+                </vs-row>
+                <br>
+                <br>
+                <vs-row w="12">
+                    <vs-col w="12">
+                        <vs-input
+                            label="Resource Description"
+                            v-model="request.desc" placeholder="Write Resource Description Here...">
+                            <template #icon>
+                                <i class='bx bx-book'></i>
+                            </template>
+                        </vs-input>
                     </vs-col>
                 </vs-row>
                 <br>
@@ -158,6 +172,7 @@ export default {
             resourceType:1,
             fieldId:"",
             txtContent:"",
+            desc:"",
         },
         authInfo:{
             token:localStorage.getItem("token"),
@@ -248,8 +263,6 @@ export default {
                     color: '#fff'
                 })
 
-
-
                 axios.post('/admin-txt/txt'+'?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider,this.request)
                     .then((response)=>{
@@ -275,7 +288,7 @@ export default {
             }
         },
         editTopic(){
-            this.path='/admin-post/posts/'+this.id
+            this.path='/admin-txt/txt/'+this.id
             //todo:call mutation and pass object data
             //todo:should make axios request to get user object
             //todo:make an api in back to return full user object
@@ -296,7 +309,7 @@ export default {
                         this.openNotification('top-right',
                             'primary',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Edit Post Successfully",
+                            "Edit Pdf Successfully",
                             "New user will be able to handle new permission and assign users...");
                         loading.close();
                     })
@@ -340,11 +353,9 @@ export default {
     mounted() {
         if(this.status===2){
             //todo:run any js can mounted
-            this.request.postTitle=this.oldData["title"];
-            //todo:remove html tags (str.replace(/(<p[^>]+?>|<p>|<\/p>)/img, "")))
-            this.request.postType=this.oldData["type"];
             this.request.Uid=this.oldData["user_id"];
             this.request.fieldId=this.oldData["field_id"];
+            this.request.desc=this.oldData["desc"];
         }
     },
     watch:{

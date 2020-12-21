@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('desc');
+            $table->string('post_cover')->nullable();
             //todo:type (text 1,image 2, video 3, audio 4)
             $table->integer('type')->unsigned();
             $table->integer('user_id')->unsigned();//fk
