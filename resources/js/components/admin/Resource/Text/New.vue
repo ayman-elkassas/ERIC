@@ -246,9 +246,9 @@ export default {
         },
         onEditorInput(){
             // alert("input")
-            let con=(this.request.txtContent);
-            con=con.replace(/(<p[^>]+?>|<p>|<\/p>|<strong[^>]+?>|<strong>|<\/strong>)/img, "");
-            this.request.txtContent=con;
+            // let con=(this.request.txtContent);
+            // con=con.replace(/(<p[^>]+?>|<p>|<\/p>|<strong[^>]+?>|<strong>|<\/strong>)/img, "");
+            // this.request.txtContent=con;
         },
         addTopic(){
             if(this.request.Uid!=="" && this.request.fieldId!==""

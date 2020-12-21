@@ -207,145 +207,22 @@
 
             </div>
 
-<!--            &lt;!&ndash;            view dialogue&ndash;&gt;-->
-<!--            <vs-dialog blur v-model="activeView">-->
-
-<!--                <template #header>-->
-<!--                    &lt;!&ndash;                    <h3>&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        Introduction&ndash;&gt;-->
-<!--                    &lt;!&ndash;                    </h3>&ndash;&gt;-->
-<!--                </template>-->
-
-<!--                <div v-if="data.length>0" class="con-content">-->
+            <vs-dialog blur overflow-hidden full-screen v-model="activeView">
+                <template #header>
+<!--                    <h4 class="not-margin">-->
+<!--                        Welcome to <b>Vuesax</b>-->
+<!--                    </h4>-->
+                </template>
 
 
-<!--                    <div class="card-body viewPost">-->
-<!--                        <div class="d-flex justify-content-start align-items-center mb-1 mt-0">-->
+                <div class="con-form">
+                    <div id='viewer' style='width: 1024px; height: 600px; margin: 0 auto;'></div>
+                </div>
 
-<!--                            &lt;!&ndash; avatar &ndash;&gt;-->
-<!--                            <div class="avatar mr-3">-->
-<!--                                <vs-avatar writing badge badge-color="success">-->
-<!--                                    <img :src="avatars[getAllPosts[index].user_id]" alt="">-->
-<!--                                </vs-avatar>-->
-<!--                            </div>-->
+                <template #footer>
 
-<!--                            &lt;!&ndash;/ avatar &ndash;&gt;-->
-<!--                            <div class="profile-user-info">-->
-<!--                                <h6 class="mb-0">{{ getAllPosts[index].post_user.fname }} {{ getAllPosts[index].post_user.lname }}</h6>-->
-<!--                                <small class="text-muted">{{getAllPosts[index].created_at}}</small>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <p style="color: #7366ff;" class="card-title mt-3">-->
-<!--                            <b>{{ getAllPosts[index].post_field.name }}</b>-->
-<!--                        </p>-->
-<!--                        <p class="card-title mt-0">-->
-<!--                            <b>{{ getAllPosts[index].title }}</b>-->
-<!--                        </p>-->
-<!--                        <p class="card-text mt-0">-->
-<!--                            {{ getAllPosts[index].desc.replace(/<[^>]*>/g, '') }}-->
-<!--                        </p>-->
-<!--                        &lt;!&ndash; post img &ndash;&gt;-->
-<!--                        <img class="img-fluid rounded mb-3" src="../../images/back.jpg" alt="avatar img">-->
-<!--                        &lt;!&ndash;/ post img &ndash;&gt;-->
-
-<!--                        &lt;!&ndash; like share &ndash;&gt;-->
-<!--                        <div class="row d-flex justify-content-start align-items-center flex-wrap pb-50">-->
-<!--                            <div class="col-sm-6 d-flex justify-content-between justify-content-sm-start mb-2">-->
-<!--                                <a href="javascript:void(0)" class="d-flex align-items-center text-muted text-nowrap">-->
-<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart profile-likes font-medium-3 mr-50"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>-->
-<!--                                    <span class="ml-2">1.25k</span>-->
-<!--                                </a>-->
-
-<!--                                &lt;!&ndash; avatar group with tooltip &ndash;&gt;-->
-<!--                                <div class="d-flex align-items-center ml-3">-->
-
-<!--                                    <vs-avatar-group max="8">-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar >-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                        <vs-avatar size="35">-->
-<!--                                            <img src="../../images/user.png" alt="">-->
-<!--                                        </vs-avatar>-->
-<!--                                    </vs-avatar-group>-->
-
-<!--                                    <a href="javascript:void(0)" class="text-muted text-nowrap ml-3">+140 more</a>-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; avatar group with tooltip &ndash;&gt;-->
-<!--                            </div>-->
-
-<!--                            &lt;!&ndash; share and like count and icons &ndash;&gt;-->
-<!--                            <div class="col-sm-6 d-flex justify-content-between justify-content-sm-end align-items-center mb-2">-->
-<!--                                <a href="javascript:void(0)" class="text-nowrap">-->
-<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square text-body font-medium-3 mr-50"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>-->
-<!--                                    <span class="text-muted mr-1">1.25k</span>-->
-<!--                                </a>-->
-
-<!--                                <a href="javascript:void(0)" class="text-nowrap">-->
-<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2 text-body font-medium-3 mx-50"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>-->
-<!--                                    <span class="text-muted">1.25k</span>-->
-<!--                                </a>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; share and like count and icons &ndash;&gt;-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; like share &ndash;&gt;-->
-
-<!--                        &lt;!&ndash; comments &ndash;&gt;-->
-<!--                        <div class="d-flex align-items-start mb-1">-->
-<!--                            <div class="avatar mt-25 mr-2">-->
-<!--                                <img src="../../images/user.png" alt="Avatar" width="34" height="34">-->
-<!--                            </div>-->
-<!--                            <div class="profile-user-info w-100">-->
-<!--                                <div class="d-flex align-items-center justify-content-between">-->
-<!--                                    <h6 class="mb-0">Kitty Allanson</h6>-->
-<!--                                    <a href="javascript:void(0)">-->
-<!--                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart text-body font-medium-3"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>-->
-<!--                                        <span class="align-middle text-muted">34</span>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                                <small>Easy &amp; smart fuzzy search🕵🏻 functionality which enables users to search quickly.</small>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash;/ comments &ndash;&gt;-->
-
-<!--                        &lt;!&ndash; comment box &ndash;&gt;-->
-<!--                        <fieldset class="form-label-group mb-2">-->
-<!--                            <textarea class="form-control" id="label-textarea" rows="3" placeholder="Add Comment"></textarea>-->
-<!--                        </fieldset>-->
-<!--                        &lt;!&ndash;/ comment box &ndash;&gt;-->
-<!--                        <button type="button" class="btn btn-sm btn-primary waves-effect waves-float waves-light">Post Comment</button>-->
-<!--                    </div>-->
-
-
-<!--                </div>-->
-
-<!--            </vs-dialog>-->
+                </template>
+            </vs-dialog>
 
             <!--            delete dialogue-->
 
@@ -394,6 +271,8 @@
 </template>
 
 <script>
+
+import WebViewer from '@pdftron/pdfjs-express'
 
 export default {
     name: "List",
@@ -448,7 +327,7 @@ export default {
 
             if(!(txt.length>0)) return []
             this.data=txt;
-            // debugger
+            debugger
 
             return txt;
         },
@@ -475,6 +354,44 @@ export default {
             debugger;
             this.index=i;
             this.activeView=true;
+
+            const element = document.getElementById('viewer');
+
+            debugger
+
+            WebViewer({
+                path: '/public', // point to where the files you copied are served from
+                initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/PDFTRON_about.pdf' // path to your document
+            }, element).then((instance) => {
+                debugger
+                // Call APIs here
+            })
+
+            // WebViewer({
+            //     path: 'pdfViewer/', // path to the PDF.js Express'lib' folder on your server
+            //     licenseKey: 'Insert commercial license key here after purchase',
+            //     initialDoc: '',
+            //     // initialDoc: '/path/to/my/file.pdf',  // You can also use documents on your server
+            // }, document.getElementById('viewer'))
+            //     .then(instance => {
+            //
+            //         instance.loadDocument(this.base64ToBlob(this.data[this.index].file_path), { filename: 'myfile.pdf' });
+            //
+            //         const { docViewer } = instance;
+            //         docViewer.on('documentLoaded', () => {
+            //             // perform document operations
+            //         });
+            //     });
+        },
+        base64ToBlob(base64) {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; ++i) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+
+            return new Blob([bytes], { type: 'application/pdf' });
         },
         deleteRole(i){
             this.id=i

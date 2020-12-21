@@ -259,6 +259,8 @@
 <script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/vendors.min.js"></script>
 <!-- BEGIN Vendor JS-->
 
+<script src="{{asset('pdfViewer')}}/webviewer.min.js"></script>
+
     {{--main js--}}
 <script src="{{asset('/js/app.js')}}" type="text/javascript"></script>
 
