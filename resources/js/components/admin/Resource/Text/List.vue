@@ -214,9 +214,10 @@
 <!--                    </h4>-->
                 </template>
 
-
-                <div class="con-form">
-                    <div id='viewer' style='width: 1024px; height: 600px; margin: 0 auto;'></div>
+                <div class="con-form ">
+                    <div class="pdfViewer">
+                        <WebViewer :url="getAllTxt[index].file_path"/>
+                    </div>
                 </div>
 
                 <template #footer>
@@ -272,7 +273,7 @@
 
 <script>
 
-import WebViewer from '@pdftron/pdfjs-express'
+import WebViewer from '../../PdfViewer/webViewer.vue'
 
 export default {
     name: "List",
@@ -355,18 +356,6 @@ export default {
             this.index=i;
             this.activeView=true;
 
-            const element = document.getElementById('viewer');
-
-            debugger
-
-            WebViewer({
-                path: '/public', // point to where the files you copied are served from
-                initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/PDFTRON_about.pdf' // path to your document
-            }, element).then((instance) => {
-                debugger
-                // Call APIs here
-            })
-
             // WebViewer({
             //     path: 'pdfViewer/', // path to the PDF.js Express'lib' folder on your server
             //     licenseKey: 'Insert commercial license key here after purchase',
@@ -382,16 +371,6 @@ export default {
             //             // perform document operations
             //         });
             //     });
-        },
-        base64ToBlob(base64) {
-            const binaryString = window.atob(base64);
-            const len = binaryString.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; ++i) {
-                bytes[i] = binaryString.charCodeAt(i);
-            }
-
-            return new Blob([bytes], { type: 'application/pdf' });
         },
         deleteRole(i){
             this.id=i
@@ -491,6 +470,9 @@ export default {
             // this.index=this.index+(this.page-1)*15;
         }
     },
+    components: {
+        WebViewer
+    },
 }
 </script>
 
@@ -517,6 +499,11 @@ export default {
     position: relative;
     display: block;
     font-size: .9rem;
+}
+
+.pdfViewer{
+    width:100%;
+    height: 100%;
 }
 
 </style>
