@@ -17,6 +17,7 @@ class CreateResourcesTable extends Migration
             $table->increments('id');
             $table->string('file_name',200);
             $table->string('file_path',200);
+            //todo:resource type (1=>txt,2=>pdf,3=>image,4=>video,5=>voice)
             $table->integer('type')->unsigned();
             $table->integer('size');
             $table->string('desc');

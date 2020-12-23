@@ -22,13 +22,16 @@ import SkillNew from './components/admin/Topic/Skill/New'
 //todo:Post
 import PostList from './components/admin/Post/List.vue'
 import PostNew from './components/admin/Post/New.vue'
+//todo:Resource - Text
+import ResourceTextList from './components/admin/Resource/Text/List'
+import ResourceTextNew from './components/admin/Resource/Text/New'
+//todo:Resource - Pdf
+import ResourcePdfList from './components/admin/Resource/Pdf/List'
+import ResourcePdfNew from './components/admin/Resource/Pdf/New'
 //todo:Course
 import CourseList from './components/admin/Course/List'
 import CourseNew from './components/admin/Course/New'
 import CourseDetails from './components/admin/Course/Details'
-//todo:Resource - text
-import ResourceTextList from './components/admin/Resource/Text/List'
-import ResourceTextNew from './components/admin/Resource/Text/New'
 //todo:Audio
 import ResourceAudioList from './components/admin/Resource/Audio/List'
 import ResourceAudioNew from './components/admin/Resource/Audio/New'
@@ -66,6 +69,9 @@ export const routes=[
     //todo:Resource-text
     {path:'/text-list/',name:'text-list',component:ResourceTextList },
     {path:'/text-new/',name:'text-new',component:ResourceTextNew },
+    //todo:Resource-pdf
+    {path:'/pdf-list/',name:'pdf-list',component:ResourcePdfList },
+    {path:'/pdf-new/',name:'pdf-new',component:ResourcePdfNew },
     //todo:Course
     {path:'/course-list/',name:'Course List',component: CourseList},
     {path:'/course-add/',name:'Course Add',component: CourseNew},

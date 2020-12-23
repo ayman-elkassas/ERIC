@@ -93,7 +93,7 @@ class ResourceTxt extends Controller
 
             $name=time().'.pdf';
 
-            $pdf=txtToPdf($request->get("txtContent"),$name);
+            $pdf=txtToPdf(strip_tags($request->get("txtContent")),$name);
             $resource->file_name=$name;
             $upload_path="/Users/Resources/Text/".$request->get("Uid")."/";
             $resource->file_path=$upload_path;

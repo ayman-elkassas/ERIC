@@ -130,7 +130,7 @@
                                 ref="button1"
                                 @click="addTopic()"
                             >
-                                <i class='bx bx-plus' ></i>Add New Pdf
+                                <i class='bx bx-plus' ></i>Add New Text
                             </vs-button>
 
                         </div>
@@ -188,6 +188,7 @@ export default {
         editorConfig: {
             // The configuration of the editor.
         },
+        editorContent:""
     }),
     beforeCreate() {
         this.$store.dispatch("AllUserByName","a");
@@ -240,15 +241,16 @@ export default {
         },
         onEditorFocus(){
             // alert("focus")
+
         },
         onEditorBlur(){
             // alert("blur")
+            // this.request.txtContent=this.editorContent;
         },
         onEditorInput(){
             // alert("input")
-            let con=(this.request.txtContent);
-            con=con.replace(/(<p[^>]+?>|<p>|<\/p>|<strong[^>]+?>|<strong>|<\/strong>)/img, "");
-            this.request.txtContent=con;
+            // this.editorContent=(this.request.txtContent);
+            // this.editorContent=this.editorContent.replace(/(<p[^>]+?>|<p>|<\/p>|<strong[^>]+?>|<strong>|<\/strong>)/img, "");
         },
         addTopic(){
             if(this.request.Uid!=="" && this.request.fieldId!==""

@@ -8,7 +8,7 @@
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
-                            Create New Pdf
+                            Create New Text Notes
                         </template>
                         Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
                     </vs-alert>
@@ -43,7 +43,7 @@
                             relief
                             @click="createNewUser()"
                         >
-                            <i class='bx bx-plus' ></i> Create Pdf
+                            <i class='bx bx-plus' ></i> Create Text
                         </vs-button>
                         <!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
 
@@ -61,7 +61,7 @@
                                 <i class='bx bx-trash' ></i> Delete All Text
                             </vs-button>
                             <template #tooltip>
-                                Delete All Pdf And Initialize User Role &#128540;
+                                Delete All Text And Initialize User Role &#128540;
                             </template>
                         </vs-tooltip>
                     </vs-col>
