@@ -216,7 +216,7 @@
 
                 <div class="con-form ">
                     <div class="pdfViewer">
-                        <WebViewer :url="getAllTxt[index].file_path"/>
+                        <WebViewer :fileName="getAllTxt[index].desc" :url="getAllTxt[index].file_path"/>
                     </div>
                 </div>
 

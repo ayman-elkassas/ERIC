@@ -235,7 +235,7 @@ export default {
             if(this.status===2){
                 //todo:remove html tags (str.replace(/(<p[^>]+?>|<p>|<\/p>)/img, "")))
                 let con=this.oldData["desc"].replace(/(<p[^>]+?>|<p>|<\/p>)/img, "");
-                this.request.postContent="<p>"+con+"</p>";
+                this.request.txtContent="<p>"+con+"</p>";
             }
         },
         onEditorFocus(){
@@ -246,9 +246,9 @@ export default {
         },
         onEditorInput(){
             // alert("input")
-            // let con=(this.request.txtContent);
-            // con=con.replace(/(<p[^>]+?>|<p>|<\/p>|<strong[^>]+?>|<strong>|<\/strong>)/img, "");
-            // this.request.txtContent=con;
+            let con=(this.request.txtContent);
+            con=con.replace(/(<p[^>]+?>|<p>|<\/p>|<strong[^>]+?>|<strong>|<\/strong>)/img, "");
+            this.request.txtContent=con;
         },
         addTopic(){
             if(this.request.Uid!=="" && this.request.fieldId!==""

@@ -7,14 +7,15 @@ import WebViewer from "@pdftron/webviewer"
 export default {
     name: "webViewer",
     props: {
-        url: String
+        url: String,
+        fileName:String
     },
     mounted: function () {
         WebViewer({
             path: "./pdfViewer/",
         }, this.$refs.viewer).then((instance) => {
             // call apis here
-            instance.loadDocument(this.base64ToBlob(this.url), { filename: 'myfile.pdf' });
+            instance.loadDocument(this.base64ToBlob(this.url), { filename: this.fileName+".pdf" });
             const { docViewer } = instance;
             docViewer.on('documentLoaded', () => {
                 // perform document operations
