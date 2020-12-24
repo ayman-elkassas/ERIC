@@ -122,8 +122,8 @@
                                         <ul id="resource" class="nav-submenu menu-content">
                                             <li><router-link to="./text-list">{{trans('admin.eric_sys.res.txt')}}</router-link></li>
                                             <li><router-link to="/pdf-list">{{trans('admin.eric_sys.res.pdf')}}</router-link></li>
-                                            <li><router-link to="./resource-video-list">{{trans('admin.eric_sys.res.video')}}</router-link></li>
                                             <li><router-link to="./resource-image-list">{{trans('admin.eric_sys.res.img')}}</router-link></li>
+                                            <li><router-link to="./resource-video-list">{{trans('admin.eric_sys.res.video')}}</router-link></li>
                                             <li><router-link to="./resource-voice-list">{{trans('admin.eric_sys.res.voice')}}</router-link></li>
                                         </ul>
 
@@ -258,8 +258,6 @@
 <!-- BEGIN: Vendor JS-->
 <script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/vendors.min.js"></script>
 <!-- BEGIN Vendor JS-->
-
-<script src="{{asset('pdfViewer')}}/webviewer.min.js"></script>
 
     {{--main js--}}
 <script src="{{asset('/js/app.js')}}" type="text/javascript"></script>

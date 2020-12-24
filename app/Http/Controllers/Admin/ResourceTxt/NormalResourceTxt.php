@@ -24,11 +24,15 @@ class NormalResourceTxt extends Controller
     }
 
     public function RemoveAllResourcesTxt () {
-        DB::statement("SET foreign_key_checks=0");
-        Resources::truncate();
-        DB::statement("SET foreign_key_checks=1");
+//        DB::statement("SET foreign_key_checks=0");
+//        Resources::truncate();
+//        DB::statement("SET foreign_key_checks=1");
 
-        if(Resources::all()->isEmpty()){
+        $resourcesTxt=(DB::table('resources')
+            ->where('type', '=', 1))
+            ->delete();
+
+        if($resourcesTxt>0){
             return response()->json("Done Deleted All Resources Text", 200);
         }
         else{

@@ -292,7 +292,7 @@ export default {
                         this.openNotification('top-right',
                             'primary',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Edit Post Successfully",
+                            "Edit Pdf Successfully",
                             "New user will be able to handle new permission and assign users...");
                         loading.close();
                     })
@@ -336,11 +336,9 @@ export default {
     mounted() {
         if(this.status===2){
             //todo:run any js can mounted
-            this.request.postTitle=this.oldData["title"];
-            //todo:remove html tags (str.replace(/(<p[^>]+?>|<p>|<\/p>)/img, "")))
-            this.request.postType=this.oldData["type"];
             this.request.Uid=this.oldData["user_id"];
             this.request.fieldId=this.oldData["field_id"];
+            this.request.desc=this.oldData["desc"];
         }
     },
     watch:{

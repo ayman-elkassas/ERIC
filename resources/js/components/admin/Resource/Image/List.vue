@@ -1,140 +1,489 @@
 <template>
+    <div class="card">
+        <div class="card-header">
+            <template>
+                <div class="center">
+                    <vs-alert>
+                        <template #icon>
+                            <i class='bx bxs-info-circle'></i>
+                        </template>
+                        <template #title>
+                            Create New Pdf
+                        </template>
+                        Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
+                    </vs-alert>
+                </div>
+            </template>
+        </div>
 
-    <div id="pcoded">
-        <div class="pcoded-content">
-            <div class="pcoded-inner-content">
-                <div class="main-body">
-                    <div class="page-wrapper">
+        <div class="card-body">
 
-                        <div class="page-header">
-                            <div class="row align-items-end">
-                                <div class="col-lg-8">
-                                    <div class="page-header-title">
-                                        <div class="d-inline">
-                                            <h4>Admin User Created</h4>
-                                            <span>Admin CRUD Page, Can Edit And Display</span>
-                                        </div>
+            <div style="margin-bottom: 5px">
+                <vs-row justify="flex-end">
+                    <vs-col style="width:10%" w="2">
+                        <vs-tooltip top>
+                            <vs-button
+                                icon
+                                primary
+                                relief
+                                @click="refresh()"
+                            >
+                                <i class='bx bx-refresh' ></i> Refresh
+                            </vs-button>
+                            <template #tooltip>
+                                Refresh Content
+                            </template>
+                        </vs-tooltip>
+
+                    </vs-col>
+                    <vs-col style="width:13.0%" w="2">
+                        <vs-button
+                            icon
+                            success
+                            relief
+                            @click="createNewUser()"
+                        >
+                            <i class='bx bx-plus' ></i> Create Pdf
+                        </vs-button>
+                        <!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
+
+                    </vs-col>
+                    <vs-col style="width:16%" w="2">
+                        <vs-tooltip top>
+                            <vs-button
+                                icon
+                                danger
+                                relief
+                                ref="button"
+                                :active-disabled="enableRemoveAll"
+                                @click="deleteAllCategory()"
+                            >
+                                <i class='bx bx-trash' ></i> Delete All Pdf
+                            </vs-button>
+                            <template #tooltip>
+                                Delete All Pdf And Initialize User Role &#128540;
+                            </template>
+                        </vs-tooltip>
+                    </vs-col>
+                </vs-row>
+            </div>
+
+            <div>
+                <vs-table
+                    striped
+                    v-model="selected">
+
+                    <!--            todo:header-->
+                    <template #header>
+                        <vs-input v-model="search" border placeholder="Search" />
+                    </template>
+
+                    <template #thead>
+                        <vs-tr>
+                            <!--                        todo:base-->
+                            <vs-th>
+                                <vs-checkbox
+                                    :indeterminate="selected.length === data.length" v-model="allCheck"
+                                    @change="selected = $vs.checkAll(selected, data)"
+                                />
+                            </vs-th>
+
+                            <!--                        todo:hint make roles and permission nav tab to add new role and assign permission-->
+                            <!--                        todo:base-->
+                            <vs-th
+                                sort @click="data = $vs.sortData($event ,data, 'id')">
+                                Id
+                            </vs-th>
+
+                            <vs-th
+                                sort @click="data = $vs.sortData($event ,data, 'name')">
+                                File Name
+                            </vs-th>
+
+                            <vs-th>
+                                User Creation
+                            </vs-th>
+
+                            <vs-th>
+                                Avatar
+                            </vs-th>
+
+                            <vs-th>
+                                Category Name
+                            </vs-th>
+
+                            <vs-th>
+                                Created At
+                            </vs-th>
+
+                        </vs-tr>
+                    </template>
+
+                    <template #tbody>
+
+                        <!--                        <vs-tooltip top>-->
+                        <!--                            <template #tooltip>-->
+                        <!--                                Add New Role-->
+                        <!--                            </template>-->
+                        <!--                        </vs-tooltip>-->
+                        <vs-tr
+                            :key="i"
+                            v-for="(tr, i) in $vs.getPage($vs.getSearch(getAllPdf, search), page, max)"
+                            :data="tr"
+                            :is-selected="selected == tr"
+                            @click="index=i"
+                            not-click-selected
+                        >
+
+                            <!--                        todo:base-->
+                            <vs-td checkbox style="width: 1%">
+                                <vs-checkbox :val="tr" v-model="selected" />
+                            </vs-td>
+
+                            <!--                        todo:base-->
+                            <vs-td>
+                                {{ tr.id }}
+                            </vs-td>
+
+                            <vs-td>
+                                <router-link :to="tr.desc">{{tr.desc}}.pdf</router-link>
+                            </vs-td>
+
+                            <vs-td>
+                                {{ tr.fname }} {{ tr.lname }}
+                            </vs-td>
+
+                            <vs-td>
+                                <vs-avatar writing >
+                                    <img :src="tr.avatar" alt="" style="margin-right: 3px"  width="30px"/>
+                                </vs-avatar>
+                            </vs-td>
+
+                            <vs-td>
+                                {{ tr.name }}
+                            </vs-td>
+
+                            <vs-td>
+                                {{ tr.created_at }}
+                            </vs-td>
+
+                            <template #expand>
+                                <div class="con-content">
+                                    <div class="grid">
+                                        <vs-row>
+                                            <vs-col :key="index" v-for="col,index in 12" vs-type="flex-end" w="1">
+                                                <vs-button
+                                                    v-if="col===10" flat icon
+                                                    primary
+                                                    @click="editCurrentUser(tr.id,i+(page-1)*15)"
+                                                >
+                                                    <i class='bx bx-edit' ></i>
+                                                </vs-button>
+                                                <vs-button v-if="col===11"
+                                                           flat icon
+                                                           warn
+                                                           @click="viewTopic(i+(page-1)*15)"
+                                                >
+                                                    <i class='bx bx-happy-heart-eyes' ></i>
+                                                </vs-button>
+                                                <vs-button v-if="col===12"
+                                                           flat icon
+                                                           danger
+                                                           @click="deleteRole(tr.id)"
+                                                >
+                                                    <i class='bx bx-trash' ></i>
+                                                </vs-button>
+
+                                            </vs-col>
+                                        </vs-row>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </template>
 
-                        <div class="page-body">
-                            <div class="row">
-                                <div class="col-sm-12">
+                        </vs-tr>
+                    </template>
 
-                                    <div class="card">
-                                        <div class="card-header table-card-header">
-                                            <h5>Export Buttons</h5>
-                                            <!--                                        Add new Post-->
-                                            <div class="btn-group btn-group-sm" style="float: right;">
-                                                <button type="button" class="footable-add btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;"><router-link style="color: white" to="/admin-add"><i class="icofont icofont-plus"></i> Add Admin</router-link></button>
-                                            </div>
-                                        </div>
-                                        <div class="card-block">
-                                            <div class="dt-responsive table-responsive">
-                                                <div id="basic-btn_wrapper" class="dataTables_wrapper dt-bootstrap4">
-
-                                                    <table id="basic-btn" class="table table-striped table-bordered nowrap dataTable" role="grid" aria-describedby="basic-btn_primary">
-                                                        <thead>
-                                                        <tr role="row">
-                                                            <th class="sorting_asc" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-sort="ascending" aria-label="index: activate to sort column descending" style="width: 10%;">#</th>
-                                                            <th class="sorting_asc" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-sort="ascending" aria-label="title: activate to sort column descending" style="width: 30%;">Title</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-label="desc: activate to sort column ascending" style="width: 50%;">Description</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-label="user: activate to sort column ascending" style="width: 10%;">User Created</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-label="avatar: activate to sort column ascending" style="width: 10%;">Avatar</th>
-                                                            <th class="sorting" tabindex="0" aria-controls="basic-btn" rowspan="1" colspan="1" aria-label="field: activate to sort column ascending" style="width: 10%;">Field</th>
-                                                            <th aria-label="Edit: activate to sort column ascending" style="width: 5%;">Edit</th>
-                                                            <th aria-label="Delete: activate to sort column ascending" style="width: 5%;">Delete</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr role="row" class="even">
-                                                            <td class="sorting_1">1</td>
-                                                            <td class="sorting_1">Airi Satou</td>
-                                                            <td>Accountant</td>
-                                                            <td>Tokyo</td>
-                                                            <td>Tokyo</td>
-                                                            <td>Tokyo</td>
-                                                            <td style="white-space: nowrap; width: 1%;text-align:center;vertical-align:middle">
-                                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                    <div class="btn-group btn-group-sm" style="float: none;">
-                                                                        <button type="button" class="tabledit-edit-button btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;"><span class="icofont icofont-ui-edit"></span></button>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td style="white-space: nowrap; width: 1%;text-align:center;vertical-align:middle">
-                                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                    <div class="btn-group btn-group-sm" style="float: none;">
-                                                                        <button type="button" class="tabledit-delete-button btn btn-danger waves-effect waves-light" style="float: none;margin: 5px;"><span class="icofont icofont-ui-delete"></span></button>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr role="row" class="even">
-                                                            <td class="sorting_1">2</td>
-                                                            <td class="sorting_1">Ashton Cox</td>
-                                                            <td>Junior Technical Author</td>
-                                                            <td>San Francisco</td>
-                                                            <td>San Francisco</td>
-                                                            <td>San Francisco</td>
-                                                            <td style="white-space: nowrap; width: 1%;text-align:center;vertical-align:middle">
-                                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                    <div class="btn-group btn-group-sm" style="float: none;">
-                                                                        <button type="button" class="tabledit-edit-button btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;"><span class="icofont icofont-ui-edit"></span></button>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td style="white-space: nowrap; width: 1%;text-align:center;vertical-align:middle">
-                                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                    <div class="btn-group btn-group-sm" style="float: none;">
-                                                                        <button type="button" class="tabledit-delete-button btn btn-danger waves-effect waves-light" style="float: none;margin: 5px;"><span class="icofont icofont-ui-delete"></span></button>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-
-                                                        </tbody>
-                                                        <tfoot>
-                                                        <tr>
-                                                            <th rowspan="1" colspan="1">#</th>
-                                                            <th rowspan="1" colspan="1">Title</th>
-                                                            <th rowspan="1" colspan="1">Description</th>
-                                                            <th rowspan="1" colspan="1">User Created</th>
-                                                            <th rowspan="1" colspan="1">Avatar</th>
-                                                            <th rowspan="1" colspan="1">Field</th>
-                                                            <th rowspan="1" colspan="1">Edit</th>
-                                                            <th rowspan="1" colspan="1">Delete</th></tr>
-                                                        </tfoot>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div id="styleSelector">
-                </div>
+                </vs-table>
 
             </div>
 
+            <vs-dialog blur overflow-hidden full-screen v-model="activeView">
+                <template #header>
+                    <!--                    <h4 class="not-margin">-->
+                    <!--                        Welcome to <b>Vuesax</b>-->
+                    <!--                    </h4>-->
+                </template>
+
+                <div v-if="data.length>0" class="con-form">
+                    <div class="pdfViewer">
+                        <WebViewer :fileName="getAllPdf[index].desc" :url="getAllPdf[index].file_path"/>
+                    </div>
+                </div>
+
+                <template #footer>
+
+                </template>
+            </vs-dialog>
+
+            <!--            delete dialogue-->
+
+            <vs-dialog blur width="550px" not-center v-model="active_ensure">
+                <template #header>
+                    <h4 class="not-margin">
+                        Are you sure delete this <b>Role</b>
+                    </h4>
+                </template>
+
+
+                <div class="con-content">
+                    <p>
+                        where users may be assigned roles, each which has its own set of permissions. How can we make that work?
+                    </p>
+                </div>
+
+                <template #footer>
+                    <div class="con-footer">
+                        <vs-button
+                            ref="button3"
+                            @click="performDelete()" transparent>
+                            Ok
+                        </vs-button>
+                        <vs-button @click="active_ensure=false" dark transparent>
+                            Cancel
+                        </vs-button>
+                    </div>
+                </template>
+            </vs-dialog>
+
+            <vs-pagination progress  style="margin-top:10px" v-model="page" :length="$vs.getLength(data, max)" />
+
+            <!--            todo:base-->
+            <span class="data">
+                <pre hidden>
+                    {{ selected.length >1 ? enableRemoveAll=false : enableRemoveAll=true }}
+                </pre>
+            </span>
+
+        </div>
+        <div ref="content_i" class="content-div-i">
+
         </div>
     </div>
-
 </template>
 
 <script>
 
+import WebViewer from '../../PdfViewer/webViewer.vue'
+
 export default {
     name: "List",
+    data() {
+        return {
+            hidden:false,
+            search: '',
+            allCheck: false,
+            page: 1,
+            max: 15,
+            selected: [],
+            active: false,
+            edit: null,
+            editProp: {},
+            data: [],
+            avatars:[],
+            loading:null,
+            activeView:false,
+            enableRemoveAll:false,
+            authInfo:{
+                token:localStorage.getItem("token"),
+                provider:localStorage.getItem("provider")
+            },
+            index:0,
+            id:0,
+            refreshLoading:null,
+            previous: null,
+            active_ensure:false,
+            progress:0,
+            interval:null,
+            flag:false,
+            firstLoad:true,
+            activeOr:true,
+        }
+    },
+    beforeCreate() {
+        //todo:first step
+        this.$store.dispatch("AllResourcePdf");
+    },
+    created() {
+        if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
+            window.location='/admin/invalidToken';
+        }
+    },
+    mounted() {
+        //this.$store.dispatch("AllFieldsWithCategoriesUnder");
+    },
+    computed:{
+        getAllPdf(){
+            //todo:last step render value to component
+            const pdf=this.$store.getters.getAllResourcePdf;
+
+            if(!(pdf.length>0)) return []
+            this.data=pdf;
+
+            return pdf;
+        },
+    },
+    methods: {
+        createNewUser(){
+            //todo:if you want to send params to component in router-link should call as <name> no <path>
+            this.$router.push({name: 'pdf-new', params: { status: 1 } });
+        },
+        editCurrentUser(id,index){
+            //todo:if you want to send params to component in router-link should call as <name> no <path>
+            this.$router.push({name: 'pdf-new', params: { status: 2,id:id,avatar:this.data[index].avatar,data:this.data[index] } });
+        },
+        openNotification(position = null, border,icon,title,text) {
+            const noti = this.$vs.notification({
+                border,
+                icon,
+                position,
+                title: title,
+                text: text
+            })
+        },
+        viewTopic(i){
+            debugger;
+            this.index=i;
+            this.activeView=true;
+        },
+        deleteRole(i){
+            this.id=i
+            this.active_ensure=true
+        },
+        performDelete(){
+
+            const loading = this.$vs.loading({
+                target: this.$refs.button3,
+                scale: '0.6',
+                background: 'danger',
+                opacity: 1,
+                color: '#fff'
+            })
+
+            axios.delete('/admin-pdf/pdf/'+(this.id)+'?token='+this.authInfo.token+
+                '&provider='+this.authInfo.provider)
+                .then((response)=>{
+                    if(response.data!=="error"){
+                        loading.close();
+                        this.openNotification('top-right',
+                            'success',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Pdf Is Deleted Successfully",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false;
+                        this.refresh();
+                        $('.vs-table__tr__expand').hide();
+                    }
+                    else{
+                        this.openNotification('top-right',
+                            'danger',
+                            `<i class='bx bx-select-multiple' ></i>`,
+                            "Error In Remove",
+                            "Can add new role will be able to handle new permission and assign users...");
+                        this.active_ensure=false
+                    }
+                })
+                .catch((error)=>{
+                    window.location='/admin/invalidToken';
+                });
+        },
+        refresh(){
+            this.$store.dispatch("AllResourcePdf");
+        },
+        deleteAllCategory(){
+            if(localStorage.hasOwnProperty('token')
+                && localStorage.hasOwnProperty('provider')){
+
+                this.loading = this.$vs.loading({
+                    target: this.$refs.button,
+                    scale: '0.6',
+                    background: 'danger',
+                    opacity: 1,
+                    color: '#fff'
+                })
+
+                axios.get('/admin-pdf/remove-all-pdf?token='+this.authInfo.token+
+                    '&provider='+this.authInfo.provider)
+                    .then((response)=>{
+                        if(response.data!=="error"){
+                            this.loading.close();
+                            this.openNotification('top-right',
+                                'danger',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "All Pdf Are Deleted Successfully",
+                                "Can add new role will be able to handle new permission and assign users...");
+                            this.enableRemoveAll=true
+                            this.refresh();
+                        }
+                        else{
+                            this.openNotification('top-right',
+                                'danger',
+                                `<i class='bx bx-select-multiple' ></i>`,
+                                "Error In Remove",
+                                "Can add new role will be able to handle new permission and assign users...");
+                            this.enableRemoveAll=true
+                        }
+
+                    })
+                    .catch((error)=>{
+                        window.location='/admin/invalidToken';
+                    });
+            }
+            else{
+                window.location='/admin/invalidToken';
+            }
+        },
+    },
+    watch:{
+        page(newVal,oldVal){
+            // alert(newVal)
+            // debugger
+            // this.index=this.index+(this.page-1)*15;
+        }
+    },
+    components: {
+        WebViewer
+    },
 }
 </script>
 
 <style scoped>
+
+.content-div-i{
+    width: 100%;
+    height :100%;
+    box-shadow: 0px 6px 25px -10px rgba(0,0,0,.1);
+    border-radius :20px;
+    position: absolute;
+    z-index: 9999;
+    display :flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction :column;
+    text-align :center;
+    font-size :.6rem;
+    display: none;
+}
+
+.con-content .viewPost{
+    margin: 20px 0px;
+    position: relative;
+    display: block;
+    font-size: .9rem;
+}
+
+.pdfViewer{
+    width:100%;
+    height: 100%;
+}
 
 </style>

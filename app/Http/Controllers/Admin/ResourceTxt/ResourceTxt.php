@@ -183,7 +183,11 @@ class ResourceTxt extends Controller
     {
         //
         try {
-            Resources::findOrFail($id)->delete();
+            $resource=Resources::findOrFail($id);
+
+            Storage::disk("public")->delete($resource->file_path.$resource->file_name);
+
+            $resource->delete();
 
             return response()->json("Deleted Successfully", 200);
         }catch (\Exception $ex){

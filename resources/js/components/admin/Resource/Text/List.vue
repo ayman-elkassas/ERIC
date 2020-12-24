@@ -214,7 +214,7 @@
 <!--                    </h4>-->
                 </template>
 
-                <div class="con-form ">
+                <div v-if="data.length>0" class="con-form">
                     <div class="pdfViewer">
                         <WebViewer :fileName="getAllTxt[index].desc" :url="getAllTxt[index].file_path"/>
                     </div>
@@ -328,7 +328,6 @@ export default {
 
             if(!(txt.length>0)) return []
             this.data=txt;
-            debugger
 
             return txt;
         },
@@ -428,7 +427,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.get('/admin-post/remove-all-posts?token='+this.authInfo.token+
+                axios.get('/admin-txt/remove-all-txt?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         if(response.data!=="error"){
@@ -436,7 +435,7 @@ export default {
                             this.openNotification('top-right',
                                 'danger',
                                 `<i class='bx bx-select-multiple' ></i>`,
-                                "All Fields Are Deleted Successfully",
+                                "All Text Are Deleted Successfully",
                                 "Can add new role will be able to handle new permission and assign users...");
                             this.enableRemoveAll=true
                             this.refresh();

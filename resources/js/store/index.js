@@ -3,6 +3,7 @@ import moduleAccount from './account_module/index'
 import moduleTopic from './topic_module/index'
 import modulePost from './post_module/index'
 import moduleResourceTXT from './resourceTXT_module/index'
+import moduleResourcePdf from './resourcePdf_module/index'
 export default {
     actions:{
         // template(context){
@@ -35,6 +36,7 @@ export default {
         moduleAccount,
         moduleTopic,
         modulePost,
-        moduleResourceTXT
+        moduleResourceTXT,
+        moduleResourcePdf,
     }
 }
