@@ -8,7 +8,7 @@
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
-                            Create New Pdf
+                            Create New Image Album
                         </template>
                         Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
                     </vs-alert>
@@ -36,14 +36,14 @@
                         </vs-tooltip>
 
                     </vs-col>
-                    <vs-col style="width:13.0%" w="2">
+                    <vs-col style="width:14.0%" w="2">
                         <vs-button
                             icon
                             success
                             relief
                             @click="createNewUser()"
                         >
-                            <i class='bx bx-plus' ></i> Create Pdf
+                            <i class='bx bx-plus' ></i> Create Album
                         </vs-button>
                         <!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
 
@@ -58,7 +58,7 @@
                                 :active-disabled="enableRemoveAll"
                                 @click="deleteAllCategory()"
                             >
-                                <i class='bx bx-trash' ></i> Delete All Pdf
+                                <i class='bx bx-trash' ></i> Delete All Album
                             </vs-button>
                             <template #tooltip>
                                 Delete All Pdf And Initialize User Role &#128540;
@@ -311,7 +311,7 @@ export default {
     },
     beforeCreate() {
         //todo:first step
-        this.$store.dispatch("AllResourcePdf");
+        this.$store.dispatch("AllResourceImage");
     },
     created() {
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
@@ -324,7 +324,7 @@ export default {
     computed:{
         getAllPdf(){
             //todo:last step render value to component
-            const pdf=this.$store.getters.getAllResourcePdf;
+            const pdf=this.$store.getters.getAllResourceImage;
 
             if(!(pdf.length>0)) return []
             this.data=pdf;
@@ -335,11 +335,11 @@ export default {
     methods: {
         createNewUser(){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'pdf-new', params: { status: 1 } });
+            this.$router.push({name: 'image-new', params: { status: 1 } });
         },
         editCurrentUser(id,index){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'pdf-new', params: { status: 2,id:id,avatar:this.data[index].avatar,data:this.data[index] } });
+            this.$router.push({name: 'image-new', params: { status: 2,id:id,avatar:this.data[index].avatar,data:this.data[index] } });
         },
         openNotification(position = null, border,icon,title,text) {
             const noti = this.$vs.notification({

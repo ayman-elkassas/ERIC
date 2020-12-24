@@ -166,7 +166,7 @@
                             ref="pond"
                             class-name="my-pond"
                             label-idle="Add Post Cover..."
-                            v-bind:allow-multiple="true"
+                            v-bind:allow-multiple="false"
                             allowDrop="true"
                             allowPaste="true"
                             allowReplace="true"

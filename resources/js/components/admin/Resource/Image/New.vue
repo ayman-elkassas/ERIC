@@ -7,10 +7,10 @@
                     <vs-alert color="warn">
                         <template #title>
                             <span v-if="status===1">
-                                <i class='bx bx-plus' ></i> Add New Pdf
+                                <i class='bx bx-plus' ></i> Add New Album
                             </span>
                             <span v-else-if="status===2">
-                                <i class='bx bx-edit' ></i> Edit Pdf
+                                <i class='bx bx-edit' ></i> Edit Album
                             </span>
                         </template>
                         Admin can control between all users can share any information
@@ -97,8 +97,8 @@
                 <vs-row w="12">
                     <vs-col w="12">
                         <vs-input
-                            label="Resource Description"
-                            v-model="request.desc" placeholder="Write Resource Description Here...">
+                            label="Resource Title"
+                            v-model="request.desc" placeholder="Write Album Title Here...">
                             <template #icon>
                                 <i class='bx bx-book'></i>
                             </template>
@@ -114,17 +114,17 @@
                             name="test"
                             ref="pond"
                             class-name="my-pond"
-                            label-idle="Add Pdf File..."
-                            v-bind:allow-multiple="false"
+                            label-idle="Add Album Field With Title..."
+                            v-bind:allow-multiple="true"
                             allowDrop="true"
                             allowPaste="true"
                             allowReplace="true"
                             allowRevert="true"
                             allowRemove="true"
                             allowFileEncode="true"
-                            v-on:addfile="fileAdd"
-                            accepted-file-types="application/pdf"
-                            v-on:removefile="fileRemove"
+                            v-on:addfile="albumAdd"
+                            accepted-file-types="image/jpeg, image/png, image/jpg"
+                            v-on:removefile="albumRemove"
                         />
                     </vs-col>
                 </vs-row>
@@ -176,9 +176,9 @@ export default {
         fieldChar:"",
         request:{
             Uid:"",
-            resourceType:2,
+            resourceType:3,
             fieldId:"",
-            pdfContent:"",
+            Album:[],
             desc:"",
         },
         authInfo:{
@@ -236,7 +236,7 @@ export default {
         addTopic(){
             if(this.request.Uid!=="" && this.request.fieldId!==""
                 && this.request.resourceType!==""
-                && JSON.stringify(this.request.pdfContent)!==""){
+                && JSON.stringify(this.request.Album)!==""){
 
                 const loading = this.$vs.loading({
                     target: this.$refs.button1,
@@ -246,12 +246,12 @@ export default {
                     color: '#fff'
                 })
 
-                axios.post('/admin-pdf/pdf'+'?token='+this.authInfo.token+
+                axios.post('/admin-image/image'+'?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider,this.request)
                     .then((response)=>{
                         this.openNotification('top-right', 'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            'Add New Pdf File Successfully',
+                            'Add New Album Successfully',
                             'New Admin added with rules and permissions');
                         loading.close();
                     })
@@ -309,11 +309,7 @@ export default {
                 window.location='/admin/invalidToken';
             }
         },
-        fileRemove:function () {
-            this.imgUpload=false;
-            this.request.attachments=[]
-        },
-        fileAdd:function (error,file){
+        albumAdd(error,file){
             if (error) {
                 console.log('Oh no');
                 return;
@@ -322,16 +318,20 @@ export default {
             //todo: 1000000 Byte = 1MB
             //todo: max size is 15MB
             if(file.fileSize <6000000){
-                this.request.pdfContent=file.getFileEncodeDataURL();
+                this.request.Album.push(file.getFileEncodeDataURL());
                 this.imgUpload=true;
             }
             else{
                 this.openNotification('top-left', 'danger',
                     `<i class='bx bxs-bug' ></i>`,
-                    'Avatar size is large',
-                    'Upload image with minimal of 15 MB...');
+                    'Cover size is large',
+                    'Upload image with minimal of 6 MB...');
             }
         },
+        albumRemove(){
+            this.imgUpload=false;
+            this.request.Album=[]
+        }
     },
     mounted() {
         if(this.status===2){

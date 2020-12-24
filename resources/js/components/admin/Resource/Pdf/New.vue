@@ -311,7 +311,7 @@ export default {
         },
         fileRemove:function () {
             this.imgUpload=false;
-            this.request.attachments=[]
+            this.request.pdfContent=""
         },
         fileAdd:function (error,file){
             if (error) {

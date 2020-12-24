@@ -23,6 +23,8 @@ class CreateResourcesTable extends Migration
             $table->string('desc');
             $table->integer('user_id')->unsigned();//fk
             $table->integer('field_id')->unsigned();//fk
+            //Self Reference RelationShip
+            $table->integer('parent_id')->nullable()->unsigned();
             $table->timestamps();
 
             //Relationships
@@ -32,6 +34,10 @@ class CreateResourcesTable extends Migration
 
             $table->foreign('field_id')
                 ->references('id')->on('fields')
+                ->onDelete('cascade');
+
+            $table->foreign('parent_id')
+                ->references('id')->on('resources')
                 ->onDelete('cascade');
         });
     }

@@ -28,6 +28,9 @@ import ResourceTextNew from './components/admin/Resource/Text/New'
 //todo:Resource - Pdf
 import ResourcePdfList from './components/admin/Resource/Pdf/List'
 import ResourcePdfNew from './components/admin/Resource/Pdf/New'
+//todo:Resource - Image
+import ResourceImageList from './components/admin/Resource/Image/List'
+import ResourceImageNew from './components/admin/Resource/Image/New'
 //todo:Course
 import CourseList from './components/admin/Course/List'
 import CourseNew from './components/admin/Course/New'
@@ -72,6 +75,9 @@ export const routes=[
     //todo:Resource-pdf
     {path:'/pdf-list/',name:'pdf-list',component:ResourcePdfList },
     {path:'/pdf-new/',name:'pdf-new',component:ResourcePdfNew },
+    //todo:Resource-image
+    {path:'/image-list/',name:'image-list',component:ResourceImageList },
+    {path:'/image-new/',name:'image-new',component:ResourceImageNew },
     //todo:Course
     {path:'/course-list/',name:'Course List',component: CourseList},
     {path:'/course-add/',name:'Course Add',component: CourseNew},
