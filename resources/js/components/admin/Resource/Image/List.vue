@@ -97,7 +97,7 @@
 
                             <vs-th
                                 sort @click="data = $vs.sortData($event ,data, 'name')">
-                                File Name
+                                Album Name
                             </vs-th>
 
                             <vs-th>
@@ -146,21 +146,21 @@
                             </vs-td>
 
                             <vs-td>
-                                <router-link :to="tr.desc">{{tr.desc}}.pdf</router-link>
+                                <router-link :to="tr.desc">{{tr.desc}}</router-link>
                             </vs-td>
 
                             <vs-td>
-                                {{ tr.fname }} {{ tr.lname }}
+                                {{ tr.resource_user.fname }} {{tr.resource_user.lname }}
                             </vs-td>
 
                             <vs-td>
                                 <vs-avatar writing >
-                                    <img :src="tr.avatar" alt="" style="margin-right: 3px"  width="30px"/>
+                                    <img :src="avatars[tr.resource_user.id]" alt="" style="margin-right: 3px"  width="30px"/>
                                 </vs-avatar>
                             </vs-td>
 
                             <vs-td>
-                                {{ tr.name }}
+                                {{ tr.resource_field.name }}
                             </vs-td>
 
                             <vs-td>
@@ -182,7 +182,7 @@
                                                 <vs-button v-if="col===11"
                                                            flat icon
                                                            warn
-                                                           @click="viewTopic(i+(page-1)*15)"
+                                                           @click="viewTopic(tr.id,i+(page-1)*15)"
                                                 >
                                                     <i class='bx bx-happy-heart-eyes' ></i>
                                                 </vs-button>
@@ -207,19 +207,65 @@
 
             </div>
 
-            <vs-dialog blur overflow-hidden full-screen v-model="activeView">
+            <vs-dialog blur v-model="activeView">
                 <template #header>
-                    <!--                    <h4 class="not-margin">-->
-                    <!--                        Welcome to <b>Vuesax</b>-->
-                    <!--                    </h4>-->
+                    <h3 class="not-margin">
+                        {{getAllPdf[index].desc}}
+                    </h3>
                 </template>
 
-                <div v-if="data.length>0" class="con-form">
-                    <div class="pdfViewer">
-                        <WebViewer :fileName="getAllPdf[index].desc" :url="getAllPdf[index].file_path"/>
-                    </div>
+                <div class="con-form">
+                    <vs-card-group>
+                        <vs-card>
+                            <template #title>
+                                <h5>{{getAllPdf[index].desc}}</h5>
+                            </template>
+                            <template #img>
+                                <img :src="getAllPdf[index].file_path" alt="">
+                            </template>
+                            <template #text>
+                                <p>
+                                    {{getAllPdf[index].desc}}
+                                </p>
+                            </template>
+                            <template #interactions>
+                                <vs-button danger icon>
+                                    <i class='bx bx-heart'></i>
+                                </vs-button>
+                                <vs-button class="btn-chat" shadow primary>
+                                    <i class='bx bx-chat' ></i>
+                                    <span class="span">
+                                        54
+                                    </span>
+                                </vs-button>
+                            </template>
+                        </vs-card>
+                        <vs-card v-for="(card,i) in childeren[id]" :key="i">
+                            <template #title>
+                                <h5>{{getAllPdf[index].desc}}</h5>
+                            </template>
+                            <template #img>
+                                <img :src="card" alt="">
+                            </template>
+                            <template #text>
+                                <p>
+                                    {{getAllPdf[index].desc}}
+                                </p>
+                            </template>
+                            <template #interactions>
+                                <vs-button danger icon>
+                                    <i class='bx bx-heart'></i>
+                                </vs-button>
+                                <vs-button class="btn-chat" shadow primary>
+                                    <i class='bx bx-chat' ></i>
+                                    <span class="span">
+                                        54
+                                    </span>
+                                </vs-button>
+                            </template>
+                        </vs-card>
+                    </vs-card-group>
                 </div>
-
                 <template #footer>
 
                 </template>
@@ -268,12 +314,15 @@
         <div ref="content_i" class="content-div-i">
 
         </div>
+
     </div>
 </template>
 
 <script>
 
 import WebViewer from '../../PdfViewer/webViewer.vue'
+
+import {Carousel3d,Slide} from 'vue-carousel-3d';
 
 export default {
     name: "List",
@@ -289,7 +338,6 @@ export default {
             edit: null,
             editProp: {},
             data: [],
-            avatars:[],
             loading:null,
             activeView:false,
             enableRemoveAll:false,
@@ -307,6 +355,9 @@ export default {
             flag:false,
             firstLoad:true,
             activeOr:true,
+            avatars:[],
+            childeren:[],
+            slides: 7
         }
     },
     beforeCreate() {
@@ -327,6 +378,15 @@ export default {
             const pdf=this.$store.getters.getAllResourceImage;
 
             if(!(pdf.length>0)) return []
+
+            if(pdf.length>0){
+                this.avatars=pdf[pdf.length - 1 ];
+                pdf.pop();
+
+                this.childeren=pdf[pdf.length - 1 ];
+                pdf.pop();
+            }
+
             this.data=pdf;
 
             return pdf;
@@ -350,9 +410,10 @@ export default {
                 text: text
             })
         },
-        viewTopic(i){
+        viewTopic(id,i){
             debugger;
             this.index=i;
+            this.id=id;
             this.activeView=true;
         },
         deleteRole(i){
@@ -442,6 +503,9 @@ export default {
                 window.location='/admin/invalidToken';
             }
         },
+        handleClose () {
+            console.log('close event')
+        }
     },
     watch:{
         page(newVal,oldVal){
@@ -451,12 +515,30 @@ export default {
         }
     },
     components: {
-        WebViewer
+        WebViewer,
+        Carousel3d,Slide
     },
 }
 </script>
 
 <style scoped>
+
+.carousel-3d-container figure {
+    margin:0;
+}
+
+.carousel-3d-container figcaption {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    bottom: 0;
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    font-size: 12px;
+    min-width: 100%;
+    box-sizing: border-box;
+}
 
 .content-div-i{
     width: 100%;
@@ -481,9 +563,6 @@ export default {
     font-size: .9rem;
 }
 
-.pdfViewer{
-    width:100%;
-    height: 100%;
-}
+
 
 </style>

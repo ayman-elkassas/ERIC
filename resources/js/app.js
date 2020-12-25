@@ -36,6 +36,10 @@ window.Form=Form;
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 Vue.use( CKEditor );
 
+import Carousel3d from 'vue-carousel-3d';
+
+Vue.use(Carousel3d);
+
 //todo:User-define Component
 //todo:Admin Dashboard
 Vue.component('admin-main', require('./components/admin/MasterPage/Content').default);

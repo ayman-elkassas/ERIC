@@ -21,6 +21,7 @@
 
 {{--    main css--}}
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('admin-cuba/assets/css/carousalGallary.css')}}" rel="stylesheet" type="text/css">
 
 {{--    csrf token--}}
     {{--meta--}}
@@ -251,9 +252,12 @@
     <script src="{{asset('admin-cuba')}}/assets/js/tooltip-init.js"></script>
     <script src="{{asset('admin-cuba')}}/assets/js/tour/intro.js"></script>
     <script src="{{asset('admin-cuba')}}/assets/js/tour/intro-init.js"></script>
+    <script src="{{asset('admin-cuba')}}/assets/js/pgwslideshow.js"></script>
+
 <!-- Plugins JS Ends-->
 <!-- Theme js-->
 <script src="{{asset('admin-cuba')}}/assets/js/script.js"></script>
+<script src="{{asset('admin-cuba')}}/assets/js/mixlite.js"></script>
 
 <!-- BEGIN: Vendor JS-->
 <script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/vendors.min.js"></script>

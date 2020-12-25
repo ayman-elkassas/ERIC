@@ -317,7 +317,7 @@ export default {
 
             //todo: 1000000 Byte = 1MB
             //todo: max size is 15MB
-            if(file.fileSize <6000000){
+            if(file.fileSize <15000000){
                 this.request.Album.push(file.getFileEncodeDataURL());
                 this.imgUpload=true;
             }

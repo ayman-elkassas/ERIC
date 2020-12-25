@@ -34,9 +34,10 @@ class ResourceImage extends Controller
         //
         try {
 
-            $resourcesImage=Resources::with(["childeren","resourceUser","resourceField"])->limit(15)->get();
+            $resourcesImage=Resources::with(["childeren","resourceUser","resourceField"])->limit(25)->get();
 
             $avatar=[];
+            $childeren=[];
 
             $data=array();
             foreach ($resourcesImage as $image) {
@@ -48,16 +49,18 @@ class ResourceImage extends Controller
             foreach ($data as $obj){
                 try {
                     $val= imageToStreamBase64($obj->resourceUser()->get()[0]->avatar);
-                    $avatar[$obj->id]=$val;
-                    $obj->file_path=convertToBase64($obj->file_path.$obj->file_name);
+                    $avatar[$obj->resourceUser()->get()[0]->id]=$val;
+                    $obj->file_path=imageToStreamBase64($obj->file_path.$obj->file_name);
+                    $childeren[$obj->id]=[];
                     foreach ($obj->childeren()->get() as $child){
-                        $child->file_path=convertToBase64($child->file_path.$child->file_name);
+                        array_push($childeren[$obj->id],imageToStreamBase64($child->file_path.$child->file_name));
                     }
                 }catch (\Exception $ex){
                     continue;
                 }
             }
 
+            array_push($data,$childeren);
             array_push($data,$avatar);
 
             return response()->json($data, 200);
