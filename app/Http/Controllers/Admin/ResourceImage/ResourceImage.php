@@ -165,6 +165,60 @@ class ResourceImage extends Controller
     public function update(Request $request, $id)
     {
         //
+        try {
+
+            $flagFirst=true;
+            $parent_id=0;
+
+            if(count($request->get("Album"))>0){
+
+                $resource=Resources::findOrFail($id);
+
+                Storage::disk("public")->delete($resource->file_path.$resource->file_name);
+
+                foreach ($resource->childeren()->get() as $child){
+                    Storage::disk("public")->delete($child->file_path.$child->file_name);
+                }
+
+                $resource->childeren()->delete();
+
+                foreach ($request->get("Album") as $file){
+
+                    $upload_path="/Users/Resources/Album/".$request->get("Uid")."/";
+                    $resource->file_path=$upload_path;
+                    $resource->type=$request->get("resourceType");
+                    $resource->user_id=$request->get("Uid");
+                    $resource->field_id=$request->get("fieldId");
+                    $resource->desc=$request->get("desc");
+
+                    $imageStream=$file;
+
+                    $mimeType=explode("/",mime_content_type($imageStream))[0];
+
+                    $arr=saveInStorage($imageStream,$mimeType,"/Users/Resources/Album/",$request->get("Uid"));
+
+                    $resource->size=Storage::disk("public")->size($arr[1].$arr[0]);
+
+                    $resource->file_name=$arr[0];
+
+                    if($flagFirst){
+                        $resource->save();
+                        $parent_id=$resource->id;
+                        $flagFirst=false;
+                    }
+                    else{
+                        $resource->parent_id=$parent_id;
+                        $resource->save();
+                    }
+
+                    $resource=new Resources();
+                }
+            }
+
+            return response()->json($resource, 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 
     /**
@@ -176,5 +230,22 @@ class ResourceImage extends Controller
     public function destroy($id)
     {
         //
+        try {
+            $resource=Resources::findOrFail($id);
+
+            Storage::disk("public")->delete($resource->file_path.$resource->file_name);
+
+            foreach ($resource->childeren()->get() as $child){
+                Storage::disk("public")->delete($child->file_path.$child->file_name);
+            }
+
+            $resource->childeren()->delete();
+
+            $resource->delete();
+
+            return response()->json("Deleted Successfully", 200);
+        }catch (\Exception $ex){
+            return response()->json("Error", 404);
+        }
     }
 }

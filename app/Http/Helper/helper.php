@@ -55,7 +55,7 @@ if(!function_exists('saveInStorage')){
         $strPos=strpos($file,';');
         $sub=substr($file,0,$strPos);
         $ex=explode('/',$sub)[1];
-        $name=time().'.'.$ex;
+        $name=time().rand(1,5000).'.'.$ex;
 
         $str_decode=explode(',', $file)[1];
 

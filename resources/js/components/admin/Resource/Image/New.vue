@@ -139,7 +139,7 @@
                                 ref="button1"
                                 @click="addTopic()"
                             >
-                                <i class='bx bx-plus' ></i>Add New Pdf
+                                <i class='bx bx-plus' ></i>Add New Album
                             </vs-button>
 
                         </div>
@@ -151,7 +151,7 @@
                                 ref="button1"
                                 @click="editTopic()"
                             >
-                                <i class='bx bx-edit-alt' ></i> Edit Post
+                                <i class='bx bx-edit-alt' ></i> Edit Album
                             </vs-button>
                         </div>
                     </vs-col>
@@ -271,7 +271,7 @@ export default {
             }
         },
         editTopic(){
-            this.path='/admin-pdf/pdf/'+this.id
+            this.path='/admin-image/image/'+this.id
             //todo:call mutation and pass object data
             //todo:should make axios request to get user object
             //todo:make an api in back to return full user object
@@ -292,7 +292,7 @@ export default {
                         this.openNotification('top-right',
                             'primary',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Edit Pdf Successfully",
+                            "Edit Album Successfully",
                             "New user will be able to handle new permission and assign users...");
                         loading.close();
                     })
@@ -338,6 +338,7 @@ export default {
             //todo:run any js can mounted
             this.request.Uid=this.oldData["user_id"];
             this.request.fieldId=this.oldData["field_id"];
+            debugger
             this.request.desc=this.oldData["desc"];
         }
     },

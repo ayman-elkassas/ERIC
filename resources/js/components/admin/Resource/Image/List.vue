@@ -61,7 +61,7 @@
                                 <i class='bx bx-trash' ></i> Delete All Album
                             </vs-button>
                             <template #tooltip>
-                                Delete All Pdf And Initialize User Role &#128540;
+                                Delete All Album And Initialize User Role &#128540;
                             </template>
                         </vs-tooltip>
                     </vs-col>
@@ -357,7 +357,6 @@ export default {
             activeOr:true,
             avatars:[],
             childeren:[],
-            slides: 7
         }
     },
     beforeCreate() {
@@ -399,7 +398,7 @@ export default {
         },
         editCurrentUser(id,index){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'image-new', params: { status: 2,id:id,avatar:this.data[index].avatar,data:this.data[index] } });
+            this.$router.push({name: 'image-new', params: { status: 2,id:id,avatar:this.avatars[this.data[index].user_id],data:this.data[index] } });
         },
         openNotification(position = null, border,icon,title,text) {
             const noti = this.$vs.notification({
@@ -430,7 +429,7 @@ export default {
                 color: '#fff'
             })
 
-            axios.delete('/admin-pdf/pdf/'+(this.id)+'?token='+this.authInfo.token+
+            axios.delete('/admin-image/image/'+(this.id)+'?token='+this.authInfo.token+
                 '&provider='+this.authInfo.provider)
                 .then((response)=>{
                     if(response.data!=="error"){
@@ -438,7 +437,7 @@ export default {
                         this.openNotification('top-right',
                             'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Pdf Is Deleted Successfully",
+                            "Album Is Deleted Successfully",
                             "Can add new role will be able to handle new permission and assign users...");
                         this.active_ensure=false;
                         this.refresh();
@@ -458,7 +457,7 @@ export default {
                 });
         },
         refresh(){
-            this.$store.dispatch("AllResourcePdf");
+            this.$store.dispatch("AllResourceImage");
         },
         deleteAllCategory(){
             if(localStorage.hasOwnProperty('token')
@@ -472,7 +471,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.get('/admin-pdf/remove-all-pdf?token='+this.authInfo.token+
+                axios.get('/admin-image/remove-all-image?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         if(response.data!=="error"){
@@ -480,7 +479,7 @@ export default {
                             this.openNotification('top-right',
                                 'danger',
                                 `<i class='bx bx-select-multiple' ></i>`,
-                                "All Pdf Are Deleted Successfully",
+                                "All Albums Are Deleted Successfully",
                                 "Can add new role will be able to handle new permission and assign users...");
                             this.enableRemoveAll=true
                             this.refresh();

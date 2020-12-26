@@ -31,6 +31,9 @@ import ResourcePdfNew from './components/admin/Resource/Pdf/New'
 //todo:Resource - Image
 import ResourceImageList from './components/admin/Resource/Image/List'
 import ResourceImageNew from './components/admin/Resource/Image/New'
+//todo:Resource - Image
+import ResourceVideoList from './components/admin/Resource/Video/List'
+import ResourceVideoNew from './components/admin/Resource/Video/New'
 //todo:Course
 import CourseList from './components/admin/Course/List'
 import CourseNew from './components/admin/Course/New'
@@ -78,6 +81,9 @@ export const routes=[
     //todo:Resource-image
     {path:'/image-list/',name:'image-list',component:ResourceImageList },
     {path:'/image-new/',name:'image-new',component:ResourceImageNew },
+    //todo:Resource-image
+    {path:'/video-list/',name:'video-list',component:ResourceVideoList },
+    {path:'/video-new/',name:'video-new',component:ResourceVideoNew },
     //todo:Course
     {path:'/course-list/',name:'Course List',component: CourseList},
     {path:'/course-add/',name:'Course Add',component: CourseNew},
