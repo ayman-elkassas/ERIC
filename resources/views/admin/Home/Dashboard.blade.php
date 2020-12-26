@@ -261,6 +261,9 @@
 
 <!-- BEGIN: Vendor JS-->
 <script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/vendors.min.js"></script>
+<script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/extensions/plyr.min.js"></script>
+<script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/extensions/plyr.polyfilled.min.js"></script>
+<script src="{{asset('admin-vuexy')}}/app-assets/js/scripts/extensions/ext-component-media-player.min.js"></script>
 <!-- BEGIN Vendor JS-->
 
     {{--main js--}}

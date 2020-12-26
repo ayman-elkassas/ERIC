@@ -156,6 +156,15 @@ Route::group(['prefix' => 'admin-image','namespace' => 'Admin\ResourceImage'], f
     });
 });
 
+//TODO:ResourceTxt CRUD
+Route::group(['prefix' => 'admin-video','namespace' => 'Admin\ResourceVideo'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/video', 'ResourceVideo');
+        //todo:Normal controllers routes
+        Route::get('/remove-all-video', 'NormalResourceVideo@RemoveAllResourcesVideo');
+    });
+});
+
 Route::get('/cache-clear',function (){
     $exit_code=Artisan::call("optimize:clear");
     //todo:return 0 if execute success

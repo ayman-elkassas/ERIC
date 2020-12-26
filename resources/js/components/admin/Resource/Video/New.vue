@@ -10,7 +10,7 @@
                                 <i class='bx bx-plus' ></i> Add New Playlist
                             </span>
                             <span v-else-if="status===2">
-                                <i class='bx bx-edit' ></i> Edit Album
+                                <i class='bx bx-edit' ></i> Edit Playlist
                             </span>
                         </template>
                         Admin can control between all users can share any information
@@ -114,7 +114,7 @@
                             name="test"
                             ref="pond"
                             class-name="my-pond"
-                            label-idle="Add Video"
+                            label-idle="Add Playlist..."
                             v-bind:allow-multiple="true"
                             allowDrop="true"
                             allowPaste="true"
@@ -139,7 +139,7 @@
                                 ref="button1"
                                 @click="addTopic()"
                             >
-                                <i class='bx bx-plus' ></i>Add New Album
+                                <i class='bx bx-plus' ></i>Add New Playlist
                             </vs-button>
 
                         </div>
@@ -151,7 +151,7 @@
                                 ref="button1"
                                 @click="editTopic()"
                             >
-                                <i class='bx bx-edit-alt' ></i> Edit Album
+                                <i class='bx bx-edit-alt' ></i> Edit Playlist
                             </vs-button>
                         </div>
                     </vs-col>
@@ -176,7 +176,7 @@ export default {
         fieldChar:"",
         request:{
             Uid:"",
-            resourceType:3,
+            resourceType:4,
             fieldId:"",
             Album:[],
             desc:"",
@@ -251,7 +251,7 @@ export default {
                     .then((response)=>{
                         this.openNotification('top-right', 'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            'Add New Album Successfully',
+                            'Add New Playlist Successfully',
                             'New Admin added with rules and permissions');
                         loading.close();
                     })
@@ -271,7 +271,7 @@ export default {
             }
         },
         editTopic(){
-            this.path='/admin-pdf/pdf/'+this.id
+            this.path='/admin-image/image/'+this.id
             //todo:call mutation and pass object data
             //todo:should make axios request to get user object
             //todo:make an api in back to return full user object
@@ -292,7 +292,7 @@ export default {
                         this.openNotification('top-right',
                             'primary',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Edit Pdf Successfully",
+                            "Edit Playlist Successfully",
                             "New user will be able to handle new permission and assign users...");
                         loading.close();
                     })
@@ -317,7 +317,7 @@ export default {
 
             //todo: 1000000 Byte = 1MB
             //todo: max size is 15MB
-            if(file.fileSize <15000000){
+            if(file.fileSize <60000000){
                 this.request.Album.push(file.getFileEncodeDataURL());
                 this.imgUpload=true;
             }

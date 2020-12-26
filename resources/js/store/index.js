@@ -5,6 +5,7 @@ import modulePost from './post_module/index'
 import moduleResourceTXT from './resourceTXT_module/index'
 import moduleResourcePdf from './resourcePdf_module/index'
 import moduleResourceImage from './resourceImage_module/index'
+import moduleResourceVideo from './resourceVideo_module/index'
 export default {
     actions:{
         // template(context){
@@ -40,5 +41,6 @@ export default {
         moduleResourceTXT,
         moduleResourcePdf,
         moduleResourceImage,
+        moduleResourceVideo,
     }
 }

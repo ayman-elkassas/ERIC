@@ -54,7 +54,9 @@
 @import "~filepond-plugin-media-preview/dist/filepond-plugin-media-preview.min.css";
 
 @import "~admin-vuexy/app-assets/vendors/css/vendors.min.css";
-
+@import "~admin-vuexy/app-assets/vendors/css/extensions/plyr.min.css";
+@import "~admin-vuexy/app-assets/css/core/menu/menu-types/vertical-menu.min.css";
+@import "~admin-vuexy/app-assets/css/plugins/extensions/ext-component-media-player.min.css";
 
 body.dark-sidebar .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon header.main-nav .nav-menu .dropdown ul.nav-submenu li a:hover{
     text-decoration: none;

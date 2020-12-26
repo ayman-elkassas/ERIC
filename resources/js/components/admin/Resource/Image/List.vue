@@ -207,7 +207,7 @@
 
             </div>
 
-            <vs-dialog blur v-model="activeView">
+            <vs-dialog v-if="data.length>0" blur v-model="activeView">
                 <template #header>
                     <h3 class="not-margin">
                         {{getAllPdf[index].desc}}
@@ -319,10 +319,6 @@
 </template>
 
 <script>
-
-import WebViewer from '../../PdfViewer/webViewer.vue'
-
-import {Carousel3d,Slide} from 'vue-carousel-3d';
 
 export default {
     name: "List",
@@ -514,30 +510,11 @@ export default {
         }
     },
     components: {
-        WebViewer,
-        Carousel3d,Slide
     },
 }
 </script>
 
 <style scoped>
-
-.carousel-3d-container figure {
-    margin:0;
-}
-
-.carousel-3d-container figcaption {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    bottom: 0;
-    position: absolute;
-    bottom: 0;
-    padding: 15px;
-    font-size: 12px;
-    min-width: 100%;
-    box-sizing: border-box;
-}
 
 .content-div-i{
     width: 100%;

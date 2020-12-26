@@ -8,7 +8,7 @@
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
-                            Create New Image Album
+                            Create New Playlist
                         </template>
                         Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
                     </vs-alert>
@@ -43,7 +43,7 @@
                             relief
                             @click="createNewUser()"
                         >
-                            <i class='bx bx-plus' ></i> Create Album
+                            <i class='bx bx-plus' ></i> Create Playlist
                         </vs-button>
                         <!--                        <router-link to="{path: 'user-new', params: { status: 'test' } }">Link</router-link>-->
 
@@ -58,10 +58,10 @@
                                 :active-disabled="enableRemoveAll"
                                 @click="deleteAllCategory()"
                             >
-                                <i class='bx bx-trash' ></i> Delete All Album
+                                <i class='bx bx-trash' ></i> Delete All Playlist
                             </vs-button>
                             <template #tooltip>
-                                Delete All Album And Initialize User Role &#128540;
+                                Delete All Playlist And Initialize User Role &#128540;
                             </template>
                         </vs-tooltip>
                     </vs-col>
@@ -97,7 +97,7 @@
 
                             <vs-th
                                 sort @click="data = $vs.sortData($event ,data, 'name')">
-                                Album Name
+                                Playlist Name
                             </vs-th>
 
                             <vs-th>
@@ -207,7 +207,7 @@
 
             </div>
 
-            <vs-dialog blur v-model="activeView">
+            <vs-dialog v-if="data.length>0" blur v-model="activeView">
                 <template #header>
                     <h3 class="not-margin">
                         {{getAllPdf[index].desc}}
@@ -215,56 +215,22 @@
                 </template>
 
                 <div class="con-form">
-                    <vs-card-group>
-                        <vs-card>
-                            <template #title>
-                                <h5>{{getAllPdf[index].desc}}</h5>
-                            </template>
-                            <template #img>
-                                <img :src="getAllPdf[index].file_path" alt="">
-                            </template>
-                            <template #text>
-                                <p>
-                                    {{getAllPdf[index].desc}}
-                                </p>
-                            </template>
-                            <template #interactions>
-                                <vs-button danger icon>
-                                    <i class='bx bx-heart'></i>
-                                </vs-button>
-                                <vs-button class="btn-chat" shadow primary>
-                                    <i class='bx bx-chat' ></i>
-                                    <span class="span">
-                                        54
-                                    </span>
-                                </vs-button>
-                            </template>
-                        </vs-card>
-                        <vs-card v-for="(card,i) in childeren[id]" :key="i">
-                            <template #title>
-                                <h5>{{getAllPdf[index].desc}}</h5>
-                            </template>
-                            <template #img>
-                                <img :src="card" alt="">
-                            </template>
-                            <template #text>
-                                <p>
-                                    {{getAllPdf[index].desc}}
-                                </p>
-                            </template>
-                            <template #interactions>
-                                <vs-button danger icon>
-                                    <i class='bx bx-heart'></i>
-                                </vs-button>
-                                <vs-button class="btn-chat" shadow primary>
-                                    <i class='bx bx-chat' ></i>
-                                    <span class="span">
-                                        54
-                                    </span>
-                                </vs-button>
-                            </template>
-                        </vs-card>
-                    </vs-card-group>
+                    <section id="media-player-wrapper">
+                        <div class="row">
+                            <!-- VIDEO -->
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Video</h4>
+                                        <div class="video-player" id="plyr-video-player">
+                                            <iframe src="https://www.youtube.com/embed/bTqVqk7FSmY" allowfullscreen allow="autoplay"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ VIDEO -->
+                        </div>
+                    </section>
                 </div>
                 <template #footer>
 
@@ -320,10 +286,6 @@
 
 <script>
 
-import WebViewer from '../../PdfViewer/webViewer.vue'
-
-import {Carousel3d,Slide} from 'vue-carousel-3d';
-
 export default {
     name: "List",
     data() {
@@ -361,7 +323,7 @@ export default {
     },
     beforeCreate() {
         //todo:first step
-        this.$store.dispatch("AllResourceImage");
+        this.$store.dispatch("AllResourceVideo");
     },
     created() {
         if(!(localStorage.hasOwnProperty("token") || !(localStorage.hasOwnProperty("provider")))){
@@ -374,7 +336,7 @@ export default {
     computed:{
         getAllPdf(){
             //todo:last step render value to component
-            const pdf=this.$store.getters.getAllResourceImage;
+            const pdf=this.$store.getters.getAllResourceVideo;
 
             if(!(pdf.length>0)) return []
 
@@ -398,7 +360,7 @@ export default {
         },
         editCurrentUser(id,index){
             //todo:if you want to send params to component in router-link should call as <name> no <path>
-            this.$router.push({name: 'video-new', params: { status: 2,id:id,avatar:this.data[index].avatar,data:this.data[index] } });
+            this.$router.push({name: 'video-new', params: { status: 2,id:id,avatar:this.avatars[this.data[index].user_id],data:this.data[index] } });
         },
         openNotification(position = null, border,icon,title,text) {
             const noti = this.$vs.notification({
@@ -437,7 +399,7 @@ export default {
                         this.openNotification('top-right',
                             'success',
                             `<i class='bx bx-select-multiple' ></i>`,
-                            "Pdf Is Deleted Successfully",
+                            "Playlist Is Deleted Successfully",
                             "Can add new role will be able to handle new permission and assign users...");
                         this.active_ensure=false;
                         this.refresh();
@@ -457,7 +419,7 @@ export default {
                 });
         },
         refresh(){
-            this.$store.dispatch("AllResourceImage");
+            this.$store.dispatch("AllResourceVideo");
         },
         deleteAllCategory(){
             if(localStorage.hasOwnProperty('token')
@@ -479,7 +441,7 @@ export default {
                             this.openNotification('top-right',
                                 'danger',
                                 `<i class='bx bx-select-multiple' ></i>`,
-                                "All Pdf Are Deleted Successfully",
+                                "All Playlist Are Deleted Successfully",
                                 "Can add new role will be able to handle new permission and assign users...");
                             this.enableRemoveAll=true
                             this.refresh();
@@ -514,30 +476,11 @@ export default {
         }
     },
     components: {
-        WebViewer,
-        Carousel3d,Slide
     },
 }
 </script>
 
 <style scoped>
-
-.carousel-3d-container figure {
-    margin:0;
-}
-
-.carousel-3d-container figcaption {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    bottom: 0;
-    position: absolute;
-    bottom: 0;
-    padding: 15px;
-    font-size: 12px;
-    min-width: 100%;
-    box-sizing: border-box;
-}
 
 .content-div-i{
     width: 100%;

@@ -34,7 +34,9 @@ class ResourceImage extends Controller
         //
         try {
 
-            $resourcesImage=Resources::with(["childeren","resourceUser","resourceField"])->limit(25)->get();
+            $resourcesImage=Resources::with(["childeren","resourceUser","resourceField"])
+                ->where("type","=","3")
+                ->limit(25)->get();
 
             $avatar=[];
             $childeren=[];
