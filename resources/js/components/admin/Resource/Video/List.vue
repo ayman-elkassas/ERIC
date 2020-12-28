@@ -217,18 +217,20 @@
                 <div class="con-form">
                     <section id="media-player-wrapper">
                         <div class="row">
-                            <!-- VIDEO -->
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Video</h4>
-                                        <div class="video-player" id="plyr-video-player">
-                                            <iframe src="https://www.youtube.com/embed/bTqVqk7FSmY" allowfullscreen allow="autoplay"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
+                            <!--
+  Don't use the "5-unsafe" CDN version in your own code. It will break on you.
+  Instead go to videojs.com and copy the CDN urls for the latest version.
+-->
+
+                            <div id="instructions">
+
+                                <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px"
+                                       controls preload="none" poster='http://video-js.zencoder.com/oceans-clip.jpg'
+                                       data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+                                    <source :src="childeren[id][0]" type='video/mp4' />
+                                </video>
+
                             </div>
-                            <!--/ VIDEO -->
                         </div>
                     </section>
                 </div>
@@ -332,6 +334,23 @@ export default {
     },
     mounted() {
         //this.$store.dispatch("AllFieldsWithCategoriesUnder");
+        $(function(){
+            var $refreshButton = $('#refresh');
+            var $results = $('#css_result');
+
+            function refresh(){
+                var css = $('style.cp-pen-styles').text();
+                $results.html(css);
+            }
+
+            refresh();
+            $refreshButton.click(refresh);
+
+            // Select all the contents when clicked
+            $results.click(function(){
+                $(this).select();
+            });
+        });
     },
     computed:{
         getAllPdf(){
@@ -504,6 +523,29 @@ export default {
     display: block;
     font-size: .9rem;
 }
+
+#instructions { max-width: 640px; text-align: left; margin: 30px auto; }
+#instructions textarea { width: 100%; height: 100px; }
+
+/* Show the controls (hidden at the start by default) */
+.video-js .vjs-control-bar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* Make the demo a little prettier */
+body {
+    margin-top: 20px;
+    background: #222;
+    text-align: center;
+    color: #aaa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: radial-gradient(#333, hsl(200,30%,6%) );
+}
+
+a, a:hover, a:visited { color: #76DAFF; }
 
 
 

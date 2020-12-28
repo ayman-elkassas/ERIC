@@ -92,3 +92,16 @@ if(!function_exists('convertToBase64')) {
         return base64_encode(file_get_contents(storage_path()."/app/public".$file));
     }
 }
+
+if(!function_exists('convertToDataUri')) {
+    function convertToDataUri($file,$type,$ext) {
+        return 'data:'.$type.'/' . $ext . ';base64,' .base64_encode(file_get_contents(storage_path()."/app/public".$file));
+    }
+}
+
+if(!function_exists('GetFillPath')) {
+    function GetFillPath($file) {
+        return "http://127.0.0.1:8000"."/storage".$file;
+    }
+}
+

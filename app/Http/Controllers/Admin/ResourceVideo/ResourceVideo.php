@@ -50,10 +50,10 @@ class ResourceVideo extends Controller
                 try {
                     $val= imageToStreamBase64($obj->resourceUser()->get()[0]->avatar);
                     $avatar[$obj->resourceUser()->get()[0]->id]=$val;
-                    $obj->file_path=imageToStreamBase64($obj->file_path.$obj->file_name);
+                    $obj->file_path=GetFillPath($obj->file_path.$obj->file_name);
                     $childeren[$obj->id]=[];
                     foreach ($obj->childeren()->get() as $child){
-                        array_push($childeren[$obj->id],imageToStreamBase64($child->file_path.$child->file_name));
+                        array_push($childeren[$obj->id],GetFillPath($child->file_path.$child->file_name));
                     }
                 }catch (\Exception $ex){
                     continue;
