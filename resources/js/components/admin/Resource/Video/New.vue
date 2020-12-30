@@ -106,6 +106,18 @@
                     </vs-col>
                 </vs-row>
                 <br>
+                <vs-row w="12">
+                    <vs-col w="12">
+                        <vs-input
+                            label="Resource Description"
+                            v-model="request.overviewDesc" placeholder="Write Album Description Here...">
+                            <template #icon>
+                                <i class='bx bx-book'></i>
+                            </template>
+                        </vs-input>
+                    </vs-col>
+                </vs-row>
+                <br>
 
 <!--                pdf resource type 2-->
                 <vs-row w="12">
@@ -180,6 +192,7 @@ export default {
             fieldId:"",
             Album:[],
             desc:"",
+            overviewDesc:""
         },
         authInfo:{
             token:localStorage.getItem("token"),
@@ -339,6 +352,7 @@ export default {
             this.request.Uid=this.oldData["user_id"];
             this.request.fieldId=this.oldData["field_id"];
             this.request.desc=this.oldData["desc"];
+            this.request.overviewDesc=this.oldData["overviewDesc"];
         }
     },
     watch:{

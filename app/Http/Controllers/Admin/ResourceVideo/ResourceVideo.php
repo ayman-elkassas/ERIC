@@ -41,9 +41,8 @@ class ResourceVideo extends Controller
 
             $data=array();
             foreach ($resourcesImage as $image) {
-                if(count($image["childeren"])>0){
-                    array_push($data,$image);
-                }
+                if(count($image->childeren()->get())>0)
+                array_push($data,$image);
             }
 
             foreach ($data as $obj){

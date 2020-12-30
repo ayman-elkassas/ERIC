@@ -59,6 +59,7 @@
         "scss-loader": "0.0.1",
         "vform": "^1.0.1",
         "vue-carousel-3d": "^1.0.1",
+        "vue-dplayer": "0.0.10",
         "vue-filepond": "^6.0.3",
         "vue-photoswipe": "^1.0.3",
         "vue-router": "^3.3.2",

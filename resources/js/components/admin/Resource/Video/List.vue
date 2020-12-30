@@ -146,7 +146,7 @@
                             </vs-td>
 
                             <vs-td>
-                                <router-link :to="tr.desc">{{tr.desc}}</router-link>
+                                {{tr.desc}}
                             </vs-td>
 
                             <vs-td>
@@ -207,36 +207,31 @@
 
             </div>
 
-            <vs-dialog v-if="data.length>0" blur v-model="activeView">
-                <template #header>
-                    <h3 class="not-margin">
-                        {{getAllPdf[index].desc}}
-                    </h3>
-                </template>
+            <vs-dialog auto-width not-padding prevent-close v-if="data.length>0" blur v-model="activeView">
 
-                <div class="con-form">
-                    <section id="media-player-wrapper">
-                        <div class="row">
-                            <!--
-  Don't use the "5-unsafe" CDN version in your own code. It will break on you.
-  Instead go to videojs.com and copy the CDN urls for the latest version.
--->
+                <vs-row>
 
-                            <div id="instructions">
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="3">
+                        <vs-sidebar
+                            right="true"
+                            relative
+                            v-model="activeSidebar"
+                            open
+                        >
+                            <vs-sidebar-item v-for="(child,i) in childeren[id]" :key="i" id="home">
+                                <template #icon>
+                                    <i class='bx bx-home'></i>
+                                </template>
+                                <span @click="changeVideo(child)">Episodic {{i+1}}</span>
+                            </vs-sidebar-item>
+                        </vs-sidebar>
+                    </vs-col>
 
-                                <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px"
-                                       controls preload="none" poster='http://video-js.zencoder.com/oceans-clip.jpg'
-                                       data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
-                                    <source :src="childeren[id][0]" type='video/mp4' />
-                                </video>
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="9">
+                        <VideoPlayer :title="getAllPdf[index].desc" :playlist="videoPlay"></VideoPlayer>
+                    </vs-col>
 
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <template #footer>
-
-                </template>
+                </vs-row>
             </vs-dialog>
 
             <!--            delete dialogue-->
@@ -288,6 +283,8 @@
 
 <script>
 
+import VideoPlayer from "../../VideoPlayer/VideoPlayer";
+
 export default {
     name: "List",
     data() {
@@ -321,6 +318,8 @@ export default {
             activeOr:true,
             avatars:[],
             childeren:[],
+            activeSidebar: '',
+            videoPlay:"",
         }
     },
     beforeCreate() {
@@ -334,23 +333,6 @@ export default {
     },
     mounted() {
         //this.$store.dispatch("AllFieldsWithCategoriesUnder");
-        $(function(){
-            var $refreshButton = $('#refresh');
-            var $results = $('#css_result');
-
-            function refresh(){
-                var css = $('style.cp-pen-styles').text();
-                $results.html(css);
-            }
-
-            refresh();
-            $refreshButton.click(refresh);
-
-            // Select all the contents when clicked
-            $results.click(function(){
-                $(this).select();
-            });
-        });
     },
     computed:{
         getAllPdf(){
@@ -395,6 +377,12 @@ export default {
             this.index=i;
             this.id=id;
             this.activeView=true;
+            this.videoPlay=this.getAllPdf[i].file_path;
+        },
+        changeVideo(child){
+            $('.dplayer-video').attr("src",child);
+            $('.dplayer').removeClass("dplayer-paused");
+            $('.dplayer').addClass("dplayer-playing");
         },
         deleteRole(i){
             this.id=i
@@ -492,9 +480,10 @@ export default {
             // alert(newVal)
             // debugger
             // this.index=this.index+(this.page-1)*15;
-        }
+        },
     },
     components: {
+        VideoPlayer
     },
 }
 </script>
@@ -524,28 +513,17 @@ export default {
     font-size: .9rem;
 }
 
-#instructions { max-width: 640px; text-align: left; margin: 30px auto; }
-#instructions textarea { width: 100%; height: 100px; }
-
-/* Show the controls (hidden at the start by default) */
-.video-js .vjs-control-bar {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+.con-image {
+    border-radius :inherit
 }
 
-/* Make the demo a little prettier */
-body {
-    margin-top: 20px;
-    background: #222;
-    text-align: center;
-    color: #aaa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: radial-gradient(#333, hsl(200,30%,6%) );
+.con-image VideoPlayer{
+    display: block;
+    position: relative;
+    border-radius: inherit;
+    max-width: 350px;
+    height: 100%;
 }
-
-a, a:hover, a:visited { color: #76DAFF; }
 
 
 

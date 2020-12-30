@@ -64,3 +64,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 Laravel Template Project
 >>>>>>> origin/master
 https://www.pdftron.com/documentation/web/get-started/vue/
+
+https://day.js.org/en/

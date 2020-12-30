@@ -21,6 +21,7 @@ class CreateResourcesTable extends Migration
             $table->integer('type')->unsigned();
             $table->integer('size');
             $table->string('desc');
+            $table->string('overviewDesc')->nullable();
             $table->integer('user_id')->unsigned();//fk
             $table->integer('field_id')->unsigned();//fk
             //Self Reference RelationShip

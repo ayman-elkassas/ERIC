@@ -92,6 +92,10 @@ import vsCheckbox from 'vuesax/dist/vsCheckbox/index'
 Vue.component('vs-checkbox',vsCheckbox);
 import vsAvatar from 'vuesax/dist/vsAvatar/index'
 Vue.component('vs-avatar',vsAvatar);
+import vsSidebar from 'vuesax/dist/vsSidebar/index'
+Vue.component('vs-sidebar',vsSidebar);
+import vsSidebarItem from 'vuesax/dist/vsSidebarItem/index'
+Vue.component('vs-sidebar-item',vsSidebarItem);
 
 //todo:declare main router array
 const router=new VueRouter({

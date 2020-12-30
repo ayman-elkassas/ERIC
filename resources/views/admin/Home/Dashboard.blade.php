@@ -21,13 +21,12 @@
 
 {{--    main css--}}
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('admin-cuba/assets/css/carousalGallary.css')}}" rel="stylesheet" type="text/css">
 
 {{--    csrf token--}}
     {{--meta--}}
     <meta name="csrf-token" content="{{csrf_token()}}">
 </head>
-<body ref="target" id="target" class="center dark-sidebar" main-theme-layout="box-layout">
+<body ref="target" id="target" class="center dark-sidebar" main-theme-layout="ltr">
 
 <!-- tap on top starts-->
     <div class="tap-top"><i data-feather="chevrons-up"></i></div>
@@ -252,19 +251,9 @@
     <script src="{{asset('admin-cuba')}}/assets/js/tooltip-init.js"></script>
     <script src="{{asset('admin-cuba')}}/assets/js/tour/intro.js"></script>
     <script src="{{asset('admin-cuba')}}/assets/js/tour/intro-init.js"></script>
-    <script src="{{asset('admin-cuba')}}/assets/js/pgwslideshow.js"></script>
-
-<!-- Plugins JS Ends-->
-<!-- Theme js-->
-<script src="{{asset('admin-cuba')}}/assets/js/script.js"></script>
-<script src="{{asset('admin-cuba')}}/assets/js/mixlite.js"></script>
 
 <!-- BEGIN: Vendor JS-->
 <script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/vendors.min.js"></script>
-<script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/extensions/plyr.min.js"></script>
-<script src="{{asset('admin-vuexy')}}/app-assets/vendors/js/extensions/plyr.polyfilled.min.js"></script>
-<script src="{{asset('admin-vuexy')}}/app-assets/js/scripts/extensions/ext-component-media-player.min.js"></script>
-<!-- BEGIN Vendor JS-->
 
     {{--main js--}}
 <script src="{{asset('/js/app.js')}}" type="text/javascript"></script>

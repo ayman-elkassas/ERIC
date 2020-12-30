@@ -207,7 +207,7 @@
 
             </div>
 
-            <vs-dialog blur overflow-hidden full-screen v-model="activeView">
+            <vs-dialog blur full-screen v-model="activeView">
                 <template #header>
                     <!--                    <h4 class="not-margin">-->
                     <!--                        Welcome to <b>Vuesax</b>-->

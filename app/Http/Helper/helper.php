@@ -101,7 +101,7 @@ if(!function_exists('convertToDataUri')) {
 
 if(!function_exists('GetFillPath')) {
     function GetFillPath($file) {
-        return "http://127.0.0.1:8000"."/storage".$file;
+        return env("App_Server")."/storage".$file;
     }
 }
 

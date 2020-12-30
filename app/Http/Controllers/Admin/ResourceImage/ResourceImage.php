@@ -107,6 +107,10 @@ class ResourceImage extends Controller
                     $resource->field_id=$request->get("fieldId");
                     $resource->desc=$request->get("desc");
 
+                    if($request->get("overviewDesc")!==""){
+                        $resource->overviewDesc=$request->get("overviewDesc");
+                    }
+
                     $imageStream=$file;
 
                     $mimeType=explode("/",mime_content_type($imageStream))[0];
