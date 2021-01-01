@@ -66,3 +66,89 @@ Laravel Template Project
 https://www.pdftron.com/documentation/web/get-started/vue/
 
 https://day.js.org/en/
+
+//Hint
+
+// https://aplayer.js.org/
+// https://github.com/SevenOutman/vue-aplayer
+
+import VueAPlayer from 'vue-aplayer/dist/vue-aplayer.min'
+VueAPlayer.disableVersionBadge = true
+
+// https://aplayer.js.org/
+// https://github.com/SevenOutman/vue-aplayer
+
+export default {
+    name: "VideoPlayer",
+    data() {
+        return {
+            options: {
+                title: 'Alfatha',
+                artist: 'Naser Alqatami',
+                src: 'https://download.quranicaudio.com/quran/nasser_bin_ali_alqatami/001.mp3',
+                pic: 'http://ar.assabile.com/media/person/200x256/nasser-al-qatami.png',
+            },
+            list:[
+                {
+                    title: 'Alfatha',
+                    artist: 'Naser Alqatami',
+                    src: 'https://download.quranicaudio.com/quran/nasser_bin_ali_alqatami/001.mp3',
+                    pic: 'http://ar.assabile.com/media/person/200x256/nasser-al-qatami.png',
+                },
+                {
+                    title: 'Alfatha',
+                    artist: 'Naser Alqatami',
+                    src: 'https://download.quranicaudio.com/quran/nasser_bin_ali_alqatami/001.mp3',
+                    pic: 'http://ar.assabile.com/media/person/200x256/nasser-al-qatami.png',
+                },
+                {
+                    title: 'Alfatha',
+                    artist: 'Naser Alqatami',
+                    src: 'https://download.quranicaudio.com/quran/nasser_bin_ali_alqatami/001.mp3',
+                    pic: 'http://ar.assabile.com/media/person/200x256/nasser-al-qatami.png',
+                },
+                {
+                    title: 'Alfatha',
+                    artist: 'Naser Alqatami',
+                    src: 'https://download.quranicaudio.com/quran/nasser_bin_ali_alqatami/001.mp3',
+                    pic: 'http://ar.assabile.com/media/person/200x256/nasser-al-qatami.png',
+                },
+
+            ]
+
+        }
+    },
+    props: {
+        playlist: String,
+        title:String
+    },
+    mounted(){
+        this.play();
+        // setTimeout(() => {
+        //     player.pause()
+        // }, 2000)
+    },
+    updated() {
+        this.play();
+    },
+    methods:{
+        pause(){
+            const player = this.$refs.player.dp
+            player.notice(this.title, 2000, 0.8);
+        },
+        play(){
+            const player = this.$refs.player.dp
+            player.play()
+        }
+    },
+    components:{
+        'a-player': VueAPlayer
+    },
+    watch:{
+        playlist(newVal){
+            this.play();
+        }
+    }
+}
+</script>
+
