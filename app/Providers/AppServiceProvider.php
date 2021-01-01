@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         //Default config to increase length of keys...
         //after laravel 5.4 and higher does not need to add this line
         Schema::defaultStringLength(191);
-        Schema::disableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints();
 
         app()->singleton('simple',function (){
             return "Hey i am singleton";

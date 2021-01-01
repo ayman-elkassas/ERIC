@@ -440,7 +440,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.get('/admin-image/remove-all-image?token='+this.authInfo.token+
+                axios.get('/admin-video/remove-all-video?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         if(response.data!=="error"){

@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '37967a12737543494fab16cbb537bc58d4861061',
+    'reference' => '54f1161becaa2bc424ded321788eb1c5fac2caa8',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -454,7 +454,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '37967a12737543494fab16cbb537bc58d4861061',
+      'reference' => '54f1161becaa2bc424ded321788eb1c5fac2caa8',
     ),
     'laravel/telescope' => 
     array (

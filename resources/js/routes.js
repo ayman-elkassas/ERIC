@@ -81,16 +81,16 @@ export const routes=[
     //todo:Resource-image
     {path:'/image-list/',name:'image-list',component:ResourceImageList },
     {path:'/image-new/',name:'image-new',component:ResourceImageNew },
-    //todo:Resource-image
+    //todo:Resource-video
     {path:'/video-list/',name:'video-list',component:ResourceVideoList },
     {path:'/video-new/',name:'video-new',component:ResourceVideoNew },
+    //todo:Resource-audio
+    {path:'/audio-list/',name:'audio-list',component:ResourceAudioList },
+    {path:'/audio-new/',name:'audio-new',component:ResourceAudioNew},
     //todo:Course
     {path:'/course-list/',name:'Course List',component: CourseList},
     {path:'/course-add/',name:'Course Add',component: CourseNew},
     {path:'/course-details/',name:'Course Details',component:CourseDetails },
-    //todo:Resource-audio
-    {path:'/resource-voice-list/',name:'Resource Audio List',component:ResourceAudioList },
-    {path:'/resource-voice-add/',name:'Resource Audio Add',component:ResourceAudioNew},
     //todo:Auth
     {path:'/auth-login',name:'auth-login',components:{
             default: Login,

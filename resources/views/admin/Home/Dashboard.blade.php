@@ -124,7 +124,7 @@
                                             <li><router-link to="/pdf-list">{{trans('admin.eric_sys.res.pdf')}}</router-link></li>
                                             <li><router-link to="./image-list">{{trans('admin.eric_sys.res.img')}}</router-link></li>
                                             <li><router-link to="./video-list">{{trans('admin.eric_sys.res.video')}}</router-link></li>
-                                            <li><router-link to="./voice-list">{{trans('admin.eric_sys.res.voice')}}</router-link></li>
+                                            <li><router-link to="./audio-list">{{trans('admin.eric_sys.res.voice')}}</router-link></li>
                                         </ul>
 
                                     </li>

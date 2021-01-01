@@ -6,6 +6,7 @@ import moduleResourceTXT from './resourceTXT_module/index'
 import moduleResourcePdf from './resourcePdf_module/index'
 import moduleResourceImage from './resourceImage_module/index'
 import moduleResourceVideo from './resourceVideo_module/index'
+import moduleResourceAudio from './resourceAudio_module/index'
 export default {
     actions:{
         // template(context){
@@ -42,5 +43,6 @@ export default {
         moduleResourcePdf,
         moduleResourceImage,
         moduleResourceVideo,
+        moduleResourceAudio,
     }
 }

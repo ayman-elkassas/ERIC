@@ -17,3 +17,7 @@
  Agora.io
  ********
  Voice and Video Rooming
+ *************************************************************************
+ Class 'Laravel\Passport\PassportServiceProvider' not found
+ *************************************************************************
+ composer require symfony/psr-http-message-bridge

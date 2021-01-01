@@ -138,7 +138,7 @@ Route::group(['prefix' => 'admin-txt','namespace' => 'Admin\ResourceTxt'], funct
     });
 });
 
-//TODO:ResourceTxt CRUD
+//TODO:ResourcePdf CRUD
 Route::group(['prefix' => 'admin-pdf','namespace' => 'Admin\ResourcePdf'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/pdf', 'ResourcePdf');
@@ -147,7 +147,7 @@ Route::group(['prefix' => 'admin-pdf','namespace' => 'Admin\ResourcePdf'], funct
     });
 });
 
-//TODO:ResourceTxt CRUD
+//TODO:ResourceImage CRUD
 Route::group(['prefix' => 'admin-image','namespace' => 'Admin\ResourceImage'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/image', 'ResourceImage');
@@ -156,12 +156,21 @@ Route::group(['prefix' => 'admin-image','namespace' => 'Admin\ResourceImage'], f
     });
 });
 
-//TODO:ResourceTxt CRUD
+//TODO:ResourceVideo CRUD
 Route::group(['prefix' => 'admin-video','namespace' => 'Admin\ResourceVideo'], function () {
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/video', 'ResourceVideo');
         //todo:Normal controllers routes
         Route::get('/remove-all-video', 'NormalResourceVideo@RemoveAllResourcesVideo');
+    });
+});
+
+//TODO:ResourceAudio CRUD
+Route::group(['prefix' => 'admin-audio','namespace' => 'Admin\ResourceAudio'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/audio', 'ResourceAudio');
+        //todo:Normal controllers routes
+        Route::get('/remove-all-audio', 'NormalResourceVideo@RemoveAllResourcesVideo');
     });
 });
 
