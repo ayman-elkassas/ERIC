@@ -68,7 +68,7 @@ https://www.pdftron.com/documentation/web/get-started/vue/
 https://day.js.org/en/
 
 //Hint
-
+***javascrip
 // https://aplayer.js.org/
 // https://github.com/SevenOutman/vue-aplayer
 
@@ -151,4 +151,6 @@ export default {
     }
 }
 </script>
+***
+
 
