@@ -21925,12 +21925,12 @@ File: style.css
     font-weight: normal;
     font-style: normal;
 
-    src: url(/fonts/vendor/admin-panel-nextro/boxicons.eot?06ab33ae3e2cbae0f509cd05f2ee6793);
-    src: url(/fonts/vendor/admin-panel-nextro/boxicons.eot?06ab33ae3e2cbae0f509cd05f2ee6793) format('embedded-opentype'),
-    url(/fonts/vendor/admin-panel-nextro/boxicons.woff2?aeaf4ee6e2c712532f982c8a4dd68b16) format('woff2'),
-    url(/fonts/vendor/admin-panel-nextro/boxicons.woff?5bbebd73a37de0cc242e872b4483269e) format('woff'),
-    url(/fonts/vendor/admin-panel-nextro/boxicons.ttf?72589e162de78952d4d6b5ce8b832175) format('truetype'),
-    url(/fonts/vendor/admin-panel-nextro/boxicons.svg?5e99edcb80abc73c7a06aacfddca51bf?#boxicons) format('svg');
+    src: url(/fonts/boxicons.eot?06ab33ae3e2cbae0f509cd05f2ee6793);
+    src: url(/fonts/boxicons.eot?06ab33ae3e2cbae0f509cd05f2ee6793) format('embedded-opentype'),
+    url(/fonts/boxicons.woff2?aeaf4ee6e2c712532f982c8a4dd68b16) format('woff2'),
+    url(/fonts/boxicons.woff?5bbebd73a37de0cc242e872b4483269e) format('woff'),
+    url(/fonts/boxicons.ttf?72589e162de78952d4d6b5ce8b832175) format('truetype'),
+    url(/fonts/boxicons.svg?5e99edcb80abc73c7a06aacfddca51bf?#boxicons) format('svg');
 }
 .bx
 {

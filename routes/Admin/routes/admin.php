@@ -170,7 +170,7 @@ Route::group(['prefix' => 'admin-audio','namespace' => 'Admin\ResourceAudio'], f
     Route::group(['middleware' => 'auth.role'], function () {
         Route::resource('/audio', 'ResourceAudio');
         //todo:Normal controllers routes
-        Route::get('/remove-all-audio', 'NormalResourceVideo@RemoveAllResourcesVideo');
+        Route::get('/remove-all-audio', 'NormalResourceVideo@RemoveAllResourcesAudio');
     });
 });
 

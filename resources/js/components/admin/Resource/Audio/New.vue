@@ -106,6 +106,7 @@
                     </vs-col>
                 </vs-row>
                 <br>
+                <br>
                 <vs-row w="12">
                     <vs-col w="12">
                         <vs-input

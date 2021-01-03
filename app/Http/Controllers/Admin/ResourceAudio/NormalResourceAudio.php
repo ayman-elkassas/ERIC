@@ -22,13 +22,13 @@ class NormalResourceAudio extends Controller
         ]]);
     }
 
-    public function RemoveAllResourcesImage () {
+    public function RemoveAllResourcesAudio () {
 //        DB::statement("SET foreign_key_checks=0");
 //        Resources::truncate();
 //        DB::statement("SET foreign_key_checks=1");
 
         $resourcesImage=(DB::table('resources')
-            ->where('type', '=', 3))
+            ->where('type', '=', 5))
             ->delete();
 
         if($resourcesImage>0){

@@ -8,7 +8,7 @@
                             <i class='bx bxs-info-circle'></i>
                         </template>
                         <template #title>
-                            Create New Audio List
+                            Create Audio List
                         </template>
                         Using Admin Panel Can Edit Using < Click Row > To Activate Button Operations.
                     </vs-alert>
@@ -36,7 +36,7 @@
                         </vs-tooltip>
 
                     </vs-col>
-                    <vs-col style="width:14.0%" w="2">
+                    <vs-col style="width:16.0%" w="2">
                         <vs-button
                             icon
                             success
@@ -58,7 +58,7 @@
                                 :active-disabled="enableRemoveAll"
                                 @click="deleteAllCategory()"
                             >
-                                <i class='bx bx-trash' ></i> Delete All Playlist
+                                <i class='bx bx-trash' ></i> Delete All Lists
                             </vs-button>
                             <template #tooltip>
                                 Delete All Playlist And Initialize User Role &#128540;
@@ -207,28 +207,12 @@
 
             </div>
 
-            <vs-dialog auto-width not-padding prevent-close v-if="data.length>0" blur v-model="activeView">
+            <vs-dialog prevent-close v-if="data.length>0" blur v-model="activeView">
 
                 <vs-row>
 
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="3">
-                        <vs-sidebar
-                            right="true"
-                            relative
-                            v-model="activeSidebar"
-                            open
-                        >
-                            <vs-sidebar-item v-for="(child,i) in childeren[id]" :key="i" id="home">
-                                <template #icon>
-                                    <i class='bx bx-home'></i>
-                                </template>
-                                <span @click="changeVideo(child)">Episodic {{i+1}}</span>
-                            </vs-sidebar-item>
-                        </vs-sidebar>
-                    </vs-col>
-
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="9">
-                        <VideoPlayer :title="getAllPdf[index].desc" :playlist="videoPlay"></VideoPlayer>
+                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+                        <AudioPlayer :title="getAllPdf[index].desc" :mainSong="getAllPdf[index].file_path" :playlist="childeren[id]"></AudioPlayer>
                     </vs-col>
 
                 </vs-row>
@@ -282,8 +266,7 @@
 </template>
 
 <script>
-
-import VideoPlayer from "../../VideoPlayer/VideoPlayer";
+import AudioPlayer from "../../AudioPlayer/AudioPlayer";
 
 export default {
     name: "List",
@@ -440,7 +423,7 @@ export default {
                     color: '#fff'
                 })
 
-                axios.get('/admin-image/remove-all-image?token='+this.authInfo.token+
+                axios.get('/admin-audio/remove-all-audio?token='+this.authInfo.token+
                     '&provider='+this.authInfo.provider)
                     .then((response)=>{
                         if(response.data!=="error"){
@@ -483,7 +466,7 @@ export default {
         },
     },
     components: {
-        VideoPlayer
+        AudioPlayer
     },
 }
 </script>
@@ -517,13 +500,6 @@ export default {
     border-radius :inherit
 }
 
-.con-image VideoPlayer{
-    display: block;
-    position: relative;
-    border-radius: inherit;
-    max-width: 350px;
-    height: 100%;
-}
 
 
 
