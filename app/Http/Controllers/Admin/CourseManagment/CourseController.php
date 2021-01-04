@@ -163,19 +163,28 @@ class CourseController extends Controller
             $course->price=$request->get("price");
 
             $course->save();
+            Storage::disk("public")->deleteDirectory("/Users/course/cover/".$course->id);
+
+            $mimeType=explode("/",mime_content_type($request->get("postCover")))[0];
+
+            $arr=saveInStorage($request->get("postCover"),$mimeType,"/Users/course/cover/",$course->id);
+            $course->course_cover=$arr[1].$arr[0];
+            $course->save();
 
             if(count($request->get("attachments"))>0){
-                Storage::disk("public")->delete("/Users/post/attachments/".$course->id);
+                Storage::disk("public")->deleteDirectory("/Users/course/attachments/".$course->id);
+
                 foreach ($request->get("attachments") as $file){
                     $mimeType=explode("/",mime_content_type($file))[0];
 
-                    $arr=saveInStorage($file,$mimeType,"/Users/post/attachments/",$course->id);
+
+                    $arr=saveInStorage($file,$mimeType,"/Users/course/attachments/",$course->id);
 
                     $courseAttach=new CourseAttachments();
                     $courseAttach->file_name=$arr[0];
                     $courseAttach->file_path=$arr[1].$arr[0];
                     $courseAttach->size=Storage::disk("public")->size($arr[1].$arr[0]);
-                    $courseAttach->post_id=$course->id;
+                    $courseAttach->course_id=$course->id;
 
                     $courseAttach->save();
                 }
@@ -197,7 +206,13 @@ class CourseController extends Controller
     {
         //
         try {
+
+            Storage::disk("public")->deleteDirectory("/Users/course/attachments/".$id);
+            Storage::disk("public")->deleteDirectory("/Users/course/cover/".$id);
+
             Courses::findOrFail($id)->delete();
+
+            CourseAttachments::where("course_id","=","$id")->delete();
 
             return response()->json("Deleted Successfully", 200);
         }catch (\Exception $ex){
