@@ -174,6 +174,15 @@ Route::group(['prefix' => 'admin-audio','namespace' => 'Admin\ResourceAudio'], f
     });
 });
 
+//TODO:Courses CRUD
+Route::group(['prefix' => 'admin-course','namespace' => 'Admin\CourseManagment'], function () {
+    Route::group(['middleware' => 'auth.role'], function () {
+        Route::resource('/course', 'CourseController');
+        //todo:Normal controllers routes
+            Route::get('/remove-all-courses', 'NormalCourseController@RemoveAllCourses');
+    });
+});
+
 Route::get('/cache-clear',function (){
     $exit_code=Artisan::call("optimize:clear");
     //todo:return 0 if execute success

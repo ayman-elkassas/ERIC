@@ -2,6 +2,7 @@ import moduleRole from './role_module/index'
 import moduleAccount from './account_module/index'
 import moduleTopic from './topic_module/index'
 import modulePost from './post_module/index'
+import moduleCourse from './course_module/index'
 import moduleResourceTXT from './resourceTXT_module/index'
 import moduleResourcePdf from './resourcePdf_module/index'
 import moduleResourceImage from './resourceImage_module/index'
@@ -39,6 +40,7 @@ export default {
         moduleAccount,
         moduleTopic,
         modulePost,
+        moduleCourse,
         moduleResourceTXT,
         moduleResourcePdf,
         moduleResourceImage,

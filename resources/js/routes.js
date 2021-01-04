@@ -37,7 +37,6 @@ import ResourceVideoNew from './components/admin/Resource/Video/New'
 //todo:Course
 import CourseList from './components/admin/Course/List'
 import CourseNew from './components/admin/Course/New'
-import CourseDetails from './components/admin/Course/Details'
 //todo:Audio
 import ResourceAudioList from './components/admin/Resource/Audio/List'
 import ResourceAudioNew from './components/admin/Resource/Audio/New'
@@ -88,9 +87,8 @@ export const routes=[
     {path:'/audio-list/',name:'audio-list',component:ResourceAudioList },
     {path:'/audio-new/',name:'audio-new',component:ResourceAudioNew},
     //todo:Course
-    {path:'/course-list/',name:'Course List',component: CourseList},
-    {path:'/course-add/',name:'Course Add',component: CourseNew},
-    {path:'/course-details/',name:'Course Details',component:CourseDetails },
+    {path:'/course-list/',name:'course-list',component: CourseList},
+    {path:'/course-new/',name:'course-new',component: CourseNew},
     //todo:Auth
     {path:'/auth-login',name:'auth-login',components:{
             default: Login,

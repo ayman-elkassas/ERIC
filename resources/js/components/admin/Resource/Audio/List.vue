@@ -212,7 +212,7 @@
                 <vs-row>
 
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-                        <AudioPlayer :title="getAllPdf[index].desc" :mainSong="getAllPdf[index].file_path" :playlist="childeren[id]"></AudioPlayer>
+                        <AudioPlayer :title="data[index].desc" :mainSong="data[index].file_path" :playlist="childeren[id]"></AudioPlayer>
                     </vs-col>
 
                 </vs-row>
@@ -334,7 +334,7 @@ export default {
 
             this.data=pdf;
 
-            return pdf;
+            return this.data;
         },
     },
     methods: {
@@ -361,11 +361,6 @@ export default {
             this.id=id;
             this.activeView=true;
             this.videoPlay=this.getAllPdf[i].file_path;
-        },
-        changeVideo(child){
-            $('.dplayer-video').attr("src",child);
-            $('.dplayer').removeClass("dplayer-paused");
-            $('.dplayer').addClass("dplayer-playing");
         },
         deleteRole(i){
             this.id=i

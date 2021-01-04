@@ -17,17 +17,23 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->string('title', 100);
             $table->string('desc', 300);
-            $table->string('field_name');
-            $table->string('type_media')->nullable();
-            $table->integer('price')->nullable();
-            $table->string('category_name')->nullable();
+            $table->integer('type')->unsigned();
+            $table->string('price');
+            $table->string('course_cover')->nullable();
             $table->integer('user_id')->unsigned();//fk
+            $table->integer('field_id')->unsigned();//fk
+
             $table->timestamps();
 
             //Relationship (1-M)
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
+
+            $table->foreign('field_id')
+                ->references('id')->on('fields')
+                ->onDelete('cascade');
+
         });
     }
 

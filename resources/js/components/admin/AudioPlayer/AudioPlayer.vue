@@ -3,7 +3,7 @@
     <div class="center grid">
         <vs-row>
             <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-                <a-player :music="options" :list="list"></a-player>
+                <a-player ref="player" :music="options" :list="list"></a-player>
             </vs-col>
         </vs-row>
     </div>
@@ -47,7 +47,6 @@ export default {
     },
     mounted(){
         this.play();
-        debugger
 
         // setTimeout(() => {
         //     player.pause()
@@ -58,11 +57,11 @@ export default {
     },
     methods:{
         pause(){
-            const player = this.$refs.player.dp
+            const player = this.$refs.player.ap
             player.notice(this.title, 2000, 0.8);
         },
         play(){
-            const player = this.$refs.player.dp
+            const player = this.$refs.player.ap
             player.play()
         }
     },
